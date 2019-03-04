@@ -1,9 +1,10 @@
+import com.sun.tools.javac.util.ArrayUtils;
+
+import java.util.Arrays;
+
 class ResistorColor {
     int colorCode(String color) {
-        if (color.equals("black")) return 0;
-        if (color.equals("orange")) return 3;
-
-        return 9;
+        return Arrays.asList(colors()).indexOf(color);
     }
 
     String[] colors() {
