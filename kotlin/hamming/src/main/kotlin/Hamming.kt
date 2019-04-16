@@ -1,10 +1,15 @@
 object Hamming {
 
     fun compute(l: String, r: String): Int {
+        var count = 0
 
-        // LOOP OVER WHOLE SEQUENCE,
-        // COMPARE CHAR IN EACH SIDE, INCREMENT COUNTER IF THEY DIFFER
+        for (index in l.indices) {
+            when (l[index] == r[index]) {
+                false -> count++
+            }
+        }
 
-       return 0;
+
+       return count;
    }
 }
