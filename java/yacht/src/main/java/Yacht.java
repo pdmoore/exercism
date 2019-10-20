@@ -40,13 +40,16 @@ class Yacht {
         return 0;
     }
 
+    private boolean isStraight(int startWith) {
+        for (int i = 0; i < dice.length; i++) {
+            if (dice[i] != startWith++) return false;
+        }
+        return true;
+    }
+
     private int scoreLittleStraight() {
         Arrays.sort(dice);
-        if (dice[0] == 1 &&
-                dice[1] == 2 &&
-                dice[2] == 3 &&
-                dice[3] == 4 &&
-                dice[4] == 5) {
+        if (isStraight(1)) {
             return 30;
         }
 
@@ -55,11 +58,7 @@ class Yacht {
 
     private int scoreBigStraight() {
         Arrays.sort(dice);
-        if (dice[0] == 2 &&
-                dice[1] == 3 &&
-                dice[2] == 4 &&
-                dice[3] == 5 &&
-                dice[4] == 6) {
+        if (isStraight(2)) {
             return 30;
         }
 
