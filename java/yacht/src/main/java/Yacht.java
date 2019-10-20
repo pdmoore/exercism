@@ -85,8 +85,10 @@ class Yacht {
             return 0;
         }
 
-        // is there a test that checks that dice[2] matches the first or second set of the full house?
-        // try 2, 2, 3, 5, 5
+        if (dice[2] != dice[0] && dice[2] != dice[3]) {
+            return 0;
+        }
+
         return sumOfDice();
     }
 

@@ -84,6 +84,12 @@ public class YachtTest {
     }
 
     @Test
+    public void fullHouse_Not() {
+        Yacht yacht = new Yacht(new int[]{ 2, 2, 3, 5, 5 }, YachtCategory.FULL_HOUSE);
+        assertEquals(0, yacht.score());
+    }
+
+    @Test
     public void twoPairIsNotAFullHouse() {
         Yacht yacht = new Yacht(new int[]{ 2, 2, 4, 4, 5 }, YachtCategory.FULL_HOUSE);
         assertEquals(0, yacht.score());
