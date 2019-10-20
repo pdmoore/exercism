@@ -77,15 +77,21 @@ class Yacht {
     }
 
     private int scoreFullHouse() {
-        if ((dice[0] != dice[1]) || (dice[3] != dice[4])) {
-            return 0;
-        }
-
-        if (dice[2] != dice[0] && dice[2] != dice[3]) {
+        if (pairsAtStartAndEndDoNotMatch() ||
+            middleDieDoesNotMatchFirstOrlastPair() ||
+            isYacht()) {
             return 0;
         }
 
         return sumOfDice();
+    }
+
+    private boolean middleDieDoesNotMatchFirstOrlastPair() {
+        return dice[2] != dice[0] && dice[2] != dice[3];
+    }
+
+    private boolean pairsAtStartAndEndDoNotMatch() {
+        return (dice[0] != dice[1]) || (dice[3] != dice[4]);
     }
 
     private int sumOfDice() {
@@ -98,11 +104,14 @@ class Yacht {
     }
 
     private int scoreYacht() {
-        int diceValue = dice[0];
-        if (Arrays.stream(dice).allMatch(n -> n == diceValue)) {
+        if (isYacht()) {
             return 50;
         }
         return 0;
+    }
+
+    private boolean isYacht() {
+        return Arrays.stream(dice).allMatch(n -> n == dice[0]);
     }
 
 }

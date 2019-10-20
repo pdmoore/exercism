@@ -101,7 +101,6 @@ public class YachtTest {
         assertEquals(0, yacht.score());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void yachtIsNotAFullHouse() {
         Yacht yacht = new Yacht(new int[]{ 2, 2, 2, 2, 2 }, YachtCategory.FULL_HOUSE);
