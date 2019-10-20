@@ -15,18 +15,17 @@ class Yacht {
             case YACHT:
                 return scoreYacht();
             case ONES:
-                return findMatchingDice(1);
+                return scoreMatchingDice(1);
             case TWOS:
-                return findMatchingDice(2);
+                return scoreMatchingDice(2);
             case THREES:
-                return findMatchingDice(3);
+                return scoreMatchingDice(3);
             case FOURS:
-                return findMatchingDice(4);
+                return scoreMatchingDice(4);
             case FIVES:
-                // missing test for any die being 5
-                break;
+                return scoreMatchingDice(5);
             case SIXES:
-                return findMatchingDice(6);
+                return scoreMatchingDice(6);
             case FULL_HOUSE:
                 return scoreFullHouse();
             case FOUR_OF_A_KIND:
@@ -95,7 +94,7 @@ class Yacht {
         return Arrays.stream(dice).sum();
     }
 
-    private int findMatchingDice(int whichDie) {
+    private int scoreMatchingDice(int whichDie) {
         int diesThatMatch = (int) Arrays.stream(dice).filter(n -> n == whichDie).count();
         return diesThatMatch * whichDie;
     }

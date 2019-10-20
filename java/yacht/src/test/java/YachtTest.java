@@ -48,6 +48,12 @@ public class YachtTest {
     }
 
     @Test
+    public void fives() {
+        Yacht yacht = new Yacht(new int[]{ 3, 5, 3, 5, 3 }, YachtCategory.FIVES);
+        assertEquals(10, yacht.score());
+    }
+
+    @Test
     public void yachtCountedAsThrees() {
         Yacht yacht = new Yacht(new int[]{ 3, 3, 3, 3, 3 }, YachtCategory.THREES);
         assertEquals(15, yacht.score());
