@@ -6,6 +6,7 @@ class Yacht {
     private final YachtCategory category;
 
     Yacht(int[] dice, YachtCategory yachtCategory) {
+        Arrays.sort(dice);
         this.dice = dice;
         this.category = yachtCategory;
     }
@@ -48,7 +49,6 @@ class Yacht {
     }
 
     private int scoreLittleStraight() {
-        Arrays.sort(dice);
         if (isStraight(1)) {
             return 30;
         }
@@ -57,7 +57,6 @@ class Yacht {
     }
 
     private int scoreBigStraight() {
-        Arrays.sort(dice);
         if (isStraight(2)) {
             return 30;
         }
@@ -66,7 +65,6 @@ class Yacht {
     }
 
     private int scoreFourOfAKind() {
-        Arrays.sort(dice);
         int countOfMatchingFirstDie = (int) Arrays.stream(dice).filter(n -> n == dice[0]).count();
         int countOfMatchingLast = (int) Arrays.stream(dice).filter(n -> n == dice[4]).count();
         if (countOfMatchingFirstDie >= 4) {
@@ -79,7 +77,6 @@ class Yacht {
     }
 
     private int scoreFullHouse() {
-        Arrays.sort(dice);
         if ((dice[0] != dice[1]) || (dice[3] != dice[4])) {
             return 0;
         }
