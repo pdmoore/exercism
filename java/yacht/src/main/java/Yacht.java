@@ -113,5 +113,4 @@ class Yacht {
     private boolean isYacht() {
         return Arrays.stream(dice).allMatch(n -> n == dice[0]);
     }
-
 }
