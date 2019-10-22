@@ -5,13 +5,10 @@ import java.util.stream.Collectors;
 class SumOfMultiples {
 
     private final int number;
-    private final int[] set;
     private final List<Integer> ints;
 
     SumOfMultiples(int number, int[] set) {
         this.number = number;
-        this.set = set;
-
         ints = Arrays.stream(set).filter(n -> n > 0).boxed().collect(Collectors.toList());
     }
 
