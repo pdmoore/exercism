@@ -4,23 +4,13 @@ class ResistorColorDuo {
         for (String color :
                 colors) {
 
-            if ("brown".equals(color)) {
-                number += "1";
-            }
-
-            if ("black".equals(color)) {
-                number += "0";
-            }
-
-            if ("blue".equals(color)) {
-                number += "6";
-            }
-
-            if ("grey".equals(color)) {
-                number += "8";
+            switch (color) {
+                case "black": number += 0; break;
+                case "brown": number += 1; break;
+                case "blue": number += 6; break;
+                case "grey": number += 8; break;
             }
         }
-
         
         return Integer.parseInt(number);
     }
