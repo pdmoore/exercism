@@ -21,7 +21,6 @@ public class ResistorColorDuoTest {
         assertEquals(expected, actual);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testBlueAndGrey() {
         String[] input = { "blue", "grey" };
