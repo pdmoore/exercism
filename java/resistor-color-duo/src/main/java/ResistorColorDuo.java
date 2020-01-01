@@ -8,7 +8,6 @@ class ResistorColorDuo {
         };
     }
 
-
     int value(String[] colors) {
         int firstResistor = colorCode(colors[0]);
         int secondResistor = colorCode(colors[1]);
