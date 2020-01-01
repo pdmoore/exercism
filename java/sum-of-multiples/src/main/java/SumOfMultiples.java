@@ -12,6 +12,7 @@ class SumOfMultiples {
         ints = Arrays.stream(set).filter(n -> n > 0).boxed().collect(Collectors.toList());
     }
 
+    // @Todo Refactor to streaming solution, remove collecting var 'sum'
     int getSum() {
         int sum = 0;
         for (int i = 1; i < number; i++) {
