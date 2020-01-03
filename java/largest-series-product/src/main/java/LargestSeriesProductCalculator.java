@@ -20,7 +20,7 @@ class LargestSeriesProductCalculator {
             // Grab that number and the next numberOfDigits following it
             List<Integer> digitsToMultiply = new ArrayList<>();
             for (int j = 0; j < numberOfDigits; j++) {
-                digitsToMultiply.add(Integer.parseInt(String.valueOf(inputNumber.charAt(i+j))));
+                digitsToMultiply.add(Character.getNumericValue(inputNumber.charAt(i+j)));
             }
 
             int thisResult = digitsToMultiply.stream().reduce(1, (a, b) -> a * b);
