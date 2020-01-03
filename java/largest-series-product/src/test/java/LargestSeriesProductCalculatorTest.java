@@ -30,7 +30,6 @@ public class LargestSeriesProductCalculatorTest {
         assertEquals(expectedProduct, actualProduct);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCorrectlyCalculatesLargestProductOfLengthTwoWithNumbersNotInOrder() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("576802143");
@@ -41,7 +40,6 @@ public class LargestSeriesProductCalculatorTest {
         assertEquals(expectedProduct, actualProduct);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCorrectlyCalculatesLargestProductOfLengthThreeWithNumbersInOrder() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("0123456789");

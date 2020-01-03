@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class LargestSeriesProductCalculator {
     private final String inputNumber;
 
@@ -9,13 +12,18 @@ class LargestSeriesProductCalculator {
         int result = 0;
 
         for (int i = 0; i < inputNumber.length() - numberOfDigits + 1; i++) {
-            int digit1 = Integer.parseInt(String.valueOf(inputNumber.charAt(i)));
-            int digit2 = Integer.parseInt(String.valueOf(inputNumber.charAt(i+1)));
-            int thisResult = digit1 * digit2;
+
+            List<Integer> digitsToMultiply = new ArrayList<>();
+            for (int j = 0; j < numberOfDigits; j++) {
+                digitsToMultiply.add(Integer.parseInt(String.valueOf(inputNumber.charAt(i+j))));
+            }
+            
+            int thisResult = digitsToMultiply.stream().reduce(1, (a, b) -> a * b);
 
             result = Math.max(result, thisResult);
         }
 
         return result;
     }
+
 }
