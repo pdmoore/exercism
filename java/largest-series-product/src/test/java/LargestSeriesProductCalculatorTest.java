@@ -152,7 +152,6 @@ public class LargestSeriesProductCalculatorTest {
         new LargestSeriesProductCalculator("1234a5");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testNegativeSeriesLengthIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("12345");
