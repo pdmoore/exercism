@@ -113,7 +113,6 @@ public class LargestSeriesProductCalculatorTest {
         calculator.calculateLargestProductForSeriesLength(4);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCorrectlyCalculatesLargestProductOfLength0ForEmptyStringToSearch() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("");
@@ -124,7 +123,6 @@ public class LargestSeriesProductCalculatorTest {
         assertEquals(expectedProduct, actualProduct);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCorrectlyCalculatesLargestProductOfLength0ForNonEmptyStringToSearch() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("123");
@@ -135,7 +133,6 @@ public class LargestSeriesProductCalculatorTest {
         assertEquals(expectedProduct, actualProduct);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testEmptyStringToSearchAndSeriesOfNonZeroLengthIsRejected() {
         LargestSeriesProductCalculator calculator = new LargestSeriesProductCalculator("");
@@ -147,7 +144,6 @@ public class LargestSeriesProductCalculatorTest {
         calculator.calculateLargestProductForSeriesLength(1);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testStringToSearchContainingNonDigitCharacterIsRejected() {
         expectedException.expect(IllegalArgumentException.class);

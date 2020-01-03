@@ -5,7 +5,16 @@ class LargestSeriesProductCalculator {
     private final String inputNumber;
 
     LargestSeriesProductCalculator(String inputNumber) {
+        mustBeOnlyDigits(inputNumber);
         this.inputNumber = inputNumber;
+    }
+
+    private void mustBeOnlyDigits(String inputNumber) {
+        for (int i = 0; i <inputNumber.length(); i++) {
+            if (!Character.isDigit(inputNumber.charAt(i))) {
+                throw new IllegalArgumentException("String to search may only contain digits.");
+            }
+        }
     }
 
     long calculateLargestProductForSeriesLength(int numberOfDigits) {
