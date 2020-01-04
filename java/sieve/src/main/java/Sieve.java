@@ -3,34 +3,32 @@ import java.util.Collections;
 import java.util.List;
 
 class Sieve {
-    private List primes;
+    private final List primes;
 
     Sieve(int maxPrime) {
         if (maxPrime <= 1) {
             primes = Collections.emptyList();
         } else {
-            sievePrimes(maxPrime);
+            primes = sievePrimes(maxPrime);
         }
     }
 
-    private void sievePrimes(int maxPrime) {
-        Boolean[] candidates = new Boolean[maxPrime + 1];
+    private List<Integer> sievePrimes(int maxPrime) {
+        Boolean[] isItPrime = new Boolean[maxPrime + 1];
         for (int i = 0; i < maxPrime + 1; i++) {
-            candidates[i] = true;
+            isItPrime[i] = true;
         }
 
-        primes = new ArrayList<>();
-        for (int i = 2; i < candidates.length; i++) {
-            if (candidates[i]) primes.add(i);
+        List<Integer> confirmedPrimes = new ArrayList<>();
+        for (int i = 2; i < isItPrime.length; i++) {
+            if (isItPrime[i]) confirmedPrimes.add(i);
 
-            removeMultiplesOfCandidate(candidates, i);
+            for (int j = i; j < isItPrime.length; j = j + i) {
+                isItPrime[j] = false;
+            }
         }
-    }
 
-    private void removeMultiplesOfCandidate(Boolean[] candidates, int i) {
-        for (int j = i; j < candidates.length; j = j + i) {
-            candidates[j] = false;
-        }
+        return confirmedPrimes;
     }
 
     List<Integer> getPrimes() {
