@@ -21,14 +21,19 @@ class Sieve {
 
         List<Integer> confirmedPrimes = new ArrayList<>();
         for (int i = 2; i < isItPrime.length; i++) {
-            if (isItPrime[i]) confirmedPrimes.add(i);
-
-            for (int j = i; j < isItPrime.length; j = j + i) {
-                isItPrime[j] = false;
+            if (isItPrime[i]) {
+                confirmedPrimes.add(i);
+                removeMultiplesOfThisPrime(isItPrime, i);
             }
         }
 
         return confirmedPrimes;
+    }
+
+    private void removeMultiplesOfThisPrime(Boolean[] isItPrime, int i) {
+        for (int j = i; j < isItPrime.length; j = j + i) {
+            isItPrime[j] = false;
+        }
     }
 
     List<Integer> getPrimes() {
