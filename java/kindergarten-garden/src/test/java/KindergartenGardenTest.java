@@ -56,7 +56,6 @@ public class KindergartenGardenTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void oneGardenThirdStudent() {
         String student = "Charlie";
@@ -69,7 +68,6 @@ public class KindergartenGardenTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void fullGardenFirstStudent() {
         String student = "Alice";
@@ -82,7 +80,6 @@ public class KindergartenGardenTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void fullGardenSecondStudent() {
         String student = "Bob";
@@ -95,7 +92,6 @@ public class KindergartenGardenTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void fullGardenSecondToLastStudent() {
         String student = "Kincaid";
@@ -108,7 +104,6 @@ public class KindergartenGardenTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void fullGardenLastStudent() {
         String student = "Larry";
