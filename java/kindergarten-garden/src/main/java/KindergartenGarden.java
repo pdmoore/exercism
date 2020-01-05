@@ -6,7 +6,7 @@ import java.util.List;
 class KindergartenGarden {
 
     private final String[] rows;
-    private final List<String> studentNames = Arrays.asList("Alice", "Bob");
+    private final List<String> studentNames = Arrays.asList("Alice", "Bob", "Charlie", "David");
     private HashMap<String, List> plantsPerChild;
 
     KindergartenGarden(String garden) {
@@ -17,6 +17,10 @@ class KindergartenGarden {
         plantsPerChild.put("Alice", plants);
         plants = new ArrayList<>();
         plantsPerChild.put("Bob", plants);
+        plants = new ArrayList<>();
+        plantsPerChild.put("Charlie", plants);
+        plants = new ArrayList<>();
+        plantsPerChild.put("David", plants);
     }
 
     List<Plant> getPlantsOfStudent(String student) {
