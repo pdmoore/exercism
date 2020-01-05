@@ -5,12 +5,10 @@ import java.util.List;
 
 class KindergartenGarden {
 
-    private final String[] rows;
     private final List<String> STUDENT_NAMES = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve", "Fred", "Ginny", "Harriet", "Ileana", "Joseph", "Kincaid", "Larry");
     private HashMap<String, List> plantsPerChild;
 
     KindergartenGarden(String garden) {
-        rows = garden.split("\\n");
 
         plantsPerChild = new HashMap<>();
         for (int i = 0; i < STUDENT_NAMES.size(); i++) {
@@ -18,7 +16,7 @@ class KindergartenGarden {
             plantsPerChild.put(STUDENT_NAMES.get(i), plants);
         }
 
-        assignPlantsByStudent();
+        assignPlantsByStudent(garden);
     }
 
     List<Plant> getPlantsOfStudent(String student) {
@@ -26,7 +24,9 @@ class KindergartenGarden {
         return plantsPerChild.get(student);
     }
 
-    private void assignPlantsByStudent() {
+    private void assignPlantsByStudent(String garden) {
+        String[] rows = garden.split("\\n");
+
         for (String row :
                 rows) {
             for (int i = 0; i < row.length(); i += 2) {
@@ -35,9 +35,8 @@ class KindergartenGarden {
                 String thisStudent = STUDENT_NAMES.get(studentNameIndex);
                 List<Plant> plants = plantsPerChild.get(thisStudent);
 
-                int studentOffset = i;
-                plants.add(convertCupContentToPlantName(row.charAt(studentOffset + 0)));
-                plants.add(convertCupContentToPlantName(row.charAt(studentOffset + 1)));
+                plants.add(convertCupContentToPlantName(row.charAt(i + 0)));
+                plants.add(convertCupContentToPlantName(row.charAt(i + 1)));
 
                 plantsPerChild.put(thisStudent, plants);
             }
