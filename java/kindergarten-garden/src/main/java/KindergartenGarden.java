@@ -37,24 +37,12 @@ class KindergartenGarden {
                 String thisStudent = STUDENT_NAMES.get(studentNameIndex);
                 List<Plant> plants = plantsPerChild.get(thisStudent);
 
-                plants.add(convertCupContentToPlantName(row.charAt(i + 0)));
-                plants.add(convertCupContentToPlantName(row.charAt(i + 1)));
+                plants.add(Plant.getPlant(row.charAt(i + 0)));
+                plants.add(Plant.getPlant(row.charAt(i + 1)));
 
                 plantsPerChild.put(thisStudent, plants);
             }
 
         }
     }
-
-    private Plant convertCupContentToPlantName(char cupContains) {
-        switch (cupContains) {
-            case 'C' : return Plant.CLOVER;
-            case 'G' : return Plant.GRASS;
-            case 'R' : return Plant.RADISHES;
-            case 'V' : return Plant.VIOLETS;
-        }
-
-        return null;
-    }
-
 }
