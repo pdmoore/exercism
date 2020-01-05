@@ -1,29 +1,47 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 class KindergartenGarden {
 
     private final String[] rows;
+    private final List<String> studentNames = Arrays.asList("Alice", "Bob");
+    private HashMap<String, List> plantsPerChild;
 
     KindergartenGarden(String garden) {
         rows = garden.split("\\n");
+
+        plantsPerChild = new HashMap<>();
+        List<Plant> plants = new ArrayList<>();
+        plantsPerChild.put("Alice", plants);
+        plants = new ArrayList<>();
+        plantsPerChild.put("Bob", plants);
     }
 
     List<Plant> getPlantsOfStudent(String student) {
-        List<Plant> plants = new ArrayList<>();
-
         for (String row :
                 rows) {
-            plants.add(plantFor(row.charAt(0)));
-            plants.add(plantFor(row.charAt(1)));
+            for (int i = 0; i < row.length(); i += 2) {
+
+                int studentNameIndex = i / 2;
+                String thisStudent = studentNames.get(studentNameIndex);
+                List<Plant> plants = plantsPerChild.get(thisStudent);
+
+                int studentOffset = i;
+                plants.add(convertCupContentToPlantName(row.charAt(studentOffset + 0)));
+                plants.add(convertCupContentToPlantName(row.charAt(studentOffset + 1)));
+
+                plantsPerChild.put(thisStudent, plants);
+            }
+
         }
 
-        return plants;
+        return plantsPerChild.get(student);
     }
 
-    private Plant plantFor(char charAt) {
-        switch (charAt) {
+    private Plant convertCupContentToPlantName(char cupContains) {
+        switch (cupContains) {
             case 'C' : return Plant.CLOVER;
             case 'G' : return Plant.GRASS;
             case 'R' : return Plant.RADISHES;

@@ -32,7 +32,6 @@ public class KindergartenGardenTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void twoStudents() {
         String student = "Bob";
