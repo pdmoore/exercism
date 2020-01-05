@@ -6,8 +6,9 @@ import java.util.List;
 class KindergartenGarden {
 
     private final List<String> STUDENT_NAMES = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve", "Fred", "Ginny", "Harriet", "Ileana", "Joseph", "Kincaid", "Larry");
-    private HashMap<String, List> plantsPerChild;
     private final int NUM_PLANTS_PER_STUDENT = 2;
+
+    private HashMap<String, List> plantsPerChild;
 
     KindergartenGarden(String garden) {
         initializePlantsByStudent();
@@ -40,10 +41,7 @@ class KindergartenGarden {
                 for (int j = 0; j < NUM_PLANTS_PER_STUDENT; j++) {
                     plants.add(Plant.getPlant(row.charAt(i + j)));
                 }
-
-                plantsPerChild.put(thisStudent, plants);
             }
-
         }
     }
 }
