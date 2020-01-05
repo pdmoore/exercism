@@ -9,19 +9,21 @@ class KindergartenGarden {
     private HashMap<String, List> plantsPerChild;
 
     KindergartenGarden(String garden) {
-
-        plantsPerChild = new HashMap<>();
-        for (int i = 0; i < STUDENT_NAMES.size(); i++) {
-            List<Plant> plants = new ArrayList<>();
-            plantsPerChild.put(STUDENT_NAMES.get(i), plants);
-        }
-
+        initializePlantsByStudent();
         assignPlantsByStudent(garden);
     }
 
     List<Plant> getPlantsOfStudent(String student) {
 
         return plantsPerChild.get(student);
+    }
+
+    private void initializePlantsByStudent() {
+        plantsPerChild = new HashMap<>();
+        for (int i = 0; i < STUDENT_NAMES.size(); i++) {
+            List<Plant> plants = new ArrayList<>();
+            plantsPerChild.put(STUDENT_NAMES.get(i), plants);
+        }
     }
 
     private void assignPlantsByStudent(String garden) {
