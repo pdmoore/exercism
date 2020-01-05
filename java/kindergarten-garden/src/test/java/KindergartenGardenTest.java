@@ -20,7 +20,6 @@ public class KindergartenGardenTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void singleStudent2() {
         String student = "Alice";

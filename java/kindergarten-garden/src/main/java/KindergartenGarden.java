@@ -4,20 +4,33 @@ import java.util.List;
 
 class KindergartenGarden {
 
-    private final String garden;
+    private final String[] rows;
 
     KindergartenGarden(String garden) {
-        this.garden = garden;
+        rows = garden.split("\\n");
     }
 
     List<Plant> getPlantsOfStudent(String student) {
         List<Plant> plants = new ArrayList<>();
-        plants.add(Plant.RADISHES);
-        plants.add(Plant.CLOVER);
-        plants.add(Plant.GRASS);
-        plants.add(Plant.GRASS);
+
+        for (String row :
+                rows) {
+            plants.add(plantFor(row.charAt(0)));
+            plants.add(plantFor(row.charAt(1)));
+        }
 
         return plants;
+    }
+
+    private Plant plantFor(char charAt) {
+        switch (charAt) {
+            case 'C' : return Plant.CLOVER;
+            case 'G' : return Plant.GRASS;
+            case 'R' : return Plant.RADISHES;
+            case 'V' : return Plant.VIOLETS;
+        }
+
+        return null;
     }
 
 }
