@@ -15,7 +15,6 @@ class KindergartenGarden {
     }
 
     List<Plant> getPlantsOfStudent(String student) {
-
         return plantsPerChild.get(student);
     }
 
