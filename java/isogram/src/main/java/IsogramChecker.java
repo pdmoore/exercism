@@ -8,11 +8,13 @@ class IsogramChecker {
 
         for (int i = 0; i < phrase.length(); i++) {
             Character thisChar = Character.toLowerCase(phrase.charAt(i));
+            if (Character.isAlphabetic(thisChar)) {
 
-            if (characterSeen.contains(thisChar)) {
-                return false;
+                if (characterSeen.contains(thisChar)) {
+                    return false;
+                }
+                characterSeen.add(thisChar);
             }
-            characterSeen.add(thisChar);
         }
 
         return true;
