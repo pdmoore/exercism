@@ -1,10 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 class IsogramChecker {
 
     boolean isIsogram(String phrase) {
-        List<Character> characterSeen = new ArrayList<>();
+        Set<Character> characterSeen = new HashSet<>();
 
         for (int i = 0; i < phrase.length(); i++) {
             Character thisChar = Character.toLowerCase(phrase.charAt(i));
