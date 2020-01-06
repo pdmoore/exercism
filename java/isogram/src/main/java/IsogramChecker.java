@@ -7,7 +7,8 @@ class IsogramChecker {
         List<Character> characterSeen = new ArrayList<>();
 
         for (int i = 0; i < phrase.length(); i++) {
-            Character thisChar = phrase.charAt(i);
+            Character thisChar = Character.toLowerCase(phrase.charAt(i));
+
             if (characterSeen.contains(thisChar)) {
                 return false;
             }
