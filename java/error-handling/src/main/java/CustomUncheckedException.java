@@ -1,11 +1,17 @@
 class CustomUncheckedException extends RuntimeException {
 
+    private final String message;
+
     CustomUncheckedException() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.message = null;
     }
 
     CustomUncheckedException(String message) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.message = message;
     }
 
+    @Override
+    public String getMessage() {
+        return message;
+    }
 }

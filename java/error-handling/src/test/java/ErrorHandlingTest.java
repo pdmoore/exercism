@@ -61,7 +61,6 @@ public class ErrorHandlingTest {
         errorHandling.handleErrorByThrowingAnyUncheckedException();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowAnyUncheckedExceptionWithDetailMessage() {
         thrown.expect(RuntimeException.class);
@@ -69,14 +68,12 @@ public class ErrorHandlingTest {
         errorHandling.handleErrorByThrowingAnyUncheckedExceptionWithDetailMessage("This is the detail message.");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowCustomCheckedException() throws CustomCheckedException {
         thrown.expect(CustomCheckedException.class);
         errorHandling.handleErrorByThrowingCustomCheckedException();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowCustomCheckedExceptionWithDetailMessage() throws CustomCheckedException {
         thrown.expect(CustomCheckedException.class);
@@ -84,14 +81,12 @@ public class ErrorHandlingTest {
         errorHandling.handleErrorByThrowingCustomCheckedExceptionWithDetailMessage("This is the detail message.");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowCustomUncheckedException() {
         thrown.expect(CustomUncheckedException.class);
         errorHandling.handleErrorByThrowingCustomUncheckedException();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowCustomUncheckedExceptionWithDetailMessage() {
         thrown.expect(CustomUncheckedException.class);
@@ -99,7 +94,6 @@ public class ErrorHandlingTest {
         errorHandling.handleErrorByThrowingCustomUncheckedExceptionWithDetailMessage("This is the detail message.");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testReturnOptionalInstance() {
         Optional<Integer> successfulResult = errorHandling.handleErrorByReturningOptionalInstance("1");
