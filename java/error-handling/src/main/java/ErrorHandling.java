@@ -3,19 +3,19 @@ import java.util.Optional;
 class ErrorHandling {
 
     void handleErrorByThrowingIllegalArgumentException() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        handleErrorByThrowingIllegalArgumentExceptionWithDetailMessage(null);
     }
 
     void handleErrorByThrowingIllegalArgumentExceptionWithDetailMessage(String message) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        throw new IllegalArgumentException(message);
     }
 
-    void handleErrorByThrowingAnyCheckedException() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    void handleErrorByThrowingAnyCheckedException() throws CustomCheckedException {
+        throw new CustomCheckedException();
     }
 
-    void handleErrorByThrowingAnyCheckedExceptionWithDetailMessage(String message) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    void handleErrorByThrowingAnyCheckedExceptionWithDetailMessage(String message) throws CustomCheckedException {
+        throw new CustomCheckedException(message);
     }
 
     void handleErrorByThrowingAnyUncheckedException() {

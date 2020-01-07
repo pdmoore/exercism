@@ -28,7 +28,6 @@ public class ErrorHandlingTest {
         errorHandling.handleErrorByThrowingIllegalArgumentException();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowIllegalArgumentExceptionWithDetailMessage() {
         thrown.expect(IllegalArgumentException.class);
@@ -36,7 +35,6 @@ public class ErrorHandlingTest {
         errorHandling.handleErrorByThrowingIllegalArgumentExceptionWithDetailMessage("This is the detail message.");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowAnyCheckedException() {
         try {
@@ -46,7 +44,6 @@ public class ErrorHandlingTest {
         }
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testThrowAnyCheckedExceptionWithDetailMessage() {
         try {
