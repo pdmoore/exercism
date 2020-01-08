@@ -1,6 +1,9 @@
 public class WordProblemSolver {
 
 
+    //TODO - finsih with tests that check for errors
+    //TODO - refactor
+
     public int solve(String problem) {
         problem = problem.replace("?", "");
         String[] words = problem.split(" ");
@@ -39,22 +42,6 @@ public class WordProblemSolver {
 
             }
 
-
-
-//            String operation = words[3];
-//            if ("plus".equals(operation)) {
-//                operand2 = Integer.parseInt(words[4]);
-//                answer = operand1 + operand2;
-//            } else if ("minus".equals(operation)) {
-//                operand2 = Integer.parseInt(words[4]);
-//                answer = operand1 - operand2;
-//            } else if ("multiplied".equals(operation)) {
-//                operand2 = Integer.parseInt(words[5]);
-//                answer = operand1 * operand2;
-//            } else {
-//                operand2 = Integer.parseInt(words[5]);
-//                answer = operand1 / operand2;
-//            }
 
         }
 
