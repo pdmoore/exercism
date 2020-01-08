@@ -9,14 +9,20 @@ public class WordProblemSolver {
         if (words.length == 3) {
             answer = Integer.parseInt(words[2]);
         } else {
-            int operand1 = Integer.parseInt(words[2]);
-            int operand2 = Integer.parseInt(words[4]);
 
             String operation = words[3];
             if ("plus".equals(operation)) {
+                int operand1 = Integer.parseInt(words[2]);
+                int operand2 = Integer.parseInt(words[4]);
                 answer = operand1 + operand2;
-            } else {
+            } else if ("minus".equals(operation)){
+                int operand1 = Integer.parseInt(words[2]);
+                int operand2 = Integer.parseInt(words[4]);
                 answer = operand1 - operand2;
+            } else {
+                int operand1 = Integer.parseInt(words[2]);
+                int operand2 = Integer.parseInt(words[5]);
+                answer = operand1 * operand2;
             }
 
         }
