@@ -18,15 +18,23 @@ public class WordProblemSolver {
                 if ("plus".equals(operation)) {
                     operand2 = Integer.parseInt(words[i + 1]);
                     answer = operand1 + operand2;
+
+                    operand1 = answer;
                 } else if ("minus".equals(operation)) {
                     operand2 = Integer.parseInt(words[i + 1]);
                     answer = operand1 - operand2;
+
+                    operand1 = answer;
                 } else if ("multiplied".equals(operation)) {
                     operand2 = Integer.parseInt(words[i + 2]);
                     answer = operand1 * operand2;
+
+                    operand1 = answer;
                 } else if ("divided".equals(operation)) {
                     operand2 = Integer.parseInt(words[i + 2]);
                     answer = operand1 / operand2;
+
+                    operand1 = answer;
                 }
 
             }
