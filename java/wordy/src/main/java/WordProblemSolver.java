@@ -9,25 +9,44 @@ public class WordProblemSolver {
         if (words.length == 3) {
             answer = Integer.parseInt(words[2]);
         } else {
+            int operand1 = Integer.parseInt(words[2]);
+            int operand2 = -0;
 
-            String operation = words[3];
-            if ("plus".equals(operation)) {
-                int operand1 = Integer.parseInt(words[2]);
-                int operand2 = Integer.parseInt(words[4]);
-                answer = operand1 + operand2;
-            } else if ("minus".equals(operation)) {
-                int operand1 = Integer.parseInt(words[2]);
-                int operand2 = Integer.parseInt(words[4]);
-                answer = operand1 - operand2;
-            } else if ("multiplied".equals(operation)) {
-                int operand1 = Integer.parseInt(words[2]);
-                int operand2 = Integer.parseInt(words[5]);
-                answer = operand1 * operand2;
-            } else {
-                int operand1 = Integer.parseInt(words[2]);
-                int operand2 = Integer.parseInt(words[5]);
-                answer = operand1 / operand2;
+            for (int i = 3; i < words.length - 1; i++) {
+
+                String operation = words[i];
+                if ("plus".equals(operation)) {
+                    operand2 = Integer.parseInt(words[i + 1]);
+                    answer = operand1 + operand2;
+                } else if ("minus".equals(operation)) {
+                    operand2 = Integer.parseInt(words[i + 1]);
+                    answer = operand1 - operand2;
+                } else if ("multiplied".equals(operation)) {
+                    operand2 = Integer.parseInt(words[i + 2]);
+                    answer = operand1 * operand2;
+                } else if ("divided".equals(operation)) {
+                    operand2 = Integer.parseInt(words[i + 2]);
+                    answer = operand1 / operand2;
+                }
+
             }
+
+
+
+//            String operation = words[3];
+//            if ("plus".equals(operation)) {
+//                operand2 = Integer.parseInt(words[4]);
+//                answer = operand1 + operand2;
+//            } else if ("minus".equals(operation)) {
+//                operand2 = Integer.parseInt(words[4]);
+//                answer = operand1 - operand2;
+//            } else if ("multiplied".equals(operation)) {
+//                operand2 = Integer.parseInt(words[5]);
+//                answer = operand1 * operand2;
+//            } else {
+//                operand2 = Integer.parseInt(words[5]);
+//                answer = operand1 / operand2;
+//            }
 
         }
 
