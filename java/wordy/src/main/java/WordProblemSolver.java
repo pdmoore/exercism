@@ -15,14 +15,18 @@ public class WordProblemSolver {
                 int operand1 = Integer.parseInt(words[2]);
                 int operand2 = Integer.parseInt(words[4]);
                 answer = operand1 + operand2;
-            } else if ("minus".equals(operation)){
+            } else if ("minus".equals(operation)) {
                 int operand1 = Integer.parseInt(words[2]);
                 int operand2 = Integer.parseInt(words[4]);
                 answer = operand1 - operand2;
-            } else {
+            } else if ("multiplied".equals(operation)) {
                 int operand1 = Integer.parseInt(words[2]);
                 int operand2 = Integer.parseInt(words[5]);
                 answer = operand1 * operand2;
+            } else {
+                int operand1 = Integer.parseInt(words[2]);
+                int operand2 = Integer.parseInt(words[5]);
+                answer = operand1 / operand2;
             }
 
         }

@@ -53,7 +53,6 @@ public class WordProblemSolverTest {
         assertEquals(-75, solver.solve("What is -3 multiplied by 25?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSingleDivision() {
         assertEquals(-11, solver.solve("What is 33 divided by -3?"));
