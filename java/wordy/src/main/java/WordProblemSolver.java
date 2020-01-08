@@ -12,7 +12,13 @@ public class WordProblemSolver {
             int operand1 = Integer.parseInt(words[2]);
             int operand2 = Integer.parseInt(words[4]);
 
-            answer = operand1 + operand2;
+            String operation = words[3];
+            if ("plus".equals(operation)) {
+                answer = operand1 + operand2;
+            } else {
+                answer = operand1 - operand2;
+            }
+
         }
 
         return answer;

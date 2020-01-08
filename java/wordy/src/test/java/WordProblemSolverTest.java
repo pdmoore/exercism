@@ -43,7 +43,6 @@ public class WordProblemSolverTest {
         assertEquals(45801, solver.solve("What is 123 plus 45678?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSingleSubtraction() {
         assertEquals(16, solver.solve("What is 4 minus -12?"));
