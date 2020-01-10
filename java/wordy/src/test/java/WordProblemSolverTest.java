@@ -93,7 +93,6 @@ public class WordProblemSolverTest {
         assertEquals(2, solver.solve("What is -12 divided by 2 divided by -3?"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testUnknownOperation() {
         expectedException.expect(IllegalArgumentException.class);
@@ -102,7 +101,6 @@ public class WordProblemSolverTest {
         solver.solve("What is 52 cubed?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testNonMathQuestion() {
         expectedException.expect(IllegalArgumentException.class);
@@ -112,7 +110,6 @@ public class WordProblemSolverTest {
         solver.solve("Who is the President of the United States?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testMissingAnOperand() {
         expectedException.expect(IllegalArgumentException.class);
@@ -121,7 +118,6 @@ public class WordProblemSolverTest {
         solver.solve("What is 1 plus?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testNoOperandsOrOperators() {
         expectedException.expect(IllegalArgumentException.class);
@@ -130,7 +126,6 @@ public class WordProblemSolverTest {
         solver.solve("What is?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testTwoOperationsInARow() {
         expectedException.expect(IllegalArgumentException.class);
@@ -157,7 +152,6 @@ public class WordProblemSolverTest {
         solver.solve("What is 1 2 plus?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testPrefixNotation() {
         expectedException.expect(IllegalArgumentException.class);
