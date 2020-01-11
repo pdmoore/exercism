@@ -29,42 +29,38 @@ public class WordProblemSolver {
                 operand2 = getNumber(words, i + 1);
                 answer = operand1 + operand2;
 
-                operand1 = answer;
                 i += 2;
             } else if ("minus".equals(operation)) {
                 operand2 = getNumber(words, i + 1);
                 answer = operand1 - operand2;
 
-                operand1 = answer;
                 i += 2;
             } else if ("multiplied".equals(operation)) {
                 operand2 = getNumber(words, i + 2);
                 answer = operand1 * operand2;
 
-                operand1 = answer;
                 i += 3;
             } else if ("divided".equals(operation)) {
                 operand2 = getNumber(words, i + 2);
                 answer = operand1 / operand2;
 
-                operand1 = answer;
                 i += 3;
             } else {
                 throw new IllegalArgumentException(INVALID_QUESTION_MESSAGE);
             }
+
+            operand1 = answer;
         }
 
         return answer;
     }
 
     private int getNumber(String[] words, int i) {
-        int operand1 = 0;
         try {
-            operand1 = Integer.parseInt(words[i]);
+            return Integer.parseInt(words[i]);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_QUESTION_MESSAGE);
         }
-        return operand1;
     }
 
     private boolean problemIsMissingWords(String[] words) {
