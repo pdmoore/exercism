@@ -31,7 +31,9 @@ public class WordProblemSolver {
 
             int operand2 = 0;
 
-            for (int i = 3; i < words.length - 1; i++) {
+//            for (int i = 3; i < words.length - 1; i++) {
+            int i = 3;
+            while (i < words.length - 1) {
 
                 try {
                     String operation = words[i];
@@ -40,23 +42,27 @@ public class WordProblemSolver {
                         answer = operand1 + operand2;
 
                         operand1 = answer;
+                         i += 2;
                     } else if ("minus".equals(operation)) {
                         operand2 = Integer.parseInt(words[i + 1]);
                         answer = operand1 - operand2;
 
                         operand1 = answer;
+                        i += 2;
                     } else if ("multiplied".equals(operation)) {
                         operand2 = Integer.parseInt(words[i + 2]);
                         answer = operand1 * operand2;
 
                         operand1 = answer;
+                        i += 3;
                     } else if ("divided".equals(operation)) {
                         operand2 = Integer.parseInt(words[i + 2]);
                         answer = operand1 / operand2;
 
                         operand1 = answer;
+                        i += 3;
                     } else {
-                        System.out.println(operation);
+                        throw new IllegalArgumentException(INVALID_QUESTION_MESSAGE);
                     }
                 } catch (NumberFormatException e) {
                     throw new IllegalArgumentException(INVALID_QUESTION_MESSAGE);

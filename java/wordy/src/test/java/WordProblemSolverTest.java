@@ -143,7 +143,6 @@ public class WordProblemSolverTest {
         solver.solve("What is 1 plus 2 1?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testPostfixNotation() {
         expectedException.expect(IllegalArgumentException.class);
