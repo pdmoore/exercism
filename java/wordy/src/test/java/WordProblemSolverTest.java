@@ -134,7 +134,6 @@ public class WordProblemSolverTest {
         solver.solve("What is 1 plus plus 2?");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testTwoNumbersAfterOperation() {
         expectedException.expect(IllegalArgumentException.class);

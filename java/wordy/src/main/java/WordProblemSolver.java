@@ -33,7 +33,7 @@ public class WordProblemSolver {
 
 //            for (int i = 3; i < words.length - 1; i++) {
             int i = 3;
-            while (i < words.length - 1) {
+            while (i < words.length) {
 
                 try {
                     String operation = words[i];
