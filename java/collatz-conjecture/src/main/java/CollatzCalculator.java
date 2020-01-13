@@ -5,10 +5,10 @@ class CollatzCalculator {
             throw new IllegalArgumentException("Only natural numbers are allowed");
         }
 
-        int count = 0;
+        int step = 0;
         int i = start;
         while (i > 1) {
-            count++;
+            step++;
 
             if (i % 2 == 0) {
                 i = i / 2;
@@ -17,7 +17,7 @@ class CollatzCalculator {
             }
         }
 
-        return count;
+        return step;
     }
 
 }
