@@ -13,9 +13,9 @@ public class PigLatinTranslator {
 
     public String translate(String word) {
 
-        if (startsWithVowel(word)) {
-            return word + "ay";
-        } else if (startsWithYt(word)) {
+        if (startsWithVowel(word) ||
+                startsWithSpecialCharacters(word, "yt") ||
+                startsWithSpecialCharacters(word, "xr")) {
             return word + "ay";
         }
 
@@ -35,8 +35,8 @@ public class PigLatinTranslator {
 
     }
 
-    private boolean startsWithYt(String word) {
-        return word.substring(0, 2).equals("yt");
+    private boolean startsWithSpecialCharacters(String word, String specialStart) {
+        return word.substring(0, 2).equals(specialStart);
     }
 
     private int firstVowelIn(String word) {
