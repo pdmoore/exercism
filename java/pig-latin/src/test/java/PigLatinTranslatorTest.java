@@ -118,7 +118,6 @@ public class PigLatinTranslatorTest {
         assertEquals("ymay", pigLatinTranslator.translate("my"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testAWholePhrase() {
         assertEquals("ickquay astfay unray", pigLatinTranslator.translate("quick fast run"));

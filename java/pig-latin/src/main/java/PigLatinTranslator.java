@@ -3,45 +3,54 @@ import java.util.List;
 
 public class PigLatinTranslator {
 
-    //TODO - handle
-    // y cases
-    // xr
-    // phrase of more than one word
-
+    // TODO - refactor
 
     private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
 
-    public String translate(String word) {
+    public String translate(String phrase) {
 
+        String[] words = phrase.split(" ");
+
+        StringBuilder translation = new StringBuilder();
+
+        for (int i = 0; i < words.length; i++) {
+
+            translation.append(pigLatinFor(words[i]));
+            if (i < words.length - 1) {
+                translation.append(" ");
+            }
+        }
+
+        return translation.toString();
+    }
+
+    private String pigLatinFor(String word) {
         if (startsWithVowel(word) ||
                 startsWithSpecialCharacters(word, "yt") ||
                 startsWithSpecialCharacters(word, "xr")) {
             return word + "ay";
         }
 
-        if (!word.contains("qu")) {
+        if (word.contains("qu")) {
 
             int firstVowel = firstVowelIn(word);
-            if (firstVowel != 0) {
 
-                String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
-                return pigLatin;
-            }
-
-            int firstY = firstYIn(word);
-            String pigLatin = word.substring(firstY) + word.substring(0, firstY)+ "ay";
+            ++firstVowel;
+            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
             return pigLatin;
-
-        } else {
-
-            int firstVowel = firstVowelIn(word);
-
-                ++firstVowel;
-                String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
-                return pigLatin;
 
         }
 
+        int firstVowel = firstVowelIn(word);
+        if (firstVowel != 0) {
+
+            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
+            return pigLatin;
+        }
+
+        int firstY = firstYIn(word);
+        String pigLatin = word.substring(firstY) + word.substring(0, firstY) + "ay";
+        return pigLatin;
     }
 
     private boolean startsWithSpecialCharacters(String word, String specialStart) {
