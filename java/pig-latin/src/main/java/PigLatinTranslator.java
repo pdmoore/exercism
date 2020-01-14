@@ -4,6 +4,9 @@ import java.util.List;
 public class PigLatinTranslator {
 
     // TODO - refactor
+    // suffix "ay"
+    // add space between words in phrase?
+    // compose pigLatinFor for readability
 
     private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
 
