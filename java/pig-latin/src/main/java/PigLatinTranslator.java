@@ -22,15 +22,24 @@ public class PigLatinTranslator {
         if (!word.contains("qu")) {
 
             int firstVowel = firstVowelIn(word);
+            if (firstVowel != 0) {
 
-            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
+                String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
+                return pigLatin;
+            }
+
+            int firstY = firstYIn(word);
+            String pigLatin = word.substring(firstY) + word.substring(0, firstY)+ "ay";
             return pigLatin;
+
         } else {
 
             int firstVowel = firstVowelIn(word);
-            ++firstVowel;
-            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
-            return pigLatin;
+
+                ++firstVowel;
+                String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
+                return pigLatin;
+
         }
 
     }
@@ -43,6 +52,21 @@ public class PigLatinTranslator {
         int i = 0;
         while (!VOWELS.contains(word.charAt(i))) {
             ++i;
+            if (i >= word.length()) {
+                return 0;
+            }
+        }
+
+        return i;
+    }
+
+    private int firstYIn(String word) {
+        int i = 0;
+        while (word.charAt(i) != 'y') {
+            ++i;
+            if (i >= word.length()) {
+                return 0;
+            }
         }
 
         return i;
