@@ -10,10 +10,12 @@ public class PigLatinTranslator {
         if (startsWithVowel(word)) {
 
             return word + "ay";
-
         }
 
-        return null;
+        Character firstChar = word.charAt(0);
+
+        String pigLatin = word.substring(1) + firstChar + "ay";
+        return pigLatin;
     }
 
     private boolean startsWithVowel(String word) {

@@ -43,25 +43,21 @@ public class PigLatinTranslatorTest {
         assertEquals("equalay", pigLatinTranslator.translate("equal"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testWordBeginningWithP() {
         assertEquals("igpay", pigLatinTranslator.translate("pig"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testWordBeginningWithK() {
         assertEquals("oalakay", pigLatinTranslator.translate("koala"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testWordBeginningWithX() {
         assertEquals("enonxay", pigLatinTranslator.translate("xenon"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testWordBeginningWithQWithoutAFollowingU() {
         assertEquals("atqay", pigLatinTranslator.translate("qat"));
