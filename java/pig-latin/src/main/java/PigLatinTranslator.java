@@ -12,10 +12,20 @@ public class PigLatinTranslator {
             return word + "ay";
         }
 
-        Character firstChar = word.charAt(0);
+        int firstVowel = firstVowelIn(word);
 
-        String pigLatin = word.substring(1) + firstChar + "ay";
+
+        String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
         return pigLatin;
+    }
+
+    private int firstVowelIn(String word) {
+        int i = 0;
+        while (!VOWELS.contains(word.charAt(i))) {
+            ++i;
+        }
+
+        return i;
     }
 
     private boolean startsWithVowel(String word) {
