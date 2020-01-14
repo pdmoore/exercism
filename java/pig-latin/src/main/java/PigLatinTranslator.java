@@ -3,7 +3,7 @@ import java.util.List;
 
 public class PigLatinTranslator {
 
-    private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o','u');
+    private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
 
     public String translate(String word) {
 
@@ -12,11 +12,20 @@ public class PigLatinTranslator {
             return word + "ay";
         }
 
-        int firstVowel = firstVowelIn(word);
+        if (!word.contains("qu")) {
 
+            int firstVowel = firstVowelIn(word);
 
-        String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
-        return pigLatin;
+            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
+            return pigLatin;
+        } else {
+
+            int firstVowel = firstVowelIn(word);
+            ++firstVowel;
+            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
+            return pigLatin;
+        }
+
     }
 
     private int firstVowelIn(String word) {
