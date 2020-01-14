@@ -3,12 +3,19 @@ import java.util.List;
 
 public class PigLatinTranslator {
 
+    //TODO - handle
+    // y cases
+    // xr
+    // phrase of more than one word
+
+
     private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
 
     public String translate(String word) {
 
         if (startsWithVowel(word)) {
-
+            return word + "ay";
+        } else if (startsWithYt(word)) {
             return word + "ay";
         }
 
@@ -26,6 +33,10 @@ public class PigLatinTranslator {
             return pigLatin;
         }
 
+    }
+
+    private boolean startsWithYt(String word) {
+        return word.substring(0, 2).equals("yt");
     }
 
     private int firstVowelIn(String word) {
