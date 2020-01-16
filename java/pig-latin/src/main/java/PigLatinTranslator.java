@@ -9,6 +9,7 @@ public class PigLatinTranslator {
     // compose pigLatinFor for readability
 
     private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
+    public static final String AY = "ay";
 
     public String translate(String phrase) {
 
@@ -29,38 +30,43 @@ public class PigLatinTranslator {
 
     private String pigLatinFor(String word) {
         if (startsWithVowel(word) ||
-                startsWithSpecialCharacters(word, "yt") ||
-                startsWithSpecialCharacters(word, "xr")) {
-            return word + "ay";
+            startsWithSpecialCharacters(word, "yt") ||
+            startsWithSpecialCharacters(word, "xr")) {
+            return word + AY;
         }
 
         if (word.contains("qu")) {
-
-            int firstVowel = firstVowelIn(word);
-
-            ++firstVowel;
-            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
-            return pigLatin;
+            int characterAfterFirstVowel = indexOffirstVowelIn(word) + 1;
+            return convertToPigLatinAtIndex(word, characterAfterFirstVowel);
 
         }
 
-        int firstVowel = firstVowelIn(word);
-        if (firstVowel != 0) {
-
-            String pigLatin = word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
-            return pigLatin;
+        if (wordHasAnyVowel(word)) {
+            int firstVowel = indexOffirstVowelIn(word);
+            return convertToPigLatinAtIndex(word, firstVowel);
         }
 
-        int firstY = firstYIn(word);
-        String pigLatin = word.substring(firstY) + word.substring(0, firstY) + "ay";
-        return pigLatin;
+        int firstY = indexOfFirstYIn(word);
+        return convertToPigLatinAtIndex(word, firstY);
+    }
+
+    private String convertToPigLatinAtIndex(String word, int splitWordAt) {
+        String wordAfterSplit = word.substring(splitWordAt);
+        String wordBeforeSplit = word.substring(0, splitWordAt);
+        return wordAfterSplit + wordBeforeSplit + AY;
+    }
+
+    private boolean wordHasAnyVowel(String word) {
+        int firstVowel = indexOffirstVowelIn(word);
+        return firstVowel != 0;
     }
 
     private boolean startsWithSpecialCharacters(String word, String specialStart) {
         return word.substring(0, 2).equals(specialStart);
     }
 
-    private int firstVowelIn(String word) {
+    // TODO - duplicate logic in Vowels and Y searching logic
+    private int indexOffirstVowelIn(String word) {
         int i = 0;
         while (!VOWELS.contains(word.charAt(i))) {
             ++i;
@@ -72,7 +78,7 @@ public class PigLatinTranslator {
         return i;
     }
 
-    private int firstYIn(String word) {
+    private int indexOfFirstYIn(String word) {
         int i = 0;
         while (word.charAt(i) != 'y') {
             ++i;
