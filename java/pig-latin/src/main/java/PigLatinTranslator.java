@@ -1,12 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class PigLatinTranslator {
-
-    // TODO - refactor
-    // suffix "ay"
-    // add space between words in phrase?
-    // compose pigLatinFor for readability
 
     private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
     public static final String AY = "ay";
@@ -16,16 +12,12 @@ public class PigLatinTranslator {
         String[] words = phrase.split(" ");
 
         StringBuilder translation = new StringBuilder();
-
+        List<String> translatedWords = new ArrayList<>();
         for (int i = 0; i < words.length; i++) {
-
-            translation.append(pigLatinFor(words[i]));
-            if (i < words.length - 1) {
-                translation.append(" ");
-            }
+            translatedWords.add(pigLatinFor(words[i]));
         }
 
-        return translation.toString();
+        return String.join(" ", translatedWords);
     }
 
     private String pigLatinFor(String word) {
