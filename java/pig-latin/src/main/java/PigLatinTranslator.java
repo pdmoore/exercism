@@ -11,7 +11,6 @@ public class PigLatinTranslator {
 
         String[] words = phrase.split(" ");
 
-        StringBuilder translation = new StringBuilder();
         List<String> translatedWords = new ArrayList<>();
         for (int i = 0; i < words.length; i++) {
             translatedWords.add(pigLatinFor(words[i]));
