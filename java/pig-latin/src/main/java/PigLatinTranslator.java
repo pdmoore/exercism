@@ -52,17 +52,14 @@ public class PigLatinTranslator {
         return word.substring(0, 2).equals(specialStart);
     }
 
-    // TODO - duplicate logic in Vowels and Y searching logic
     private int indexOffirstVowelIn(String word) {
-        int i = 0;
-        while (!VOWELS.contains(word.charAt(i))) {
-            ++i;
-            if (i >= word.length()) {
-                return 0;
+        for (int j = 0; j < word.length(); j++) {
+            if (VOWELS.contains(word.charAt(j))) {
+                return j;
             }
         }
 
-        return i;
+        return 0;
     }
 
     private int indexOfFirstYIn(String word) {
