@@ -15,17 +15,17 @@ public class PigLatinTranslator {
                         collect(Collectors.toList()));
     }
 
+    //TODO - could have a single return statement by capturing which index to split the word at in each if
     private String pigLatinFor(String word) {
         if (startsWithVowel(word) ||
                 startsWithSpecialCharacters(word, "yt") ||
                 startsWithSpecialCharacters(word, "xr")) {
-            return word + AY;
+            return convertToPigLatinAtIndex(word, 0);
         }
 
         if (word.contains("qu")) {
             int characterAfterFirstVowel = indexOffirstVowelIn(word) + 1;
             return convertToPigLatinAtIndex(word, characterAfterFirstVowel);
-
         }
 
         if (wordHasAnyVowel(word)) {
