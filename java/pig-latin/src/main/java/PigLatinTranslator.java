@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PigLatinTranslator {
 
@@ -11,12 +12,11 @@ public class PigLatinTranslator {
 
         String[] words = phrase.split(" ");
 
-        List<String> translatedWords = new ArrayList<>();
-        for (int i = 0; i < words.length; i++) {
-            translatedWords.add(pigLatinFor(words[i]));
-        }
+        List<String> collect = Arrays.stream(words).
+                map(s -> pigLatinFor(s)).
+                collect(Collectors.toList());
+        return String.join(" ", collect);
 
-        return String.join(" ", translatedWords);
     }
 
     private String pigLatinFor(String word) {
