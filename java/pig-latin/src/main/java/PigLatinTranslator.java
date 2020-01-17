@@ -66,15 +66,7 @@ public class PigLatinTranslator {
     }
 
     private int indexOfFirstYIn(String word) {
-        int i = 0;
-        while (word.charAt(i) != 'y') {
-            ++i;
-            if (i >= word.length()) {
-                return 0;
-            }
-        }
-
-        return i;
+        return word.indexOf('y');
     }
 
     private boolean startsWithVowel(String word) {
