@@ -37,9 +37,9 @@ public class PigLatinTranslator {
     }
 
     private String convertToPigLatinAtIndex(String word, int splitWordAt) {
-        String wordAfterSplit = word.substring(splitWordAt);
-        String wordBeforeSplit = word.substring(0, splitWordAt);
-        return wordAfterSplit + wordBeforeSplit + AY;
+        String charactersAfterSplit = word.substring(splitWordAt);
+        String charactersBeforeSplit = word.substring(0, splitWordAt);
+        return charactersAfterSplit + charactersBeforeSplit + AY;
     }
 
     private boolean wordHasAnyVowel(String word) {
