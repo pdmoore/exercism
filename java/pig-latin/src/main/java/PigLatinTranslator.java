@@ -9,20 +9,16 @@ public class PigLatinTranslator {
     public static final String AY = "ay";
 
     public String translate(String phrase) {
-
-        String[] words = phrase.split(" ");
-
-        List<String> collect = Arrays.stream(words).
-                map(s -> pigLatinFor(s)).
-                collect(Collectors.toList());
-        return String.join(" ", collect);
-
+        return String.join(" ",
+                Arrays.stream(phrase.split(" ")).
+                        map(s -> pigLatinFor(s)).
+                        collect(Collectors.toList()));
     }
 
     private String pigLatinFor(String word) {
         if (startsWithVowel(word) ||
-            startsWithSpecialCharacters(word, "yt") ||
-            startsWithSpecialCharacters(word, "xr")) {
+                startsWithSpecialCharacters(word, "yt") ||
+                startsWithSpecialCharacters(word, "xr")) {
             return word + AY;
         }
 
