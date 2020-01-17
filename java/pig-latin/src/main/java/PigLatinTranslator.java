@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,12 +23,12 @@ public class PigLatinTranslator {
         }
 
         if (word.contains("qu")) {
-            int characterAfterFirstVowel = indexOffirstVowelIn(word) + 1;
+            int characterAfterFirstVowel = indexOfFirstVowelIn(word) + 1;
             return convertToPigLatinAtIndex(word, characterAfterFirstVowel);
         }
 
         if (wordHasAnyVowel(word)) {
-            int firstVowel = indexOffirstVowelIn(word);
+            int firstVowel = indexOfFirstVowelIn(word);
             return convertToPigLatinAtIndex(word, firstVowel);
         }
 
@@ -44,7 +43,7 @@ public class PigLatinTranslator {
     }
 
     private boolean wordHasAnyVowel(String word) {
-        int firstVowel = indexOffirstVowelIn(word);
+        int firstVowel = indexOfFirstVowelIn(word);
         return firstVowel != 0;
     }
 
@@ -52,7 +51,7 @@ public class PigLatinTranslator {
         return word.substring(0, 2).equals(specialStart);
     }
 
-    private int indexOffirstVowelIn(String word) {
+    private int indexOfFirstVowelIn(String word) {
         for (int j = 0; j < word.length(); j++) {
             if (VOWELS.contains(word.charAt(j))) {
                 return j;
