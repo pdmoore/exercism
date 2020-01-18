@@ -19,15 +19,8 @@ public class Robot {
     }
 
     public void turnRight() {
-        if (Orientation.NORTH == orientation) {
-            orientation = Orientation.EAST;
-        } else if (Orientation.EAST == orientation) {
-            orientation = Orientation.SOUTH;
-        } else if (Orientation.SOUTH == orientation) {
-            orientation = Orientation.WEST;
-        } else if (Orientation.WEST == orientation) {
-            orientation = Orientation.NORTH;
-        }
+        int nextEnumToTheRight = (orientation.ordinal() + 1) % 4;
+        orientation = Orientation.values()[nextEnumToTheRight];
     }
 
     public void turnLeft() {
