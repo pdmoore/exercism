@@ -24,7 +24,8 @@ public class Robot {
     }
 
     public void turnLeft() {
-        throw new UnsupportedOperationException();
+        int nextEnumToTheLeft = (orientation.ordinal() + 3) % 4;
+        orientation = Orientation.values()[nextEnumToTheLeft];
     }
 
     public void advance() {
