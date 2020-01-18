@@ -9,11 +9,11 @@ public class Robot {
     }
 
     public Orientation getOrientation() {
-        return null;
+        return orientation;
     }
 
     public GridPosition getGridPosition() {
-        return null;
+        return gridPosition;
     }
 
     public void turnRight() {
