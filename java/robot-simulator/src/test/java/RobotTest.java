@@ -17,7 +17,6 @@ public class RobotTest {
         assertEquals(initialGridPosition, robot.getGridPosition());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void atNegativePositionFacingSouth() {
         GridPosition initialGridPosition = new GridPosition(-1, -1);
@@ -28,9 +27,6 @@ public class RobotTest {
         assertEquals(initialGridPosition, robot.getGridPosition());
     }
 
-    /* Rotating clockwise */
-
-    @Ignore("Remove to run test")
     @Test
     public void changesNorthToEast() {
         GridPosition initialGridPosition = new GridPosition(0, 0);
@@ -43,7 +39,6 @@ public class RobotTest {
         assertEquals(expectedOrientation, robot.getOrientation());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void changesEastToSouth() {
         GridPosition initialGridPosition = new GridPosition(0, 0);
@@ -56,7 +51,6 @@ public class RobotTest {
         assertEquals(expectedOrientation, robot.getOrientation());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void changesSouthToWest() {
         GridPosition initialGridPosition = new GridPosition(0, 0);
@@ -69,7 +63,6 @@ public class RobotTest {
         assertEquals(expectedOrientation, robot.getOrientation());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void changesWestToNorth() {
         GridPosition initialGridPosition = new GridPosition(0, 0);
