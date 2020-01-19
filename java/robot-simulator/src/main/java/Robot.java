@@ -29,15 +29,20 @@ public class Robot {
     }
 
     public void advance() {
+        int xDelta = 0;
+        int yDelta = 0;
+
         if (orientation == Orientation.NORTH) {
-            gridPosition = new GridPosition(gridPosition.x, gridPosition.y + 1);
+            yDelta = 1;
         } else if (orientation == Orientation.SOUTH) {
-            gridPosition = new GridPosition(gridPosition.x, gridPosition.y - 1);
+            yDelta = -1;
         } else if (orientation == Orientation.EAST) {
-            gridPosition = new GridPosition(gridPosition.x + 1, gridPosition.y);
+            xDelta = 1;
         } else if (orientation == Orientation.WEST) {
-            gridPosition = new GridPosition(gridPosition.x - 1, gridPosition.y);
+            xDelta = -1;
         }
+
+        gridPosition = new GridPosition(gridPosition.x + xDelta, gridPosition.y + yDelta);
 
     }
 
