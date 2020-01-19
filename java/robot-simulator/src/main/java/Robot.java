@@ -1,13 +1,13 @@
-import javax.print.attribute.standard.OrientationRequested;
-
 public class Robot {
 
     private Orientation orientation;
     private GridPosition gridPosition;
+    private final int ORIENTATION_COUNT;
 
     public Robot(GridPosition initialGridPosition, Orientation initialOrientation) {
         this.gridPosition = initialGridPosition;
         this.orientation = initialOrientation;
+        ORIENTATION_COUNT = Orientation.values().length;
     }
 
     public Orientation getOrientation() {
@@ -19,12 +19,12 @@ public class Robot {
     }
 
     public void turnRight() {
-        int nextEnumToTheRight = (orientation.ordinal() + 1) % orientation.values().length;
+        int nextEnumToTheRight = (orientation.ordinal() + 1) % ORIENTATION_COUNT;
         orientation = Orientation.values()[nextEnumToTheRight];
     }
 
     public void turnLeft() {
-        int nextEnumToTheLeft = (orientation.ordinal() + orientation.values().length - 1) % orientation.values().length;
+        int nextEnumToTheLeft = (orientation.ordinal() + ORIENTATION_COUNT - 1) % ORIENTATION_COUNT;
         orientation = Orientation.values()[nextEnumToTheLeft];
     }
 
