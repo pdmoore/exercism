@@ -127,7 +127,6 @@ public class RobotTest {
 
     /* Moving forward one */
 
-    @Ignore("Remove to run test")
     @Test
     public void facingNorthIncrementsY() {
         Orientation initialOrientation = Orientation.NORTH;
@@ -140,7 +139,6 @@ public class RobotTest {
         assertEquals(initialOrientation, robot.getOrientation());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void facingSouthDecrementsY() {
         Orientation initialOrientation = Orientation.SOUTH;
@@ -153,7 +151,6 @@ public class RobotTest {
         assertEquals(initialOrientation, robot.getOrientation());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void facingEastIncrementsX() {
         Orientation initialOrientation = Orientation.EAST;
@@ -166,7 +163,6 @@ public class RobotTest {
         assertEquals(initialOrientation, robot.getOrientation());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void facingWestDecrementsX() {
         Orientation initialOrientation = Orientation.WEST;

@@ -3,7 +3,7 @@ import javax.print.attribute.standard.OrientationRequested;
 public class Robot {
 
     private Orientation orientation;
-    private final GridPosition gridPosition;
+    private GridPosition gridPosition;
 
     public Robot(GridPosition initialGridPosition, Orientation initialOrientation) {
         this.gridPosition = initialGridPosition;
@@ -29,7 +29,16 @@ public class Robot {
     }
 
     public void advance() {
-        throw new UnsupportedOperationException();
+        if (orientation == Orientation.NORTH) {
+            gridPosition = new GridPosition(gridPosition.x, gridPosition.y + 1);
+        } else if (orientation == Orientation.SOUTH) {
+            gridPosition = new GridPosition(gridPosition.x, gridPosition.y - 1);
+        } else if (orientation == Orientation.EAST) {
+            gridPosition = new GridPosition(gridPosition.x + 1, gridPosition.y);
+        } else if (orientation == Orientation.WEST) {
+            gridPosition = new GridPosition(gridPosition.x - 1, gridPosition.y);
+        }
+
     }
 
     public void simulate(String listOfInstructions) {
