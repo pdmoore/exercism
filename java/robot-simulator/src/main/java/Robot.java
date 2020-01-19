@@ -19,12 +19,12 @@ public class Robot {
     }
 
     public void turnRight() {
-        int nextEnumToTheRight = (orientation.ordinal() + 1) % 4;
+        int nextEnumToTheRight = (orientation.ordinal() + 1) % orientation.values().length;
         orientation = Orientation.values()[nextEnumToTheRight];
     }
 
     public void turnLeft() {
-        int nextEnumToTheLeft = (orientation.ordinal() + 3) % 4;
+        int nextEnumToTheLeft = (orientation.ordinal() + orientation.values().length - 1) % orientation.values().length;
         orientation = Orientation.values()[nextEnumToTheLeft];
     }
 
