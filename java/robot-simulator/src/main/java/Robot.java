@@ -42,13 +42,14 @@ public class Robot {
     }
 
     public void simulate(String listOfInstructions) {
-        for (int i = 0; i < listOfInstructions.length(); i++) {
-            switch (listOfInstructions.charAt(i)) {
-                case 'A' : advance(); break;
-                case 'R' : turnRight(); break;
-                case 'L' : turnLeft(); break;
-            }
-        }
+        listOfInstructions.chars().forEach(c -> performInstruction((char) c));
+    }
 
+    private void performInstruction(char c) {
+        switch (c) {
+            case 'A' : advance(); break;
+            case 'R' : turnRight(); break;
+            case 'L' : turnLeft(); break;
+        }
     }
 }
