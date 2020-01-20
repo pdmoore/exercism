@@ -3,15 +3,17 @@ import java.util.List;
 
 class PrimeCalculator {
 
+    public static final int FIRST_PRIME = 2;
+
     int nth(int nth) {
         if (nth < 1) {
             throw new IllegalArgumentException();
         }
 
         List<Integer> discoveredPrimes = new ArrayList<>();
-        discoveredPrimes.add(2);
+        discoveredPrimes.add(FIRST_PRIME);
 
-        int i = 2;
+        int i = FIRST_PRIME;
         while (discoveredPrimes.size() < nth) {
             ++i;
 
