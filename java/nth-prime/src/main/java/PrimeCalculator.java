@@ -18,17 +18,11 @@ class PrimeCalculator {
                 limit(nth).
                 forEach(i -> discoveredPrimes.add(i));
 
-
         return discoveredPrimes.get(nth - 1);
     }
 
     private boolean isPrime(int candidate, List<Integer> discoveredPrimes) {
-        for (Integer knownPrime :
-                discoveredPrimes) {
-            if (candidate % knownPrime == 0) return false;
-        }
-
-        return true;
+        return discoveredPrimes.stream().filter(i -> candidate % i == 0).count() <=  0;
     }
 
 }
