@@ -22,7 +22,7 @@ class PrimeCalculator {
     }
 
     private boolean isPrime(int candidate, List<Integer> discoveredPrimes) {
-        return discoveredPrimes.stream().filter(i -> candidate % i == 0).count() <=  0;
+        return discoveredPrimes.stream().filter(i -> candidate % i == 0).count() == 0;
     }
 
 }
