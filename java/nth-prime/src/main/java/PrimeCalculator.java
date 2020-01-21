@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 class PrimeCalculator {
 
@@ -11,16 +12,12 @@ class PrimeCalculator {
         }
 
         List<Integer> discoveredPrimes = new ArrayList<>();
-        discoveredPrimes.add(FIRST_PRIME);
 
-        int i = FIRST_PRIME;
-        while (discoveredPrimes.size() < nth) {
-            ++i;
+        IntStream.iterate(FIRST_PRIME, i -> i + 1).
+                filter(i -> isPrime(i, discoveredPrimes)).
+                limit(nth).
+                forEach(i -> discoveredPrimes.add(i));
 
-            if (isPrime(i, discoveredPrimes)) {
-                discoveredPrimes.add(i);
-            }
-        }
 
         return discoveredPrimes.get(nth - 1);
     }
