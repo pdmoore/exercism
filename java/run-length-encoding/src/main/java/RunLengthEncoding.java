@@ -27,7 +27,18 @@ public class RunLengthEncoding {
         return sb.toString();
     }
 
-    public String decode(String s) {
-        throw new UnsupportedOperationException("decode not implemented yet");
+    public String decode(String encoded) {
+
+        StringBuilder decoded = new StringBuilder();
+
+        for (int i = 0; i < encoded.length(); i++) {
+
+            decoded.append(encoded.charAt(i));
+
+
+        }
+
+
+        return decoded.toString();
     }
 }
