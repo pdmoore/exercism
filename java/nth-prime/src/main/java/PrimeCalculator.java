@@ -21,6 +21,8 @@ class PrimeCalculator {
         return discoveredPrimes.get(nth - 1);
     }
 
+    // TODO - find a way to short circuit this - as soon as an item is divisible by a candidate we know it is not prime
+    // might be worth trying a performance/time test
     private boolean isPrime(int candidate, List<Integer> discoveredPrimes) {
         return discoveredPrimes.stream().filter(i -> candidate % i == 0).count() == 0;
     }
