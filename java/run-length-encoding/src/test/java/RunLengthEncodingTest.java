@@ -28,7 +28,6 @@ public class RunLengthEncodingTest {
                 runLengthEncoding.encode("AABBBCCCC"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void encodeWithMixedValues() {
         Assert.assertEquals(
@@ -37,7 +36,6 @@ public class RunLengthEncodingTest {
                         "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void encodeWithWhitespaceValues() {
         Assert.assertEquals(
@@ -45,7 +43,6 @@ public class RunLengthEncodingTest {
                 runLengthEncoding.encode("  hsqq qww  "));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void encodeWithLowercaseValues() {
         Assert.assertEquals(
