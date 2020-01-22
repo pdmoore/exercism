@@ -1,8 +1,8 @@
 public class RunLengthEncoding {
 
 
-    public String encode(String s) {
-        return null;
+    public String encode(String original) {
+        return original;
     }
 
     public String decode(String s) {

@@ -16,7 +16,6 @@ public class RunLengthEncodingTest {
         Assert.assertEquals("", runLengthEncoding.encode(""));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void encodeWithOnlySingleValues() {
         Assert.assertEquals("XYZ", runLengthEncoding.encode("XYZ"));
