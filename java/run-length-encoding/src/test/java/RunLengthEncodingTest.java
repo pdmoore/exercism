@@ -62,7 +62,6 @@ public class RunLengthEncodingTest {
                 runLengthEncoding.decode("XYZ"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void decodeWithNoSingleValues() {
         Assert.assertEquals(

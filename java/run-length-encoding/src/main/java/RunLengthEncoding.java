@@ -31,13 +31,23 @@ public class RunLengthEncoding {
 
         StringBuilder decoded = new StringBuilder();
 
-        for (int i = 0; i < encoded.length(); i++) {
+        int i = 0;
+        while (i < encoded.length()) {
 
-            decoded.append(encoded.charAt(i));
+            Character thisChar = encoded.charAt(i);
+            if (Character.isAlphabetic(thisChar)) {
+                decoded.append(encoded.charAt(i));
+                ++i;
+            } else {
+                int repeatCount = Integer.parseInt("" + thisChar);
+                for (int j = 0; j < repeatCount; j++) {
+                    decoded.append(encoded.charAt(i + 1));
+                }
 
+                i += 2;
+            }
 
         }
-
 
         return decoded.toString();
     }
