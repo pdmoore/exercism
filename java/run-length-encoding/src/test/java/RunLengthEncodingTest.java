@@ -76,7 +76,6 @@ public class RunLengthEncodingTest {
                 runLengthEncoding.decode("12WB12W3B24WB"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void decodeWithWhitespaceValues() {
         Assert.assertEquals(

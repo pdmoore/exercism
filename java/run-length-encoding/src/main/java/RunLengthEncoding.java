@@ -35,7 +35,7 @@ public class RunLengthEncoding {
         while (i < encoded.length()) {
 
             Character thisChar = encoded.charAt(i);
-            if (Character.isAlphabetic(thisChar)) {
+            if (!Character.isDigit(thisChar)) {
                 decoded.append(encoded.charAt(i));
                 ++i;
             } else {
