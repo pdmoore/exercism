@@ -83,7 +83,6 @@ public class RunLengthEncodingTest {
                 runLengthEncoding.decode("2 hs2q q2w2 "));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void decodeWithLowercaseValues() {
         Assert.assertEquals(
@@ -91,7 +90,6 @@ public class RunLengthEncodingTest {
                 runLengthEncoding.decode("2a3b4c"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void encodeThenDecode() {
         String inOut = "zzz ZZ  zZ";
