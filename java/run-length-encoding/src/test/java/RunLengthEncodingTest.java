@@ -69,7 +69,6 @@ public class RunLengthEncodingTest {
                 runLengthEncoding.decode("2A3B4C"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void decodeWithMixedValues() {
         Assert.assertEquals(

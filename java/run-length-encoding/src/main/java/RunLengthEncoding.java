@@ -39,16 +39,29 @@ public class RunLengthEncoding {
                 decoded.append(encoded.charAt(i));
                 ++i;
             } else {
-                int repeatCount = Integer.parseInt("" + thisChar);
+                int repeatCount = grabCountFrom(i, encoded);
+                char charToRepeat = encoded.charAt(i + String.valueOf(repeatCount).length());
                 for (int j = 0; j < repeatCount; j++) {
-                    decoded.append(encoded.charAt(i + 1));
+                    decoded.append(charToRepeat);
                 }
 
-                i += 2;
+                // TODO - need to take into account length of repeatCount
+                i += String.valueOf(repeatCount).length() + 1;
             }
 
         }
 
         return decoded.toString();
+    }
+
+    private int grabCountFrom(int i, String encoded) {
+        for (int j = i + 1; j <= encoded.length(); j++) {
+            if (!Character.isDigit(encoded.charAt(j))) {
+                String digit = encoded.substring(i, j);
+                return Integer.parseInt(digit);
+            }
+        }
+
+        return 1;
     }
 }
