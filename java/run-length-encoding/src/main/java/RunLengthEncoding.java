@@ -8,31 +8,33 @@ public class RunLengthEncoding {
         while (i < unencoded.length()) {
 
             char thisChar = unencoded.charAt(i);
-            int j = i + 1;
 
-            if (nextCharacterIsDifferent(unencoded, i)) {
-                encoded.append(unencoded.charAt(i));
-                i++;
+            if (nextCharacterIsDifferent(unencoded, i) || i == unencoded.length() - 1) {
+                i = encodeSingleCharacter(unencoded, encoded, i);
             } else {
-                while (theNextCharacterIsSame(unencoded, thisChar, j)) {
-                    j++;
-                }
-
-                if (j == i + 1) {
-                    encoded.append(unencoded.charAt(i));
-                    i++;
-
-                } else {
-                    encoded.append(j - i);
-                    encoded.append(unencoded.charAt(i));
-                    i = j;
-                }
-
+                i = encodeRepeatedCharacter(unencoded, encoded, i);
             }
-
         }
 
         return encoded.toString();
+    }
+
+    private int encodeRepeatedCharacter(String unencoded, StringBuilder encoded, int i) {
+        Character thisChar = unencoded.charAt(i);
+        int j = i + 1;
+        while (theNextCharacterIsSame(unencoded, thisChar, j)) {
+            j++;
+        }
+        int repeatedCharCount = j - i;
+        char repeatedCharacter = unencoded.charAt(i);
+        encoded.append(repeatedCharCount);
+        encoded.append(repeatedCharacter);
+        return j;
+    }
+
+    private int encodeSingleCharacter(String unencoded, StringBuilder encoded, int i) {
+        encoded.append(unencoded.charAt(i));
+        return ++i;
     }
 
     private boolean nextCharacterIsDifferent(String unencoded, int i) {
@@ -44,8 +46,8 @@ public class RunLengthEncoding {
         return nextChar != null && nextChar != thisChar;
     }
 
-    private boolean theNextCharacterIsSame(String original, char thisChar, int j) {
-        return j < original.length() && (original.charAt(j) == thisChar);
+    private boolean theNextCharacterIsSame(String unencoded, char thisChar, int j) {
+        return j < unencoded.length() && (unencoded.charAt(j) == thisChar);
     }
 
     public String decode(String encoded) {
