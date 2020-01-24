@@ -1,15 +1,12 @@
 public class RunLengthEncoding {
 
-
     public String encode(String unencoded) {
         StringBuilder encoded = new StringBuilder();
 
         int i = 0;
         while (i < unencoded.length()) {
 
-            char thisChar = unencoded.charAt(i);
-
-            if (nextCharacterIsDifferent(unencoded, i) || i == unencoded.length() - 1) {
+            if (nextCharacterIsDifferent(unencoded, i) || atEndOfUnencoded(unencoded, i)) {
                 i = encodeSingleCharacter(unencoded, encoded, i);
             } else {
                 i = encodeRepeatedCharacter(unencoded, encoded, i);
@@ -68,6 +65,10 @@ public class RunLengthEncoding {
     private int encodeSingleCharacter(String unencoded, StringBuilder encoded, int i) {
         encoded.append(unencoded.charAt(i));
         return ++i;
+    }
+
+    private boolean atEndOfUnencoded(String unencoded, int i) {
+        return i == unencoded.length() - 1;
     }
 
     private boolean nextCharacterIsDifferent(String unencoded, int i) {
