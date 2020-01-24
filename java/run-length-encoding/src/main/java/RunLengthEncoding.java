@@ -1,30 +1,51 @@
 public class RunLengthEncoding {
 
 
-    public String encode(String original) {
-        StringBuilder sb = new StringBuilder();
-        int i = 0;
-        while (i < original.length()) {
+    public String encode(String unencoded) {
+        StringBuilder encoded = new StringBuilder();
 
-            char thisChar = original.charAt(i);
+        int i = 0;
+        while (i < unencoded.length()) {
+
+            char thisChar = unencoded.charAt(i);
             int j = i + 1;
 
-            while (j < original.length() && (original.charAt(j) == thisChar)) {
-                j++;
-            }
-
-            if (j == i + 1) {
-                sb.append(original.charAt(i));
+            if (nextCharacterIsDifferent(unencoded, i)) {
+                encoded.append(unencoded.charAt(i));
                 i++;
-
             } else {
-                sb.append(j - i);
-                sb.append(original.charAt(i));
-                i = j;
+                while (theNextCharacterIsSame(unencoded, thisChar, j)) {
+                    j++;
+                }
+
+                if (j == i + 1) {
+                    encoded.append(unencoded.charAt(i));
+                    i++;
+
+                } else {
+                    encoded.append(j - i);
+                    encoded.append(unencoded.charAt(i));
+                    i = j;
+                }
+
             }
+
         }
 
-        return sb.toString();
+        return encoded.toString();
+    }
+
+    private boolean nextCharacterIsDifferent(String unencoded, int i) {
+        Character thisChar = unencoded.charAt(i);
+        Character nextChar = null;
+        if (i < unencoded.length() - 1) {
+            nextChar = unencoded.charAt(i + 1);
+        }
+        return nextChar != null && nextChar != thisChar;
+    }
+
+    private boolean theNextCharacterIsSame(String original, char thisChar, int j) {
+        return j < original.length() && (original.charAt(j) == thisChar);
     }
 
     public String decode(String encoded) {
@@ -45,10 +66,8 @@ public class RunLengthEncoding {
                     decoded.append(charToRepeat);
                 }
 
-                // TODO - need to take into account length of repeatCount
                 i += String.valueOf(repeatCount).length() + 1;
             }
-
         }
 
         return decoded.toString();
