@@ -19,6 +19,39 @@ public class RunLengthEncoding {
         return encoded.toString();
     }
 
+    public String decode(String encoded) {
+        StringBuilder decoded = new StringBuilder();
+
+        int i = 0;
+        while (i < encoded.length()) {
+
+            Character thisChar = encoded.charAt(i);
+
+            if (!Character.isDigit(thisChar)) {
+                i = decodeSingleCharacter(encoded, decoded, i);
+            } else {
+                i = decodeRepeatedCharacter(encoded, decoded, i);
+            }
+        }
+
+        return decoded.toString();
+    }
+
+    private int decodeRepeatedCharacter(String encoded, StringBuilder decoded, int i) {
+        int repeatCount = grabCountFrom(i, encoded);
+        char charToRepeat = encoded.charAt(i + String.valueOf(repeatCount).length());
+        for (int j = 0; j < repeatCount; j++) {
+            decoded.append(charToRepeat);
+        }
+
+        return i + String.valueOf(repeatCount).length() + 1;
+    }
+
+    private int decodeSingleCharacter(String encoded, StringBuilder decoded, int i) {
+        decoded.append(encoded.charAt(i));
+        return ++i;
+    }
+
     private int encodeRepeatedCharacter(String unencoded, StringBuilder encoded, int i) {
         Character thisChar = unencoded.charAt(i);
         int j = i + 1;
@@ -50,30 +83,6 @@ public class RunLengthEncoding {
         return j < unencoded.length() && (unencoded.charAt(j) == thisChar);
     }
 
-    public String decode(String encoded) {
-
-        StringBuilder decoded = new StringBuilder();
-
-        int i = 0;
-        while (i < encoded.length()) {
-
-            Character thisChar = encoded.charAt(i);
-            if (!Character.isDigit(thisChar)) {
-                decoded.append(encoded.charAt(i));
-                ++i;
-            } else {
-                int repeatCount = grabCountFrom(i, encoded);
-                char charToRepeat = encoded.charAt(i + String.valueOf(repeatCount).length());
-                for (int j = 0; j < repeatCount; j++) {
-                    decoded.append(charToRepeat);
-                }
-
-                i += String.valueOf(repeatCount).length() + 1;
-            }
-        }
-
-        return decoded.toString();
-    }
 
     private int grabCountFrom(int i, String encoded) {
         for (int j = i + 1; j <= encoded.length(); j++) {
