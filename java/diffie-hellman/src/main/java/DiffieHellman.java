@@ -1,9 +1,16 @@
 import java.math.BigInteger;
+import java.util.Random;
 
 public class DiffieHellman {
 
     public BigInteger privateKey(BigInteger prime) {
-        return prime.subtract(BigInteger.ONE);
+
+        BigInteger randomNumber;
+        do {
+            randomNumber = new BigInteger(prime.bitLength(), new Random());
+        } while (randomNumber.compareTo(prime) >= 0);
+
+        return randomNumber;
     }
 
     public BigInteger publicKey(BigInteger primeA, BigInteger primeB, BigInteger privateKey) {
