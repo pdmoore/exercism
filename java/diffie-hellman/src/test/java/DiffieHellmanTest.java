@@ -46,7 +46,6 @@ public class DiffieHellmanTest {
         assertNotEquals(privateKeyA, privateKeyB);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testPublicKeyCorrectlyCalculated() {
         BigInteger primeA = BigInteger.valueOf(23);

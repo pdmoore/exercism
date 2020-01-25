@@ -14,6 +14,13 @@ public class DiffieHellman {
     }
 
     public BigInteger publicKey(BigInteger primeA, BigInteger primeB, BigInteger privateKey) {
+
+// g
+        // a -privateKey
+//        A = g**a mod p
+        ///sooooo... how do primeA and primeB map to g and p
+        // BigInt.pow expects an int, not a BigInt (privateKey) - do I need to roll my own g**a?
+
         return null;
     }
 
