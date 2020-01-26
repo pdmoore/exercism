@@ -87,8 +87,8 @@ public class MarkdownTest {
 
     @Test
     public void missingCoverage() {
-        String input = "* Item 1\nnothing\n# Header\n* Item 2";
-        String expected = "<ul><li>Item 1</li></ul><p>nothing</p><h1>Header</h1><ul><li>Item 2</li></ul>";
+        String input = "* Item 1\n# Header";
+        String expected = "<ul><li>Item 1</li></ul><h1>Header</h1>";
 
         assertEquals(expected, markdown.parse(input));
     }
