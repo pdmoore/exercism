@@ -14,12 +14,10 @@ public class DiffieHellman {
     }
 
     public BigInteger publicKey(BigInteger primeA, BigInteger primeB, BigInteger privateKey) {
-        BigInteger answer = primeB.pow(privateKey.intValue()).mod(primeA);
-        return answer;
+        return primeB.modPow(privateKey, primeA);
     }
 
     public BigInteger secret(BigInteger prime, BigInteger publicKey, BigInteger privateKey) {
-        BigInteger answer = publicKey.pow(privateKey.intValue()).mod(prime);
-        return answer;
+        return publicKey.modPow(privateKey, prime);
     }
 }
