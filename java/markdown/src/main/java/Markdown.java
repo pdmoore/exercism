@@ -1,5 +1,5 @@
 class Markdown {
-  
+
     String parse(String markdown) {
 
         String[] lines = markdown.split("\n");
@@ -11,28 +11,25 @@ class Markdown {
         for (int i = 0; i < lines.length; i++) {
 
             String theLine = parseHeader(lines[i]);
-          
+
             if (theLine == null) {
-              theLine = parseListItem(lines[i]);
+                theLine = parseListItem(lines[i]);
             }
-    
-            if (theLine == null) 
-            {
+
+            if (theLine == null) {
                 theLine = parseParagraph(lines[i]);
             }
 
             if (theLine.matches("(<li>).*") && !theLine.matches("(<h).*") && !theLine.matches("(<p>).*") && !activeList) {
                 activeList = true;
-              result = result + "<ul>";
+                result = result + "<ul>";
                 result = result + theLine;
-            } 
-            
-            else if (!theLine.matches("(<li>).*") && activeList) {
+            } else if (!theLine.matches("(<li>).*") && activeList) {
                 activeList = false;
                 result = result + "</ul>";
                 result = result + theLine;
             } else {
-              result = result + theLine;
+                result = result + theLine;
             }
         }
 
@@ -46,14 +43,15 @@ class Markdown {
     private String parseHeader(String markdown) {
         int count = 0;
 
-        for (int i = 0; i < markdown.length() && markdown.charAt(i) == '#'; i++) 
-        {
+        for (int i = 0; i < markdown.length() && markdown.charAt(i) == '#'; i++) {
             count++;
         }
 
-        if (count == 0) { return null; }
+        if (count == 0) {
+            return null;
+        }
 
-        return "<h" + Integer.toString(count) + ">" + markdown.substring(count + 1) + "</h" + Integer.toString(count)+ ">";
+        return "<h" + Integer.toString(count) + ">" + markdown.substring(count + 1) + "</h" + Integer.toString(count) + ">";
     }
 
     private String parseListItem(String markdown) {
