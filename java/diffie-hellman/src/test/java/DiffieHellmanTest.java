@@ -30,7 +30,7 @@ public class DiffieHellmanTest {
         }
 
         for (BigInteger privateKey : privateKeys) {
-            assertTrue(privateKey.compareTo(BigInteger.ONE) >= 0);
+            assertTrue("FAIL", privateKey.compareTo(BigInteger.ONE) >= 0);
             assertTrue(privateKey.compareTo(prime) < 0);
         }
     }
