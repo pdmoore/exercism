@@ -56,7 +56,6 @@ public class DiffieHellmanTest {
         assertEquals(expected, diffieHellman.publicKey(primeA, primeB, privateKey));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSecretKeyCorrectlyCalculated() {
         BigInteger prime = BigInteger.valueOf(23);
@@ -67,7 +66,6 @@ public class DiffieHellmanTest {
         assertEquals(expected, diffieHellman.secret(prime, publicKey, privateKey));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testExchange() {
         BigInteger primeA = BigInteger.valueOf(23);

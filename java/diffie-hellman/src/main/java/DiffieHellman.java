@@ -19,6 +19,7 @@ public class DiffieHellman {
     }
 
     public BigInteger secret(BigInteger prime, BigInteger publicKey, BigInteger privateKey) {
-        return null;
+        BigInteger answer = publicKey.pow(privateKey.intValue()).mod(prime);
+        return answer;
     }
 }
