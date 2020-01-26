@@ -10,40 +10,51 @@ class Markdown {
 
         for (int i = 0; i < lines.length; i++) {
 
-            String theLine = parseHeader(lines[i]);
-            if (theLine != null) {
-                if (activeList) {
-                    activeList = false;
-                    result = result + "</ul>";
-                }
-
-            } else {
-
+            String theLine = null;
+            if (isHeader(lines[i])) {
+                theLine = parseHeader(lines[i]);
+                result += closeActiveList(activeList);
+                activeList = false;
+            } else if (isList(lines[i])) {
                 theLine = parseListItem(lines[i]);
-                if (theLine != null) {
-                    if (!activeList) {
-                        activeList = true;
-                        result = result + "<ul>";
-                    }
-                } else {
-                    theLine = parseParagraph(lines[i]);
-                    if (activeList) {
-                        activeList = false;
-                        result = result + "</ul>";
-                    }
+                result += openActiveList(activeList);
+                activeList = true;
+            } else {
+                theLine = parseParagraph(lines[i]);
 
-                }
+                result += closeActiveList(activeList);
+                activeList = false;
 
             }
 
             result = result + theLine;
         }
 
-        if (activeList) {
-            result = result + "</ul>";
-        }
+        result += closeActiveList(activeList);
 
         return result;
+    }
+
+    private String openActiveList(boolean activeList) {
+        if (!activeList) {
+            return "<ul>";
+        }
+        return "";
+    }
+
+    private String closeActiveList(boolean activeList) {
+        if (activeList) {
+            return "</ul>";
+        }
+        return "";
+    }
+
+    private boolean isList(String line) {
+        return line.contains("*");
+    }
+
+    private boolean isHeader(String line) {
+        return line.contains("#");
     }
 
     private String parseHeader(String markdown) {
