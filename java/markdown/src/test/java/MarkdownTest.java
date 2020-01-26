@@ -78,6 +78,22 @@ public class MarkdownTest {
     }
 
     @Test
+    public void missingCoverage_ListFollowedByParagraph() {
+        String input = "* Item 1\nnothing";
+        String expected = "<ul><li>Item 1</li></ul><p>nothing</p>";
+
+        assertEquals(expected, markdown.parse(input));
+    }
+
+    @Test
+    public void missingCoverage() {
+        String input = "* Item 1\nnothing\n# Header\n* Item 2";
+        String expected = "<ul><li>Item 1</li></ul><p>nothing</p><h1>Header</h1><ul><li>Item 2</li></ul>";
+
+        assertEquals(expected, markdown.parse(input));
+    }
+
+    @Test
     public void aLittleBitOfEverything() {
         String input = "# Header!\n* __Bold Item__\n* _Italic Item_";
         String expected = "<h1>Header!</h1><ul><li><strong>Bold Item</strong></li><li><em>Italic Item</em></li></ul>";
