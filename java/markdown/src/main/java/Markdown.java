@@ -65,13 +65,9 @@ class Markdown {
     }
 
     private String parseListItem(String markdown) {
-        if (markdown.startsWith("*")) {
-            String skipAsterisk = markdown.substring(2);
-            String listItemString = parseSomeSymbols(skipAsterisk);
-            return "<li>" + listItemString + "</li>";
-        }
-
-        return null;
+        String markdownPastTheAsterisk = markdown.substring(2);
+        String listItemHTML = parseSomeSymbols(markdownPastTheAsterisk);
+        return "<li>" + listItemHTML + "</li>";
     }
 
     private String parseParagraph(String markdown) {
