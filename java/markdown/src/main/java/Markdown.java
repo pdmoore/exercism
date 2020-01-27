@@ -22,22 +22,25 @@ class Markdown {
     }
 
     private String processLine(String resultInProgress, String line) {
-        String resultForThisLine = null;
+        String htmlForThisLine = null;
         if (isHeader(line)) {
-            resultForThisLine = parseHeader(line);
             resultInProgress += closeActiveList();
             activeList = false;
+
+            htmlForThisLine = parseHeader(line);
         } else if (isList(line)) {
-            resultForThisLine = parseListItem(line);
             resultInProgress += openActiveList();
             activeList = true;
+
+            htmlForThisLine = parseListItem(line);
         } else {
-            resultForThisLine = parseParagraph(line);
             resultInProgress += closeActiveList();
             activeList = false;
+
+            htmlForThisLine = parseParagraph(line);
         }
 
-        return resultInProgress + resultForThisLine;
+        return resultInProgress + htmlForThisLine;
     }
 
     private String openActiveList() {
