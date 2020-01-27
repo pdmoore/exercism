@@ -1,48 +1,49 @@
 class Markdown {
 
+    private boolean activeList;
+
     String parse(String markdown) {
 
         String[] lines = markdown.split("\n");
 
         String result = "";
 
-        boolean activeList = false;
+        activeList = false;
 
         for (int i = 0; i < lines.length; i++) {
 
             String theLine = null;
             if (isHeader(lines[i])) {
                 theLine = parseHeader(lines[i]);
-                result += closeActiveList(activeList);
+                result += closeActiveList();
                 activeList = false;
             } else if (isList(lines[i])) {
                 theLine = parseListItem(lines[i]);
-                result += openActiveList(activeList);
+                result += openActiveList();
                 activeList = true;
             } else {
                 theLine = parseParagraph(lines[i]);
 
-                result += closeActiveList(activeList);
+                result += closeActiveList();
                 activeList = false;
-
             }
 
             result = result + theLine;
         }
 
-        result += closeActiveList(activeList);
+        result += closeActiveList();
 
         return result;
     }
 
-    private String openActiveList(boolean activeList) {
+    private String openActiveList() {
         if (!activeList) {
             return "<ul>";
         }
         return "";
     }
 
-    private String closeActiveList(boolean activeList) {
+    private String closeActiveList() {
         if (activeList) {
             return "</ul>";
         }
