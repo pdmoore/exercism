@@ -1,4 +1,8 @@
 class Markdown {
+    private static final String MARKDOWN_STRONG = "__(.+)__";
+    private static final String MARKDOWN_EMPHASIS = "_(.+)_";
+    private static final String HTML_STRONG = "<strong>$1</strong>";
+    private static final String HTML_EMPHASIS = "<em>$1</em>";
 
     private boolean activeList;
 
@@ -75,13 +79,8 @@ class Markdown {
     }
 
     private String parseSomeSymbols(String markdown) {
-
-        String lookingFor = "__(.+)__";
-        String update = "<strong>$1</strong>";
-        String workingOn = markdown.replaceAll(lookingFor, update);
-
-        lookingFor = "_(.+)_";
-        update = "<em>$1</em>";
-        return workingOn.replaceAll(lookingFor, update);
+        String workingOn = markdown.replaceAll(MARKDOWN_STRONG, HTML_STRONG);
+        workingOn = workingOn.replaceAll(MARKDOWN_EMPHASIS, HTML_EMPHASIS);
+        return workingOn;
     }
 }
