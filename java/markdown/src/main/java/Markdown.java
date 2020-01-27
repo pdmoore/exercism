@@ -44,16 +44,18 @@ class Markdown {
     }
 
     private String openActiveList() {
-        if (!activeList) {
-            return "<ul>";
+        if (activeList) {
+            return "";
         }
-        return "";
+
+        return "<ul>";
     }
 
     private String closeActiveList() {
         if (activeList) {
             return "</ul>";
         }
+        
         return "";
     }
 
