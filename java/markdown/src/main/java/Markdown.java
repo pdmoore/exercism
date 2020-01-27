@@ -3,37 +3,37 @@ class Markdown {
     private boolean activeList;
 
     String parse(String markdown) {
+        activeList = false;
 
         String[] lines = markdown.split("\n");
 
         String result = "";
-
-        activeList = false;
-
         for (int i = 0; i < lines.length; i++) {
-
-            String theLine = null;
-            if (isHeader(lines[i])) {
-                theLine = parseHeader(lines[i]);
-                result += closeActiveList();
-                activeList = false;
-            } else if (isList(lines[i])) {
-                theLine = parseListItem(lines[i]);
-                result += openActiveList();
-                activeList = true;
-            } else {
-                theLine = parseParagraph(lines[i]);
-
-                result += closeActiveList();
-                activeList = false;
-            }
-
-            result = result + theLine;
+            result = processLine(result, lines[i]);
         }
 
         result += closeActiveList();
 
         return result;
+    }
+
+    private String processLine(String resultInProgress, String line) {
+        String resultForThisLine = null;
+        if (isHeader(line)) {
+            resultForThisLine = parseHeader(line);
+            resultInProgress += closeActiveList();
+            activeList = false;
+        } else if (isList(line)) {
+            resultForThisLine = parseListItem(line);
+            resultInProgress += openActiveList();
+            activeList = true;
+        } else {
+            resultForThisLine = parseParagraph(line);
+            resultInProgress += closeActiveList();
+            activeList = false;
+        }
+
+        return resultInProgress + resultForThisLine;
     }
 
     private String openActiveList() {
@@ -59,17 +59,9 @@ class Markdown {
     }
 
     private String parseHeader(String markdown) {
-        int count = 0;
+        int headerTagCount = (int) markdown.chars().filter(ch -> ch == '#').count();
 
-        for (int i = 0; i < markdown.length() && markdown.charAt(i) == '#'; i++) {
-            count++;
-        }
-
-        if (count == 0) {
-            return null;
-        }
-
-        return "<h" + Integer.toString(count) + ">" + markdown.substring(count + 1) + "</h" + Integer.toString(count) + ">";
+        return "<h" + Integer.toString(headerTagCount) + ">" + markdown.substring(headerTagCount + 1) + "</h" + Integer.toString(headerTagCount) + ">";
     }
 
     private String parseListItem(String markdown) {
