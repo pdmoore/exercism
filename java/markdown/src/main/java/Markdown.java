@@ -4,6 +4,10 @@ class Markdown {
     private static final String HTML_STRONG = "<strong>$1</strong>";
     private static final String HTML_EMPHASIS = "<em>$1</em>";
 
+    public static final String TAG_LIST_ITEM = "ul";
+    public static final String TAG_LIST = "li";
+    public static final String TAG_PARAGRAPH = "p";
+
     private boolean activeList;
 
     String parse(String markdown) {
@@ -44,11 +48,11 @@ class Markdown {
     }
 
     private String openActiveList() {
-        return activeList ? "" : openTag("ul");
+        return activeList ? "" : openTag(TAG_LIST_ITEM);
     }
 
     private String closeActiveList() {
-        return activeList ? closeTag("ul") : "";
+        return activeList ? closeTag(TAG_LIST_ITEM) : "";
     }
 
     private boolean isList(String line) {
@@ -70,11 +74,17 @@ class Markdown {
     private String parseListItem(String markdown) {
         String markdownPastTheAsterisk = markdown.substring(2);
         String listItemHTML = parseSomeSymbols(markdownPastTheAsterisk);
-        return wrapWithTag(listItemHTML, "li");
+        return wrapWithTag(listItemHTML, TAG_LIST);
     }
 
     private String parseParagraph(String markdown) {
-        return wrapWithTag(parseSomeSymbols(markdown), "p");
+        return wrapWithTag(parseSomeSymbols(markdown), TAG_PARAGRAPH);
+    }
+
+    private String parseSomeSymbols(String markdown) {
+        String workingOn = markdown.replaceAll(MARKDOWN_STRONG, HTML_STRONG);
+        workingOn = workingOn.replaceAll(MARKDOWN_EMPHASIS, HTML_EMPHASIS);
+        return workingOn;
     }
 
     private String wrapWithTag(String markdown, String tag) {
@@ -87,11 +97,5 @@ class Markdown {
 
     private String closeTag(String tag) {
         return "</" + tag + ">";
-    }
-
-    private String parseSomeSymbols(String markdown) {
-        String workingOn = markdown.replaceAll(MARKDOWN_STRONG, HTML_STRONG);
-        workingOn = workingOn.replaceAll(MARKDOWN_EMPHASIS, HTML_EMPHASIS);
-        return workingOn;
     }
 }
