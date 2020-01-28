@@ -44,19 +44,11 @@ class Markdown {
     }
 
     private String openActiveList() {
-        if (activeList) {
-            return "";
-        }
-
-        return "<ul>";
+        return activeList ? "" : openTag("ul");
     }
 
     private String closeActiveList() {
-        if (activeList) {
-            return "</ul>";
-        }
-        
-        return "";
+        return activeList ? closeTag("ul") : "";
     }
 
     private boolean isList(String line) {
@@ -70,17 +62,31 @@ class Markdown {
     private String parseHeader(String markdown) {
         int headerTagCount = (int) markdown.chars().filter(ch -> ch == '#').count();
 
-        return "<h" + Integer.toString(headerTagCount) + ">" + markdown.substring(headerTagCount + 1) + "</h" + Integer.toString(headerTagCount) + ">";
+        String headerTag = "h" + Integer.toString(headerTagCount);
+
+        return wrapWithTag(markdown.substring(headerTagCount + 1), headerTag);
     }
 
     private String parseListItem(String markdown) {
         String markdownPastTheAsterisk = markdown.substring(2);
         String listItemHTML = parseSomeSymbols(markdownPastTheAsterisk);
-        return "<li>" + listItemHTML + "</li>";
+        return wrapWithTag(listItemHTML, "li");
     }
 
     private String parseParagraph(String markdown) {
-        return "<p>" + parseSomeSymbols(markdown) + "</p>";
+        return wrapWithTag(parseSomeSymbols(markdown), "p");
+    }
+
+    private String wrapWithTag(String markdown, String tag) {
+        return openTag(tag) + markdown + closeTag(tag);
+    }
+
+    private String openTag(String tag) {
+        return "<" + tag + ">";
+    }
+
+    private String closeTag(String tag) {
+        return "</" + tag + ">";
     }
 
     private String parseSomeSymbols(String markdown) {
