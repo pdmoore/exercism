@@ -62,9 +62,9 @@ class Markdown {
     private String parseHeader(String markdown) {
         int headerTagCount = (int) markdown.chars().filter(ch -> ch == '#').count();
 
+        String markdownPastTheHeader = markdown.substring(headerTagCount + 1);
         String headerTag = "h" + Integer.toString(headerTagCount);
-
-        return wrapWithTag(markdown.substring(headerTagCount + 1), headerTag);
+        return wrapWithTag(markdownPastTheHeader, headerTag);
     }
 
     private String parseListItem(String markdown) {
