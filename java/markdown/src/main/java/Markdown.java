@@ -72,8 +72,8 @@ class Markdown {
     }
 
     private String parseListItem(String markdown) {
-        String markdownPastTheAsterisk = markdown.substring(2);
-        String listItemHTML = parseSomeSymbols(markdownPastTheAsterisk);
+        String markdownPastTheListItem = markdown.substring(2);
+        String listItemHTML = parseSomeSymbols(markdownPastTheListItem);
         return wrapWithTag(listItemHTML, TAG_LIST);
     }
 
@@ -82,9 +82,7 @@ class Markdown {
     }
 
     private String parseSomeSymbols(String markdown) {
-        String workingOn = markdown.replaceAll(MARKDOWN_STRONG, HTML_STRONG);
-        workingOn = workingOn.replaceAll(MARKDOWN_EMPHASIS, HTML_EMPHASIS);
-        return workingOn;
+        return markdown.replaceAll(MARKDOWN_STRONG, HTML_STRONG).replaceAll(MARKDOWN_EMPHASIS, HTML_EMPHASIS);
     }
 
     private String wrapWithTag(String markdown, String tag) {
