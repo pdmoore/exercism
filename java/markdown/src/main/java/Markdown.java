@@ -58,14 +58,18 @@ class Markdown {
 
     private boolean isList(String line) {
         return line.contains("*");
+//        return line.startsWith("*");
     }
 
     private boolean isHeader(String line) {
-        return line.contains("#");
+        return line.startsWith("#");
     }
 
     private String parseHeader(String markdown) {
-        int headerTagCount = (int) markdown.chars().filter(ch -> ch == '#').count();
+        int headerTagCount = -1;
+        while (markdown.charAt(++headerTagCount) == '#') {
+            // clever - is there a better way?
+        }
 
         String markdownPastTheHeader = markdown.substring(headerTagCount + 1);
         String headerTag = "h" + Integer.toString(headerTagCount);

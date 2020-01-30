@@ -100,4 +100,39 @@ public class MarkdownTest {
 
         assertEquals(expected, markdown.parse(input));
     }
+
+    @Test
+    public void markdownSymbolsInTheHeaderShouldNotBeInterpreted() {
+        String input = "# This is a header with # and * in the text";
+        String expected = "<h1>This is a header with # and * in the text</h1>";
+
+        assertEquals(expected, markdown.parse(input));
+    }
+
+    @Ignore("Remove to run test")
+    @Test
+    public void markdownSymbolsInTheListItemTextShouldNotBeInterpreted() {
+        String input = "* Item 1 with a # in the text\n* Item 2 with * in the text";
+        String expected = "<ul><li>Item 1 with a # in the text</li><li>Item 2 with * in the text</li></ul>";
+
+        assertEquals(expected, markdown.parse(input));
+    }
+
+    @Ignore("Remove to run test")
+    @Test
+    public void markdownSymbolsInTheParagraphTextShouldNotBeInterpreted() {
+        String input = "This is a paragraph with # and * in the text";
+        String expected = "<p>This is a paragraph with # and * in the text</p>";
+
+        assertEquals(expected, markdown.parse(input));
+    }
+
+    @Ignore("Remove to run test")
+    @Test
+    public void markdownUnorderedListsCloseProperlyWithPrecedingAndFollowingLines() {
+        String input = "# Start a list\n* Item 1\n* Item 2\nEnd a list";
+        String expected = "<h1>Start a list</h1><ul><li>Item 1</li><li>Item 2</li></ul><p>End a list</p>";
+
+        assertEquals(expected, markdown.parse(input));
+    }
 }
