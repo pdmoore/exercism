@@ -65,15 +65,19 @@ class Markdown {
     }
 
     private String parseHeader(String markdown) {
+        int headerTagCount = countHeaderTags(markdown);
+        String markdownPastTheHeader = markdown.substring(headerTagCount + 1);
+        String headerTag = "h" + Integer.toString(headerTagCount);
+
+        return wrapWithTag(markdownPastTheHeader, headerTag);
+    }
+
+    private int countHeaderTags(String markdown) {
         int headerTagCount = -1;
-        //TODO - count the first N # characters
         while (markdown.charAt(++headerTagCount) == '#') {
             // clever - is there a better way?
         }
-
-        String markdownPastTheHeader = markdown.substring(headerTagCount + 1);
-        String headerTag = "h" + Integer.toString(headerTagCount);
-        return wrapWithTag(markdownPastTheHeader, headerTag);
+        return headerTagCount;
     }
 
     private String parseListItem(String markdown) {
