@@ -1,3 +1,6 @@
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class RunLengthEncoding {
 
     public String encode(String unencoded) {
@@ -22,7 +25,7 @@ public class RunLengthEncoding {
         int i = 0;
         while (i < encoded.length()) {
 
-            Character thisChar = encoded.charAt(i);
+            char thisChar = encoded.charAt(i);
 
             if (!Character.isDigit(thisChar)) {
                 i = decodeSingleCharacter(encoded, decoded, i);
@@ -37,9 +40,9 @@ public class RunLengthEncoding {
     private int decodeRepeatedCharacter(String encoded, StringBuilder decoded, int i) {
         int repeatCount = grabCountFrom(i, encoded);
         char charToRepeat = encoded.charAt(i + String.valueOf(repeatCount).length());
-        for (int j = 0; j < repeatCount; j++) {
-            decoded.append(charToRepeat);
-        }
+        decoded.append(IntStream.range(0, repeatCount).
+                mapToObj(j -> String.valueOf(charToRepeat)).
+                collect(Collectors.joining()));
 
         return i + String.valueOf(repeatCount).length() + 1;
     }
@@ -73,19 +76,17 @@ public class RunLengthEncoding {
 
     private boolean nextCharacterIsDifferent(String unencoded, int i) {
         char thisChar = unencoded.charAt(i);
-        Character nextChar = null;
+        char nextChar = 0;
         if (i < unencoded.length() - 1) {
             nextChar = unencoded.charAt(i + 1);
         }
-        return nextChar != null &&
-                nextChar != thisChar;
+        return nextChar != thisChar;
     }
 
     private boolean theNextCharacterIsSame(String unencoded, char thisChar, int j) {
         return (j < unencoded.length()) &&
                 (unencoded.charAt(j) == thisChar);
     }
-
 
     private int grabCountFrom(int i, String encoded) {
         for (int j = i + 1; j <= encoded.length(); j++) {
