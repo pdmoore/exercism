@@ -57,8 +57,7 @@ class Markdown {
     }
 
     private boolean isList(String line) {
-        return line.contains("*");
-//        return line.startsWith("*");
+        return line.startsWith("*");
     }
 
     private boolean isHeader(String line) {
@@ -67,6 +66,7 @@ class Markdown {
 
     private String parseHeader(String markdown) {
         int headerTagCount = -1;
+        //TODO - count the first N # characters
         while (markdown.charAt(++headerTagCount) == '#') {
             // clever - is there a better way?
         }

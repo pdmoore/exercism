@@ -109,7 +109,6 @@ public class MarkdownTest {
         assertEquals(expected, markdown.parse(input));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void markdownSymbolsInTheListItemTextShouldNotBeInterpreted() {
         String input = "* Item 1 with a # in the text\n* Item 2 with * in the text";
@@ -118,7 +117,6 @@ public class MarkdownTest {
         assertEquals(expected, markdown.parse(input));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void markdownSymbolsInTheParagraphTextShouldNotBeInterpreted() {
         String input = "This is a paragraph with # and * in the text";
@@ -127,7 +125,6 @@ public class MarkdownTest {
         assertEquals(expected, markdown.parse(input));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void markdownUnorderedListsCloseProperlyWithPrecedingAndFollowingLines() {
         String input = "# Start a list\n* Item 1\n* Item 2\nEnd a list";
