@@ -13,11 +13,9 @@ class Markdown {
     String parse(String markdown) {
         activeList = false;
 
-        String[] lines = markdown.split("\n");
-
         String result = "";
-        for (int i = 0; i < lines.length; i++) {
-            result = processLine(result, lines[i]);
+        for (String line : markdown.split("\n")) {
+            result = processLine(result, line);
         }
 
         result += closeActiveList();
