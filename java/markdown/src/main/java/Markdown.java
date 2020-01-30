@@ -21,6 +21,7 @@ class Markdown {
         }
 
         result += closeActiveList();
+        result = convertModifiersToHtml(result);
 
         return result;
     }
@@ -73,15 +74,14 @@ class Markdown {
 
     private String parseListItem(String markdown) {
         String markdownPastTheListItem = markdown.substring(2);
-        String listItemHTML = parseSomeSymbols(markdownPastTheListItem);
-        return wrapWithTag(listItemHTML, TAG_LIST);
+        return wrapWithTag(markdownPastTheListItem, TAG_LIST);
     }
 
     private String parseParagraph(String markdown) {
-        return wrapWithTag(parseSomeSymbols(markdown), TAG_PARAGRAPH);
+        return wrapWithTag(markdown, TAG_PARAGRAPH);
     }
 
-    private String parseSomeSymbols(String markdown) {
+    private String convertModifiersToHtml(String markdown) {
         return markdown.replaceAll(MARKDOWN_STRONG, HTML_STRONG).replaceAll(MARKDOWN_EMPHASIS, HTML_EMPHASIS);
     }
 
