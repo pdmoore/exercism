@@ -9,7 +9,15 @@ public class PhoneNumber {
     }
 
     private String cleanUp(String rawInput) {
-        return "2234567890";
+        String cleanUp = rawInput;
+
+        cleanUp = rawInput.replace("(", "");
+        cleanUp = cleanUp.replace(")", "");
+        cleanUp = cleanUp.replace(" ", "");
+        cleanUp = cleanUp.replace(".", "");
+        cleanUp = cleanUp.replace("-", "");
+
+        return cleanUp;
     }
 
     public String getNumber() {
