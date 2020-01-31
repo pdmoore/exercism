@@ -63,7 +63,6 @@ public class PhoneNumberTest {
         new PhoneNumber("123456789");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void invalidWhen11DigitsDoesNotStartWith1() {
         expectedException.expect(IllegalArgumentException.class);
