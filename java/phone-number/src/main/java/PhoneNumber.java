@@ -7,13 +7,18 @@ public class PhoneNumber {
     private final String phoneNumber;
 
     public PhoneNumber(String rawInput) {
-        phoneNumber = cleanUp(rawInput);
+        String clean = cleanUp(rawInput);
 
-        if (phoneNumber.length() < 10) {
+        if (clean.length() < 10) {
             throw new IllegalArgumentException(wrongLengthExceptionMessage);
-        } else if (phoneNumber.length() > 10) {
-            throw new IllegalArgumentException(numberIs11DigitsButDoesNotStartWith1ExceptionMessage);
+        } else if (clean.length() > 10) {
+            if (clean.charAt(0) != '1') {
+                throw new IllegalArgumentException(numberIs11DigitsButDoesNotStartWith1ExceptionMessage);
+            }
+            clean = clean.substring(1);
         }
+
+        phoneNumber = clean;
 
     }
 

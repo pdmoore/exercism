@@ -70,7 +70,6 @@ public class PhoneNumberTest {
         new PhoneNumber("22234567890");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void validWhen11DigitsAndStartingWith1() {
         String expectedNumber = "2234567890";
