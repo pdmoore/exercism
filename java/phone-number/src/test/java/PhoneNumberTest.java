@@ -56,7 +56,6 @@ public class PhoneNumberTest {
         );
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void invalidWhen9Digits() {
         expectedException.expect(IllegalArgumentException.class);
