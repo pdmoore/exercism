@@ -11,8 +11,7 @@ public class PhoneNumber {
     private String cleanUp(String rawInput) {
         String cleanUp = rawInput;
 
-        cleanUp = cleanUp.replaceAll("[()( )-]", "");
-        cleanUp = cleanUp.replace(".", "");
+        cleanUp = cleanUp.replaceAll("[()( )-\\.]", "");
 
         return cleanUp;
     }
