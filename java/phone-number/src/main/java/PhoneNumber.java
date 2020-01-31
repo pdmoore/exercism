@@ -4,8 +4,12 @@ public class PhoneNumber {
 
     public PhoneNumber(String rawInput) {
 
-        phoneNumber = "2234567890";
+        phoneNumber = cleanUp(rawInput);
 
+    }
+
+    private String cleanUp(String rawInput) {
+        return "2234567890";
     }
 
     public String getNumber() {
