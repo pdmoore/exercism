@@ -9,11 +9,7 @@ public class PhoneNumber {
     }
 
     private String cleanUp(String rawInput) {
-        String cleanUp = rawInput;
-
-        cleanUp = cleanUp.replaceAll("[()( )-\\.]", "");
-
-        return cleanUp;
+        return rawInput.replaceAll("[()( )-\\.]", "");
     }
 
     public String getNumber() {
