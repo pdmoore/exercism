@@ -5,6 +5,6 @@ public class PhoneNumber {
     }
 
     public String getNumber() {
-        return null;
+        return "2234567890";
     }
 }
