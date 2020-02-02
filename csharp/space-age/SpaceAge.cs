@@ -3,7 +3,7 @@ using System;
 public class SpaceAge {
     private const double SECONDS = 31557600;
 
-    private long seconds;
+    private readonly long seconds;
 
     public SpaceAge(long seconds) {
         this.seconds = seconds;
