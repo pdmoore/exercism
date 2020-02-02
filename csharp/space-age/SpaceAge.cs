@@ -1,14 +1,16 @@
 using System;
 
-public class SpaceAge
-{
-    public SpaceAge(long seconds)
-    {
+public class SpaceAge {
+    private const double SECONDS = 31557600;
+    
+    private long seconds;
+
+    public SpaceAge(long seconds) {
+        this.seconds = seconds;
     }
 
-    public double OnEarth()
-    {
-        throw new NotImplementedException("You need to implement this function.");
+    public double OnEarth() {
+        return Math.Round(seconds / SECONDS, 2);
     }
 
     public double OnMercury()
