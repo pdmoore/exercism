@@ -13,9 +13,10 @@ public class SpaceAge {
         return Math.Round(seconds / SECONDS, 2);
     }
 
-    public double OnMercury()
-    {
-        throw new NotImplementedException("You need to implement this function.");
+    public double OnMercury() {
+        var MercuryOfEarth = 0.2408467; 
+            
+        return Math.Round(seconds / (SECONDS * MercuryOfEarth), 2);
     }
 
     public double OnVenus()

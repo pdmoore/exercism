@@ -11,7 +11,7 @@ public class SpaceAgeTest
         Assert.Equal(31.69, sut.OnEarth());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Age_on_mercury()
     {
         var sut = new SpaceAge(2134835688);
