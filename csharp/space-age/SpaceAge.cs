@@ -1,7 +1,7 @@
 using System;
 
 public class SpaceAge {
-    private const double SECONDS_PER_EARTH_YER = 31557600;
+    private const double SECONDS_PER_EARTH_YEAR = 31557600;
 
     private readonly long _ageInSeconds;
 
@@ -10,20 +10,20 @@ public class SpaceAge {
     }
 
     public double OnEarth() {
-        return ToTwoDecimals(_ageInSeconds / SECONDS_PER_EARTH_YER);
+        return ToTwoDecimals(_ageInSeconds / SECONDS_PER_EARTH_YEAR);
     }
 
 
     public double OnMercury() {
         var MercuryOfEarth = 0.2408467;
 
-        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YER * MercuryOfEarth));
+        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * MercuryOfEarth));
     }
 
     public double OnVenus() {
         var VenusOfEarth = 0.61519726;
 
-        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YER * VenusOfEarth));
+        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * VenusOfEarth));
     }
 
     public double OnMars() {
