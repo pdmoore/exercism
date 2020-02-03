@@ -14,11 +14,9 @@ public class SpaceAge {
         return ToTwoDecimals(_ageInSeconds / SECONDS_PER_EARTH_YEAR);
     }
 
-
     public double OnMercury() {
         return AgeRelativeToEarthYear(0.2408467);
     }
-
 
     public double OnVenus() {
         return AgeRelativeToEarthYear(0.61519726);
@@ -43,8 +41,9 @@ public class SpaceAge {
     public double OnNeptune() {
         return AgeRelativeToEarthYear(164.79132);
     }
-    private double AgeRelativeToEarthYear(double MercuryOfEarth) {
-        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * MercuryOfEarth));
+
+    private double AgeRelativeToEarthYear(double earthYearMultiplier) {
+        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * earthYearMultiplier));
     }
 
     private double ToTwoDecimals(double age) {
