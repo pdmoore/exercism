@@ -15,15 +15,12 @@ public class SpaceAge {
 
 
     public double OnMercury() {
-        var MercuryOfEarth = 0.2408467;
-
-        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * MercuryOfEarth));
+        return AgeRelativeToEarthYear(0.2408467);
     }
 
-    public double OnVenus() {
-        var VenusOfEarth = 0.61519726;
 
-        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * VenusOfEarth));
+    public double OnVenus() {
+        return AgeRelativeToEarthYear(0.61519726);
     }
 
     public double OnMars() {
@@ -44,6 +41,9 @@ public class SpaceAge {
 
     public double OnNeptune() {
         throw new NotImplementedException("You need to implement this function.");
+    }
+    private double AgeRelativeToEarthYear(double MercuryOfEarth) {
+        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * MercuryOfEarth));
     }
 
     private double ToTwoDecimals(double age) {
