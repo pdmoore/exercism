@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class SpaceAge {
     private const double SECONDS_PER_EARTH_YEAR = 31557600;
@@ -24,23 +25,23 @@ public class SpaceAge {
     }
 
     public double OnMars() {
-        throw new NotImplementedException("You need to implement this function.");
+        return AgeRelativeToEarthYear(1.8808158);
     }
 
     public double OnJupiter() {
-        throw new NotImplementedException("You need to implement this function.");
+        return AgeRelativeToEarthYear(11.862615);
     }
 
     public double OnSaturn() {
-        throw new NotImplementedException("You need to implement this function.");
+        return AgeRelativeToEarthYear(29.447498);
     }
 
     public double OnUranus() {
-        throw new NotImplementedException("You need to implement this function.");
+        return AgeRelativeToEarthYear(84.016846);
     }
 
     public double OnNeptune() {
-        throw new NotImplementedException("You need to implement this function.");
+        return AgeRelativeToEarthYear(164.79132);
     }
     private double AgeRelativeToEarthYear(double MercuryOfEarth) {
         return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * MercuryOfEarth));
