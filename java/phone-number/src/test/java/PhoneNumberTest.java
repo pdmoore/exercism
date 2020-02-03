@@ -97,7 +97,6 @@ public class PhoneNumberTest {
         new PhoneNumber("321234567890");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void invalidWithLetters() {
         expectedException.expect(IllegalArgumentException.class);

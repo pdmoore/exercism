@@ -1,14 +1,21 @@
+import java.util.concurrent.ConcurrentHashMap;
+
 public class PhoneNumber {
 
     private static final String wrongLengthExceptionMessage = "incorrect number of digits";
     private static final String numberIs11DigitsButDoesNotStartWith1ExceptionMessage = "11 digits must start with 1";
     private static final String moreThan11DigitsExceptionMessage = "more than 11 digits";
+    private static final String illegalCharacterExceptionMessage = "letters not permitted";
 
 
     private final String phoneNumber;
 
     public PhoneNumber(String rawInput) {
         String clean = cleanUp(rawInput);
+
+        if (nonDigits(clean)) {
+            throw new IllegalArgumentException(illegalCharacterExceptionMessage);
+        }
 
         if (clean.length() < 10) {
             throw new IllegalArgumentException(wrongLengthExceptionMessage);
@@ -23,6 +30,10 @@ public class PhoneNumber {
 
         phoneNumber = clean;
 
+    }
+
+    private boolean nonDigits(String phoneNumber) {
+        return phoneNumber.chars().anyMatch(c -> !Character.isDigit(c));
     }
 
     private String cleanUp(String rawInput) {
