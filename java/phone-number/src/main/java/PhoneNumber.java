@@ -23,7 +23,7 @@ public class PhoneNumber {
     }
 
     private String cleanUp(String rawInput) {
-        return rawInput.replaceAll("[( )\\.()-]", "");
+        return rawInput.replaceAll("[+( )\\.()-]", "");
     }
 
     public String getNumber() {
