@@ -13,9 +13,10 @@ public class PhoneNumber {
     private final String phoneNumber;
 
     public PhoneNumber(String rawInput) {
-        //TODO clean and cleanUp don't mean anything now
         String candidateNumber = removePunctuation(rawInput);
 
+        // TODO extract the exception logic into a validation method
+        // watch for the substring behavior
         if (hasAlphabeticCharacters(candidateNumber)) {
             throw new IllegalArgumentException(illegalCharacterExceptionMessage);
         }
