@@ -125,7 +125,6 @@ public class PhoneNumberTest {
         new PhoneNumber("(123) 456-7890");
     }
     
-    @Ignore("Remove to run test")
     @Test
     public void invalidIfExchangeCodeStartsWith0() {
         expectedException.expect(IllegalArgumentException.class);
@@ -133,7 +132,6 @@ public class PhoneNumberTest {
         new PhoneNumber("(223) 056-7890");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void invalidIfExchangeCodeStartsWith1() {
         expectedException.expect(IllegalArgumentException.class);
