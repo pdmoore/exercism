@@ -1,5 +1,3 @@
-import java.util.concurrent.ConcurrentHashMap;
-
 public class PhoneNumber {
 
     private static final String wrongLengthExceptionMessage = "incorrect number of digits";
@@ -13,7 +11,7 @@ public class PhoneNumber {
     public PhoneNumber(String rawInput) {
         String clean = cleanUp(rawInput);
 
-        if (nonDigits(clean)) {
+        if (hasAlphabeticCharacters(clean)) {
             throw new IllegalArgumentException(illegalCharacterExceptionMessage);
         }
 
@@ -32,8 +30,8 @@ public class PhoneNumber {
 
     }
 
-    private boolean nonDigits(String phoneNumber) {
-        return phoneNumber.chars().anyMatch(c -> !Character.isDigit(c));
+    private boolean hasAlphabeticCharacters(String phoneNumber) {
+        return phoneNumber.chars().anyMatch(c -> Character.isAlphabetic(c));
     }
 
     private String cleanUp(String rawInput) {
