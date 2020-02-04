@@ -14,6 +14,7 @@ public class PhoneNumber {
     private final String phoneNumber;
 
     public PhoneNumber(String rawInput) {
+        //TODO clean and cleanUp don't mean anything now
         String clean = cleanUp(rawInput);
 
         if (hasAlphabeticCharacters(clean)) {
@@ -35,21 +36,21 @@ public class PhoneNumber {
             clean = clean.substring(1);
         }
 
+        // TODO refactor duplicate check and duplicate string contents
         if (clean.charAt(0) == '0') {
             throw new IllegalArgumentException(areaCodeStartsWithZeroExceptionMessage);
         } else if (clean.charAt(0) == '1') {
             throw new IllegalArgumentException(areaCodeStartsWithOneExceptionMessage);
         }
 
+        // TODO refactor duplicate check and duplicate string contents
         if (clean.charAt(3) == '0') {
             throw new IllegalArgumentException(exchangeCodeStartsWithZeroExceptionMessage);
         } else if (clean.charAt(3) == '1') {
             throw new IllegalArgumentException(exchangeCodeStartsWithOneExceptionMessage);
         }
 
-
         phoneNumber = clean;
-
     }
 
     private boolean hasPunctuation(String phoneNumber) {
