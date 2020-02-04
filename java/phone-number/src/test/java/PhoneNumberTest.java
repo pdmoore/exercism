@@ -104,7 +104,6 @@ public class PhoneNumberTest {
         new PhoneNumber("123-abc-7890");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void invalidWithPunctuations() {
         expectedException.expect(IllegalArgumentException.class);
