@@ -118,7 +118,6 @@ public class PhoneNumberTest {
         new PhoneNumber("(023) 456-7890");
     }
     
-    @Ignore("Remove to run test")
     @Test
     public void invalidIfAreaCodeStartsWith1() {
         expectedException.expect(IllegalArgumentException.class);
