@@ -111,7 +111,6 @@ public class PhoneNumberTest {
         new PhoneNumber("123-@:!-7890");
     }
     
-    @Ignore("Remove to run test")
     @Test
     public void invalidIfAreaCodeStartsWith0() {
         expectedException.expect(IllegalArgumentException.class);

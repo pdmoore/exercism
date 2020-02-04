@@ -5,7 +5,7 @@ public class PhoneNumber {
     private static final String moreThan11DigitsExceptionMessage = "more than 11 digits";
     private static final String illegalCharacterExceptionMessage = "letters not permitted";
     private static final String illegalPunctuationExceptionMessage = "punctuations not permitted";
-
+    private static final String areaCodeStartsWithZeroExceptionMessage = "area code cannot start with zero";
 
     private final String phoneNumber;
 
@@ -29,6 +29,10 @@ public class PhoneNumber {
                 throw new IllegalArgumentException(numberIs11DigitsButDoesNotStartWith1ExceptionMessage);
             }
             clean = clean.substring(1);
+        }
+
+        if (clean.charAt(0) == '0') {
+            throw new IllegalArgumentException(areaCodeStartsWithZeroExceptionMessage);
         }
 
         phoneNumber = clean;
