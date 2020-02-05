@@ -15,8 +15,42 @@ public class PhoneNumber {
     public PhoneNumber(String rawInput) {
         String candidateNumber = removePunctuation(rawInput);
 
-        // TODO extract the exception logic into a validation method
-        // watch for the substring behavior
+        validateLengthAndOnlyDigits(candidateNumber);
+        candidateNumber = validateAndNormalizeNumberWIthAreaCode(candidateNumber);
+
+        validateAreaCode(candidateNumber);
+        validateExchangeCode(candidateNumber);
+
+        phoneNumber = candidateNumber;
+    }
+
+    private void validateExchangeCode(String candidateNumber) {
+        if (candidateNumber.charAt(3) == '0') {
+            throw new IllegalArgumentException(exchangeCodeStartsWithZeroExceptionMessage);
+        } else if (candidateNumber.charAt(3) == '1') {
+            throw new IllegalArgumentException(exchangeCodeStartsWithOneExceptionMessage);
+        }
+    }
+
+    private void validateAreaCode(String candidateNumber) {
+        if (candidateNumber.charAt(0) == '0') {
+            throw new IllegalArgumentException(areaCodeStartsWithZeroExceptionMessage);
+        } else if (candidateNumber.charAt(0) == '1') {
+            throw new IllegalArgumentException(areaCodeStartsWithOneExceptionMessage);
+        }
+    }
+
+    private String validateAndNormalizeNumberWIthAreaCode(String candidateNumber) {
+        if (candidateNumber.length() > 10) {
+            if (candidateNumber.charAt(0) != '1') {
+                throw new IllegalArgumentException(numberIs11DigitsButDoesNotStartWith1ExceptionMessage);
+            }
+            candidateNumber = candidateNumber.substring(1);
+        }
+        return candidateNumber;
+    }
+
+    private void validateLengthAndOnlyDigits(String candidateNumber) {
         if (hasAlphabeticCharacters(candidateNumber)) {
             throw new IllegalArgumentException(illegalCharacterExceptionMessage);
         }
@@ -29,28 +63,7 @@ public class PhoneNumber {
             throw new IllegalArgumentException(wrongLengthExceptionMessage);
         } else if (candidateNumber.length() > 11) {
             throw new IllegalArgumentException(moreThan11DigitsExceptionMessage);
-        } else if (candidateNumber.length() > 10) {
-            if (candidateNumber.charAt(0) != '1') {
-                throw new IllegalArgumentException(numberIs11DigitsButDoesNotStartWith1ExceptionMessage);
-            }
-            candidateNumber = candidateNumber.substring(1);
         }
-
-        // TODO refactor duplicate check and duplicate string contents
-        if (candidateNumber.charAt(0) == '0') {
-            throw new IllegalArgumentException(areaCodeStartsWithZeroExceptionMessage);
-        } else if (candidateNumber.charAt(0) == '1') {
-            throw new IllegalArgumentException(areaCodeStartsWithOneExceptionMessage);
-        }
-
-        // TODO refactor duplicate check and duplicate string contents
-        if (candidateNumber.charAt(3) == '0') {
-            throw new IllegalArgumentException(exchangeCodeStartsWithZeroExceptionMessage);
-        } else if (candidateNumber.charAt(3) == '1') {
-            throw new IllegalArgumentException(exchangeCodeStartsWithOneExceptionMessage);
-        }
-
-        phoneNumber = candidateNumber;
     }
 
     private boolean hasPunctuation(String candidateNumber) {
