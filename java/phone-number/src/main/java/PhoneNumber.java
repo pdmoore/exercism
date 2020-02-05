@@ -15,7 +15,8 @@ public class PhoneNumber {
     public PhoneNumber(String rawInput) {
         String candidateNumber = removePunctuation(rawInput);
 
-        validateLengthAndOnlyDigits(candidateNumber);
+        validateLength(candidateNumber);
+        validateOnlyDigits(candidateNumber);
         candidateNumber = validateAndNormalizeNumberWIthAreaCode(candidateNumber);
 
         validateAreaCode(candidateNumber);
@@ -24,19 +25,19 @@ public class PhoneNumber {
         phoneNumber = candidateNumber;
     }
 
-    private void validateExchangeCode(String candidateNumber) {
-        if (candidateNumber.charAt(3) == '0') {
-            throw new IllegalArgumentException(exchangeCodeStartsWithZeroExceptionMessage);
-        } else if (candidateNumber.charAt(3) == '1') {
-            throw new IllegalArgumentException(exchangeCodeStartsWithOneExceptionMessage);
-        }
-    }
-
     private void validateAreaCode(String candidateNumber) {
         if (candidateNumber.charAt(0) == '0') {
             throw new IllegalArgumentException(areaCodeStartsWithZeroExceptionMessage);
         } else if (candidateNumber.charAt(0) == '1') {
             throw new IllegalArgumentException(areaCodeStartsWithOneExceptionMessage);
+        }
+    }
+
+    private void validateExchangeCode(String candidateNumber) {
+        if (candidateNumber.charAt(3) == '0') {
+            throw new IllegalArgumentException(exchangeCodeStartsWithZeroExceptionMessage);
+        } else if (candidateNumber.charAt(3) == '1') {
+            throw new IllegalArgumentException(exchangeCodeStartsWithOneExceptionMessage);
         }
     }
 
@@ -50,7 +51,7 @@ public class PhoneNumber {
         return candidateNumber;
     }
 
-    private void validateLengthAndOnlyDigits(String candidateNumber) {
+    private void validateOnlyDigits(String candidateNumber) {
         if (hasAlphabeticCharacters(candidateNumber)) {
             throw new IllegalArgumentException(illegalCharacterExceptionMessage);
         }
@@ -58,7 +59,9 @@ public class PhoneNumber {
         if (hasPunctuation(candidateNumber)) {
             throw new IllegalArgumentException(illegalPunctuationExceptionMessage);
         }
+    }
 
+    private void validateLength(String candidateNumber) {
         if (candidateNumber.length() < 10) {
             throw new IllegalArgumentException(wrongLengthExceptionMessage);
         } else if (candidateNumber.length() > 11) {
