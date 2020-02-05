@@ -17,7 +17,8 @@ public class PhoneNumber {
 
         validateLength(candidateNumber);
         validateOnlyDigits(candidateNumber);
-        candidateNumber = validateAndNormalizeNumberWIthAreaCode(candidateNumber);
+        validateCountryCode(candidateNumber);
+        candidateNumber = stripCountryCode(candidateNumber);
 
         validateAreaCode(candidateNumber);
         validateExchangeCode(candidateNumber);
@@ -41,8 +42,16 @@ public class PhoneNumber {
         }
     }
 
-    private String validateAndNormalizeNumberWIthAreaCode(String candidateNumber) {
-        if (candidateNumber.length() > 10) {
+    private void validateCountryCode(String candidateNumber) {
+        if (candidateNumber.length() == 11) {
+            if (candidateNumber.charAt(0) != '1') {
+                throw new IllegalArgumentException(numberIs11DigitsButDoesNotStartWith1ExceptionMessage);
+            }
+        }
+    }
+
+    private String stripCountryCode(String candidateNumber) {
+        if (candidateNumber.length() == 11) {
             if (candidateNumber.charAt(0) != '1') {
                 throw new IllegalArgumentException(numberIs11DigitsButDoesNotStartWith1ExceptionMessage);
             }
