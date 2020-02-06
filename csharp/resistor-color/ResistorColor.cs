@@ -4,8 +4,12 @@ public static class ResistorColor
 {
     public static int ColorCode(string color)
     {
-        if ("black".Equals(color)) return 0;
-
+        switch (color)
+        {
+            case "black"  : return 0;
+            case "orange" : return 3;
+        }
+        
         return 9;
     }
 

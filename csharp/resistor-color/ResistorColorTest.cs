@@ -16,7 +16,7 @@ public class ResistorColorTest
         Assert.Equal(9, ResistorColor.ColorCode("white"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Orange()
     {
         Assert.Equal(3, ResistorColor.ColorCode("orange"));
