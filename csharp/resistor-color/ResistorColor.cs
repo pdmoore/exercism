@@ -13,8 +13,5 @@ public static class ResistorColor
         return 9;
     }
 
-    public static string[] Colors()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public static string[] Colors() => new[] {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
 }
