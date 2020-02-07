@@ -11,8 +11,7 @@ public class NucleotideCount {
 
     public NucleotideCount(string sequence) {
         foreach (var nucleotide in sequence) {
-            var currentCount = countByNucleotide[nucleotide];
-            countByNucleotide[nucleotide] = ++currentCount;
+            countByNucleotide[nucleotide] += 1;
         }
     }
 
