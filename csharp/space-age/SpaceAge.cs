@@ -9,42 +9,25 @@ public class SpaceAge {
     public SpaceAge(long ageInSeconds) {
         this._ageInSeconds = ageInSeconds;
     }
+    
+    public double OnMercury() => AgeRelativeToEarthYear(0.2408467);
 
-    public double OnEarth() {
-        return ToTwoDecimals(_ageInSeconds / SECONDS_PER_EARTH_YEAR);
-    }
+    public double OnVenus() => AgeRelativeToEarthYear(0.61519726);
 
-    public double OnMercury() {
-        return AgeRelativeToEarthYear(0.2408467);
-    }
+    public double OnEarth() => AgeRelativeToEarthYear(1.0);
 
-    public double OnVenus() {
-        return AgeRelativeToEarthYear(0.61519726);
-    }
+    public double OnMars() => AgeRelativeToEarthYear(1.8808158);
 
-    public double OnMars() {
-        return AgeRelativeToEarthYear(1.8808158);
-    }
+    public double OnJupiter() => AgeRelativeToEarthYear(11.862615);
 
-    public double OnJupiter() {
-        return AgeRelativeToEarthYear(11.862615);
-    }
+    public double OnSaturn() => AgeRelativeToEarthYear(29.447498);
 
-    public double OnSaturn() {
-        return AgeRelativeToEarthYear(29.447498);
-    }
+    public double OnUranus() => AgeRelativeToEarthYear(84.016846);
 
-    public double OnUranus() {
-        return AgeRelativeToEarthYear(84.016846);
-    }
+    public double OnNeptune() => AgeRelativeToEarthYear(164.79132);
 
-    public double OnNeptune() {
-        return AgeRelativeToEarthYear(164.79132);
-    }
-
-    private double AgeRelativeToEarthYear(double earthYearMultiplier) {
-        return ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * earthYearMultiplier));
-    }
+    private double AgeRelativeToEarthYear(double earthYearMultiplier) => 
+        ToTwoDecimals(_ageInSeconds / (SECONDS_PER_EARTH_YEAR * earthYearMultiplier));
 
     private double ToTwoDecimals(double age) {
         return Math.Round(age, 2);
