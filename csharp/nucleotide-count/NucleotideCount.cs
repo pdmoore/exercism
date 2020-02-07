@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class NucleotideCount {
     private readonly Dictionary<char, int> countByNucleotide = new Dictionary<char, int> {
