@@ -20,7 +20,7 @@ public class NucleotideCountTest
         Assert.Equal(expected, sut.NucleotideCounts);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Can_count_one_nucleotide_in_single_character_input()
     {
         var sut = new NucleotideCount("G");

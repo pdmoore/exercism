@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 public class NucleotideCount {
-    private Dictionary<char, int> empty = new Dictionary<char, int> {
+    private Dictionary<char, int> countByNucleotide = new Dictionary<char, int> {
         ['A'] = 0,
         ['C'] = 0,
         ['G'] = 0,
@@ -10,7 +10,11 @@ public class NucleotideCount {
     };
 
     public NucleotideCount(string sequence) {
+        foreach (var nucleotide in sequence) {
+            var currentCount = countByNucleotide[nucleotide];
+            countByNucleotide[nucleotide] = ++currentCount;
+        }
     }
 
-    public IDictionary<char, int> NucleotideCounts => empty;
+    public IDictionary<char, int> NucleotideCounts => countByNucleotide;
 }
