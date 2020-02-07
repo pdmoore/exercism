@@ -18,7 +18,6 @@ public class NucleotideCountTest
             ['T'] = 0
         };
         Assert.Equal(expected, sut.NucleotideCounts);
-        Assert.N
     }
 
     [Fact(Skip = "Remove to run test")]
