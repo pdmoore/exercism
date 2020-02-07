@@ -11,6 +11,9 @@ public class NucleotideCount {
 
     public NucleotideCount(string sequence) {
         foreach (var nucleotide in sequence) {
+            if (!countByNucleotide.ContainsKey(nucleotide)) {
+                throw new ArgumentException();
+            }
             countByNucleotide[nucleotide] += 1;
         }
     }
