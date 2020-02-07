@@ -12,7 +12,5 @@ public class NucleotideCount {
     public NucleotideCount(string sequence) {
     }
 
-    public IDictionary<char, int> NucleotideCounts {
-        get { return empty; }
-    }
+    public IDictionary<char, int> NucleotideCounts => empty;
 }
