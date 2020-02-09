@@ -4,14 +4,16 @@ using System.Linq;
 
 public class HighScores
 {
+    private List<int> list;
+
     public HighScores(List<int> list)
     {
-        throw new NotImplementedException();
+        this.list = list;
     }
 
     public List<int> Scores()
     {
-        throw new NotImplementedException();
+        return list;
     }
 
     public int Latest()
