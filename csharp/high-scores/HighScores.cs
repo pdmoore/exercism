@@ -28,10 +28,11 @@ public class HighScores
 
     public List<int> PersonalTopThree()
     {
-        list.Sort();    // Sort is ascending order - can it be specified?
-        list.Reverse();  // reverse the whole thing
+        list.Sort();  // seems like this will break Latest - missing test?
 
         var numberToReturn = Math.Min(3, list.Count);
-        return list.GetRange(0, numberToReturn);
+        var x = list.GetRange(list.Count - numberToReturn, numberToReturn);
+        x.Reverse();
+        return x;
     }
 }
