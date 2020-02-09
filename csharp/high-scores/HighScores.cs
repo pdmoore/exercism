@@ -28,6 +28,8 @@ public class HighScores
 
     public List<int> PersonalTopThree()
     {
-        throw new NotImplementedException();
+        list.Sort();
+        list.Reverse();
+        return list.GetRange(0, 3);
     }
 }
