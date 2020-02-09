@@ -12,7 +12,7 @@ public class HighScoresTest
         Assert.Equal(new List<int> { 30, 50, 20, 70 }, sut.Scores());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Latest_score()
     {
         var sut = new HighScores(new List<int> { 100, 0, 90, 30 });

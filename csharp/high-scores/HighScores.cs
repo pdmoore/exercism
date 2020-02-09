@@ -18,7 +18,7 @@ public class HighScores
 
     public int Latest()
     {
-        throw new NotImplementedException();
+        return list.Last();
     }
 
     public int PersonalBest()
