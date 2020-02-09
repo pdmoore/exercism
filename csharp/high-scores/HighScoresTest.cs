@@ -33,21 +33,21 @@ public class HighScoresTest
         Assert.Equal(new List<int> { 100, 90, 70 }, sut.PersonalTopThree());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Personal_top_highest_to_lowest()
     {
         var sut = new HighScores(new List<int> { 20, 10, 30 });
         Assert.Equal(new List<int> { 30, 20, 10 }, sut.PersonalTopThree());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Personal_top_when_there_is_a_tie()
     {
         var sut = new HighScores(new List<int> { 40, 20, 40, 30 });
         Assert.Equal(new List<int> { 40, 40, 30 }, sut.PersonalTopThree());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Personal_top_when_there_are_less_than_3()
     {
         var sut = new HighScores(new List<int> { 30, 70 });

@@ -28,8 +28,10 @@ public class HighScores
 
     public List<int> PersonalTopThree()
     {
-        list.Sort();
-        list.Reverse();
-        return list.GetRange(0, 3);
+        list.Sort();    // Sort is ascending order - can it be specified?
+        list.Reverse();  // reverse the whole thing
+
+        var numberToReturn = Math.Min(3, list.Count);
+        return list.GetRange(0, numberToReturn);
     }
 }
