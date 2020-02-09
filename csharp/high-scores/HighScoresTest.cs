@@ -19,7 +19,7 @@ public class HighScoresTest
         Assert.Equal(30, sut.Latest());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Personal_best()
     {
         var sut = new HighScores(new List<int> { 40, 100, 70 });

@@ -23,7 +23,7 @@ public class HighScores
 
     public int PersonalBest()
     {
-        throw new NotImplementedException();
+        return list.Max();
     }
 
     public List<int> PersonalTopThree()
