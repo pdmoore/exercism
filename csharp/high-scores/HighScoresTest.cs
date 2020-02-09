@@ -54,7 +54,7 @@ public class HighScoresTest
         Assert.Equal(new List<int> { 70, 30 }, sut.PersonalTopThree());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Personal_top_when_there_is_only_one()
     {
         var sut = new HighScores(new List<int> { 40 });
