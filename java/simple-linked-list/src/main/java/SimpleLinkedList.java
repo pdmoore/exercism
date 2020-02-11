@@ -4,20 +4,20 @@ class SimpleLinkedList<Object> {
 
 
     public SimpleLinkedList() {
-
+        head = null;
     }
 
     public SimpleLinkedList(Object[] values) {
 
         Element current = null;
 
-        for (Object it :
+        for (Object nextValue :
                 values) {
             if (head == null) {
-                head = new Element(it);
+                head = new Element(nextValue);
                 current = head;
             } else {
-                Element next = new Element(it);
+                Element next = new Element(nextValue);
                 current.next = next;
                 current = next;
             }
@@ -26,6 +26,7 @@ class SimpleLinkedList<Object> {
     }
 
     public Integer size() {
+        // TODO - remove guard clause and do once?
         if (head == null) {
             return 0;
         }
