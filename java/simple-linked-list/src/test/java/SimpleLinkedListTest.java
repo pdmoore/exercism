@@ -73,7 +73,6 @@ public class SimpleLinkedListTest {
         assertArrayEquals(expected, list.asArray(Character.class));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void canReturnEmptyListAsEmptyArray() {
         SimpleLinkedList<Object> list = new SimpleLinkedList<Object>();

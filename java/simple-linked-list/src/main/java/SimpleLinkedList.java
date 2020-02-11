@@ -68,7 +68,8 @@ class SimpleLinkedList<Object> {
     }
 
     public Object[] asArray(Class<Object> characterClass) {
-        return null;
+        Object[] empty = (Object[]) new java.lang.Object[]{};
+        return empty;
     }
 
 
