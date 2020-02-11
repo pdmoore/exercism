@@ -20,18 +20,12 @@ class SimpleLinkedList<Object> {
     }
 
     public Integer size() {
-        // TODO - remove guard clause and do once?
-        if (head == null) {
-            return 0;
-        }
-
-        int count = 1;
-        Element next = head;
-        while (next.next != null) {
-            next = next.next;
+        int count = 0;
+        Element current = head;
+        while (current != null) {
             count++;
+            current = current.next;
         }
-
         return count;
     }
 
@@ -41,9 +35,7 @@ class SimpleLinkedList<Object> {
         }
 
         Object valuePopped = head.value;
-
         head = head.next;
-
         return valuePopped;
     }
 
