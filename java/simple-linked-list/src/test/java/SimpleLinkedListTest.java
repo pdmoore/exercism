@@ -26,7 +26,6 @@ public class SimpleLinkedListTest {
         assertThat(list.size(), is(3));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void popOnEmptyListWillThrow() {
         expectedException.expect(NoSuchElementException.class);

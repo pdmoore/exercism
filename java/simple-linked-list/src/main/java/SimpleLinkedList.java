@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 class SimpleLinkedList<Object> {
 
     Element head;
@@ -42,6 +44,10 @@ class SimpleLinkedList<Object> {
     }
 
     public Object pop() {
+        if (head == null) {
+            throw new NoSuchElementException();
+        }
+
         return null;
     }
 
