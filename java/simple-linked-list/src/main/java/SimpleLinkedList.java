@@ -1,10 +1,30 @@
-/*
+class SimpleLinkedList<Object> {
 
-Since this exercise has a difficulty of > 4 it doesn't come
-with any starter implementation.
-This is so that you get to practice creating classes and methods
-which is an important part of programming in Java.
+    public SimpleLinkedList() {
 
-Please remove this comment when submitting your solution.
+    }
 
-*/
+    public SimpleLinkedList(Object[] values) {
+
+    }
+
+    public Integer size() {
+        return Integer.MAX_VALUE;
+    }
+
+    public Object pop() {
+        return null;
+    }
+
+    public void push(Object i) {
+
+    }
+
+    public void reverse() {
+
+    }
+
+    public Object[] asArray(Class<Object> characterClass) {
+        return null;
+    }
+}
