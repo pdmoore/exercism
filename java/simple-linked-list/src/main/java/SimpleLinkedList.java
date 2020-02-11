@@ -50,7 +50,10 @@ class SimpleLinkedList<Object> {
     }
 
     public void reverse() {
-        //TODO assumes there is at least one item in current list
+        if (head == null) {
+            return;
+        }
+
         SimpleLinkedList<Object> reversed = new SimpleLinkedList<>();
         Element current = head;
         do {
