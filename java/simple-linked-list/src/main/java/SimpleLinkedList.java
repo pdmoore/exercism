@@ -48,11 +48,21 @@ class SimpleLinkedList<Object> {
             throw new NoSuchElementException();
         }
 
-        return null;
+        Object valuePopped = head.value;
+
+        head = head.next;
+
+        return valuePopped;
     }
 
     public void push(Object i) {
-
+        if (head == null) {
+            head = new Element(i);
+        } else {
+            Element next = new Element(i);
+            next.next = head;
+            head = next;
+        }
     }
 
     public void reverse() {

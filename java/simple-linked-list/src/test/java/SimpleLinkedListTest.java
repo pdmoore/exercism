@@ -33,7 +33,6 @@ public class SimpleLinkedListTest {
         list.pop();
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void popReturnsLastAddedElement() {
         SimpleLinkedList<Integer> list = new SimpleLinkedList<Integer>();
