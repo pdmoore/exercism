@@ -15,14 +15,7 @@ class SimpleLinkedList<Object> {
 
         for (Object nextValue :
                 values) {
-            if (head == null) {
-                head = new Element(nextValue);
-                current = head;
-            } else {
-                Element next = new Element(nextValue);
-                current.next = next;
-                current = next;
-            }
+            push(nextValue);
         }
 
     }
