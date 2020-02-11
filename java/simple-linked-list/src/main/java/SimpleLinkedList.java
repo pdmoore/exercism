@@ -61,7 +61,6 @@ class SimpleLinkedList<Object> {
         Element current = head;
         do {
             reversed.push(current.value);
-            System.out.println(current.value);
             current = current.next;
         } while (current != null);
 
