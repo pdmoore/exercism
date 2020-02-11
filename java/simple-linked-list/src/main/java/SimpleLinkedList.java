@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 class SimpleLinkedList<Object> {
@@ -68,8 +71,13 @@ class SimpleLinkedList<Object> {
     }
 
     public Object[] asArray(Class<Object> characterClass) {
-        Object[] empty = (Object[]) new java.lang.Object[]{};
-        return empty;
+        List arrayList = new ArrayList<Object>();
+        Element current = head;
+        while (current != null) {
+            arrayList.add(current.value);
+            current = current.next;
+        }
+        return (Object[]) arrayList.toArray();
     }
 
 

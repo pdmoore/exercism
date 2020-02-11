@@ -60,7 +60,6 @@ public class SimpleLinkedListTest {
         assertThat(list.pop(), is("5"));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void canReturnListAsArray() {
         SimpleLinkedList<Character> list = new SimpleLinkedList<Character>();
