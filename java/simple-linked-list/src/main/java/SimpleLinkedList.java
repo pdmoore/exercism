@@ -4,20 +4,17 @@ class SimpleLinkedList<Object> {
 
     Element head;
 
-
     public SimpleLinkedList() {
         head = null;
     }
 
     public SimpleLinkedList(Object[] values) {
-
         Element current = null;
 
         for (Object nextValue :
                 values) {
             push(nextValue);
         }
-
     }
 
     public Integer size() {
@@ -59,7 +56,16 @@ class SimpleLinkedList<Object> {
     }
 
     public void reverse() {
+        //TODO assumes there is at least one item in current list
+        SimpleLinkedList<Object> reversed = new SimpleLinkedList<>();
+        Element current = head;
+        do {
+            reversed.push(current.value);
+            System.out.println(current.value);
+            current = current.next;
+        } while (current != null);
 
+        head = reversed.head;
     }
 
     public Object[] asArray(Class<Object> characterClass) {

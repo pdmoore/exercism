@@ -44,7 +44,6 @@ public class SimpleLinkedListTest {
         assertThat(list.size(), is(0));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void reverseReversesList() {
         SimpleLinkedList<String> list = new SimpleLinkedList<String>();
