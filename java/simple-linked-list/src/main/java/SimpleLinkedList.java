@@ -49,18 +49,12 @@ class SimpleLinkedList<Object> {
     }
 
     public void reverse() {
-        if (head == null) {
-            return;
+        Element oldListPointer = head;
+        head = null;
+        while(oldListPointer != null) {
+            push(oldListPointer.value);
+            oldListPointer = oldListPointer.next;
         }
-
-        SimpleLinkedList<Object> reversed = new SimpleLinkedList<>();
-        Element current = head;
-        do {
-            reversed.push(current.value);
-            current = current.next;
-        } while (current != null);
-
-        head = reversed.head;
     }
 
     public Object[] asArray(Class<Object> characterClass) {
