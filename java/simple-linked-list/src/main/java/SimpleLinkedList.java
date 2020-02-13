@@ -5,9 +5,11 @@ import java.util.NoSuchElementException;
 class SimpleLinkedList<Object> {
 
     Element head;
+    int count;
 
     public SimpleLinkedList() {
         head = null;
+        count = 0;
     }
 
     public SimpleLinkedList(Object[] values) {
@@ -20,12 +22,6 @@ class SimpleLinkedList<Object> {
     }
 
     public Integer size() {
-        int count = 0;
-        Element current = head;
-        while (current != null) {
-            count++;
-            current = current.next;
-        }
         return count;
     }
 
@@ -36,6 +32,7 @@ class SimpleLinkedList<Object> {
 
         Object valuePopped = head.value;
         head = head.next;
+        count--;
         return valuePopped;
     }
 
@@ -47,6 +44,7 @@ class SimpleLinkedList<Object> {
             next.next = head;
             head = next;
         }
+        count++;
     }
 
     public void reverse() {
