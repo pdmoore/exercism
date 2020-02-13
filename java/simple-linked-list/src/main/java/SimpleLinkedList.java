@@ -42,8 +42,7 @@ class SimpleLinkedList<Object> {
         if (head == null) {
             head = new Element(i);
         } else {
-            Element next = new Element(i);
-            next.next = head;
+            Element next = new Element(i, head);
             head = next;
         }
         count++;
@@ -76,12 +75,17 @@ class SimpleLinkedList<Object> {
 
 
     class Element {
-        Object value;
-        Element next;
+        final Object value;
+        final Element next;
 
         public Element(Object it) {
             this.value = it;
-            next = null;
+            this.next = null;
+        }
+
+        public Element(Object it, Element next) {
+            this.value = it;
+            this.next = next;
         }
     }
 }
