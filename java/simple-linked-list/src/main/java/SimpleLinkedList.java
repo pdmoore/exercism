@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-class SimpleLinkedList<Object> {
+class SimpleLinkedList<T> {
 
     Element head;
     int count;
@@ -12,10 +12,10 @@ class SimpleLinkedList<Object> {
         count = 0;
     }
 
-    public SimpleLinkedList(Object[] values) {
+    public SimpleLinkedList(T[] values) {
         this();
 
-        for (Object nextValue :
+        for (T nextValue :
                 values) {
             push(nextValue);
         }
@@ -25,18 +25,18 @@ class SimpleLinkedList<Object> {
         return count;
     }
 
-    public Object pop() {
+    public T pop() {
         if (head == null) {
             throw new NoSuchElementException();
         }
 
-        Object valuePopped = head.value;
+        T valuePopped = head.value;
         head = head.next;
         count--;
         return valuePopped;
     }
 
-    public void push(Object i) {
+    public void push(T i) {
         if (head == null) {
             head = new Element(i);
         } else {
@@ -55,27 +55,27 @@ class SimpleLinkedList<Object> {
         }
     }
 
-    public Object[] asArray(Class<Object> characterClass) {
-        List arrayList = new ArrayList<Object>();
+    public T[] asArray(Class<T> characterClass) {
+        List arrayList = new ArrayList<T>();
         Element current = head;
         while (current != null) {
             arrayList.add(current.value);
             current = current.next;
         }
-        return (Object[]) arrayList.toArray();
+        return (T[]) arrayList.toArray();
     }
 
 
     class Element {
-        final Object value;
+        final T value;
         final Element next;
 
-        public Element(Object it) {
+        public Element(T it) {
             this.value = it;
             this.next = null;
         }
 
-        public Element(Object it, Element next) {
+        public Element(T it, Element next) {
             this.value = it;
             this.next = next;
         }
