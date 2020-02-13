@@ -13,6 +13,8 @@ class SimpleLinkedList<Object> {
     }
 
     public SimpleLinkedList(Object[] values) {
+        this();
+
         Element current = null;
 
         for (Object nextValue :
