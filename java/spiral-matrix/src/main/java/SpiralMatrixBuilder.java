@@ -9,8 +9,15 @@ public class SpiralMatrixBuilder {
 
         Integer[][] matrix;
         matrix = new Integer[size][size];
-        matrix[0][0] = 1;
-        matrix[0][1] = 2;
+
+        int counter = 1;
+        for (int i = 0; i < size; i++) {
+            matrix[0][i] = counter++;
+        }
+//        matrix[0][0] = 1;
+//        matrix[0][1] = 2;
+
+
         matrix[1][0] = 4;
         matrix[1][1] = 3;
 
