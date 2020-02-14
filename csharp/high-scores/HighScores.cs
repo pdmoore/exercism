@@ -30,9 +30,12 @@ public class HighScores
     {
         var sortScores = new List<int>(list);
         sortScores.Sort();
+        
+        // sortScores.Reverse();
         var numberToReturn = Math.Min(3, sortScores.Count);
-        var x = sortScores.GetRange(sortScores.Count - numberToReturn, numberToReturn);
-        x.Reverse();
-        return x;
+        var topNScores = sortScores.GetRange(sortScores.Count - numberToReturn, numberToReturn);
+        // var topNScores = sortScores.GetRange(0, numberToReturn);
+        topNScores.Reverse();
+        return topNScores;
     }
 }
