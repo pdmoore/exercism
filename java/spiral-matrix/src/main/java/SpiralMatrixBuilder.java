@@ -10,16 +10,18 @@ public class SpiralMatrixBuilder {
         Integer[][] matrix;
         matrix = new Integer[size][size];
 
+        //TODO - started building a sprial approach of for loops
+        // Only works for size 2 right now
+        // need to consider squeezing the boundaries each pass
         int counter = 1;
         for (int i = 0; i < size; i++) {
             matrix[0][i] = counter++;
         }
-//        matrix[0][0] = 1;
-//        matrix[0][1] = 2;
 
 
-        matrix[1][0] = 4;
-        matrix[1][1] = 3;
+        for (int i = size - 1; i >= 0; i--) {
+            matrix[1][i] = counter++;
+        }
 
 
 
