@@ -28,14 +28,11 @@ public class HighScores
 
     public List<int> PersonalTopThree()
     {
-        var sortScores = new List<int>(list);
-        sortScores.Sort();
+        var sortedDescendingScores = new List<int>(list);
+        sortedDescendingScores.Sort();
+        sortedDescendingScores.Reverse();
         
-        // sortScores.Reverse();
-        var numberToReturn = Math.Min(3, sortScores.Count);
-        var topNScores = sortScores.GetRange(sortScores.Count - numberToReturn, numberToReturn);
-        // var topNScores = sortScores.GetRange(0, numberToReturn);
-        topNScores.Reverse();
-        return topNScores;
+        var numberOfScores = Math.Min(3, sortedDescendingScores.Count);
+        return sortedDescendingScores.GetRange(0, numberOfScores);
     }
 }
