@@ -60,4 +60,11 @@ public class HighScoresTest
         var sut = new HighScores(new List<int> { 40 });
         Assert.Equal(new List<int> { 40 }, sut.PersonalTopThree());
     }
+
+    [Fact]
+    public void Personal_top_three_from_a_list_of_scores_then_latest() {
+        var sut = new HighScores(new List<int> { 10, 30, 90, 30, 100, 10, 0, 70, 70 });
+        Assert.Equal(new List<int> {100, 90, 70}, sut.PersonalTopThree());
+        Assert.Equal(70, sut.Latest());
+    }
 }

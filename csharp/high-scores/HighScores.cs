@@ -28,10 +28,10 @@ public class HighScores
 
     public List<int> PersonalTopThree()
     {
-        list.Sort();  // seems like this will break Latest - missing test?
-
-        var numberToReturn = Math.Min(3, list.Count);
-        var x = list.GetRange(list.Count - numberToReturn, numberToReturn);
+        var sortScores = new List<int>(list);
+        sortScores.Sort();
+        var numberToReturn = Math.Min(3, sortScores.Count);
+        var x = sortScores.GetRange(sortScores.Count - numberToReturn, numberToReturn);
         x.Reverse();
         return x;
     }
