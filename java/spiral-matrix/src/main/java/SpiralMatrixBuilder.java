@@ -41,7 +41,7 @@ public class SpiralMatrixBuilder {
                 }
                 case GO_LEFT: {
                     j--;
-                    if (j < 0) {
+                    if (j < 0 || matrix[i][j] != null) {
                         j++;
                         i--;
                         direction = POPULATE_NEXT_CELL.GO_UP;
