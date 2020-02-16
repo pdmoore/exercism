@@ -12,11 +12,11 @@ public class SpiralMatrixBuilder {
 
         Integer[][] matrix;
         matrix = new Integer[size][size];
-        int counter = 1;
         POPULATE_NEXT_CELL direction = POPULATE_NEXT_CELL.GO_RIGHT;
 
         int i = 0;
         int j = 0;
+        int counter = 1;
         while (counter <= (size * size)) {
             matrix[i][j] = counter++;
 
@@ -57,15 +57,7 @@ public class SpiralMatrixBuilder {
                     }
                     break;
             }
-
         }
-
-
-//        matrix[0][0] = 1;
-//        matrix[0][1] = 2;
-//        matrix[1][1] = 3;
-//        matrix[1][0] = 4;
-
 
         return matrix;
     }
