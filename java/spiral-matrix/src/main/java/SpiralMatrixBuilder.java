@@ -1,6 +1,6 @@
 public class SpiralMatrixBuilder {
 
-    enum POPULATE_NEXT_CELL { GO_RIGHT, GO_DOWN, GO_LEFT, GO_UP };
+    private static enum POPULATE_NEXT_CELL { GO_RIGHT, GO_DOWN, GO_LEFT, GO_UP };
 
     public Integer[][] buildMatrixOfSize(int size) {
         Integer[][] matrix;
