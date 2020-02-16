@@ -12,9 +12,6 @@ public class SpiralMatrixBuilder {
         matrix = new Integer[size][size];
 
         //TODO - started building a spiral approach of for loops
-        // Only works for size 2 right now
-        // need to consider squeezing the boundaries each pass
-        // following this thinking....across to right, down to bottom, across to left, up to top
         // instead of 4 for loops, have a vert/horz delta that flips when edges are hit. Wrap in a while loop
         // until counter is size*size
 
