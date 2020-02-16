@@ -6,28 +6,13 @@ public class HighScores
 {
     private List<int> list;
 
-    public HighScores(List<int> list)
-    {
-        this.list = list;
-    }
+    public HighScores(List<int> list) => this.list = list;
 
-    public List<int> Scores()
-    {
-        return list;
-    }
+    public List<int> Scores() => list;
 
-    public int Latest()
-    {
-        return list.LastOrDefault();
-    }
+    public int Latest() => list.LastOrDefault();
 
-    public int PersonalBest()
-    {
-        return list.Max();
-    }
+    public int PersonalBest() => list.Max();
 
-    public List<int> PersonalTopThree()
-    {
-        return list.OrderByDescending(num => num).Take(3).ToList();
-    }
+    public List<int> PersonalTopThree() => list.OrderByDescending(num => num).Take(3).ToList();
 }
