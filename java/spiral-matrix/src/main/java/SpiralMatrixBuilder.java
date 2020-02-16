@@ -50,11 +50,7 @@ public class SpiralMatrixBuilder {
                 }
                 case GO_UP:
                     i--;
-                    if (i < 0) {
-                        i++;
-                        j++;
-                        direction = POPULATE_NEXT_CELL.GO_RIGHT;
-                    } else if (matrix[i][j] != null) {
+                    if ((i < 0) || (matrix[i][j] != null)) {
                         i++;
                         j++;
                         direction = POPULATE_NEXT_CELL.GO_RIGHT;
