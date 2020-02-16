@@ -7,6 +7,10 @@ public class SpiralMatrixBuilder {
         matrix = new Integer[size][size];
         POPULATE_NEXT_CELL direction = POPULATE_NEXT_CELL.GO_RIGHT;
 
+
+        // TODO - refactor
+        // check if index can be incremented instead of incr/check/decr
+        // bust case code into helper methods?
         int i = 0;
         int j = 0;
         int counter = 1;
