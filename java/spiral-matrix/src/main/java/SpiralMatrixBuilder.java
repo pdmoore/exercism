@@ -3,13 +3,6 @@ public class SpiralMatrixBuilder {
     enum POPULATE_NEXT_CELL { GO_RIGHT, GO_DOWN, GO_LEFT, GO_UP };
 
     public Integer[][] buildMatrixOfSize(int size) {
-        //TODO - refactor away these special cases
-        if (size == 0) {
-            return new Integer[0][];
-        } else if (size == 1) {
-            return new Integer[][] { {1} };
-        }
-
         Integer[][] matrix;
         matrix = new Integer[size][size];
         POPULATE_NEXT_CELL direction = POPULATE_NEXT_CELL.GO_RIGHT;
