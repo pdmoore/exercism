@@ -18,7 +18,7 @@ public class HighScores
 
     public int Latest()
     {
-        return list.Any() ? list.Last() : 0;
+        return list.LastOrDefault();
     }
 
     public int PersonalBest()
