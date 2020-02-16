@@ -23,7 +23,7 @@ public class SpiralMatrixBuilder {
             switch (direction) {
                 case GO_RIGHT: {
                     j++;
-                    if (j > size - 1) {
+                    if ((j > size - 1) || matrix[i][j] != null) {
                         j--;
                         i++;
                         direction = POPULATE_NEXT_CELL.GO_DOWN;
@@ -32,7 +32,7 @@ public class SpiralMatrixBuilder {
                 }
                 case GO_DOWN: {
                     i++;
-                    if (i > size - 1) {
+                    if (i > size - 1 || matrix[i][j] != null) {
                         i--;
                         j--;
                         direction = POPULATE_NEXT_CELL.GO_LEFT;
