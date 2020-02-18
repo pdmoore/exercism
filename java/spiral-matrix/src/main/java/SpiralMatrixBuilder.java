@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
@@ -24,14 +25,22 @@ public class SpiralMatrixBuilder {
 
             switch (direction) {
                 case GO_RIGHT: {
-                    if (((j + 1) <= size - 1) && matrix[i][j + 1] == null) {
-                        j++;
+//                    if (keepGoing(direction, cellCoordinate, matrix, size)) {
+//                        cellCoordinate = new Point(cellCoordinate.x, cellCoordinate.y + 1);
+//                    } else {
+//                        cellCoordinate = new Point(cellCoordinate.x + 1, cellCoordinate.y);
+//                        direction = POPULATE_NEXT_CELL.GO_DOWN;
+//                    }
+//
+//
+//                    if (((j + 1) <= size - 1) && matrix[i][j + 1] == null) {
+                    if (keepGoing(direction, cellCoordinate, matrix, size)) {
+                        cellCoordinate = new Point(i, ++j);
                     } else {
-                        i++;
+                        cellCoordinate = new Point(++i, j);
                         direction = POPULATE_NEXT_CELL.GO_DOWN;
                     }
 
-                    cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_DOWN: {
@@ -68,5 +77,16 @@ public class SpiralMatrixBuilder {
         }
 
         return matrix;
+    }
+
+    private boolean keepGoing(POPULATE_NEXT_CELL direction, Point cellCoordinate, Integer[][] matrix, int size) {
+        if (direction == POPULATE_NEXT_CELL.GO_RIGHT) {
+            int i = cellCoordinate.x;
+            int j = cellCoordinate.y;
+
+            return (((j + 1) <= size - 1) && matrix[i][j + 1] == null);
+        }
+
+        return false;
     }
 }
