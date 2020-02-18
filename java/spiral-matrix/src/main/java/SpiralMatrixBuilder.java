@@ -3,7 +3,9 @@ import java.awt.geom.Point2D;
 
 public class SpiralMatrixBuilder {
 
-    private static enum POPULATE_NEXT_CELL { GO_RIGHT, GO_DOWN, GO_LEFT, GO_UP };
+    private static enum POPULATE_NEXT_CELL {GO_RIGHT, GO_DOWN, GO_LEFT, GO_UP}
+
+    ;
 
     public Integer[][] buildMatrixOfSize(int size) {
         Integer[][] matrix;
@@ -22,31 +24,31 @@ public class SpiralMatrixBuilder {
 
             switch (direction) {
                 case GO_RIGHT: {
-                    j++;
-                    if ((j > size - 1) || matrix[i][j] != null) {
-                        j--;
+                    if (((j + 1) <= size - 1) && matrix[i][j + 1] == null) {
+                        j++;
+                    } else {
                         i++;
-
                         direction = POPULATE_NEXT_CELL.GO_DOWN;
-
                     }
+
                     cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_DOWN: {
-                    i++;
-                    if (i > size - 1 || matrix[i][j] != null) {
-                        i--;
+                    if (i + 1 <= size - 1 && matrix[i+1][j] == null) {
+                        i++;
+                    } else {
                         j--;
                         direction = POPULATE_NEXT_CELL.GO_LEFT;
                     }
+
                     cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_LEFT: {
-                    j--;
-                    if (j < 0 || matrix[i][j] != null) {
-                        j++;
+                    if (j - 1 >= 0 && matrix[i][j - 1] == null) {
+                        j--;
+                    } else {
                         i--;
                         direction = POPULATE_NEXT_CELL.GO_UP;
                     }
@@ -54,9 +56,9 @@ public class SpiralMatrixBuilder {
                     break;
                 }
                 case GO_UP:
-                    i--;
-                    if ((i < 0) || (matrix[i][j] != null)) {
-                        i++;
+                    if ((i - 1 >= 0) && (matrix[i - 1][j] == null)) {
+                        i--;
+                    } else {
                         j++;
                         direction = POPULATE_NEXT_CELL.GO_RIGHT;
                     }
