@@ -26,8 +26,11 @@ public class SpiralMatrixBuilder {
                     if ((j > size - 1) || matrix[i][j] != null) {
                         j--;
                         i++;
+
                         direction = POPULATE_NEXT_CELL.GO_DOWN;
+
                     }
+                    cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_DOWN: {
@@ -37,6 +40,7 @@ public class SpiralMatrixBuilder {
                         j--;
                         direction = POPULATE_NEXT_CELL.GO_LEFT;
                     }
+                    cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_LEFT: {
@@ -46,6 +50,7 @@ public class SpiralMatrixBuilder {
                         i--;
                         direction = POPULATE_NEXT_CELL.GO_UP;
                     }
+                    cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_UP:
@@ -55,9 +60,9 @@ public class SpiralMatrixBuilder {
                         j++;
                         direction = POPULATE_NEXT_CELL.GO_RIGHT;
                     }
+                    cellCoordinate = new Point(i, j);
                     break;
             }
-            cellCoordinate = new Point(i, j);
         }
 
         return matrix;
