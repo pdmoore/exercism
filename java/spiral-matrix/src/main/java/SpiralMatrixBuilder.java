@@ -15,8 +15,7 @@ public class SpiralMatrixBuilder {
         Point cellCoordinate = new Point(0, 0);
 
         // TODO - refactor
-        // check if index can be incremented instead of incr/check/decr
-        // bust case code into helper methods?
+        // trying to remove i,j and use cellCoordinate only
         int i = 0;
         int j = 0;
         int counter = 1;
@@ -25,24 +24,18 @@ public class SpiralMatrixBuilder {
 
             switch (direction) {
                 case GO_RIGHT: {
-//                    if (keepGoing(direction, cellCoordinate, matrix, size)) {
-//                        cellCoordinate = new Point(cellCoordinate.x, cellCoordinate.y + 1);
-//                    } else {
-//                        cellCoordinate = new Point(cellCoordinate.x + 1, cellCoordinate.y);
-//                        direction = POPULATE_NEXT_CELL.GO_DOWN;
-//                    }
-//
-//
-//                    if (((j + 1) <= size - 1) && matrix[i][j + 1] == null) {
                     if (keepGoing(direction, cellCoordinate, matrix, size)) {
                         cellCoordinate = new Point(i, ++j);
                     } else {
                         cellCoordinate = new Point(++i, j);
                         direction = POPULATE_NEXT_CELL.GO_DOWN;
                     }
-
                     break;
                 }
+                //TODO continue refactor to a common keepGoing method
+                    // then hope to remove/lessen this switch statement
+                    // maybe keepGoing turns into populateCellAndReturnNext which returns the next point
+                    // and hides all this coorindate tracking inside each direction
                 case GO_DOWN: {
                     if (i + 1 <= size - 1 && matrix[i+1][j] == null) {
                         i++;
