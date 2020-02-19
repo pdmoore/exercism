@@ -14,13 +14,11 @@ public class SpiralMatrixBuilder {
         POPULATE_NEXT_CELL direction = POPULATE_NEXT_CELL.GO_RIGHT;
         Point cellCoordinate = new Point(0, 0);
 
-        // TODO - refactor
-        // trying to remove i,j and use cellCoordinate only
-        int i = 0;
-        int j = 0;
         int counter = 1;
         while (counter <= (size * size)) {
             matrix[cellCoordinate.x][cellCoordinate.y] = counter++;
+            int i = cellCoordinate.x;
+            int j = cellCoordinate.y;
 
             switch (direction) {
                 case GO_RIGHT: {
@@ -32,10 +30,6 @@ public class SpiralMatrixBuilder {
                     }
                     break;
                 }
-                //TODO continue refactor to a common keepGoing method
-                    // then hope to remove/lessen this switch statement
-                    // maybe keepGoing turns into populateCellAndReturnNext which returns the next point
-                    // and hides all this coorindate tracking inside each direction
                 case GO_DOWN: {
                     if (keepGoing(direction, cellCoordinate, matrix, size)) {
                         cellCoordinate = new Point(++i, j);
