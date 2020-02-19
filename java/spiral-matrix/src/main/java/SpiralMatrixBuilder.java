@@ -61,17 +61,17 @@ public class SpiralMatrixBuilder {
     }
 
     private boolean keepGoing(POPULATE_NEXT_CELL direction, Point cellCoordinate, Integer[][] matrix, int size) {
-        int i = cellCoordinate.x;
-        int j = cellCoordinate.y;
+        int x = cellCoordinate.x;
+        int y = cellCoordinate.y;
 
         if (direction == POPULATE_NEXT_CELL.GO_RIGHT) {
-            return (((j + 1) <= size - 1) && matrix[i][j + 1] == null);
+            return (((y + 1) <= size - 1) && matrix[x][y + 1] == null);
         } else if (direction == POPULATE_NEXT_CELL.GO_DOWN) {
-            return (i + 1 <= size - 1 && matrix[i+1][j] == null);
+            return (x + 1 <= size - 1 && matrix[x+1][y] == null);
         } else if (direction == POPULATE_NEXT_CELL.GO_LEFT) {
-            return (j - 1 >= 0 && matrix[i][j - 1] == null);
+            return (y - 1 >= 0 && matrix[x][y - 1] == null);
         } else if (direction == POPULATE_NEXT_CELL.GO_UP) {
-            return ((i - 1 >= 0) && (matrix[i - 1][j] == null));
+            return ((x - 1 >= 0) && (matrix[x - 1][y] == null));
         }
 
         return false;
