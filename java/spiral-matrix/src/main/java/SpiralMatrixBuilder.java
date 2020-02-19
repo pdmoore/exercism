@@ -23,36 +23,36 @@ public class SpiralMatrixBuilder {
             switch (direction) {
                 case GO_RIGHT: {
                     if (keepGoing(direction, cellCoordinate, matrix, size)) {
-                        cellCoordinate = new Point(i, ++j);
+                        cellCoordinate = new Point(cellCoordinate.x, ++cellCoordinate.y);
                     } else {
-                        cellCoordinate = new Point(++i, j);
+                        cellCoordinate = new Point(++cellCoordinate.x, j);
                         direction = POPULATE_NEXT_CELL.GO_DOWN;
                     }
                     break;
                 }
                 case GO_DOWN: {
                     if (keepGoing(direction, cellCoordinate, matrix, size)) {
-                        cellCoordinate = new Point(++i, j);
+                        cellCoordinate = new Point(++cellCoordinate.x, j);
                     } else {
-                        cellCoordinate = new Point(i, --j);
+                        cellCoordinate = new Point(cellCoordinate.x, --j);
                         direction = POPULATE_NEXT_CELL.GO_LEFT;
                     }
                     break;
                 }
                 case GO_LEFT: {
                     if (keepGoing(direction, cellCoordinate, matrix, size)) {
-                        cellCoordinate = new Point(i, --j);
+                        cellCoordinate = new Point(cellCoordinate.x, --j);
                     } else {
-                        cellCoordinate = new Point(--i, j);
+                        cellCoordinate = new Point(--cellCoordinate.x, j);
                         direction = POPULATE_NEXT_CELL.GO_UP;
                     }
                     break;
                 }
                 case GO_UP:
                     if (keepGoing(direction, cellCoordinate, matrix, size)) {
-                        cellCoordinate = new Point(--i, j);
+                        cellCoordinate = new Point(--cellCoordinate.x, j);
                     } else {
-                        cellCoordinate = new Point(i, ++j);
+                        cellCoordinate = new Point(cellCoordinate.x, ++j);
                         direction = POPULATE_NEXT_CELL.GO_RIGHT;
                     }
                     break;
