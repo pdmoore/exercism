@@ -18,6 +18,13 @@ public class SpiralMatrixBuilder {
         while (counter <= (size * size)) {
             matrix[cellCoordinate.x][cellCoordinate.y] = counter++;
 
+//            if (keepGoing(direction, cellCoordinate, matrix, size)) {
+//                cellCoordinate = moveOneCell(direction, cellCoordinate);
+//            } else {
+//                direction = changeDirection(direction);
+//                cellCoordinate = moveOneCell(direction, cellCoordinate);
+//            }
+
             switch (direction) {
                 case GO_RIGHT: {
                     if (keepGoing(direction, cellCoordinate, matrix, size)) {
