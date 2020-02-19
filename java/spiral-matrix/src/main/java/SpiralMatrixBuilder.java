@@ -55,13 +55,12 @@ public class SpiralMatrixBuilder {
                     break;
                 }
                 case GO_UP:
-                    if ((i - 1 >= 0) && (matrix[i - 1][j] == null)) {
-                        i--;
+                    if (keepGoing(direction, cellCoordinate, matrix, size)) {
+                        cellCoordinate = new Point(--i, j);
                     } else {
-                        j++;
+                        cellCoordinate = new Point(i, ++j);
                         direction = POPULATE_NEXT_CELL.GO_RIGHT;
                     }
-                    cellCoordinate = new Point(i, j);
                     break;
             }
         }
@@ -79,6 +78,8 @@ public class SpiralMatrixBuilder {
             return (i + 1 <= size - 1 && matrix[i+1][j] == null);
         } else if (direction == POPULATE_NEXT_CELL.GO_LEFT) {
             return (j - 1 >= 0 && matrix[i][j - 1] == null);
+        } else if (direction == POPULATE_NEXT_CELL.GO_UP) {
+            return ((i - 1 >= 0) && (matrix[i - 1][j] == null));
         }
 
         return false;
