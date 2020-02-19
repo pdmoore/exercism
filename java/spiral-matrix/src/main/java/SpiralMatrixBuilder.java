@@ -37,24 +37,21 @@ public class SpiralMatrixBuilder {
                     // maybe keepGoing turns into populateCellAndReturnNext which returns the next point
                     // and hides all this coorindate tracking inside each direction
                 case GO_DOWN: {
-                    if (i + 1 <= size - 1 && matrix[i+1][j] == null) {
-                        i++;
+                    if (keepGoing(direction, cellCoordinate, matrix, size)) {
+                        cellCoordinate = new Point(++i, j);
                     } else {
-                        j--;
+                        cellCoordinate = new Point(i, --j);
                         direction = POPULATE_NEXT_CELL.GO_LEFT;
                     }
-
-                    cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_LEFT: {
-                    if (j - 1 >= 0 && matrix[i][j - 1] == null) {
-                        j--;
+                    if (keepGoing(direction, cellCoordinate, matrix, size)) {
+                        cellCoordinate = new Point(i, --j);
                     } else {
-                        i--;
+                        cellCoordinate = new Point(--i, j);
                         direction = POPULATE_NEXT_CELL.GO_UP;
                     }
-                    cellCoordinate = new Point(i, j);
                     break;
                 }
                 case GO_UP:
@@ -73,11 +70,15 @@ public class SpiralMatrixBuilder {
     }
 
     private boolean keepGoing(POPULATE_NEXT_CELL direction, Point cellCoordinate, Integer[][] matrix, int size) {
-        if (direction == POPULATE_NEXT_CELL.GO_RIGHT) {
-            int i = cellCoordinate.x;
-            int j = cellCoordinate.y;
+        int i = cellCoordinate.x;
+        int j = cellCoordinate.y;
 
+        if (direction == POPULATE_NEXT_CELL.GO_RIGHT) {
             return (((j + 1) <= size - 1) && matrix[i][j + 1] == null);
+        } else if (direction == POPULATE_NEXT_CELL.GO_DOWN) {
+            return (i + 1 <= size - 1 && matrix[i+1][j] == null);
+        } else if (direction == POPULATE_NEXT_CELL.GO_LEFT) {
+            return (j - 1 >= 0 && matrix[i][j - 1] == null);
         }
 
         return false;
