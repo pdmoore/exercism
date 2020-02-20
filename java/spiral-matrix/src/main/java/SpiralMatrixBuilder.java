@@ -9,17 +9,15 @@ public class SpiralMatrixBuilder {
         Point cellCoordinate = new Point(0, 0);
         POPULATE_NEXT_CELL direction = POPULATE_NEXT_CELL.GO_RIGHT;
 
-        //TODO can this be further reduced? Duplication in the moveOneCell after switching direction?
         int counter = 1;
         while (counter <= (size * size)) {
             matrix[cellCoordinate.x][cellCoordinate.y] = counter++;
 
-            if (keepGoing(direction, cellCoordinate, matrix, size)) {
-                moveOneCell(direction, cellCoordinate);
-            } else {
+            if (!keepGoing(direction, cellCoordinate, matrix, size)) {
                 direction = changeDirection(direction);
-                moveOneCell(direction, cellCoordinate);
             }
+
+            moveOneCell(direction, cellCoordinate);
         }
 
         return matrix;
