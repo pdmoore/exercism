@@ -17,7 +17,7 @@ public class SpiralMatrixBuilder {
                 direction = changeDirection(direction);
             }
 
-            moveOneCell(direction, cellCoordinate);
+            advanceToNextCell(direction, cellCoordinate);
         }
 
         return matrix;
@@ -27,7 +27,7 @@ public class SpiralMatrixBuilder {
         matrix[cellCoordinate.x][cellCoordinate.y] = counter;
     }
 
-    private void moveOneCell(POPULATE_NEXT_CELL direction, Point cellCoordinate) {
+    private void advanceToNextCell(POPULATE_NEXT_CELL direction, Point cellCoordinate) {
         switch (direction) {
             case GO_RIGHT:
                 ++cellCoordinate.y;
@@ -42,37 +42,28 @@ public class SpiralMatrixBuilder {
                 --cellCoordinate.x;
                 break;
         }
-
     }
 
     private POPULATE_NEXT_CELL changeDirection(POPULATE_NEXT_CELL direction) {
         switch (direction) {
-            case GO_RIGHT:
-                return POPULATE_NEXT_CELL.GO_DOWN;
-            case GO_DOWN:
-                return POPULATE_NEXT_CELL.GO_LEFT;
-            case GO_LEFT:
-                return POPULATE_NEXT_CELL.GO_UP;
-            case GO_UP:
-                return POPULATE_NEXT_CELL.GO_RIGHT;
+            case GO_RIGHT: return POPULATE_NEXT_CELL.GO_DOWN;
+            case GO_DOWN:  return POPULATE_NEXT_CELL.GO_LEFT;
+            case GO_LEFT:  return POPULATE_NEXT_CELL.GO_UP;
+            case GO_UP:    return POPULATE_NEXT_CELL.GO_RIGHT;
+            default: return null;
         }
-        return null;
     }
 
     private boolean keepGoing(POPULATE_NEXT_CELL direction, Point cellCoordinate, Integer[][] matrix, int size) {
         int x = cellCoordinate.x;
         int y = cellCoordinate.y;
 
-        if (direction == POPULATE_NEXT_CELL.GO_RIGHT) {
-            return (((y + 1) <= size - 1) && matrix[x][y + 1] == null);
-        } else if (direction == POPULATE_NEXT_CELL.GO_DOWN) {
-            return (x + 1 <= size - 1 && matrix[x + 1][y] == null);
-        } else if (direction == POPULATE_NEXT_CELL.GO_LEFT) {
-            return (y - 1 >= 0 && matrix[x][y - 1] == null);
-        } else if (direction == POPULATE_NEXT_CELL.GO_UP) {
-            return ((x - 1 >= 0) && (matrix[x - 1][y] == null));
+        switch (direction) {
+            case GO_RIGHT: return (((y + 1) <= size - 1) && matrix[x][y + 1] == null);
+            case GO_DOWN:  return (x + 1 <= size - 1 && matrix[x + 1][y] == null);
+            case GO_LEFT:  return (y - 1 >= 0 && matrix[x][y - 1] == null);
+            case GO_UP:    return ((x - 1 >= 0) && (matrix[x - 1][y] == null));
+            default:       return false;
         }
-
-        return false;
-    }
+   }
 }
