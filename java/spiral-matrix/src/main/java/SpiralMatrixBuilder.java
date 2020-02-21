@@ -11,7 +11,7 @@ public class SpiralMatrixBuilder {
 
         int counter = 1;
         while (counter <= (size * size)) {
-            matrix[cellCoordinate.x][cellCoordinate.y] = counter++;
+            populateCell(matrix, cellCoordinate, counter++);
 
             if (!keepGoing(direction, cellCoordinate, matrix, size)) {
                 direction = changeDirection(direction);
@@ -21,6 +21,10 @@ public class SpiralMatrixBuilder {
         }
 
         return matrix;
+    }
+
+    private void populateCell(Integer[][] matrix, Point cellCoordinate, int counter) {
+        matrix[cellCoordinate.x][cellCoordinate.y] = counter;
     }
 
     private void moveOneCell(POPULATE_NEXT_CELL direction, Point cellCoordinate) {
