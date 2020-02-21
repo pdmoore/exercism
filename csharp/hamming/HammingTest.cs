@@ -35,25 +35,25 @@ public class HammingTest
         Assert.Equal(9, Hamming.Distance("GGACGGATTCTG", "AGGACGGATTCT"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Disallow_first_strand_longer()
     {
         Assert.Throws<ArgumentException>(() => Hamming.Distance("AATG", "AAA"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Disallow_second_strand_longer()
     {
         Assert.Throws<ArgumentException>(() => Hamming.Distance("ATA", "AGTG"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Disallow_left_empty_strand()
     {
         Assert.Throws<ArgumentException>(() => Hamming.Distance("", "G"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Disallow_right_empty_strand()
     {
         Assert.Throws<ArgumentException>(() => Hamming.Distance("G", ""));
