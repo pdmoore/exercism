@@ -8,6 +8,6 @@ public static class Hamming
 
         var result = firstStrand.Zip(secondStrand);
         // return result.Select(x => x.First.Equals(x.Second)).Count();
-        return result.Where(x => !x.First.Equals(x.Second)).Count();
+        return result.Count(x => !x.First.Equals(x.Second));
     }
 }
