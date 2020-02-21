@@ -17,7 +17,7 @@ public class HammingTest
         Assert.Equal(0, Hamming.Distance("A", "A"));
     }
 
-    [Fact(Skip = "always 1")]
+    [Fact]
     public void Single_letter_different_strands()
     {
         Assert.Equal(1, Hamming.Distance("G", "T"));
