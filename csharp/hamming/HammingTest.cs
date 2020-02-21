@@ -23,13 +23,13 @@ public class HammingTest
         Assert.Equal(1, Hamming.Distance("G", "T"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Long_identical_strands()
     {
         Assert.Equal(0, Hamming.Distance("GGACTGAAATCTG", "GGACTGAAATCTG"));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Long_different_strands()
     {
         Assert.Equal(9, Hamming.Distance("GGACGGATTCTG", "AGGACGGATTCT"));
