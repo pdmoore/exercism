@@ -45,13 +45,7 @@ public class SpiralMatrixBuilder {
     }
 
     private POPULATE_NEXT_CELL changeDirection(POPULATE_NEXT_CELL direction) {
-        switch (direction) {
-            case GO_RIGHT: return POPULATE_NEXT_CELL.GO_DOWN;
-            case GO_DOWN:  return POPULATE_NEXT_CELL.GO_LEFT;
-            case GO_LEFT:  return POPULATE_NEXT_CELL.GO_UP;
-            case GO_UP:    return POPULATE_NEXT_CELL.GO_RIGHT;
-            default: return null;
-        }
+        return POPULATE_NEXT_CELL.values()[(direction.ordinal() + 1) % (POPULATE_NEXT_CELL.values().length)];
     }
 
     private boolean keepGoing(POPULATE_NEXT_CELL direction, Point cellCoordinate, Integer[][] matrix, int size) {
