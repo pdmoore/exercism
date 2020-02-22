@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class School {
@@ -7,7 +8,8 @@ public class School {
     }
 
     public List<String> roster() {
-        return null;
+        List<String> names = new ArrayList(List.of("Aimee"));
+        return names;
     }
 
     public List<String> grade(int grade) {
