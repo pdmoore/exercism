@@ -29,6 +29,10 @@ public class School {
     }
 
     public List<String> grade(int grade) {
+        if (!gradeAndNames.containsKey(grade)) {
+            return Collections.emptyList();
+        }
+
         List<String> allNames = new ArrayList<>();
         List<String> namesForThisGrade = gradeAndNames.get(grade);
         Collections.sort(namesForThisGrade);

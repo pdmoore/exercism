@@ -76,7 +76,6 @@ public class SchoolTest {
         assertEquals(expected, school.grade(5));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void gradeReturnsAnEmptyListIfThereAreNoStudentsInThatGrade() {
         school = new School();
