@@ -32,6 +32,10 @@ public class School {
     }
 
     public List<String> grade(int grade) {
-        return null;
+        List<String> allNames = new ArrayList<>();
+        List<String> namesForThisGrade = gradeAndNames.get(grade);
+        Collections.sort(namesForThisGrade);
+        allNames.addAll(namesForThisGrade);
+        return allNames;
     }
 }

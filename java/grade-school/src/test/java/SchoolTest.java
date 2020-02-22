@@ -66,7 +66,6 @@ public class SchoolTest {
         assertEquals(expected, school.roster());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void gradeReturnsTheStudentsInThatGradeInAlphabeticalOrder() {
         school = new School();
