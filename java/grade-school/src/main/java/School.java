@@ -3,10 +3,11 @@ import java.util.*;
 public class School {
     Map<Integer, List<String>> gradeAndNames;
 
+    //TODO - decide on the confusion of grade() and int grade
+
     public School() {
         gradeAndNames = new HashMap<>();
     }
-
 
     public void add(String name, int grade) {
         if (!gradeAndNames.containsKey(grade)) {
