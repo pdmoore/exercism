@@ -2,13 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class School {
+    List<String> names;
+
+    public School() {
+        this.names = new ArrayList<>();
+    }
+
 
     public void add(String name, int grade) {
-
+        names.add(name);
     }
 
     public List<String> roster() {
-        List<String> names = new ArrayList(List.of("Aimee"));
         return names;
     }
 
