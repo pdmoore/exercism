@@ -1,20 +1,33 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class School {
-    List<String> names;
+    Map<Integer, List<String>> gradeAndNames;
 
     public School() {
-        this.names = new ArrayList<>();
+        gradeAndNames = new HashMap<>();
     }
 
 
     public void add(String name, int grade) {
-        names.add(name);
+        if (!gradeAndNames.containsKey(grade)) {
+            List<String> names = new ArrayList<>();
+            gradeAndNames.put(grade, names);
+        }
+
+        gradeAndNames.get(grade).add(name);
     }
 
     public List<String> roster() {
-        return names;
+
+        List<String> allNames = new ArrayList<>();
+
+        for (Integer grade :
+                gradeAndNames.keySet()) {
+            allNames.addAll(gradeAndNames.get(grade));
+        }
+
+//        Collections.sort(names);
+        return allNames;
     }
 
     public List<String> grade(int grade) {
