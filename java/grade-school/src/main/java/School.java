@@ -18,14 +18,11 @@ public class School {
     }
 
     public List<String> roster() {
-
         List<String> allNames = new ArrayList<>();
 
         for (Integer grade :
                 gradeAndNames.keySet()) {
-            List<String> namesForThisGrade = gradeAndNames.get(grade);
-            Collections.sort(namesForThisGrade);
-            allNames.addAll(namesForThisGrade);
+            allNames.addAll(grade(grade));
         }
 
         return allNames;
