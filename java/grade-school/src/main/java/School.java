@@ -23,10 +23,11 @@ public class School {
 
         for (Integer grade :
                 gradeAndNames.keySet()) {
-            allNames.addAll(gradeAndNames.get(grade));
+            List<String> namesForThisGrade = gradeAndNames.get(grade);
+            Collections.sort(namesForThisGrade);
+            allNames.addAll(namesForThisGrade);
         }
 
-//        Collections.sort(names);
         return allNames;
     }
 

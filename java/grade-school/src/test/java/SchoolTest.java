@@ -52,7 +52,6 @@ public class SchoolTest {
     }
 
     // this test is a giant leap from prior ones...
-    @Ignore
     @Test
     public void studentNamesWithGradesAreDisplayedInTheSameSortedRoster() {
         school = new School();
