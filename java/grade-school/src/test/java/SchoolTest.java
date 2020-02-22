@@ -44,7 +44,6 @@ public class SchoolTest {
         assertEquals(expected, school.roster());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void rosterReturnsAnEmptyListIfThereAreNoStudentsEnrolled() {
         school = new School();
