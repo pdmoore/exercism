@@ -8,7 +8,7 @@ public class School {
     }
 
     public void add(String name, int grade) {
-        if (!namesByGrade.containsKey(grade)) {
+        if (noOneEnrolledIn(grade)) {
             List<String> names = new ArrayList<>();
             namesByGrade.put(grade, names);
         }
@@ -23,7 +23,7 @@ public class School {
     }
 
     public List<String> grade(int gradeNumber) {
-        if (!namesByGrade.containsKey(gradeNumber)) {
+        if (noOneEnrolledIn(gradeNumber)) {
             return Collections.emptyList();
         }
 
@@ -32,5 +32,9 @@ public class School {
         Collections.sort(namesForThisGrade);
         allNames.addAll(namesForThisGrade);
         return allNames;
+    }
+
+    private boolean noOneEnrolledIn(int grade) {
+        return !namesByGrade.containsKey(grade);
     }
 }
