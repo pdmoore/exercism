@@ -28,9 +28,8 @@ public class School {
         }
 
         List<String> allNames = new ArrayList<>();
-        List<String> namesForThisGrade = namesByGrade.get(gradeNumber);
-        Collections.sort(namesForThisGrade);
-        allNames.addAll(namesForThisGrade);
+        allNames.addAll(namesByGrade.get(gradeNumber));
+        Collections.sort(allNames);
         return allNames;
     }
 
