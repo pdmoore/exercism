@@ -8,10 +8,7 @@ public class School {
     }
 
     public void add(String name, int grade) {
-        if (noOneEnrolledIn(grade)) {
-            List<String> names = new ArrayList<>();
-            namesByGrade.put(grade, names);
-        }
+        namesByGrade.putIfAbsent(grade, new ArrayList<>());
 
         namesByGrade.get(grade).add(name);
     }
