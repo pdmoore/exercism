@@ -27,10 +27,10 @@ public class School {
             return Collections.emptyList();
         }
 
-        List<String> allNames = new ArrayList<>();
-        allNames.addAll(namesByGrade.get(gradeNumber));
-        Collections.sort(allNames);
-        return allNames;
+        List<String> allNamesForGrade = new ArrayList<>();
+        allNamesForGrade.addAll(namesByGrade.get(gradeNumber));
+        Collections.sort(allNamesForGrade);
+        return allNamesForGrade;
     }
 
     private boolean noOneEnrolledIn(int grade) {
