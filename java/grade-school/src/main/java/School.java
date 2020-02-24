@@ -18,17 +18,9 @@ public class School {
     }
 
     public List<String> grade(int gradeNumber) {
-        if (noOneEnrolledIn(gradeNumber)) {
-            return Collections.emptyList();
-        }
-
         List<String> allNamesForGrade = new ArrayList<>();
-        allNamesForGrade.addAll(namesByGrade.get(gradeNumber));
+        allNamesForGrade.addAll(namesByGrade.getOrDefault(gradeNumber, Collections.emptyList()));
         Collections.sort(allNamesForGrade);
         return allNamesForGrade;
-    }
-
-    private boolean noOneEnrolledIn(int grade) {
-        return !namesByGrade.containsKey(grade);
     }
 }
