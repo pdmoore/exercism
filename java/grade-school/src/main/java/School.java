@@ -18,17 +18,17 @@ public class School {
 
     public List<String> roster() {
         List<String> allNames = new ArrayList<>();
-        namesByGrade.keySet().iterator().forEachRemaining(grade -> allNames.addAll(grade(grade)));
+        namesByGrade.keySet().iterator().forEachRemaining(gradeNumber -> allNames.addAll(grade(gradeNumber)));
         return allNames;
     }
 
-    public List<String> grade(int grade) {
-        if (!namesByGrade.containsKey(grade)) {
+    public List<String> grade(int gradeNumber) {
+        if (!namesByGrade.containsKey(gradeNumber)) {
             return Collections.emptyList();
         }
 
         List<String> allNames = new ArrayList<>();
-        List<String> namesForThisGrade = namesByGrade.get(grade);
+        List<String> namesForThisGrade = namesByGrade.get(gradeNumber);
         Collections.sort(namesForThisGrade);
         allNames.addAll(namesForThisGrade);
         return allNames;
