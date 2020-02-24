@@ -8,9 +8,7 @@ public class School {
     }
 
     public void add(String name, int grade) {
-        namesByGrade.putIfAbsent(grade, new ArrayList<>());
-
-        namesByGrade.get(grade).add(name);
+        namesByGrade.computeIfAbsent(grade, key -> new ArrayList<>()).add(name);
     }
 
     public List<String> roster() {
