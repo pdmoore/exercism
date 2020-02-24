@@ -1,41 +1,34 @@
 import java.util.*;
 
 public class School {
-    Map<Integer, List<String>> gradeAndNames;
-
-    //TODO - decide on the confusion of grade() and int grade
+    Map<Integer, List<String>> namesByGrade;
 
     public School() {
-        gradeAndNames = new HashMap<>();
+        namesByGrade = new HashMap<>();
     }
 
     public void add(String name, int grade) {
-        if (!gradeAndNames.containsKey(grade)) {
+        if (!namesByGrade.containsKey(grade)) {
             List<String> names = new ArrayList<>();
-            gradeAndNames.put(grade, names);
+            namesByGrade.put(grade, names);
         }
 
-        gradeAndNames.get(grade).add(name);
+        namesByGrade.get(grade).add(name);
     }
 
     public List<String> roster() {
         List<String> allNames = new ArrayList<>();
-
-        for (Integer grade :
-                gradeAndNames.keySet()) {
-            allNames.addAll(grade(grade));
-        }
-
+        namesByGrade.keySet().iterator().forEachRemaining(grade -> allNames.addAll(grade(grade)));
         return allNames;
     }
 
     public List<String> grade(int grade) {
-        if (!gradeAndNames.containsKey(grade)) {
+        if (!namesByGrade.containsKey(grade)) {
             return Collections.emptyList();
         }
 
         List<String> allNames = new ArrayList<>();
-        List<String> namesForThisGrade = gradeAndNames.get(grade);
+        List<String> namesForThisGrade = namesByGrade.get(grade);
         Collections.sort(namesForThisGrade);
         allNames.addAll(namesForThisGrade);
         return allNames;
