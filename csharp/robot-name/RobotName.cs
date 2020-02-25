@@ -2,7 +2,6 @@ using System;
 
 public class Robot
 {
-    private string _prefix = "AA";
     private static int _counter;
 
     public Robot() => GenerateNewName();
@@ -17,13 +16,22 @@ public class Robot
     // - generate new name if it is
     // - reset removes name from list of names
     private void GenerateNewName() {
-        Name = _prefix + _counter.ToString("D3");
-        ++_counter;
+        Name = TwoRandomLetters() + ThreeRandomDigits();
+    }
+
+    private string ThreeRandomDigits()
+    {
         if (_counter > 999)
         {
             _counter = 0;
-            _prefix = "AB";
         }
+        _counter++;
+        return _counter.ToString("D3");
+    }
+
+    private string TwoRandomLetters()
+    {
+        return "A" + "A";
     }
 
     public string Name { get; private set; }
