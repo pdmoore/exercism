@@ -5,20 +5,14 @@ public class Robot
     private const string Prefix = "AB";
     private static int _counter;
 
-    public Robot()
-    {
-        generateNewName();
-    }
+    public Robot() => GenerateNewName();
 
-    private void generateNewName() {
+    private void GenerateNewName() {
         Name = Prefix + _counter.ToString("D3");
         ++_counter;
     }
 
-    public string Name { get; set; }
+    public string Name { get; private set; }
 
-    public void Reset()
-    {
-        generateNewName();
-    }
+    public void Reset() => GenerateNewName();
 }
