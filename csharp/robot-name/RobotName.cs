@@ -2,23 +2,16 @@ using System;
 
 public class Robot
 {
-    private const String PREFIX = "AB";
-    private static int counter;
-    private String name;
-    
+    private const string Prefix = "AB";
+    private static int _counter;
+
     public Robot()
     {
-        name = PREFIX + counter.ToString("D3");
-        ++counter;
+        Name = Prefix + _counter.ToString("D3");
+        ++_counter;
     }
 
-    public string Name
-    {
-        get
-        {
-            return name;
-        }
-    }
+    public string Name { get; }
 
     public void Reset()
     {
