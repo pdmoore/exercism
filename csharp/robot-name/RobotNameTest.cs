@@ -24,7 +24,7 @@ public class RobotNameTest
         Assert.NotEqual(robot2.Name, robot.Name);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Can_reset_the_name()
     {
         var originalName = robot.Name;

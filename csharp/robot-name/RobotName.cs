@@ -7,14 +7,18 @@ public class Robot
 
     public Robot()
     {
+        generateNewName();
+    }
+
+    private void generateNewName() {
         Name = Prefix + _counter.ToString("D3");
         ++_counter;
     }
 
-    public string Name { get; }
+    public string Name { get; set; }
 
     public void Reset()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        generateNewName();
     }
 }
