@@ -1,40 +1,60 @@
 using System;
+using System.Collections.Generic;
 
 public class Robot
 {
-    private static int _counter;
+    private List<string> _allRobotNames;
+    private static Random _random;
 
-    public Robot() => GenerateNewName();
+    public Robot()
+    {
+        _random = new Random();
+        _allRobotNames = new List<string>();
 
-    // TODO - generate New Name works fine for the tests
-    // but isn't in the spirit of the assignment
-    // "they should not follow a predictable sequence"
-    // so - 
-    // - Need to generate a truly random name RandomLetter + RandomLetter + RandomDigit...
-    // - check if rando name is in the list of names
-    // - add if it isn't
-    // - generate new name if it is
-    // - reset removes name from list of names
-    private void GenerateNewName() {
-        Name = TwoRandomLetters() + ThreeRandomDigits();
+        GenerateNewName();
+    }
+
+    private void GenerateNewName()
+    {
+        while (true)
+        {
+            var candidateName = TwoRandomLetters() + ThreeRandomDigits();
+            if (!_allRobotNames.Contains(candidateName))
+            {
+                _allRobotNames.Add(candidateName);
+                Name = candidateName;
+                break;
+            }
+        }
     }
 
     private string ThreeRandomDigits()
     {
-        if (_counter > 999)
-        {
-            _counter = 0;
-        }
-        _counter++;
-        return _counter.ToString("D3");
+        return "" + RandomDigit() + RandomDigit() + RandomDigit();
+    }
+
+    private string RandomDigit()
+    {
+        return "" + _random.Next(0, 10);
     }
 
     private string TwoRandomLetters()
     {
-        return "A" + "A";
+        return RandomLetter() + RandomLetter();
+    }
+
+    private string RandomLetter()
+    {
+        //TODO - better way to return string?
+        int number = _random.Next(0, 26);
+        return "" + (char)('A' + number);
     }
 
     public string Name { get; private set; }
 
-    public void Reset() => GenerateNewName();
+    public void Reset()
+    {
+        _allRobotNames.Remove(Name);
+        GenerateNewName();
+    }
 }
