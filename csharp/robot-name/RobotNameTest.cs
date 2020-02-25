@@ -17,7 +17,7 @@ public class RobotNameTest
         Assert.Equal(robot.Name, robot.Name);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Different_robots_have_different_names()
     {
         var robot2 = new Robot();
