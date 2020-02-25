@@ -6,7 +6,7 @@ public class Robot
     {
         get
         {
-            throw new NotImplementedException("You need to implement this function.");
+            return "RX837";
         }
     }
 
