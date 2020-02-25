@@ -3,13 +3,16 @@ using System.Collections.Generic;
 
 public class Robot
 {
-    private List<string> _allRobotNames;
+    //TODO - still failing on 10000 unique names
+    // clean up all the Roslyn fixes
+    
     private static Random _random;
+    private readonly HashSet<string> _allRobotNames;
 
     public Robot()
     {
         _random = new Random();
-        _allRobotNames = new List<string>();
+        _allRobotNames = new HashSet<string>();
 
         GenerateNewName();
     }
@@ -19,9 +22,8 @@ public class Robot
         while (true)
         {
             var candidateName = TwoRandomLetters() + ThreeRandomDigits();
-            if (!_allRobotNames.Contains(candidateName))
+            if (_allRobotNames.Add(candidateName))
             {
-                _allRobotNames.Add(candidateName);
                 Name = candidateName;
                 break;
             }
