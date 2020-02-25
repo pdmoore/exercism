@@ -9,9 +9,7 @@ public static class Hamming
         {
             throw new ArgumentException();
         }
-        
-        return firstStrand.
-            Zip(secondStrand).
-            Count(x => !x.First.Equals(x.Second));
+
+        return firstStrand.Zip(secondStrand).Count(x => !x.First.Equals(x.Second));
     }
 }
