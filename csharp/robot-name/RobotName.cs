@@ -6,14 +6,11 @@ public class Robot
     //TODO - still failing on 10000 unique names
     // clean up all the Roslyn fixes
     
-    private static Random _random;
-    private readonly HashSet<string> _allRobotNames;
+    private static Random _random = new Random();
+    private static readonly HashSet<string> AllRobotNames = new HashSet<string>();
 
     public Robot()
     {
-        _random = new Random();
-        _allRobotNames = new HashSet<string>();
-
         GenerateNewName();
     }
 
@@ -22,7 +19,7 @@ public class Robot
         while (true)
         {
             var candidateName = TwoRandomLetters() + ThreeRandomDigits();
-            if (_allRobotNames.Add(candidateName))
+            if (AllRobotNames.Add(candidateName))
             {
                 Name = candidateName;
                 break;
@@ -56,7 +53,7 @@ public class Robot
 
     public void Reset()
     {
-        _allRobotNames.Remove(Name);
+        AllRobotNames.Remove(Name);
         GenerateNewName();
     }
 }
