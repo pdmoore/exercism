@@ -6,10 +6,7 @@ public class Robot
     private static readonly Random Random = new Random();
     private static readonly HashSet<string> AllRobotNames = new HashSet<string>();
 
-    public Robot()
-    {
-        GenerateNewName();
-    }
+    public Robot() => GenerateNewName();
 
     private void GenerateNewName()
     {
@@ -24,20 +21,11 @@ public class Robot
         }
     }
 
-    private string ThreeRandomDigits()
-    {
-        return "" + RandomDigit() + RandomDigit() + RandomDigit();
-    }
+    private string ThreeRandomDigits() => "" + RandomDigit() + RandomDigit() + RandomDigit();
 
-    private string RandomDigit()
-    {
-        return "" + Random.Next(0, 10);
-    }
+    private string RandomDigit() => "" + Random.Next(0, 10);
 
-    private string TwoRandomLetters()
-    {
-        return RandomLetter() + RandomLetter();
-    }
+    private string TwoRandomLetters() => RandomLetter() + RandomLetter();
 
     private string RandomLetter()
     {
