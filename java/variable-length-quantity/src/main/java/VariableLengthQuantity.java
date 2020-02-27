@@ -5,7 +5,7 @@ class VariableLengthQuantity {
 
     List<String> encode(List<Long> numbers) {
 
-        String answer = "0x0";
+        String answer = String.format("0x%01X", numbers.get(0));
 
         List<String> answer2 = new ArrayList<>();
         answer2.add(answer);
