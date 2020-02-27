@@ -23,11 +23,11 @@ public class Robot
         }
     }
 
-    private string ThreeRandomDigits() => "" + RandomDigit() + RandomDigit() + RandomDigit();
+    private static string ThreeRandomDigits() => "" + RandomDigit() + RandomDigit() + RandomDigit();
 
-    private string RandomDigit() => "" + Random.Next(0, 10);
+    private static string RandomDigit() => "" + Random.Next(0, 10);
 
-    private string TwoRandomLetters() => RandomLetter() + RandomLetter();
+    private static string TwoRandomLetters() => RandomLetter() + RandomLetter();
 
     private static string RandomLetter() => ((char)Random.Next('A','Z')).ToString();
 
