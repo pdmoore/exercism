@@ -29,12 +29,7 @@ public class Robot
 
     private string TwoRandomLetters() => RandomLetter() + RandomLetter();
 
-    private string RandomLetter()
-    {
-        //TODO - better way to return string?
-        int number = Random.Next(0, 26);
-        return "" + (char)('A' + number);
-    }
+    private static string RandomLetter() => ((char)Random.Next('A','Z')).ToString();
 
     public string Name { get; private set; }
 
