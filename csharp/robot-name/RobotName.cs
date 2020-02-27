@@ -13,11 +13,13 @@ public class Robot
         while (true)
         {
             var candidateName = TwoRandomLetters() + ThreeRandomDigits();
-            if (AllRobotNames.Add(candidateName))
+            if (!AllRobotNames.Add(candidateName))
             {
-                Name = candidateName;
-                break;
+                continue;
             }
+
+            Name = candidateName;
+            return;
         }
     }
 
