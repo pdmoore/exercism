@@ -44,7 +44,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSmallestDoubleByte() {
         List<String> expected = Arrays.asList("0x81", "0x0");
