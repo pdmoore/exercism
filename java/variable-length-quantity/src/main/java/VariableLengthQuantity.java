@@ -5,10 +5,10 @@ class VariableLengthQuantity {
 
     List<String> encode(List<Long> numbers) {
 
-        String answer = String.format("0x%01X", numbers.get(0));
+        String answer = String.format("0x%01x", numbers.get(0));
 
         List<String> answer2 = new ArrayList<>();
-        answer2.add(answer.toLowerCase());
+        answer2.add(answer);
 
         return answer2;
     }
