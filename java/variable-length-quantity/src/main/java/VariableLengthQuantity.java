@@ -8,7 +8,7 @@ class VariableLengthQuantity {
         String answer = String.format("0x%01X", numbers.get(0));
 
         List<String> answer2 = new ArrayList<>();
-        answer2.add(answer);
+        answer2.add(answer.toLowerCase());
 
         return answer2;
     }
