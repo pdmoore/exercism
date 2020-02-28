@@ -14,10 +14,11 @@ class VariableLengthQuantity {
 
         // TODO - instead of numbers get(0), translate number and return List of strings
 
-        String answer;
         if (encodeThis < 128) {
-            answer = String.format("0x%01x", encodeThis);
-            encoding.add(answer);
+            List<String> smallNumberEncoding = new ArrayList<>();
+            smallNumberEncoding.add(String.format("0x%01x", encodeThis));
+
+            encoding.addAll(smallNumberEncoding);
         } else {
             List<String> largeNumberEncoding = new ArrayList<>();
             largeNumberEncoding.add("0x81");
