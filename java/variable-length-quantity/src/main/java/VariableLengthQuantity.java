@@ -12,25 +12,23 @@ class VariableLengthQuantity {
         //TODO - loop through list of numbers and perform translation operation, appending to answer
         Long encodeThis = numbers.get(0);
 
-        // TODO - instead of numbers get(0), translate number and return List of strings
 
-        if (encodeThis < 128) {
-            List<String> smallNumberEncoding = new ArrayList<>();
-            smallNumberEncoding.add(String.format("0x%01x", encodeThis));
-
-            encoding.addAll(smallNumberEncoding);
-        } else {
-            List<String> largeNumberEncoding = new ArrayList<>();
-            largeNumberEncoding.add("0x81");
-            largeNumberEncoding.add("0x0");
-
-            encoding.addAll(largeNumberEncoding);
-        }
-
-
+        encoding.addAll(encodeThisNumber(encodeThis));
 
 
         return encoding;
+    }
+
+    private List<String> encodeThisNumber(Long number) {
+        // TODO - instead of numbers get(0), translate number and return List of strings
+        List<String> numberEncoding = new ArrayList<>();
+        if (number < 128) {
+            numberEncoding.add(String.format("0x%01x", number));
+        } else {
+            numberEncoding.add("0x81");
+            numberEncoding.add("0x0");
+        }
+        return numberEncoding;
     }
 
     List<String> decode(List<Long> bytes) {
