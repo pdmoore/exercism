@@ -33,10 +33,7 @@ public class Robot
     
     private static string TwoRandomLetters() => RandomLetter() + RandomLetter();
     
-    private static string RandomLetter()
-    {
-        return ((char)Random.Next(FROM_A, TO_Z)).ToString();
-    }
+    private static string RandomLetter() => ((char)Random.Next(FROM_A, TO_Z)).ToString();
 
     private void AssignNameIfUnique(string candidateName) {
         if (AllRobotNames.Add(candidateName)) {
