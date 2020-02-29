@@ -25,8 +25,21 @@ class VariableLengthQuantity {
         if (number < 128) {
             numberEncoding.add(String.format("0x%01x", number));
         } else {
-            numberEncoding.add("0x81");
-            numberEncoding.add("0x0");
+
+            System.out.println(Long.toBinaryString(number));
+            String binaryLong = Long.toBinaryString(number);
+
+            //10000000
+            //10000001 000000
+
+            // baby step towards impl
+            numberEncoding.add(String.format("0x%01x", Integer.parseInt("10000001", 2)));
+            numberEncoding.add(String.format("0x%01x", Integer.parseInt("00000000", 2)));
+
+
+            // hard coded answer
+//            numberEncoding.add("0x81");
+//            numberEncoding.add("0x0");
         }
         return numberEncoding;
     }
