@@ -8,34 +8,38 @@ public class Robot
 
     public Robot() => GenerateNewName();
 
-    private void GenerateNewName()
-    {
-        while (true)
-        {
-            var candidateName = TwoRandomLetters() + ThreeRandomDigits();
-            if (!AllRobotNames.Add(candidateName))
-            {
-                continue;
-            }
-
-            Name = candidateName;
-            return;
-        }
-    }
-
-    private static string ThreeRandomDigits() => "" + RandomDigit() + RandomDigit() + RandomDigit();
-
-    private static string RandomDigit() => "" + Random.Next(0, 10);
-
-    private static string TwoRandomLetters() => RandomLetter() + RandomLetter();
-
-    private static string RandomLetter() => ((char)Random.Next('A','Z')).ToString();
-
     public string Name { get; private set; }
-
+    
     public void Reset()
     {
         AllRobotNames.Remove(Name);
         GenerateNewName();
+    }
+
+    private void GenerateNewName()
+    {
+        do
+        {
+            var candidateName = TwoRandomLetters() + ThreeRandomDigits();
+            AssignNameIfUnique(candidateName);
+        } while (Name == null);
+    }
+
+    private static string ThreeRandomDigits() => "" + RandomDigit() + RandomDigit() + RandomDigit();
+
+
+    private static string RandomDigit() => "" + Random.Next(0, 10);
+
+
+    private static string TwoRandomLetters() => RandomLetter() + RandomLetter();
+
+
+    private static string RandomLetter() => ((char)Random.Next('A', 'Z')).ToString();
+
+
+    private void AssignNameIfUnique(string candidateName) {
+        if (AllRobotNames.Add(candidateName)) {
+            Name = candidateName;
+        }
     }
 }
