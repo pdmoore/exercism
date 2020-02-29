@@ -31,7 +31,7 @@ public class Robot
     
     private static string TwoRandomLetters() => RandomLetter() + RandomLetter();
     
-    private static string RandomLetter() => ((char)Random.Next('A', 'Z')).ToString();
+    private static string RandomLetter() => ((char)Random.Next('A', '[')).ToString();
     
     private void AssignNameIfUnique(string candidateName) {
         if (AllRobotNames.Add(candidateName)) {

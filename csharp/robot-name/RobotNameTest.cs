@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -48,4 +49,18 @@ public class RobotNameTest
             Assert.True(names.Add(robot.Name), "failed on " + robot.Name + ": " + i);
         }
     }
+    
+    [Fact]
+    public void Robot_names_contain_Z()
+    {
+        Boolean zWasSeen = false;
+        for (int i = 0; i < 100; i++) {
+            var robot = new Robot();
+            zWasSeen = zWasSeen || robot.Name.Contains("Z");
+        }
+        
+        Assert.True(zWasSeen, "one of the 100 names did not contain a Z");
+    }
+    
+    
 }
