@@ -5,6 +5,8 @@ public class Robot
 {
     private static readonly Random Random = new Random();
     private static readonly HashSet<string> AllRobotNames = new HashSet<string>();
+    private const char FROM_A = 'A';
+    private const char TO_Z = '[';
 
     public Robot() => GenerateNewName();
 
@@ -31,8 +33,11 @@ public class Robot
     
     private static string TwoRandomLetters() => RandomLetter() + RandomLetter();
     
-    private static string RandomLetter() => ((char)Random.Next('A', '[')).ToString();
-    
+    private static string RandomLetter()
+    {
+        return ((char)Random.Next(FROM_A, TO_Z)).ToString();
+    }
+
     private void AssignNameIfUnique(string candidateName) {
         if (AllRobotNames.Add(candidateName)) {
             Name = candidateName;
