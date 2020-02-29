@@ -26,17 +26,13 @@ public class Robot
     }
 
     private static string ThreeRandomDigits() => "" + RandomDigit() + RandomDigit() + RandomDigit();
-
-
+    
     private static string RandomDigit() => "" + Random.Next(0, 10);
-
-
+    
     private static string TwoRandomLetters() => RandomLetter() + RandomLetter();
-
-
+    
     private static string RandomLetter() => ((char)Random.Next('A', 'Z')).ToString();
-
-
+    
     private void AssignNameIfUnique(string candidateName) {
         if (AllRobotNames.Add(candidateName)) {
             Name = candidateName;
