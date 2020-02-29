@@ -53,12 +53,11 @@ class VariableLengthQuantity {
                 numberEncoding.add(vlqNumbers.pop());
             }
 
-            // baby step towards impl
+            // (2) similar to hard-coded but uses formatting to generate answer (convert from bits to hex)
 //            numberEncoding.add(String.format("0x%01x", Integer.parseInt("10000001", 2)));
 //            numberEncoding.add(String.format("0x%01x", Integer.parseInt("00000000", 2)));
 
-
-            // hard coded answer
+            // (1) hard coded answer
 //            numberEncoding.add("0x81");
 //            numberEncoding.add("0x0");
         }
