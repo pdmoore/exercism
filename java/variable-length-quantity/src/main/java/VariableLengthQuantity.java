@@ -42,7 +42,7 @@ class VariableLengthQuantity {
             numberAsBits = numberAsBits.substring(0, numberAsBits.length() - 7);
             System.out.println("remainder is now: " + numberAsBits);
 
-            if (numberAsBits.length() < 7) {
+//            if (numberAsBits.length() < 7) {
                 // it's less than 7, so set left most bit and pad remainder with 0s
                 numberAsBits = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
 
@@ -50,7 +50,7 @@ class VariableLengthQuantity {
 //                vlqNumbers.push(String.format("0x%01x", Integer.parseInt("10000001", 2)));
                 String format = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
                 vlqNumbers.push(format);
-            }
+//            }
 
             while (!vlqNumbers.empty()) {
                 numberEncoding.add(vlqNumbers.pop());

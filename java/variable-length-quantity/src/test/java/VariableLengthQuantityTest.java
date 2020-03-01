@@ -52,7 +52,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testArbitraryDoubleByte() {
         List<String> expected = Arrays.asList("0xc0", "0x0");
