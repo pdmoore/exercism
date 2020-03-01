@@ -60,7 +60,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testLargestDoubleByte() {
         List<String> expected = Arrays.asList("0xff", "0x7f");
