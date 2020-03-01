@@ -21,22 +21,22 @@ class VariableLengthQuantity {
     }
 
     private List<String> encodeThisNumber(Long number) {
-        // TODO - instead of numbers get(0), translate number and return List of strings
         List<String> numberEncoding = new ArrayList<>();
         if (number < 128) {
             numberEncoding.add(String.format("0x%01x", number));
         } else {
 
-            System.out.println(Long.toBinaryString(number));
+            System.out.println(number + ": " + Long.toBinaryString(number));
             String binaryLong = Long.toBinaryString(number);
 
-            //10000000
+            //       1 0000000
             //10000001 000000
+
+            Stack<String> vlqNumbers = new Stack<>();
 
             String numberAsBits = Long.toBinaryString(number);
             String rightSide = numberAsBits.substring(numberAsBits.length() - 7, numberAsBits.length());
             System.out.println("just ganked " + rightSide);
-            Stack<String> vlqNumbers = new Stack<>();
             vlqNumbers.push(String.format("0x%01x", Integer.parseInt(rightSide, 2)));
 
             numberAsBits = numberAsBits.substring(0, numberAsBits.length() - 7);
@@ -44,9 +44,12 @@ class VariableLengthQuantity {
 
             if (numberAsBits.length() < 7) {
                 // it's less than 7, so set left most bit and pad remainder with 0s
+                numberAsBits = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
 
                 //push it on stack
-                vlqNumbers.push(String.format("0x%01x", Integer.parseInt("10000001", 2)));
+//                vlqNumbers.push(String.format("0x%01x", Integer.parseInt("10000001", 2)));
+                String format = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
+                vlqNumbers.push(format);
             }
 
             while (!vlqNumbers.empty()) {
