@@ -14,13 +14,16 @@ public enum Allergen
 
 public class Allergies
 {
+    private int _mask;
+
     public Allergies(int mask)
     {
+        _mask = mask;
     }
 
     public bool IsAllergicTo(Allergen allergen)
     {
-        return false;
+        return _mask != 0;
     }
 
     public Allergen[] List()
