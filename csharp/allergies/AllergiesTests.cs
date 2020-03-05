@@ -81,14 +81,14 @@ public class AllergiesTests
         Assert.False(sut.IsAllergicTo(Allergen.Shellfish));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_shellfish_allergy_allergic_only_to_shellfish()
     {
         var sut = new Allergies(4);
         Assert.True(sut.IsAllergicTo(Allergen.Shellfish));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_shellfish_allergy_allergic_to_shellfish_and_something_else()
     {
         var sut = new Allergies(14);
