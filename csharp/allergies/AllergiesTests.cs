@@ -32,49 +32,49 @@ public class AllergiesTests
         Assert.False(sut.IsAllergicTo(Allergen.Eggs));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_eggs_allergy_allergic_to_everything()
     {
         var sut = new Allergies(255);
         Assert.True(sut.IsAllergicTo(Allergen.Eggs));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_peanuts_allergy_not_allergic_to_anything()
     {
         var sut = new Allergies(0);
         Assert.False(sut.IsAllergicTo(Allergen.Peanuts));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_peanuts_allergy_allergic_only_to_peanuts()
     {
         var sut = new Allergies(2);
         Assert.True(sut.IsAllergicTo(Allergen.Peanuts));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_peanuts_allergy_allergic_to_peanuts_and_something_else()
     {
         var sut = new Allergies(7);
         Assert.True(sut.IsAllergicTo(Allergen.Peanuts));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_peanuts_allergy_allergic_to_something_but_not_peanuts()
     {
         var sut = new Allergies(5);
         Assert.False(sut.IsAllergicTo(Allergen.Peanuts));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_peanuts_allergy_allergic_to_everything()
     {
         var sut = new Allergies(255);
         Assert.True(sut.IsAllergicTo(Allergen.Peanuts));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_shellfish_allergy_not_allergic_to_anything()
     {
         var sut = new Allergies(0);
