@@ -20,7 +20,7 @@ public class Allergies
 
     public bool IsAllergicTo(Allergen allergen)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return false;
     }
 
     public Allergen[] List()
