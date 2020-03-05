@@ -25,7 +25,7 @@ public class AllergiesTests
         Assert.True(sut.IsAllergicTo(Allergen.Eggs));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_eggs_allergy_allergic_to_something_but_not_eggs()
     {
         var sut = new Allergies(2);

@@ -23,7 +23,13 @@ public class Allergies
 
     public bool IsAllergicTo(Allergen allergen)
     {
-        return _mask != 0;
+        // given allergen (probably need power of 2)
+        int allergenValue = (int) allergen + 1;
+        // check if the corresponding bit is set in the mask
+        int bitSet = _mask & allergenValue;
+        
+        
+        return bitSet != 0;
     }
 
     public Allergen[] List()
