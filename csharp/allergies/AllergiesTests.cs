@@ -109,175 +109,175 @@ public class AllergiesTests
         Assert.True(sut.IsAllergicTo(Allergen.Shellfish));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_strawberries_allergy_not_allergic_to_anything()
     {
         var sut = new Allergies(0);
         Assert.False(sut.IsAllergicTo(Allergen.Strawberries));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_strawberries_allergy_allergic_only_to_strawberries()
     {
         var sut = new Allergies(8);
         Assert.True(sut.IsAllergicTo(Allergen.Strawberries));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_strawberries_allergy_allergic_to_strawberries_and_something_else()
     {
         var sut = new Allergies(28);
         Assert.True(sut.IsAllergicTo(Allergen.Strawberries));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_strawberries_allergy_allergic_to_something_but_not_strawberries()
     {
         var sut = new Allergies(20);
         Assert.False(sut.IsAllergicTo(Allergen.Strawberries));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_strawberries_allergy_allergic_to_everything()
     {
         var sut = new Allergies(255);
         Assert.True(sut.IsAllergicTo(Allergen.Strawberries));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_tomatoes_allergy_not_allergic_to_anything()
     {
         var sut = new Allergies(0);
         Assert.False(sut.IsAllergicTo(Allergen.Tomatoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_tomatoes_allergy_allergic_only_to_tomatoes()
     {
         var sut = new Allergies(16);
         Assert.True(sut.IsAllergicTo(Allergen.Tomatoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_tomatoes_allergy_allergic_to_tomatoes_and_something_else()
     {
         var sut = new Allergies(56);
         Assert.True(sut.IsAllergicTo(Allergen.Tomatoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_tomatoes_allergy_allergic_to_something_but_not_tomatoes()
     {
         var sut = new Allergies(40);
         Assert.False(sut.IsAllergicTo(Allergen.Tomatoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_tomatoes_allergy_allergic_to_everything()
     {
         var sut = new Allergies(255);
         Assert.True(sut.IsAllergicTo(Allergen.Tomatoes));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_chocolate_allergy_not_allergic_to_anything()
     {
         var sut = new Allergies(0);
         Assert.False(sut.IsAllergicTo(Allergen.Chocolate));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_chocolate_allergy_allergic_only_to_chocolate()
     {
         var sut = new Allergies(32);
         Assert.True(sut.IsAllergicTo(Allergen.Chocolate));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_chocolate_allergy_allergic_to_chocolate_and_something_else()
     {
         var sut = new Allergies(112);
         Assert.True(sut.IsAllergicTo(Allergen.Chocolate));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_chocolate_allergy_allergic_to_something_but_not_chocolate()
     {
         var sut = new Allergies(80);
         Assert.False(sut.IsAllergicTo(Allergen.Chocolate));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_chocolate_allergy_allergic_to_everything()
     {
         var sut = new Allergies(255);
         Assert.True(sut.IsAllergicTo(Allergen.Chocolate));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_pollen_allergy_not_allergic_to_anything()
     {
         var sut = new Allergies(0);
         Assert.False(sut.IsAllergicTo(Allergen.Pollen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_pollen_allergy_allergic_only_to_pollen()
     {
         var sut = new Allergies(64);
         Assert.True(sut.IsAllergicTo(Allergen.Pollen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_pollen_allergy_allergic_to_pollen_and_something_else()
     {
         var sut = new Allergies(224);
         Assert.True(sut.IsAllergicTo(Allergen.Pollen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_pollen_allergy_allergic_to_something_but_not_pollen()
     {
         var sut = new Allergies(160);
         Assert.False(sut.IsAllergicTo(Allergen.Pollen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_pollen_allergy_allergic_to_everything()
     {
         var sut = new Allergies(255);
         Assert.True(sut.IsAllergicTo(Allergen.Pollen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_cats_allergy_not_allergic_to_anything()
     {
         var sut = new Allergies(0);
         Assert.False(sut.IsAllergicTo(Allergen.Cats));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_cats_allergy_allergic_only_to_cats()
     {
         var sut = new Allergies(128);
         Assert.True(sut.IsAllergicTo(Allergen.Cats));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_cats_allergy_allergic_to_cats_and_something_else()
     {
         var sut = new Allergies(192);
         Assert.True(sut.IsAllergicTo(Allergen.Cats));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_cats_allergy_allergic_to_something_but_not_cats()
     {
         var sut = new Allergies(64);
         Assert.False(sut.IsAllergicTo(Allergen.Cats));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_cats_allergy_allergic_to_everything()
     {
         var sut = new Allergies(255);
