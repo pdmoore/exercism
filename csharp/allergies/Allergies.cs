@@ -23,11 +23,9 @@ public class Allergies
 
     public bool IsAllergicTo(Allergen allergen)
     {
-        int allergenValue = (int) Math.Pow(2, (int) allergen);
-        
-        int isBitSet = _mask & allergenValue;
-        
-        return isBitSet != 0;
+        int allergenBit = (int) Math.Pow(2, (int) allergen);
+
+        return (_mask & allergenBit) != 0;
     }
 
     public Allergen[] List()
