@@ -284,7 +284,7 @@ public class AllergiesTests
         Assert.True(sut.IsAllergicTo(Allergen.Cats));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_allergies()
     {
         var sut = new Allergies(0);

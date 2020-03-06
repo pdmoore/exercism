@@ -30,6 +30,6 @@ public class Allergies
 
     public Allergen[] List()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return new Allergen[0];
     }
 }
