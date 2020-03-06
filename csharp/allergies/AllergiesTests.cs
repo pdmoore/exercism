@@ -95,7 +95,7 @@ public class AllergiesTests
         Assert.True(sut.IsAllergicTo(Allergen.Shellfish));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Testing_for_shellfish_allergy_allergic_to_something_but_not_shellfish()
     {
         var sut = new Allergies(10);
