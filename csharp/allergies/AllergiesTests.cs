@@ -291,7 +291,7 @@ public class AllergiesTests
         Assert.Empty(sut.List());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Just_eggs()
     {
         var sut = new Allergies(1);

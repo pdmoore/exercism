@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public enum Allergen
 {
@@ -30,6 +31,16 @@ public class Allergies
 
     public Allergen[] List()
     {
-        return new Allergen[0];
+        List<Allergen> allergens = new List<Allergen>();
+        for (int i = 0; i < Enum.GetNames(typeof(Allergen)).Length; i++)
+        {
+            int allergenBit = (int) Math.Pow(2, i);
+            if ((_mask & allergenBit) != 0)
+            {
+                allergens.Add((Allergen)i);
+            }
+        }
+        
+        return allergens.ToArray();
     }
 }
