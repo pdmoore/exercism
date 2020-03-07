@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public enum Allergen
 {
@@ -27,20 +28,11 @@ public class Allergies
         return (mask & allergenBit) != 0;
     }
 
-    public Allergen[] List()
-    {
-        List<Allergen> allergens = new List<Allergen>();
-
-        foreach (Allergen allergy in Enum.GetValues(typeof(Allergen)))
-        {
-            if (MaskHasAllergyTo(allergy))
-            {
-                allergens.Add(allergy);
-            }
-        }
-        
-        return allergens.ToArray();
-    }
+    public Allergen[] List() =>
+        Enum.GetValues(typeof(Allergen)).
+            Cast<Allergen>().
+            Where(MaskHasAllergyTo).
+            ToArray();
 
     private bool MaskHasAllergyTo(Allergen allergy)
     {
