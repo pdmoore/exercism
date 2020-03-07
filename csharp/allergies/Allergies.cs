@@ -22,11 +22,12 @@ public class Allergies
         _mask = mask;
     }
 
-    public bool IsAllergicTo(Allergen allergen)
-    {
-        int allergenBit = (int) Math.Pow(2, (int) allergen);
+    public bool IsAllergicTo(Allergen allergen) => MaskHasAllergyTo(_mask, (int) allergen);
 
-        return (_mask & allergenBit) != 0;
+    private static bool MaskHasAllergyTo(int mask, int allergenIndex) {
+        int allergenBit = (int) Math.Pow(2, allergenIndex);
+
+        return (mask & allergenBit) != 0;
     }
 
     public Allergen[] List()
@@ -34,8 +35,7 @@ public class Allergies
         List<Allergen> allergens = new List<Allergen>();
         for (int i = 0; i < Enum.GetNames(typeof(Allergen)).Length; i++)
         {
-            int allergenBit = (int) Math.Pow(2, i);
-            if ((_mask & allergenBit) != 0)
+            if (MaskHasAllergyTo(_mask, i))
             {
                 allergens.Add((Allergen)i);
             }
