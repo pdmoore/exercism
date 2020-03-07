@@ -20,13 +20,7 @@ public class Allergies
 
     public Allergies(int mask) => _mask = mask;
 
-    public bool IsAllergicTo(Allergen allergen) => MaskHasAllergyTo(_mask, (int) allergen);
-
-    private static bool MaskHasAllergyTo(int mask, int allergenIndex) {
-        int allergenBit = (int) Math.Pow(2, allergenIndex);
-
-        return (mask & allergenBit) != 0;
-    }
+    public bool IsAllergicTo(Allergen allergen) => MaskHasAllergyTo(allergen);
 
     public Allergen[] List() =>
         Enum.GetValues(typeof(Allergen)).
