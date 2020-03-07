@@ -15,12 +15,9 @@ public enum Allergen
 
 public class Allergies
 {
-    private int _mask;
+    private readonly int _mask;
 
-    public Allergies(int mask)
-    {
-        _mask = mask;
-    }
+    public Allergies(int mask) => _mask = mask;
 
     public bool IsAllergicTo(Allergen allergen) => MaskHasAllergyTo(_mask, (int) allergen);
 
