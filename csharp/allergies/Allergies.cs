@@ -30,14 +30,22 @@ public class Allergies
     public Allergen[] List()
     {
         List<Allergen> allergens = new List<Allergen>();
-        for (int i = 0; i < Enum.GetNames(typeof(Allergen)).Length; i++)
+
+        foreach (Allergen allergy in Enum.GetValues(typeof(Allergen)))
         {
-            if (MaskHasAllergyTo(_mask, i))
+            if (MaskHasAllergyTo(allergy))
             {
-                allergens.Add((Allergen)i);
+                allergens.Add(allergy);
             }
         }
         
         return allergens.ToArray();
+    }
+
+    private bool MaskHasAllergyTo(Allergen allergy)
+    {
+        int allergenBit = (int) Math.Pow(2, (int) allergy);
+
+        return (_mask & allergenBit) != 0;
     }
 }
