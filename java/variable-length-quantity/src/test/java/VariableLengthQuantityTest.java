@@ -76,7 +76,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testArbitraryTripleByte() {
         List<String> expected = Arrays.asList("0xc0", "0x80", "0x0");
@@ -85,7 +84,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testLargestTripleByte() {
         List<String> expected = Arrays.asList("0xff", "0xff", "0x7f");
@@ -94,7 +92,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSmallestQuadrupleByte() {
         List<String> expected = Arrays.asList("0x81", "0x80", "0x80", "0x0");
@@ -103,7 +100,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testArbitraryQuadrupleByte() {
         List<String> expected = Arrays.asList("0xc0", "0x80", "0x80", "0x0");
@@ -112,7 +108,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testLargestQuadrupleByte() {
         List<String> expected = Arrays.asList("0xff", "0xff", "0xff", "0x7f");
@@ -121,7 +116,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSmallestQuintupleByte() {
         List<String> expected = Arrays.asList("0x81", "0x80", "0x80", "0x80", "0x0");
@@ -130,7 +124,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testArbitraryQuintupleByte() {
         List<String> expected = Arrays.asList("0x8f", "0xf8", "0x80", "0x80", "0x0");
@@ -139,7 +132,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testMaximum32BitIntegerInput() {
         List<String> expected = Arrays.asList("0x8f", "0xff", "0xff", "0xff", "0x7f");
