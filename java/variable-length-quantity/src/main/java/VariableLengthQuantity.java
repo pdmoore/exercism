@@ -28,14 +28,26 @@ class VariableLengthQuantity {
             Stack<String> vlqNumbers = new Stack<>();
 
             String numberAsBits = Long.toBinaryString(number);
+
+            // Might be attach a '1' to everything but the rightmost?
+            boolean firstTime = true;
             while (!numberAsBits.isEmpty()) {
+                //modify so that first number gets "0" prepended, remainder get 1
                 if (numberAsBits.length() > 7) {
                     String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
-                    vlqNumbers.push(String.format("0x%01x", Integer.parseInt(rightSide, 2)));
+                    if (firstTime) {
+                        rightSide = "0" + rightSide;
+                        firstTime = false;
+                    } else {
+                        rightSide = "1" + rightSide;
+                    }
+                    String bitString = String.format("0x%01x", Integer.parseInt(rightSide, 2));
+                    vlqNumbers.push(bitString);
                     numberAsBits = numberAsBits.substring(0, numberAsBits.length() - 7);
                 } else {
                     numberAsBits = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
-                    vlqNumbers.push(String.format("0x%01x", Integer.parseInt(numberAsBits, 2)));
+                    String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
+                    vlqNumbers.push(bitString);
                     numberAsBits = "";
                 }
             }
