@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -6,14 +7,12 @@ class VariableLengthQuantity {
 
     List<String> encode(List<Long> numbers) {
 
+        //TODO - look into return List<String> from stream instead of temp var
         List<String> encoding = new ArrayList<>();
 
-        for (Long number :
-                numbers) {
-            encoding.addAll(encodeThisNumber(number));
-        }
+        numbers.stream().map(this::encodeThisNumber).forEach(encoding::addAll);
 
-        return encoding;
+        return Collections.unmodifiableList(encoding);
     }
 
     private List<String> encodeThisNumber(Long number) {
