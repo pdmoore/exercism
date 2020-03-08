@@ -6,15 +6,12 @@ class VariableLengthQuantity {
 
     List<String> encode(List<Long> numbers) {
 
-
         List<String> encoding = new ArrayList<>();
 
-        //TODO - loop through list of numbers and perform translation operation, appending to answer
-        Long encodeThis = numbers.get(0);
-
-
-        encoding.addAll(encodeThisNumber(encodeThis));
-
+        for (Long number :
+                numbers) {
+            encoding.addAll(encodeThisNumber(number));
+        }
 
         return encoding;
     }
@@ -29,7 +26,6 @@ class VariableLengthQuantity {
 
             String numberAsBits = Long.toBinaryString(number);
 
-            // Might be attach a '1' to everything but the rightmost?
             boolean firstTime = true;
             while (!numberAsBits.isEmpty()) {
                 //modify so that first number gets "0" prepended, remainder get 1
