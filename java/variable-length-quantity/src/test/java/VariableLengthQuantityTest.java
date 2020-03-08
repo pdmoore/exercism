@@ -148,7 +148,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testTwoMultiByteValues() {
         List<String> expected = Arrays.asList("0x81", "0x80", "0x0", "0xc8", "0xe8", "0x56");
@@ -157,7 +156,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testManyMultiByteValues() {
         List<String> expected = Arrays.asList("0xc0", "0x0", "0xc8", "0xe8",
