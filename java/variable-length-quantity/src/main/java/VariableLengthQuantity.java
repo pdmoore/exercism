@@ -2,17 +2,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 class VariableLengthQuantity {
 
     List<String> encode(List<Long> numbers) {
 
-        //TODO - look into return List<String> from stream instead of temp var
-        List<String> encoding = new ArrayList<>();
-
-        numbers.stream().map(this::encodeThisNumber).forEach(encoding::addAll);
-
-        return Collections.unmodifiableList(encoding);
+        return numbers.stream()
+                .map(this::encodeThisNumber)
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
     }
 
     private List<String> encodeThisNumber(Long number) {
