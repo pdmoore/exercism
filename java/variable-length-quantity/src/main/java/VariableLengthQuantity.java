@@ -15,7 +15,9 @@ class VariableLengthQuantity {
     }
 
     private List<String> encodeThisNumber(Long number) {
+
         List<String> numberEncoding = new ArrayList<>();
+        // TODO - need for special case handling? Can it be part of loop?
         if (number < 128) {
             numberEncoding.add(String.format("0x%01x", number));
         } else {
@@ -24,6 +26,7 @@ class VariableLengthQuantity {
 
             String numberAsBits = Long.toBinaryString(number);
 
+            // TODO revist this logic - there's some minor duplication and it's very verbose
             boolean firstTime = true;
             while (!numberAsBits.isEmpty()) {
                 //modify so that first number gets "0" prepended, remainder get 1
