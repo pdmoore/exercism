@@ -19,8 +19,11 @@ class VariableLengthQuantity {
 
         // Guard clause to handle small numbers
         if (number < 128) {
-            String formatted = String.format("0x%01x", number);
-            numberEncoding.add(formatted);
+            String numberAsBits = Long.toBinaryString(number);
+            numberAsBits = String.format("%1$7s", numberAsBits).replace(' ', '0');
+            String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
+            numberEncoding.add(bitString);
+
             return numberEncoding;
         }
 
@@ -32,8 +35,13 @@ class VariableLengthQuantity {
         // TODO revist this logic - there's some minor duplication and it's very verbose
         boolean firstTime = true;
         while (!numberAsBits.isEmpty()) {
-            //modify so that first number gets "0" prepended, remainder get 1
-            if (numberAsBits.length() > 7) {
+
+            if (numberAsBits.length() < 7) {
+                numberAsBits = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
+                String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
+                vlqNumbers.push(bitString);
+                numberAsBits = "";
+            } else {
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 if (firstTime) {
                     rightSide = "0" + rightSide;
@@ -44,11 +52,6 @@ class VariableLengthQuantity {
                 String bitString = String.format("0x%01x", Integer.parseInt(rightSide, 2));
                 vlqNumbers.push(bitString);
                 numberAsBits = numberAsBits.substring(0, numberAsBits.length() - 7);
-            } else {
-                numberAsBits = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
-                String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
-                vlqNumbers.push(bitString);
-                numberAsBits = "";
             }
         }
 
