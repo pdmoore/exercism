@@ -17,7 +17,8 @@ class VariableLengthQuantity {
 
         List<String> numberEncoding = new ArrayList<>();
 
-        // Guard clause to handle small numbers
+        // TODO - logic here is similar to first if ( length < 7) of while loop
+        // except here we don't leftpad with a "1"
         if (number < 128) {
             String numberAsBits = Long.toBinaryString(number);
             numberAsBits = String.format("%1$7s", numberAsBits).replace(' ', '0');
