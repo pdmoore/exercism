@@ -16,9 +16,11 @@ class VariableLengthQuantity {
     private List<String> encodeThisNumber(Long number) {
 
         List<String> numberEncoding = new ArrayList<>();
-        // TODO - need for special case handling? Can it be part of loop?
+
+        // Guard clause to handle small numbers
         if (number < 128) {
-            numberEncoding.add(String.format("0x%01x", number));
+            String formatted = String.format("0x%01x", number);
+            numberEncoding.add(formatted);
             return numberEncoding;
         }
 
@@ -53,7 +55,7 @@ class VariableLengthQuantity {
         while (!vlqNumbers.empty()) {
             numberEncoding.add(vlqNumbers.pop());
         }
-        
+
         return numberEncoding;
     }
 
