@@ -24,6 +24,7 @@ class VariableLengthQuantity {
 
         // TODO revist this logic - there's some minor duplication and it's very verbose
         boolean firstTime = true;
+        int endIndex;
         while (!numberAsBits.isEmpty()) {
 
             if (number < 128 || (numberAsBits.length() < 7)) {
@@ -34,7 +35,9 @@ class VariableLengthQuantity {
                 numberAsBits = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
                 String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
                 vlqNumbers.push(bitString);
-                numberAsBits = "";
+                // clear the string out for the next pass
+                endIndex = 0;
+//                numberAsBits = numberAsBits.substring(0, endIndex);
             } else {
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 if (firstTime) {
@@ -43,10 +46,15 @@ class VariableLengthQuantity {
                 } else {
                     rightSide = "1" + rightSide;
                 }
+
                 String bitString = String.format("0x%01x", Integer.parseInt(rightSide, 2));
                 vlqNumbers.push(bitString);
-                numberAsBits = numberAsBits.substring(0, numberAsBits.length() - 7);
+
+                endIndex = numberAsBits.length() - 7;
+//                numberAsBits = numberAsBits.substring(0, endIndex);
             }
+            numberAsBits = numberAsBits.substring(0, endIndex);
+
         }
 
         while (!vlqNumbers.empty()) {
