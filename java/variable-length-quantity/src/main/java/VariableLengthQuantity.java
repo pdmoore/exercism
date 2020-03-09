@@ -33,7 +33,7 @@ class VariableLengthQuantity {
                 }
                 numberAsBits = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
                 String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
-                numberEncoding.add(bitString);
+                vlqNumbers.push(bitString);
                 numberAsBits = "";
             } else {
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
