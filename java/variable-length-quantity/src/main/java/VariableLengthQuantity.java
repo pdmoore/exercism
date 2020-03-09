@@ -15,12 +15,10 @@ class VariableLengthQuantity {
 
     private List<String> encodeThisNumber(Long number) {
 
-        List<String> numberEncoding = new ArrayList<>();
-
-        String numberAsBits = Long.toBinaryString(number);
         Stack<String> vlqNumbers = new Stack<>();
 
         boolean firstTime = true;
+        String numberAsBits = Long.toBinaryString(number);
         while (!numberAsBits.isEmpty()) {
             String thisNumber;
 
@@ -49,6 +47,7 @@ class VariableLengthQuantity {
             numberAsBits = numberAsBits.substring(0, endIndex);
         }
 
+        List<String> numberEncoding = new ArrayList<>();
         while (!vlqNumbers.empty()) {
             numberEncoding.add(vlqNumbers.pop());
         }
