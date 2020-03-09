@@ -19,8 +19,9 @@ class VariableLengthQuantity {
 
         // TODO - logic here is similar to first if ( length < 7) of while loop
         // except here we don't leftpad with a "1"
+        String numberAsBits = Long.toBinaryString(number);
+
         if (number < 128) {
-            String numberAsBits = Long.toBinaryString(number);
             numberAsBits = String.format("%1$7s", numberAsBits).replace(' ', '0');
             String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
             numberEncoding.add(bitString);
@@ -31,7 +32,6 @@ class VariableLengthQuantity {
 
         Stack<String> vlqNumbers = new Stack<>();
 
-        String numberAsBits = Long.toBinaryString(number);
 
         // TODO revist this logic - there's some minor duplication and it's very verbose
         boolean firstTime = true;
