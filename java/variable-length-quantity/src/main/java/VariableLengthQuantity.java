@@ -17,23 +17,20 @@ class VariableLengthQuantity {
 
         List<String> numberEncoding = new ArrayList<>();
 
-        // TODO - logic here is similar to first if ( length < 7) of while loop
-        // except here we don't leftpad with a "1"
         String numberAsBits = Long.toBinaryString(number);
         Stack<String> vlqNumbers = new Stack<>();
 
-        // TODO revist this logic - there's some minor duplication and it's very verbose
         boolean firstTime = true;
-
         while (!numberAsBits.isEmpty()) {
             String thisNumber;
 
+            // TODO revist this logic - there's some minor duplication and it's very verbose
             if (number < 128 || (numberAsBits.length() < 7)) {
                 String prefix = "1";
                 if (number < 128) {
                     prefix = "";
                 }
-                thisNumber   = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
+                thisNumber = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
             } else {
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 if (firstTime) {
