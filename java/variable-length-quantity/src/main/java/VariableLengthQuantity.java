@@ -27,17 +27,15 @@ class VariableLengthQuantity {
         int endIndex;
         while (!numberAsBits.isEmpty()) {
 
+            String thisNumber;
+
             if (number < 128 || (numberAsBits.length() < 7)) {
                 String prefix = "1";
                 if (number < 128) {
                     prefix = "";
                 }
-                numberAsBits = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
-                String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
-                vlqNumbers.push(bitString);
-                // clear the string out for the next pass
+                thisNumber   = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
                 endIndex = 0;
-//                numberAsBits = numberAsBits.substring(0, endIndex);
             } else {
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 if (firstTime) {
@@ -46,13 +44,14 @@ class VariableLengthQuantity {
                 } else {
                     rightSide = "1" + rightSide;
                 }
-
-                String bitString = String.format("0x%01x", Integer.parseInt(rightSide, 2));
-                vlqNumbers.push(bitString);
+                thisNumber = rightSide;
 
                 endIndex = numberAsBits.length() - 7;
-//                numberAsBits = numberAsBits.substring(0, endIndex);
             }
+
+            String bitString = String.format("0x%01x", Integer.parseInt(thisNumber, 2));
+            vlqNumbers.push(bitString);
+
             numberAsBits = numberAsBits.substring(0, endIndex);
 
         }
