@@ -26,7 +26,7 @@ class VariableLengthQuantity {
             String bitString = String.format("0x%01x", Integer.parseInt(numberAsBits, 2));
             numberEncoding.add(bitString);
 
-            return numberEncoding;
+            numberAsBits = "";
         }
 
 
