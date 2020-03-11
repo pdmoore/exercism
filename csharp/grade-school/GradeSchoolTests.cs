@@ -35,7 +35,7 @@ public class GradeSchoolTests
         Assert.Equal(expected, sut.Roster());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Roster_returns_an_empty_list_if_there_are_no_students_enrolled()
     {
         var sut = new GradeSchool();
