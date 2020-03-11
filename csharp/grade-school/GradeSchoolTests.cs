@@ -14,7 +14,7 @@ public class GradeSchoolTests
         Assert.Equal(expected, sut.Roster());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Adding_more_student_adds_them_to_the_sorted_roster()
     {
         var sut = new GradeSchool();
