@@ -3,27 +3,27 @@ using System.Linq;
 
 public enum Allergen
 {
-    Eggs,
-    Peanuts,
-    Shellfish,
-    Strawberries,
-    Tomatoes,
-    Chocolate,
-    Pollen,
-    Cats
+    Eggs = 1,
+    Peanuts = 2,
+    Shellfish = 4,
+    Strawberries = 8,
+    Tomatoes = 16,
+    Chocolate = 32,
+    Pollen = 64,
+    Cats = 128
 }
 
 public class Allergies
 {
-    private readonly int _mask;
+    private readonly Allergen _knownAllergens;
 
-    public Allergies(int mask) => _mask = mask;
+    public Allergies(int mask) => _knownAllergens = (Allergen)mask;
 
-    public bool IsAllergicTo(Allergen allergen) => (_mask & (1 << (int) allergen)) != 0;
+    public bool IsAllergicTo(Allergen allergen) => _knownAllergens.HasFlag(allergen);
 
     public Allergen[] List() =>
-        Enum.GetValues(typeof(Allergen)).
-            Cast<Allergen>().
-            Where(IsAllergicTo).
-            ToArray();
+        Enum.GetValues(typeof(Allergen))
+            .Cast<Allergen>()
+            .Where(IsAllergicTo)
+            .ToArray();
 }
