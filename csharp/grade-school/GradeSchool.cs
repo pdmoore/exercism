@@ -16,9 +16,8 @@ public class GradeSchool
         }
         else
         {
-           var lazy = _namesByGrade[grade];
-           lazy.Add(student);
-           lazy.Sort();
+           _namesByGrade[grade].Add(student);
+           _namesByGrade[grade].Sort();
         }
     }
 
