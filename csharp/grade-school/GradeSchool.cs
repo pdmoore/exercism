@@ -24,6 +24,6 @@ public class GradeSchool
 
     public IEnumerable<string> Grade(int grade)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        return _namesByGrade[grade];
     }
 }
