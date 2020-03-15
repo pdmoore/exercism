@@ -22,6 +22,7 @@ public class GradeSchool
         {
            var lazy = _namesByGrade[grade];
            lazy.Add(student);
+           lazy.Sort();
         }
     }
 
@@ -31,7 +32,6 @@ public class GradeSchool
         foreach (var grade
             in _namesByGrade.Keys)
         {
-            _namesByGrade[grade].Sort();                // passes test but sorts each time roster is built
             allNames.AddRange(_namesByGrade[grade]);
         }
 
