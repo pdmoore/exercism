@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GradeSchool
 {
@@ -21,14 +22,7 @@ public class GradeSchool
 
     public IEnumerable<string> Roster()
     {
-        List<string> allNames = new List<string>();
-        foreach (var grade
-            in _namesByGrade.Keys)
-        {
-            allNames.AddRange(_namesByGrade[grade]);
-        }
-
-        return allNames;
+        return _namesByGrade.SelectMany(x => x.Value);
     }
 
     public IEnumerable<string> Grade(int grade)
