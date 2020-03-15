@@ -5,7 +5,7 @@ using System.Linq;
 
 public class GradeSchool
 {
-    private SortedDictionary<int, List<string>> _namesByGrade = new SortedDictionary<int, List<string>>();
+    private readonly SortedDictionary<int, List<string>> _namesByGrade = new SortedDictionary<int, List<string>>();
 
     public void Add(string student, int grade)
     {
@@ -20,10 +20,7 @@ public class GradeSchool
         }
     }
 
-    public IEnumerable<string> Roster()
-    {
-        return _namesByGrade.SelectMany(x => x.Value);
-    }
+    public IEnumerable<string> Roster() => _namesByGrade.SelectMany(x => x.Value);
 
     public IEnumerable<string> Grade(int grade)
     {
