@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GradeSchool
 {
     private List<string> _names = new List<string>();
-    private Dictionary<int, List<string>> _namesByGrade = new Dictionary<int, List<string>>();
+    private SortedDictionary<int, List<string>> _namesByGrade = new SortedDictionary<int, List<string>>();
 
     public void Add(string student, int grade)
     {
@@ -31,6 +31,7 @@ public class GradeSchool
         foreach (var grade
             in _namesByGrade.Keys)
         {
+            _namesByGrade[grade].Sort();                // passes test but sorts each time roster is built
             allNames.AddRange(_namesByGrade[grade]);
         }
 
