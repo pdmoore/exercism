@@ -9,9 +9,8 @@ public class GradeSchool
     public void Add(string student, int grade)
     {
         if (_namesByGrade.ContainsKey(grade) == false)
-        { 
-            List<string> names = new List<string>() { student };
-            _namesByGrade.Add(grade, names);
+        {
+            _namesByGrade.Add(grade, new List<string>() { student });
         }
         else
         {
