@@ -25,5 +25,5 @@ public class Allergies
         Enum.GetValues(typeof(Allergen))
             .Cast<Allergen>()
             .Where(IsAllergicTo)
-            .ToArray();
+                .ToArray();
 }
