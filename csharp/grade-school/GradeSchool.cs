@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualBasic;
 
 public class GradeSchool
 {
@@ -22,6 +23,5 @@ public class GradeSchool
 
     public IEnumerable<string> Roster() => _namesByGrade.SelectMany(x => x.Value);
 
-    //TODO TryGetValue?
-    public IEnumerable<string> Grade(int grade) => _namesByGrade.ContainsKey(grade) ? _namesByGrade[grade] : new List<string>();
+    public IEnumerable<string> Grade(int grade) => _namesByGrade.TryGetValue(grade, out var value) ? value : new List<string>();
 }
