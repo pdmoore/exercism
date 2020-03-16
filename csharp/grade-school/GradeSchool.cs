@@ -24,6 +24,12 @@ public class GradeSchool
 
     public IEnumerable<string> Grade(int grade)
     {
-        return _namesByGrade[grade];
+        //TODO Left off here - need to provide a default if the key is not present
+        // TryGetValue is the right approach, just figuring our the magic incantation 
+        // IEnumerable<string> value = null;
+        // return _namesByGrade.TryGetValue(grade, out value);
+        if (_namesByGrade.ContainsKey(grade)) return _namesByGrade[grade];
+
+        return new List<string>();
     }
 }
