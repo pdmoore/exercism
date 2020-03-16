@@ -10,10 +10,10 @@ public class GradeSchool
 
     public void Add(string student, int grade)
     {
-        if (_namesByGrade.TryGetValue(grade, out var value))
+        if (_namesByGrade.TryGetValue(grade, out var students))
         {
-            value.Add(student);
-            value.Sort();
+            students.Add(student);
+            students.Sort();
         }
         else
         {
@@ -21,7 +21,7 @@ public class GradeSchool
         }
     }
 
-    public IEnumerable<string> Roster() => _namesByGrade.SelectMany(x => x.Value);
+    public IEnumerable<string> Roster() => _namesByGrade.SelectMany(grade => grade.Value);
 
-    public IEnumerable<string> Grade(int grade) => _namesByGrade.TryGetValue(grade, out var value) ? value : new List<string>();
+    public IEnumerable<string> Grade(int grade) => _namesByGrade.TryGetValue(grade, out var students) ? students : new List<string>();
 }
