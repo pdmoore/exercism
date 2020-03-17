@@ -22,7 +22,7 @@ public class RotationalCipherTests
         Assert.Equal("a", RotationalCipher.Rotate("a", 26));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Rotate_m_by_13()
     {
         Assert.Equal("z", RotationalCipher.Rotate("m", 13));
