@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 public static class RotationalCipher
 {
@@ -6,11 +7,15 @@ public static class RotationalCipher
     {
         if (shiftKey == 0)
         {
-        return text;
-            
+            return text;
         }
 
-        return "b";
 
+        String result = "";
+        foreach (char c in text)
+        {
+            result += Char.ToString((char) (c + 1));
+        }
+        return result;
     }
 }
