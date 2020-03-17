@@ -14,7 +14,7 @@ public static class RotationalCipher
         String result = "";
         foreach (char c in text)
         {
-            result += Char.ToString((char) (c + 1));
+            result += Char.ToString((char) (c + shiftKey));
         }
         return result;
     }
