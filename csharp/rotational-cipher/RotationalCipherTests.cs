@@ -10,7 +10,7 @@ public class RotationalCipherTests
         Assert.Equal("a", RotationalCipher.Rotate("a", 0));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Rotate_a_by_1()
     {
         Assert.Equal("b", RotationalCipher.Rotate("a", 1));
