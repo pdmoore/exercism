@@ -5,12 +5,6 @@ public static class RotationalCipher
 {
     public static string Rotate(string text, int shiftKey)
     {
-        if (shiftKey == 0)
-        {
-            return text;
-        }
-
-
         string result = "";
         foreach (var c in text) {
             result += encode(c, shiftKey);
