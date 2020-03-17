@@ -11,11 +11,13 @@ public static class RotationalCipher
         }
 
 
-        String result = "";
-        foreach (char c in text)
-        {
-            result += Char.ToString((char) (c + shiftKey));
+        string result = "";
+        foreach (var c in text) {
+            result += encode(c, shiftKey);
         }
+
         return result;
     }
+
+    private static string encode(char c, int shiftKey) => Char.ToString((char) (c + shiftKey));
 }
