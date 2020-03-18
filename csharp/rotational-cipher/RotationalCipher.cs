@@ -7,13 +7,13 @@ public static class RotationalCipher
     {
         string result = "";
         foreach (var c in text) {
-            result += encode(c, shiftKey);
+            result += Encode(c, shiftKey);
         }
 
         return result;
     }
 
-    private static string encode(char c, int shiftKey)
+    private static string Encode(char c, int shiftKey)
     {
         var shiftAmount = shiftKey % 26;
         var result = (c + shiftAmount);
@@ -21,6 +21,6 @@ public static class RotationalCipher
         {
             result -= 26;
         }
-        return Char.ToString((char)result);
+        return char.ToString((char)result);
     }
 }
