@@ -15,8 +15,7 @@ public static class RotationalCipher
 
     private static string Encode(char c, int shiftKey)
     {
-        var shiftAmount = shiftKey % 26;
-        var result = (c + shiftAmount);
+        var result = (c + shiftKey);
         if (result > 'z')
         {
             result -= 26;
