@@ -3,17 +3,7 @@ using System.Linq;
 
 public static class RotationalCipher
 {
-    public static string Rotate(string text, int shiftKey)
-    {
-        // TODO - replace foreach with stream/linq
-        string result = "";
-        foreach (var c in text)
-        {
-            result += Encode(c, shiftKey);
-        }
-
-        return result;
-    }
+    public static string Rotate(string text, int shiftKey) => text.Aggregate("", (result, c) => result + Encode(c, shiftKey));
 
     private static char Encode(char c, int shiftKey)
     {
