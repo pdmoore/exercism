@@ -5,6 +5,7 @@ public static class RotationalCipher
 {
     public static string Rotate(string text, int shiftKey)
     {
+        // TODO - replace foreach with stream/linq
         string result = "";
         foreach (var c in text) {
             result += Encode(c, shiftKey);
@@ -15,6 +16,7 @@ public static class RotationalCipher
 
     private static string Encode(char c, int shiftKey)
     {
+        // TODO - better approach to wrap back past z? 
         var result = (c + shiftKey);
         if (result > 'z')
         {
