@@ -12,14 +12,15 @@ public static class RotationalCipher
             return c;
         }
 
-        // TODO - better approach to wrap back past z? 
         var result = (c + shiftKey);
+        
+        // TODO - better approach to wrap back past z? 
         if ((char.IsLower(c) && result > 'z') ||
             (char.IsUpper(c) && result > 'Z'))
         {
             result -= 26;
         }
 
-        return (char)result;
+        return (char) result;
     }
 }
