@@ -7,16 +7,9 @@ public static class RotationalCipher
     {
         // TODO - replace foreach with stream/linq
         string result = "";
-        foreach (var c in text) {
-            if (char.IsLetter(c))
-            {
+        foreach (var c in text)
+        {
             result += Encode(c, shiftKey);
-                
-            }
-            else
-            {
-                result += c;
-            }
         }
 
         return result;
@@ -24,12 +17,18 @@ public static class RotationalCipher
 
     private static string Encode(char c, int shiftKey)
     {
+        if (!char.IsLetter(c))
+        {
+            return char.ToString(c);
+        }
+
         // TODO - better approach to wrap back past z? 
         var result = (c + shiftKey);
         if (result > 'z')
         {
             result -= 26;
         }
+
         return char.ToString((char)result);
     }
 }
