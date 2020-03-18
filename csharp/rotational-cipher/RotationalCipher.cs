@@ -8,7 +8,15 @@ public static class RotationalCipher
         // TODO - replace foreach with stream/linq
         string result = "";
         foreach (var c in text) {
+            if (char.IsLetter(c))
+            {
             result += Encode(c, shiftKey);
+                
+            }
+            else
+            {
+                result += c;
+            }
         }
 
         return result;
