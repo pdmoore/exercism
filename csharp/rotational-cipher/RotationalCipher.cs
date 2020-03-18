@@ -15,11 +15,11 @@ public static class RotationalCipher
         return result;
     }
 
-    private static string Encode(char c, int shiftKey)
+    private static char Encode(char c, int shiftKey)
     {
         if (!char.IsLetter(c))
         {
-            return char.ToString(c);
+            return c;
         }
 
         // TODO - better approach to wrap back past z? 
@@ -29,6 +29,6 @@ public static class RotationalCipher
             result -= 26;
         }
 
-        return char.ToString((char)result);
+        return (char)result;
     }
 }
