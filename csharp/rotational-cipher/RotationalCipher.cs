@@ -24,7 +24,10 @@ public static class RotationalCipher
 
         // TODO - better approach to wrap back past z? 
         var result = (c + shiftKey);
-        if (result > 'z')
+        if (char.IsLower(c) && result > 'z')
+        {
+            result -= 26;
+        } else if (char.IsUpper(c) && result > 'Z')
         {
             result -= 26;
         }
