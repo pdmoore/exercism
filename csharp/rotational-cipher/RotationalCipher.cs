@@ -13,5 +13,14 @@ public static class RotationalCipher
         return result;
     }
 
-    private static string encode(char c, int shiftKey) => Char.ToString((char) (c + (shiftKey % 26)));
+    private static string encode(char c, int shiftKey)
+    {
+        var shiftAmount = shiftKey % 26;
+        var result = (c + shiftAmount);
+        if (result > 'z')
+        {
+            result -= 26;
+        }
+        return Char.ToString((char)result);
+    }
 }
