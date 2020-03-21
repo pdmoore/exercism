@@ -3,6 +3,10 @@
 public class CircularBuffer<T>
 {
     private T _value;
+    
+    // Need real impl
+    // dynamic LL? need to maintain a size value and compare against capacity
+    // dynamic LL - track head and tail
 
     public CircularBuffer(int capacity)
     {
