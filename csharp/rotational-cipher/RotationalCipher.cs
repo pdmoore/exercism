@@ -19,12 +19,12 @@ public static class RotationalCipher
 
     private static char Rotate(char c, int shiftKey) {
         var rotatedChar = (c + shiftKey);
-
+        
         if ((char.IsLower(c) && rotatedChar > 'z') ||
             (char.IsUpper(c) && rotatedChar > 'Z')) {
             rotatedChar -= NumCharactersInAlphabet;
         }
-
+        
         return (char) rotatedChar;
     }
 }
