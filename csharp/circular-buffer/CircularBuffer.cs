@@ -2,12 +2,10 @@
 
 public class CircularBuffer<T>
 {
-    private int _capacity;
     private T _value;
 
     public CircularBuffer(int capacity)
     {
-        _capacity = capacity;
         _value = default(T);
     }
 
