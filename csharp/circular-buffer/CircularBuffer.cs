@@ -16,7 +16,9 @@ public class CircularBuffer<T>
             throw new InvalidOperationException();
         }
 
-        return _value;
+        T result = _value;
+        _value = default(T);
+        return result;
     }
 
     public void Write(T value)
