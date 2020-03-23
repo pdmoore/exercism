@@ -29,6 +29,11 @@ public class CircularBuffer<T>
         _buffer2[_tail] = default(T);
 
         _tail++;
+        if (_tail == _capacity)
+        {
+            _tail = 0;
+        }
+
         _size--;
         
         return result;
