@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 
 public class CircularBuffer<T>
 {
+    //TODO - need all these?
+    //TODO - compose Read and Write
+    
     private T[] _buffer2;
     private int _head;
     private int _tail;
@@ -29,8 +31,7 @@ public class CircularBuffer<T>
         _buffer2[_tail] = default(T);
 
         _tail++;
-        if (_tail == _capacity)
-        {
+        if (_tail == _capacity) {
             _tail = 0;
         }
 
@@ -47,8 +48,9 @@ public class CircularBuffer<T>
         }
         
         _buffer2[_head] = value;
-        _head++;
         _size++;
+        
+        _head++;
         if (_head == _capacity)
         {
             _head = 0;
