@@ -36,6 +36,11 @@ public class CircularBuffer<T>
 
     public void Write(T value)
     {
+        if (_size == _capacity)
+        {
+            throw new InvalidOperationException();
+        }
+        
         _buffer2[_head] = value;
         _head++;
         _size++;
