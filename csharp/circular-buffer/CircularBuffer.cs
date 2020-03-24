@@ -5,10 +5,11 @@ public class CircularBuffer<T>
     //TODO - need all these?
     //TODO - compose Read and Write
     
-    private T[] _buffer2;
+    private readonly T[] _buffer2;
+    private readonly int _capacity;
+    
     private int _head;
     private int _tail;
-    private int _capacity;
     private int _size;
     
     public CircularBuffer(int capacity)
@@ -60,6 +61,8 @@ public class CircularBuffer<T>
     public void Overwrite(T value)
     {
         _buffer2[_tail] = value;
+        
+        //TODO - dupe code
         _tail++;
         if (_tail == _capacity) {
             _tail = 0;
