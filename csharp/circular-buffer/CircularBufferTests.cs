@@ -133,7 +133,7 @@ public class CircularBufferTests
         Assert.Equal(5, buffer.Read());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Initial_clear_does_not_affect_wrapping_around()
     {
         var buffer = new CircularBuffer<int>(capacity: 2);

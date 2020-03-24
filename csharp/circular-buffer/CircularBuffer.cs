@@ -61,6 +61,9 @@ public class CircularBuffer<T>
     {
         _buffer2[_tail] = value;
         _tail++;
+        if (_tail == _capacity) {
+            _tail = 0;
+        }
     }
 
     public void Clear()
