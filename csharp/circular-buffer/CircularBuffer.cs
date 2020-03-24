@@ -64,6 +64,11 @@ public class CircularBuffer<T>
 
     public void Clear()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        //TODO - any need to remove items in the buffer?
+        
+        //TODO - dupe of ctor
+        _size = 0;
+        _head = 0;
+        _tail = 0;
     }
 }
