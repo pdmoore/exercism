@@ -15,10 +15,9 @@ public class CircularBuffer<T>
     public CircularBuffer(int capacity)
     {
         _buffer2 = new T[capacity];
-        _head = 0;
-        _tail = 0;
         _capacity = capacity;
-        _size = 0;
+        
+        ResetContents();
     }
 
     public T Read()
@@ -69,13 +68,11 @@ public class CircularBuffer<T>
         }
     }
 
-    public void Clear()
-    {
-        //TODO - any need to remove items in the buffer?
-        
-        //TODO - dupe of ctor
-        _size = 0;
+    public void Clear() => ResetContents();
+
+    private void ResetContents() {
         _head = 0;
         _tail = 0;
+        _size = 0;
     }
 }
