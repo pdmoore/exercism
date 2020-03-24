@@ -59,7 +59,8 @@ public class CircularBuffer<T>
 
     public void Overwrite(T value)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        _buffer2[_tail] = value;
+        _tail++;
     }
 
     public void Clear()
