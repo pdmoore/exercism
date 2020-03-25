@@ -30,10 +30,8 @@ public class CircularBuffer<T>
         T result = _buffer2[_tail];
         _buffer2[_tail] = default(T);
 
-        _tail++;
-        if (_tail == _capacity) {
-            _tail = 0;
-        }
+        
+        _tail = IncrementOrWrap(_tail);
 
         _size--;
         
@@ -49,23 +47,25 @@ public class CircularBuffer<T>
         
         _buffer2[_head] = value;
         _size++;
-        
-        _head++;
-        if (_head == _capacity)
-        {
-            _head = 0;
-        }
+
+        _head = IncrementOrWrap(_head);
     }
+
+    private int IncrementOrWrap(int index)
+    {
+        index++;
+        if (index == _capacity) {
+            index = 0;
+        }
+
+        return index;
+    }
+
 
     public void Overwrite(T value)
     {
         _buffer2[_tail] = value;
-        
-        //TODO - dupe code
-        _tail++;
-        if (_tail == _capacity) {
-            _tail = 0;
-        }
+        _tail = IncrementOrWrap(_tail);
     }
 
     public void Clear() => ResetContents();
