@@ -2,7 +2,6 @@
 
 public class CircularBuffer<T>
 {
-    //TODO - need all these?
     //TODO - compose Read and Write
     
     private readonly T[] _buffer;
@@ -10,7 +9,7 @@ public class CircularBuffer<T>
     
     private int _head;
     private int _tail;
-    private int _size;
+    private int _count;
     
     public CircularBuffer(int capacity)
     {
@@ -22,7 +21,7 @@ public class CircularBuffer<T>
 
     public T Read()
     {
-        if (_size == 0)
+        if (_count == 0)
         {
             throw new InvalidOperationException();
         }
@@ -33,20 +32,20 @@ public class CircularBuffer<T>
         
         _tail = IncrementOrWrap(_tail);
 
-        _size--;
+        _count--;
         
         return result;
     }
 
     public void Write(T value)
     {
-        if (_size == _capacity)
+        if (_count == _capacity)
         {
             throw new InvalidOperationException();
         }
         
         _buffer[_head] = value;
-        _size++;
+        _count++;
 
         _head = IncrementOrWrap(_head);
     }
@@ -73,6 +72,6 @@ public class CircularBuffer<T>
     private void ResetContents() {
         _head = 0;
         _tail = 0;
-        _size = 0;
+        _count = 0;
     }
 }
