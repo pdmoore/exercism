@@ -23,18 +23,10 @@ class VariableLengthQuantity {
             String thisNumber;
 
             // TODO revist this logic - there's some minor duplication and it's very verbose
-            if (number < 128 || (numberAsBits.length() < 7)) {
-                String prefix = "1";
-                if (number < 128) {
-                    prefix = "";
-                }
-                thisNumber = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
+            if (number < 128) {
+                thisNumber = String.format("%1$7s", numberAsBits).replace(' ', '0');
             } else if (numberAsBits.length() < 7) {
-                String prefix = "1";
-                if (number < 128) {
-                    prefix = "";
-                }
-                thisNumber = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
+                thisNumber = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
             } else {
                 String prefix = "1";
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
