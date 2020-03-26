@@ -30,13 +30,11 @@ class VariableLengthQuantity {
                 }
                 thisNumber = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
             } else {
-                String prefix = "";
+                String prefix = "1";
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 if (firstTime) {
                     prefix = "0";
                     firstTime = false;
-                } else {
-                    prefix = "1";
                 }
                 thisNumber = prefix + rightSide;
             }
