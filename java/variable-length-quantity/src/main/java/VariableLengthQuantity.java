@@ -30,14 +30,15 @@ class VariableLengthQuantity {
                 }
                 thisNumber = prefix + String.format("%1$7s", numberAsBits).replace(' ', '0');
             } else {
+                String prefix = "";
                 String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 if (firstTime) {
-                    rightSide = "0" + rightSide;
+                    prefix = "0";
                     firstTime = false;
                 } else {
-                    rightSide = "1" + rightSide;
+                    prefix = "1";
                 }
-                thisNumber = rightSide;
+                thisNumber = prefix + rightSide;
             }
 
             String bitString = String.format("0x%01x", Integer.parseInt(thisNumber, 2));
