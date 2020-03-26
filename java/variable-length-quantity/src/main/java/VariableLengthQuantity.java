@@ -29,11 +29,11 @@ class VariableLengthQuantity {
                 thisNumber = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
             } else {
                 String prefix = "1";
-                String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 if (firstTime) {
                     prefix = "0";
                     firstTime = false;
                 }
+                String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
                 thisNumber = prefix + rightSide;
             }
 
