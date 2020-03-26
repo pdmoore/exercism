@@ -44,8 +44,7 @@ public class CircularBuffer<T>
 
         _head = IncrementOrWrap(_head);
     }
-
-
+    
     public void Overwrite(T value)
     {
         _buffer[_tail] = value;
