@@ -35,7 +35,6 @@ class VariableLengthQuantity {
                     firstTime = false;
                 }
                 thisNumber = prefix + rightSide;
-                System.out.println("2: " + thisNumber);
             }
 
             String bitString = String.format("0x%01x", Integer.parseInt(thisNumber, 2));
