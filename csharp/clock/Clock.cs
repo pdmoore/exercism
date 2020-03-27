@@ -22,7 +22,7 @@ public class Clock
 
     public override string ToString()
     {
-        int hours = _minutes / 60;
+        int hours = ReduceHours(_minutes / 60); // should this reduce happen in ctor?
         int minutes = _minutes % 60;
 
         StringBuilder sb = new StringBuilder();
