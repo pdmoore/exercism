@@ -10,7 +10,7 @@ public class Clock
     public Clock(int hours, int minutes)
     {
         _hours = ReduceHours(hours);
-        _minutes = minutes + (hours * 60);
+        _minutes = minutes + (_hours * 60);
     }
 
     private int ReduceHours(in int hours) => hours % 24;
@@ -29,12 +29,14 @@ public class Clock
     {
         StringBuilder sb = new StringBuilder();
 
+        int hours = _minutes / 60;
+        int minutes = _minutes % 60;
 
 
 
-        sb.Append(_hours.ToString(TwoDecimalPlaces));
+        sb.Append(hours.ToString(TwoDecimalPlaces));
         sb.Append(":");
-        sb.Append(_minutes.ToString(TwoDecimalPlaces));
+        sb.Append(minutes.ToString(TwoDecimalPlaces));
         return sb.ToString();
     }
 }
