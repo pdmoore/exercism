@@ -39,7 +39,7 @@ public class ClockTests
         Assert.Equal("04:00", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Sixty_minutes_is_next_hour()
     {
         var sut = new Clock(1, 60);

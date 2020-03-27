@@ -5,12 +5,12 @@ public class Clock
 {
     private readonly int _hours;
     private readonly int _minutes;
-    private string TwoDecimalPlaces;
+    private readonly string TwoDecimalPlaces = "D2";
 
     public Clock(int hours, int minutes)
     {
         _hours = ReduceHours(hours);
-        _minutes = minutes;
+        _minutes = minutes + (hours * 60);
     }
 
     private int ReduceHours(in int hours) => hours % 24;
@@ -28,7 +28,10 @@ public class Clock
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        TwoDecimalPlaces = "D2";
+
+
+
+
         sb.Append(_hours.ToString(TwoDecimalPlaces));
         sb.Append(":");
         sb.Append(_minutes.ToString(TwoDecimalPlaces));
