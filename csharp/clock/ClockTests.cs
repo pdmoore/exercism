@@ -60,21 +60,21 @@ public class ClockTests
         Assert.Equal("04:43", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Hour_and_minutes_roll_over()
     {
         var sut = new Clock(25, 160);
         Assert.Equal("03:40", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Hour_and_minutes_roll_over_continuously()
     {
         var sut = new Clock(201, 3001);
         Assert.Equal("11:01", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Hour_and_minutes_roll_over_to_exactly_midnight()
     {
         var sut = new Clock(72, 8640);
