@@ -8,19 +8,17 @@ public class Clock
     private readonly int HoursPerDay = 24;
     private readonly int MinutesPerHour = 60;
 
-    public Clock(int hours, int minutes) => _minutes = minutes + (ReduceHours(hours) * 60);
-
-    private int ReduceHours(in int hours)
+    public Clock(int hours, int minutes)
     {
-        int totalHours = hours % HoursPerDay;
+        _minutes = minutes + (ReduceHours(hours) * 60);
 
-        if (totalHours < 0)
+        while (_minutes < 0)
         {
-            totalHours += HoursPerDay;
+            _minutes += MinutesPerHour * HoursPerDay;
         }
-        
-        return totalHours;
     }
+
+    private int ReduceHours(in int hours) => hours % HoursPerDay;
 
     public Clock Add(int minutesToAdd)
     {
@@ -34,17 +32,8 @@ public class Clock
 
     public override string ToString()
     {
-        // should this reduce happen in ctor?
         int hours = ReduceHours(_minutes / MinutesPerHour); 
         int minutes = _minutes % MinutesPerHour;
-        
-        if (minutes < 0)
-        {
-            minutes += MinutesPerHour;
-            hours -= 1;
-        }
-
-        
 
         StringBuilder sb = new StringBuilder();
         sb.Append(hours.ToString(TwoDecimalPlaces));
