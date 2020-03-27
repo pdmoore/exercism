@@ -13,10 +13,7 @@ public class Clock
         _minutes = minutes;
     }
 
-    private int ReduceHours(in int hours)
-    {
-        return hours % 24;
-    }
+    private int ReduceHours(in int hours) => hours % 24;
 
     public Clock Add(int minutesToAdd)
     {
