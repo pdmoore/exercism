@@ -6,10 +6,7 @@ public class Clock
     private readonly int _minutes;
     private readonly string TwoDecimalPlaces = "D2";
 
-    public Clock(int hours, int minutes)
-    {
-        _minutes = minutes + (ReduceHours(hours) * 60);
-    }
+    public Clock(int hours, int minutes) => _minutes = minutes + (ReduceHours(hours) * 60);
 
     private int ReduceHours(in int hours) => hours % 24;
 
