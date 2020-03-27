@@ -37,6 +37,14 @@ public class Clock
         // should this reduce happen in ctor?
         int hours = ReduceHours(_minutes / MinutesPerHour); 
         int minutes = _minutes % MinutesPerHour;
+        
+        if (minutes < 0)
+        {
+            minutes += MinutesPerHour;
+            hours -= 1;
+        }
+
+        
 
         StringBuilder sb = new StringBuilder();
         sb.Append(hours.ToString(TwoDecimalPlaces));
