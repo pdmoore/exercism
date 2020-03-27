@@ -3,8 +3,9 @@ using System.Text;
 
 public class Clock
 {
-    private int _hours;
-    private int _minutes;
+    private readonly int _hours;
+    private readonly int _minutes;
+    private string TwoDecimalPlaces;
 
     public Clock(int hours, int minutes)
     {
@@ -25,9 +26,10 @@ public class Clock
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append(_hours.ToString("D2"));
+        TwoDecimalPlaces = "D2";
+        sb.Append(_hours.ToString(TwoDecimalPlaces));
         sb.Append(":");
-        sb.Append(_minutes.ToString("D2"));
+        sb.Append(_minutes.ToString(TwoDecimalPlaces));
         return sb.ToString();
     }
 }
