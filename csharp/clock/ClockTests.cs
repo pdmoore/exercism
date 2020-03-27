@@ -11,7 +11,7 @@ public class ClockTests
         Assert.Equal("08:00", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Past_the_hour()
     {
         var sut = new Clock(11, 9);
