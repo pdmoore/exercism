@@ -25,14 +25,14 @@ public class ClockTests
         Assert.Equal("00:00", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Hour_rolls_over()
     {
         var sut = new Clock(25, 0);
         Assert.Equal("01:00", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Hour_rolls_over_continuously()
     {
         var sut = new Clock(100, 0);
