@@ -20,10 +20,7 @@ public class Clock
 
     public Clock Add(int minutesToAdd) => new Clock(0, _minutes + minutesToAdd);
 
-    public Clock Subtract(int minutesToSubtract)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public Clock Subtract(int minutesToSubtract) => Add(0 - minutesToSubtract);
 
     public override string ToString()
     {
