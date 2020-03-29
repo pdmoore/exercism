@@ -33,4 +33,9 @@ public class Clock
         sb.Append(minutes.ToString(TwoDecimalPlaces));
         return sb.ToString();
     }
+
+    public override bool Equals(object? obj)
+    {
+        return this.ToString().Equals(obj.ToString());
+    }
 }

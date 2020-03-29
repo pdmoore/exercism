@@ -256,7 +256,7 @@ public class ClockTests
         Assert.Equal("00:20", sut.Subtract(3000).ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Clocks_with_same_time()
     {
         var sut = new Clock(15, 37);
