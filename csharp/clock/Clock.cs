@@ -4,9 +4,9 @@ using System.Text;
 public class Clock
 {
     private readonly int _minutes;
-    private readonly int HoursPerDay = 24;
-    private readonly int MinutesPerHour = 60;
-    private readonly string AsTwoDigits = "D2";
+    private const int HoursPerDay = 24;
+    private const int MinutesPerHour = 60;
+    private const string AsTwoDigits = "D2";
 
     public Clock(int hours, int minutes)
     {
