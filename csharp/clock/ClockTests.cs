@@ -144,7 +144,7 @@ public class ClockTests
         Assert.Equal("22:10", sut.ToString());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Add_minutes()
     {
         var sut = new Clock(10, 0);

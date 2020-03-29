@@ -18,10 +18,7 @@ public class Clock
         }
     }
 
-    public Clock Add(int minutesToAdd)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public Clock Add(int minutesToAdd) => new Clock(0, _minutes + minutesToAdd);
 
     public Clock Subtract(int minutesToSubtract)
     {
