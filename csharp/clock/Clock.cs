@@ -10,15 +10,13 @@ public class Clock
 
     public Clock(int hours, int minutes)
     {
-        _minutes = minutes + (ReduceHours(hours) * 60);
+        _minutes = minutes + (hours * 60);
 
         while (_minutes < 0)
         {
             _minutes += MinutesPerHour * HoursPerDay;
         }
     }
-
-    private int ReduceHours(in int hours) => hours % HoursPerDay;
 
     public Clock Add(int minutesToAdd)
     {
@@ -32,7 +30,7 @@ public class Clock
 
     public override string ToString()
     {
-        int hours = ReduceHours(_minutes / MinutesPerHour); 
+        int hours = (_minutes / MinutesPerHour) % HoursPerDay;
         int minutes = _minutes % MinutesPerHour;
 
         StringBuilder sb = new StringBuilder();
