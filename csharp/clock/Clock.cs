@@ -34,8 +34,5 @@ public class Clock
         return sb.ToString();
     }
 
-    public override bool Equals(object? obj)
-    {
-        return this.ToString().Equals(obj.ToString());
-    }
+    public override bool Equals(object? obj) => this.ToString().Equals(obj.ToString());
 }
