@@ -4,9 +4,9 @@ using System.Text;
 public class Clock
 {
     private readonly int _minutes;
-    private readonly string TwoDecimalPlaces = "D2";
     private readonly int HoursPerDay = 24;
     private readonly int MinutesPerHour = 60;
+    private readonly string AsTwoDigits = "D2";
 
     public Clock(int hours, int minutes)
     {
@@ -28,9 +28,9 @@ public class Clock
         int minutes = _minutes % MinutesPerHour;
 
         StringBuilder sb = new StringBuilder();
-        sb.Append(hours.ToString(TwoDecimalPlaces));
+        sb.Append(hours.ToString(AsTwoDigits));
         sb.Append(":");
-        sb.Append(minutes.ToString(TwoDecimalPlaces));
+        sb.Append(minutes.ToString(AsTwoDigits));
         return sb.ToString();
     }
 
