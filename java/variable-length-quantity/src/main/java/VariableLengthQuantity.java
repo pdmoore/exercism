@@ -66,10 +66,26 @@ class VariableLengthQuantity {
             return result;
         } else {
 
-            String thing = "0x2000";
+//            String thing = "0x2000";
+
+            // when size > 1 then need to strip off the high bit
+
+            Long l1 = bytes.get(0);
+
+
+
+            Long l2 = bytes.get(1);
+            String prefix = "0x";
+
+            // trying to turn off the leftmost bit only
+            Long x = (l1 & (0));
+
+//            String thing1 = String.format("%x", l1);
+            String thing1 = Long.toBinaryString(x);
+            String thing2 = String.format("%x", l2);
 
             List<String> result = new ArrayList();
-            result.add(thing);
+            result.add(prefix+thing1+thing2);
 
             return result;
         }
