@@ -176,7 +176,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.decode(bytes));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testDecodeTwoBytes() {
         List<String> expected = Arrays.asList("0x2000");

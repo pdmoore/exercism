@@ -55,12 +55,23 @@ class VariableLengthQuantity {
 
     List<String> decode(List<Long> bytes) {
 
-        Long l = bytes.get(0);
+        if (bytes.size() == 1) {
 
-        String thing = String.format("0x%x", l);
-        List<String> result = new ArrayList();
-        result.add(thing);
+            Long l = bytes.get(0);
 
-        return result;
+            String thing = String.format("0x%x", l);
+            List<String> result = new ArrayList();
+            result.add(thing);
+
+            return result;
+        } else {
+
+            String thing = "0x2000";
+
+            List<String> result = new ArrayList();
+            result.add(thing);
+
+            return result;
+        }
     }
 }
