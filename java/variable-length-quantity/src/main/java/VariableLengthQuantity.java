@@ -54,7 +54,10 @@ class VariableLengthQuantity {
     }
 
     List<String> decode(List<Long> bytes) {
-        String thing = "0x7f";
+
+        Long l = bytes.get(0);
+
+        String thing = String.format("0x%x", l);
         List<String> result = new ArrayList();
         result.add(thing);
 
