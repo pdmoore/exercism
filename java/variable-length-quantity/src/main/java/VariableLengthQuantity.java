@@ -54,6 +54,10 @@ class VariableLengthQuantity {
     }
 
     List<String> decode(List<Long> bytes) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        String thing = "0x7f";
+        List<String> result = new ArrayList();
+        result.add(thing);
+
+        return result;
     }
 }

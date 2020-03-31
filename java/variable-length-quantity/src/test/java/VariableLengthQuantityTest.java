@@ -168,7 +168,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.encode(numbers));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testDecodeOneByte() {
         List<String> expected = Arrays.asList("0x7f");
