@@ -4,5 +4,6 @@ gradlew.bat
 csharp/OLD-*
 composer.phar
 composer.json
+phpunit.phar
 phpunit.xml
 php/vendor
