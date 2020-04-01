@@ -5,7 +5,7 @@
 // It's been provided as a convenience to get you started writing code faster.
 //
 
-function helloWorld()
+function HelloWorld()
 {
     return "Hello, World!";
 
