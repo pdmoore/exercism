@@ -71,18 +71,22 @@ class VariableLengthQuantity {
             // when size > 1 then need to strip off the high bit
 
             Long l1 = bytes.get(0);
-
-
-
             Long l2 = bytes.get(1);
+
+            String allBits = Long.toBinaryString(l1) + Long.toBinaryString(l2);
+
+
+
+
             String prefix = "0x";
 
             // trying to turn off the leftmost bit only
-            Long x = (l1 & (0));
+            Long x = (l1 & ~(1<<3));
 
 //            String thing1 = String.format("%x", l1);
-            String thing1 = Long.toBinaryString(x);
-            String thing2 = String.format("%x", l2);
+            String check = Long.toBinaryString(x);
+            String thing1 = String.format("%02x", x);
+            String thing2 = String.format("%02x", l2);
 
             List<String> result = new ArrayList();
             result.add(prefix+thing1+thing2);
