@@ -9,7 +9,13 @@ Remove this comment before submitting your exercise.
 
 function distance(string $strandA, string $strandB) : int
 {
-    //
-    // YOUR CODE GOES HERE
-    //
+    $count = 0;
+
+    for ($i=0; $i<strlen($strandA); $i++) {
+       if ($strandA[$i] != $strandB[$i]) {
+           $count++;
+       }
+    }
+
+    return $count;
 }
