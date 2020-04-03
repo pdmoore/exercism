@@ -9,7 +9,7 @@ public class Clock
 
     public Clock(int hours, int minutes)
     {
-        _minutes = minutes + (hours * 60);
+        _minutes = minutes + (hours * MinutesPerHour);
 
         while (_minutes < 0)
         {
