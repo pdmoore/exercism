@@ -6,7 +6,6 @@ public class Clock
     private readonly int _minutes;
     private const int HoursPerDay = 24;
     private const int MinutesPerHour = 60;
-    private const string AsTwoDigits = "D2";
 
     public Clock(int hours, int minutes)
     {
@@ -22,14 +21,7 @@ public class Clock
 
     public Clock Subtract(int minutesToSubtract) => Add(0 - minutesToSubtract);
 
-    public override string ToString()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.Append(Hours().ToString(AsTwoDigits));
-        sb.Append(":");
-        sb.Append(Minutes().ToString(AsTwoDigits));
-        return sb.ToString();
-    }
+    public override string ToString() => $"{Hours():00}:{Minutes():00}";
 
     public override bool Equals(object obj)
     {
