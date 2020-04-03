@@ -33,17 +33,12 @@ public class Clock
         sb.Append(minutes.ToString(AsTwoDigits));
         return sb.ToString();
     }
+    
+    private bool Equals(Clock other) => Hours() == other.Hours() && Minutes() == other.Minutes();
 
-    private bool Equals(Clock other)
-    {
-        int hours = (_minutes / MinutesPerHour) % HoursPerDay;
-        int minutes = _minutes % MinutesPerHour;
+    private int Minutes() => _minutes % MinutesPerHour;
 
-        int otherHours = (other._minutes / MinutesPerHour) % HoursPerDay;
-        int otherMinutes = other._minutes % MinutesPerHour;
-
-        return  hours == otherHours && minutes == otherMinutes;
-    }
+    private int Hours() => (_minutes / MinutesPerHour) % HoursPerDay;
 
     public override bool Equals(object obj)
     {
