@@ -50,9 +50,7 @@ public class Clock
     {
         unchecked
         {
-            int hours = (_minutes / MinutesPerHour) % HoursPerDay;
-            int minutes = _minutes % MinutesPerHour;
-            return (hours * 397) ^ minutes;
+            return (Hours() * 397) ^ Minutes();
         }
     }
 }
