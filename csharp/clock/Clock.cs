@@ -24,21 +24,12 @@ public class Clock
 
     public override string ToString()
     {
-        int hours = (_minutes / MinutesPerHour) % HoursPerDay;
-        int minutes = _minutes % MinutesPerHour;
-
         StringBuilder sb = new StringBuilder();
-        sb.Append(hours.ToString(AsTwoDigits));
+        sb.Append(Hours().ToString(AsTwoDigits));
         sb.Append(":");
-        sb.Append(minutes.ToString(AsTwoDigits));
+        sb.Append(Minutes().ToString(AsTwoDigits));
         return sb.ToString();
     }
-    
-    private bool Equals(Clock other) => Hours() == other.Hours() && Minutes() == other.Minutes();
-
-    private int Minutes() => _minutes % MinutesPerHour;
-
-    private int Hours() => (_minutes / MinutesPerHour) % HoursPerDay;
 
     public override bool Equals(object obj)
     {
@@ -46,6 +37,7 @@ public class Clock
         if (ReferenceEquals(this, obj)) return true;
         return obj.GetType() == this.GetType() && Equals((Clock) obj);
     }
+
     public override int GetHashCode()
     {
         unchecked
@@ -53,4 +45,11 @@ public class Clock
             return (Hours() * 397) ^ Minutes();
         }
     }
+
+    private bool Equals(Clock other) => Hours() == other.Hours() && Minutes() == other.Minutes();
+
+    private int Minutes() => _minutes % MinutesPerHour;
+
+    private int Hours() => (_minutes / MinutesPerHour) % HoursPerDay;
+
 }
