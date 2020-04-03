@@ -34,5 +34,30 @@ public class Clock
         return sb.ToString();
     }
 
-    public override bool Equals(object? obj) => this.ToString().Equals(obj.ToString());
+    private bool Equals(Clock other)
+    {
+        int hours = (_minutes / MinutesPerHour) % HoursPerDay;
+        int minutes = _minutes % MinutesPerHour;
+
+        int otherHours = (other._minutes / MinutesPerHour) % HoursPerDay;
+        int otherMinutes = other._minutes % MinutesPerHour;
+
+        return  hours == otherHours && minutes == otherMinutes;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        return obj.GetType() == this.GetType() && Equals((Clock) obj);
+    }
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            int hours = (_minutes / MinutesPerHour) % HoursPerDay;
+            int minutes = _minutes % MinutesPerHour;
+            return (hours * 397) ^ minutes;
+        }
+    }
 }
