@@ -21,8 +21,6 @@ public static class MatchingBrackets
             }
             
             switch (c) {
-                case ']' when openPair.Pop() != "x":
-                case '}' when openPair.Pop() != "y":
                 case ')' when openPair.Pop() != "(":
                     return false;
             }
