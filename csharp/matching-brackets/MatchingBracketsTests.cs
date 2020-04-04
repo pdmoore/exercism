@@ -74,7 +74,7 @@ public class MatchingBracketsTests
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Unopened_closing_brackets()
     {
         var value = "{[)][]}";
