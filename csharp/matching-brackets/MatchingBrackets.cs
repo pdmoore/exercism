@@ -11,7 +11,7 @@ public static class MatchingBrackets
         // TODO next test will require checking that open/close pair match before any other character detected
         // maybe it's state based? initial -> any open -> [any open | specific close] -> all close
         Stack openPair = new Stack();
-        String openers = "([{";
+        string openers = "([{";
         
         foreach (char c in input)
         {
@@ -20,19 +20,11 @@ public static class MatchingBrackets
                 openPair.Push(c);
             }
             
-            if (c.Equals(']'))
-            {
-                if (openPair.Pop() != "]") return false;
-            }
-
-            if (c.Equals('}'))
-            {
-                if (openPair.Pop() != "}") return false;
-            }
-
-            if (c.Equals(')'))
-            {
-                if (openPair.Pop() != "(") return false;
+            switch (c) {
+                case ']' when openPair.Pop() != "]":
+                case '}' when openPair.Pop() != "}":
+                case ')' when openPair.Pop() != "(":
+                    return false;
             }
         }
 
