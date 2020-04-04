@@ -19,26 +19,18 @@ public static class MatchingBrackets
             {
                 openPair.Push(c);
             }
-            if (c.Equals('['))
-            {
-            }
-            else if (c.Equals(']'))
+            
+            if (c.Equals(']'))
             {
                 if (openPair.Pop() != "]") return false;
             }
 
-            if (c.Equals('{'))
-            {
-            }
-            else if (c.Equals('}'))
+            if (c.Equals('}'))
             {
                 if (openPair.Pop() != "}") return false;
             }
 
-            if (c.Equals('('))
-            {
-            }
-            else if (c.Equals(')'))
+            if (c.Equals(')'))
             {
                 if (openPair.Pop() != "(") return false;
             }
