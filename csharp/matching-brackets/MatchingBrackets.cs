@@ -12,45 +12,36 @@ public static class MatchingBrackets
         // maybe it's state based? initial -> any open -> [any open | specific close] -> all close
         Stack openPair = new Stack();
         
-        int bracketCount = 0;
-        int curlyCount = 0;
-        int parenCount = 0;
         foreach (char c in input)
         {
             if (c.Equals('['))
             {
-                bracketCount++;
                 openPair.Push(c);
-            } else if (c.Equals(']'))
+            }
+            else if (c.Equals(']'))
             {
                 if (openPair.Pop() != "]") return false;
-                bracketCount--;
             }
-            
+
             if (c.Equals('{'))
             {
-                curlyCount++;
                 openPair.Push(c);
-            } else if (c.Equals('}'))
+            }
+            else if (c.Equals('}'))
             {
                 if (openPair.Pop() != "}") return false;
-                curlyCount--;
             }
 
             if (c.Equals('('))
             {
-                parenCount++;
                 openPair.Push(c);
-            } else if (c.Equals(')'))
+            }
+            else if (c.Equals(')'))
             {
                 if (openPair.Pop() != "(") return false;
-                parenCount--;
             }
-
-            // return openPair.Count == 0;
         }
-        
-        // return bracketCount == 0 && curlyCount == 0 && parenCount == 0;
+
         return openPair.Count == 0;
     }
 }
