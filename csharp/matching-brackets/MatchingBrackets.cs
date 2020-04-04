@@ -47,10 +47,11 @@ public static class MatchingBrackets
                 parenCount--;
             }
 
-            if (curlyCount < 0)
-            {
-                return false;
-            }
+            return openPair.Count == 0;
+            // if (curlyCount < 0)
+            // {
+            //     return false;
+            // }
         }
 
 
