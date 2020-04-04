@@ -4,6 +4,10 @@ public static class MatchingBrackets
 {
     public static bool IsPaired(string input)
     {
+        //TODO duplication
+        // TODO next test will require checking that open/close pair match before any other character detected
+        // maybe it's state based? initial -> any open -> [any open | specific close] -> all close
+        
         int bracketCount = 0;
         int curlyCount = 0;
         int parenCount = 0;
