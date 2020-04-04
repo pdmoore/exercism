@@ -18,7 +18,7 @@ public class MatchingBracketsTests
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Unpaired_brackets()
     {
         var value = "[[";
