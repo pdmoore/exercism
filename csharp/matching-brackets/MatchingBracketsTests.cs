@@ -46,14 +46,14 @@ public class MatchingBracketsTests
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Partially_paired_brackets()
     {
         var value = "{[])";
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Simple_nested_brackets()
     {
         var value = "{[]}";
