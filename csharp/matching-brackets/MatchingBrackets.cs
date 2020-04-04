@@ -6,6 +6,7 @@ public static class MatchingBrackets
     {
         int bracketCount = 0;
         int curlyCount = 0;
+        int parenCount = 0;
         foreach (char c in input)
         {
             if (c.Equals('['))
@@ -24,6 +25,14 @@ public static class MatchingBrackets
                 curlyCount--;
             }
 
+            if (c.Equals('('))
+            {
+                parenCount++;
+            } else if (c.Equals(')'))
+            {
+                parenCount--;
+            }
+
             if (curlyCount < 0)
             {
                 return false;
@@ -31,6 +40,6 @@ public static class MatchingBrackets
         }
 
 
-        return bracketCount == 0 && curlyCount == 0;
+        return bracketCount == 0 && curlyCount == 0 && parenCount == 0;
     }
 }
