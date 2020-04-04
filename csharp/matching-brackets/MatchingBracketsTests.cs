@@ -60,7 +60,7 @@ public class MatchingBracketsTests
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Several_paired_brackets()
     {
         var value = "{}[]";
