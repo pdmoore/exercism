@@ -81,7 +81,7 @@ public class MatchingBracketsTests
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Unpaired_and_nested_brackets()
     {
         var value = "([{])";
