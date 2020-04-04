@@ -39,7 +39,7 @@ public class MatchingBracketsTests
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Paired_with_whitespace()
     {
         var value = "{ }";
