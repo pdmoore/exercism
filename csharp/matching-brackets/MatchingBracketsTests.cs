@@ -95,14 +95,14 @@ public class MatchingBracketsTests
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Paired_and_incomplete_brackets()
     {
         var value = "{}[";
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Too_many_closing_brackets()
     {
         var value = "[]]";

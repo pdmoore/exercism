@@ -7,20 +7,26 @@ public static class MatchingBrackets
     {
         Stack openPair = new Stack();
         string openers = "([{";
-        
+        string closers = ")]}";
+
         foreach (char c in input)
         {
             if (openers.Contains(c))
             {
                 openPair.Push(c);
             }
-            
-            switch (c) {
-                case ')' when openPair.Pop() != "(":
+            else if (closers.Contains(c))
+                if (openPair.Count == 0)
                     return false;
-            }
+            
+                switch (c)
+                {
+                    case ')' when openPair.Pop() != "(":
+                    case ']' when openPair.Pop() != "[":
+                    case '}' when openPair.Pop() != "{":
+                        return false;
+                }
         }
-
         return openPair.Count == 0;
     }
 }
