@@ -31,6 +31,6 @@ public static class MatchingBrackets
         }
 
 
-        return bracketCount == 0;
+        return bracketCount == 0 && curlyCount == 0;
     }
 }
