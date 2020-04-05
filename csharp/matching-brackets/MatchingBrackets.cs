@@ -3,15 +3,19 @@ using System.Collections.Generic;
 
 public static class MatchingBrackets
 {
+    private static readonly Dictionary<string, string> pairs = new Dictionary<string, string>();
+
+    static MatchingBrackets() {
+        pairs.Add("(", ")");
+        pairs.Add("[", "]");
+        pairs.Add("{", "}");
+    }
+
     public static bool IsPaired(string input)
     {
         //TODO - key/value mapping opener to closer?
         
         Stack openPair = new Stack();
-        Dictionary<string, string> pairs = new Dictionary<string, string>();
-        pairs.Add("(", ")");
-        pairs.Add("[", "]");
-        pairs.Add("{", "}");
 
         foreach (char c in input)
         {
