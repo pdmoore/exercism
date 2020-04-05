@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class MatchingBrackets
 {
@@ -16,16 +17,15 @@ public static class MatchingBrackets
     {
         _openPairs = new Stack();
 
-        foreach (char c in input)
-        {
-            if (_pairs.ContainsValue(c.ToString()))
+        foreach (var thisChar in input.Select(c => c.ToString())) {
+            if (_pairs.ContainsValue(thisChar))
             {
-                _openPairs.Push(c.ToString());
+                _openPairs.Push(thisChar);
             }
-            else if (_pairs.ContainsKey(c.ToString()))
+            else if (_pairs.ContainsKey(thisChar))
             {
                 if (NoMatchingOpener() ||
-                    CloserDoesNotMatchOpener(c)) 
+                    CloserDoesNotMatchOpener(thisChar)) 
                     return false;
             }
         }
@@ -37,5 +37,5 @@ public static class MatchingBrackets
     
     private static bool NoMatchingOpener() => _openPairs.Count == 0;
 
-    private static bool CloserDoesNotMatchOpener(char key) => !_openPairs.Pop().Equals(_pairs[key.ToString()]);
+    private static bool CloserDoesNotMatchOpener(string key) => !_openPairs.Pop().Equals(_pairs[key.ToString()]);
 }
