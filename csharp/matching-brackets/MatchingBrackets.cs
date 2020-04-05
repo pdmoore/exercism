@@ -6,9 +6,9 @@ public static class MatchingBrackets
     private static readonly Dictionary<string, string> _pairs = new Dictionary<string, string>();
 
     static MatchingBrackets() {
-        _pairs.Add("(", ")");
-        _pairs.Add("[", "]");
-        _pairs.Add("{", "}");
+        _pairs.Add(")", "(");
+        _pairs.Add("]", "[");
+        _pairs.Add("}", "{");
     }
 
     public static bool IsPaired(string input)
@@ -17,11 +17,11 @@ public static class MatchingBrackets
 
         foreach (char c in input)
         {
-            if (_pairs.ContainsKey(c.ToString()))
+            if (_pairs.ContainsValue(c.ToString()))
             {
                 openPair.Push(c);
             }
-            else if (_pairs.ContainsValue(c.ToString()))
+            else if (_pairs.ContainsKey(c.ToString()))
             {
                 if (openPair.Count == 0)
                     return false;
