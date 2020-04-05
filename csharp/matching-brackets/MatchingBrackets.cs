@@ -1,20 +1,25 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public static class MatchingBrackets
 {
     public static bool IsPaired(string input)
     {
-        //TODO - confirm last couple of tests pass
         //TODO - key/value mapping opener to closer?
         
         Stack openPair = new Stack();
         string openers = "([{";
         string closers = ")]}";
+        Dictionary<string, string> pairs = new Dictionary<string, string>();
+        pairs.Add("(", ")");
+        pairs.Add("[", "]");
+        pairs.Add("{", "}");
 
         foreach (char c in input)
         {
-            if (openers.Contains(c))
+            if (pairs.ContainsKey(c.ToString()))
             {
                 openPair.Push(c);
             }
