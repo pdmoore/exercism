@@ -5,6 +5,9 @@ public static class MatchingBrackets
 {
     public static bool IsPaired(string input)
     {
+        //TODO - confirm last couple of tests pass
+        //TODO - key/value mapping opener to closer?
+        
         Stack openPair = new Stack();
         string openers = "([{";
         string closers = ")]}";
