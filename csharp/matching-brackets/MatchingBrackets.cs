@@ -19,20 +19,17 @@ public static class MatchingBrackets
         {
             if (_pairs.ContainsValue(c.ToString()))
             {
-                openPair.Push(c);
+                openPair.Push(c.ToString());
             }
             else if (_pairs.ContainsKey(c.ToString()))
             {
                 if (openPair.Count == 0)
                     return false;
 
-                switch (c)
-                {
-                    case ')' when !openPair.Pop().Equals('('):
-                    case ']' when !openPair.Pop().Equals('['):
-                    case '}' when !openPair.Pop().Equals('{'):
-                        return false;
-                }
+                string key = c.ToString();
+                string value = _pairs[key];
+
+                if (!openPair.Pop().Equals(value)) return false;
             }
         }
         return openPair.Count == 0;
