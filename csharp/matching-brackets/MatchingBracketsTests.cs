@@ -109,14 +109,14 @@ public class MatchingBracketsTests
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Math_expression()
     {
         var value = "(((185 + 223.85) * 15) - 543)/2";
         Assert.True(MatchingBrackets.IsPaired(value));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Complex_latex_expression()
     {
         var value = "\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)";
