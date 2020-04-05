@@ -13,25 +13,28 @@ public static class MatchingBrackets
 
     public static bool IsPaired(string input)
     {
-        Stack openPair = new Stack();
+        Stack openPairs = new Stack();
 
         foreach (char c in input)
         {
             if (_pairs.ContainsValue(c.ToString()))
             {
-                openPair.Push(c.ToString());
+                openPairs.Push(c.ToString());
             }
             else if (_pairs.ContainsKey(c.ToString()))
             {
-                if (openPair.Count == 0)
+                if (NoMatchingOpener(openPairs) ||
+                    CloserDoesNotMatchOpener(openPairs, c)) 
                     return false;
-
-                string key = c.ToString();
-                string value = _pairs[key];
-
-                if (!openPair.Pop().Equals(value)) return false;
             }
         }
-        return openPair.Count == 0;
+        
+        return AnyUnmatchedPairs(openPairs);
     }
+
+    private static bool AnyUnmatchedPairs(Stack openPair) => openPair.Count == 0;
+
+    private static bool CloserDoesNotMatchOpener(Stack openPair, char key) => !openPair.Pop().Equals(_pairs[key.ToString()]);
+
+    private static bool NoMatchingOpener(Stack openPair) => openPair.Count == 0;
 }
