@@ -16,16 +16,18 @@ public static class MatchingBrackets
                 openPair.Push(c);
             }
             else if (closers.Contains(c))
+            {
                 if (openPair.Count == 0)
                     return false;
-            
+
                 switch (c)
                 {
-                    case ')' when openPair.Pop() != "(":
-                    case ']' when openPair.Pop() != "[":
-                    case '}' when openPair.Pop() != "{":
+                    case ')' when !openPair.Pop().Equals('('):
+                    case ']' when !openPair.Pop().Equals('['):
+                    case '}' when !openPair.Pop().Equals('{'):
                         return false;
                 }
+            }
         }
         return openPair.Count == 0;
     }
