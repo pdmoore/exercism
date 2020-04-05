@@ -10,8 +10,6 @@ public static class MatchingBrackets
         //TODO - key/value mapping opener to closer?
         
         Stack openPair = new Stack();
-        string openers = "([{";
-        string closers = ")]}";
         Dictionary<string, string> pairs = new Dictionary<string, string>();
         pairs.Add("(", ")");
         pairs.Add("[", "]");
@@ -23,7 +21,7 @@ public static class MatchingBrackets
             {
                 openPair.Push(c);
             }
-            else if (closers.Contains(c))
+            else if (pairs.ContainsValue(c.ToString()))
             {
                 if (openPair.Count == 0)
                     return false;
