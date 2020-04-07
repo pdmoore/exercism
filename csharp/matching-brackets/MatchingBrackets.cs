@@ -24,7 +24,7 @@ public static class MatchingBrackets
             }
             else if (IsCloser(thisChar))
             {
-                if (!CloserMatchesOpener(thisChar))
+                if (!CloserMatchesLastOpener(thisChar))
                     return false;
             }
         }
@@ -40,7 +40,7 @@ public static class MatchingBrackets
 
     private static bool IsOpener(char value) => _pairs.ContainsValue(value);
 
-    private static bool CloserMatchesOpener(in char key) =>
+    private static bool CloserMatchesLastOpener(in char key) =>
         _openPairs.Count > 0 &&
         _openPairs.Pop().Equals(_pairs[key]);
 
