@@ -18,14 +18,13 @@ public static class MatchingBrackets
         _openPairs = new Stack();
 
         foreach (var thisChar in input.Select(c => c)) {
-            if (_pairs.ContainsValue(thisChar))
+            if (IsOpener(thisChar))
             {
                 _openPairs.Push(thisChar);
             }
-            else if (_pairs.ContainsKey(thisChar))
+            else if (IsCloser(thisChar))
             {
-                if (NoMatchingOpener() ||
-                    CloserDoesNotMatchOpener(thisChar)) 
+                if (!CloserMatchesOpener(thisChar))
                     return false;
             }
         }
@@ -33,9 +32,13 @@ public static class MatchingBrackets
         return AnyUnmatchedPairs();
     }
 
-    private static bool AnyUnmatchedPairs() => _openPairs.Count == 0;
-    
-    private static bool NoMatchingOpener() => _openPairs.Count == 0;
+    private static bool IsCloser(char key) => _pairs.ContainsKey(key);
 
-    private static bool CloserDoesNotMatchOpener(char key) => !_openPairs.Pop().Equals(_pairs[key]);
+    private static bool IsOpener(char value) => _pairs.ContainsValue(value);
+
+    private static bool CloserMatchesOpener(in char key) =>
+        _openPairs.Count > 0 &&
+        _openPairs.Pop().Equals(_pairs[key]);
+
+    private static bool AnyUnmatchedPairs() => _openPairs.Count == 0;
 }
