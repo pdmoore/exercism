@@ -20,7 +20,7 @@ public static class MatchingBrackets
         foreach (var thisChar in input.Select(c => c)) {
             if (IsOpener(thisChar))
             {
-                _openPairs.Push(thisChar);
+                RememberThisOpener(thisChar);
             }
             else if (IsCloser(thisChar))
             {
@@ -29,8 +29,10 @@ public static class MatchingBrackets
             }
         }
         
-        return AnyUnmatchedPairs();
+        return AnyPairsLeftUnmatched();
     }
+
+    private static void RememberThisOpener(char thisChar) => _openPairs.Push(thisChar);
 
     private static bool IsCloser(char key) => _pairs.ContainsKey(key);
 
@@ -40,5 +42,5 @@ public static class MatchingBrackets
         _openPairs.Count > 0 &&
         _openPairs.Pop().Equals(_pairs[key]);
 
-    private static bool AnyUnmatchedPairs() => _openPairs.Count == 0;
+    private static bool AnyPairsLeftUnmatched() => _openPairs.Count == 0;
 }
