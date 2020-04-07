@@ -15,7 +15,7 @@ public static class MatchingBrackets
 
     public static bool IsPaired(string input)
     {
-        _openPairs = new Stack();
+        StartWithNoOpenersOrClosers();
 
         foreach (var thisChar in input.Select(c => c)) {
             if (IsOpener(thisChar))
@@ -31,6 +31,8 @@ public static class MatchingBrackets
         
         return AnyPairsLeftUnmatched();
     }
+
+    private static void StartWithNoOpenersOrClosers() => _openPairs = new Stack();
 
     private static void RememberThisOpener(char thisChar) => _openPairs.Push(thisChar);
 
