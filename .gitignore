@@ -6,4 +6,5 @@ composer.phar
 composer.json
 phpunit.phar
 phpunit.xml
+.phpunit.cache.result
 php/vendor
