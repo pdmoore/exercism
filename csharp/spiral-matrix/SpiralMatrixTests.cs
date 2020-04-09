@@ -10,7 +10,7 @@ public class SpiralMatrixTests
         Assert.Empty(SpiralMatrix.GetMatrix(0));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Trivial_spiral()
     {
         var expected = new[,]
