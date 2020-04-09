@@ -1,8 +1,9 @@
 <?php
 
+const GIGASECOND = 1000000000;
+
 function from($date) : DateTimeImmutable
 {
-    $gigasecond = 1000000000;
-    return $date->add(new DateInterval('PT'.$gigasecond.'S'));
+    return $date->add(new DateInterval('PT'.GIGASECOND.'S'));
 }
 
