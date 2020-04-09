@@ -7,11 +7,6 @@ class GigasecondTest extends PHPUnit\Framework\TestCase
         require_once 'gigasecond.php';
     }
 
-    public function testNoDifferenceBetweenIdenticalStrands() : void
-    {
-        $this->assertEquals(0, 1);
-    }
-
     public function dateSetup($date) : DateTimeImmutable
     {
         $UTC = new DateTimeZone('UTC');
