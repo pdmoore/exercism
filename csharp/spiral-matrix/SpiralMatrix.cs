@@ -15,12 +15,26 @@ public class SpiralMatrix
         {
             matrix[0, 0] = 1;
         }
-        else
+        else if (size == 2)
         {
             matrix[0, 0] = 1;
             matrix[0, 1] = 2;
             matrix[1, 0] = 4;
             matrix[1, 1] = 3;
+        }
+        else
+        {
+            matrix[0, 0] = 1;
+            matrix[0, 1] = 2;
+            matrix[0, 2] = 3;
+            
+            matrix[1, 0] = 8;
+            matrix[1, 1] = 9;
+            matrix[1, 2] = 4;
+            
+            matrix[2, 0] = 7;
+            matrix[2, 1] = 6;
+            matrix[2, 2] = 5;
         }
         
         return matrix;

@@ -31,7 +31,7 @@ public class SpiralMatrixTests
         Assert.Equal(expected, SpiralMatrix.GetMatrix(2));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Spiral_of_size_3()
     {
         var expected = new[,]
