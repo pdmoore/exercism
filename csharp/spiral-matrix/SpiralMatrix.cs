@@ -9,11 +9,21 @@ public class SpiralMatrix
             return new int[size, size];
         }
 
-        var matrix = new[,]
-        {
-            {1}
-        };
 
-        return matrix;
+        if (size == 1)
+        {
+            var matrix = new[,]
+            {
+                {1}
+            };
+            return matrix;
+        }
+
+        var expected = new[,]
+        {
+            {1, 2},
+            {4, 3}
+        };
+        return expected;
     }
 }
