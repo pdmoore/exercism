@@ -10,22 +10,19 @@ public class SpiralMatrix
         }
 
 
+        int[,] matrix = new int[size, size];
         if (size == 1)
         {
-            int[,] matrix = new int[size, size];
-            
             matrix[0, 0] = 1;
-            
-            return matrix;
         }
-
-        int[,] expected = new int[size, size];
+        else
+        {
+            matrix[0, 0] = 1;
+            matrix[0, 1] = 2;
+            matrix[1, 0] = 4;
+            matrix[1, 1] = 3;
+        }
         
-        expected[0, 0] = 1;
-        expected[0, 1] = 2;
-        expected[1, 0] = 4;
-        expected[1, 1] = 3;
-        
-        return expected;
+        return matrix;
     }
 }
