@@ -6,16 +6,14 @@ public class SpiralMatrix
     {
         if (size == 0)
         {
-            
-        return new int[size,size];
+            return new int[size, size];
         }
 
-        var expected = new[,]
+        var matrix = new[,]
         {
-            { 1 }
+            {1}
         };
 
-        return expected;
-
+        return matrix;
     }
 }
