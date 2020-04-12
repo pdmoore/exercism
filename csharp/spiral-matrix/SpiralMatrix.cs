@@ -14,20 +14,18 @@ public class SpiralMatrix
         int[,] matrix = new int[size, size];
 
         int count = 1;
+        int row = 0;
         for (int col = 0; col < size; col++)
         {
-            matrix[0, col] = count++;
+            matrix[row, col] = count++;
         }
         
-        if (size == 1)
-        {
-        }
-        else if (size == 2)
+        if (size == 2)
         {
             matrix[1, 0] = 4;
             matrix[1, 1] = 3;
         }
-        else
+        else if (size == 3)
         {
             matrix[1, 0] = 8;
             matrix[1, 1] = 9;
