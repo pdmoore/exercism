@@ -22,8 +22,12 @@ public class SpiralMatrix
         
         if (size == 2)
         {
-            matrix[1, 0] = 4;
-            matrix[1, 1] = 3;
+            // fill in last row from right to left
+            row++;
+            for (int i = size - 1; i >= 0; i--)
+            {
+                matrix[row, i] = count++;
+            }
         }
         else if (size == 3)
         {
