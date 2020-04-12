@@ -12,18 +12,20 @@ public class SpiralMatrix
 
         if (size == 1)
         {
-            var matrix = new[,]
-            {
-                {1}
-            };
+            int[,] matrix = new int[size, size];
+            
+            matrix[0, 0] = 1;
+            
             return matrix;
         }
 
-        var expected = new[,]
-        {
-            {1, 2},
-            {4, 3}
-        };
+        int[,] expected = new int[size, size];
+        
+        expected[0, 0] = 1;
+        expected[0, 1] = 2;
+        expected[1, 0] = 4;
+        expected[1, 1] = 3;
+        
         return expected;
     }
 }
