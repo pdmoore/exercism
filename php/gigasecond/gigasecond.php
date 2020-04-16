@@ -1,6 +1,6 @@
 <?php
 
-const GIGASECOND = 1e9;
+const GIGASECOND = 1_000_000_000;
 
 function from(DateTimeImmutable $date) : DateTimeImmutable
 {
