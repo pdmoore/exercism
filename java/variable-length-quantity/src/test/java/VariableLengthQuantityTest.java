@@ -184,7 +184,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.decode(bytes));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testDecodeThreeBytes() {
         List<String> expected = Arrays.asList("0x1fffff");
@@ -193,7 +192,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.decode(bytes));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testDecodeFourBytes() {
         List<String> expected = Arrays.asList("0x200000");
@@ -202,7 +200,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.decode(bytes));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testDecodeMaximum32BitInteger() {
         List<String> expected = Arrays.asList("0xffffffff");
