@@ -54,6 +54,12 @@ class VariableLengthQuantity {
     }
 
     List<String> decode(List<Long> bytes) {
+        // TODO - code below works for a single encoded number, need to wrap the input in a loop
+        // and gather each decoded number and return that group as a result
+        // First step - extract below and return just a single number
+        // -- ignore failing test first
+
+
         List<String> result = new ArrayList<>();
         String bits = "";
         boolean terminatingByteSeen = false;
