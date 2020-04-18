@@ -63,11 +63,6 @@ class VariableLengthQuantity {
 
         result.add(convertBitStringToHex(bits));
         return result;
-     }
-
-    private String convertBitStringToHex(String bits) {
-        String prefix = "0x";
-        return prefix + Long.toHexString(Long.parseUnsignedLong(bits, 2));
     }
 
     private String ensure7Bits(String bitString) {
@@ -78,5 +73,10 @@ class VariableLengthQuantity {
             bitString += "0";
         }
         return bitString;
+    }
+
+    private String convertBitStringToHex(String bits) {
+        String prefix = "0x";
+        return prefix + Long.toHexString(Long.parseUnsignedLong(bits, 2));
     }
 }
