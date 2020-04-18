@@ -54,47 +54,29 @@ class VariableLengthQuantity {
     }
 
     List<String> decode(List<Long> bytes) {
-
-        if (bytes.size() == 1) {
-
-            Long l = bytes.get(0);
-
-            String thing = String.format("0x%x", l);
-            List<String> result = new ArrayList();
-            result.add(thing);
-
-            return result;
-        } else {
-
-//            String thing = "0x2000";
-
-            // when size > 1 then need to strip off the high bit of all except the last byte
-
-            Long l1 = bytes.get(0);
-            Long l2 = bytes.get(1);
-
-            String bits1 = String.format("%8s", Long.toBinaryString(l1).replace(" ", "0"));
-            String bits2 = String.format("%8s", Long.toBinaryString(l2).replace(" ", "0"));
-            String allBits =  bits1 + bits2;
-
-
-
-
-
-            // trying to turn off the leftmost bit only
-            Long x = (l1 & ~(1<<7));
-
-//            String thing1 = String.format("%x", l1);
-            String check = Long.toBinaryString(x);
-            String thing1 = "0" + String.format("%02x", x);
-            String thing2 = String.format("%02x", l2);
-
-
-            List<String> result = new ArrayList();
-            String prefix = "0x";
-            result.add(prefix+thing1+thing2);
-
-            return result;
+        List<String> result = new ArrayList<>();
+        String bits = "";
+        for (int i = 0; i < bytes.size(); i++) {
+            String bitString = ensure7Bits(Long.toBinaryString(bytes.get(i)));
+            bits += bitString;
         }
+
+        result.add(convertBitStringToHex(bits));
+        return result;
+     }
+
+    private String convertBitStringToHex(String bits) {
+        String prefix = "0x";
+        return prefix + Long.toHexString(Long.parseUnsignedLong(bits, 2));
+    }
+
+    private String ensure7Bits(String bitString) {
+        if (bitString.length() == 8) {
+            bitString = bitString.substring(1);
+        }
+        while (bitString.length() != 7) {
+            bitString += "0";
+        }
+        return bitString;
     }
 }
