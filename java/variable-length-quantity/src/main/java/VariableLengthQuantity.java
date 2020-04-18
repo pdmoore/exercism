@@ -56,9 +56,18 @@ class VariableLengthQuantity {
     List<String> decode(List<Long> bytes) {
         List<String> result = new ArrayList<>();
         String bits = "";
+        boolean terminatingByteSeen = false;
         for (int i = 0; i < bytes.size(); i++) {
+            if (bytes.get(i) < 128L) {
+                terminatingByteSeen = true;
+            }
+
             String bitString = ensure7Bits(Long.toBinaryString(bytes.get(i)));
             bits += bitString;
+        }
+
+        if (!terminatingByteSeen) {
+            throw new IllegalArgumentException("Invalid variable-length quantity encoding");
         }
 
         result.add(convertBitStringToHex(bits));

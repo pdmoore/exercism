@@ -208,7 +208,6 @@ public class VariableLengthQuantityTest {
         assertEquals(expected, variableLengthQuantity.decode(bytes));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testCannotDecodeIncompleteSequence() {
         List<Long> bytes = Arrays.asList(0xffL);
