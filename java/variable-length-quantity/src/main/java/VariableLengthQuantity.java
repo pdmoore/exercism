@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
@@ -15,7 +16,7 @@ class VariableLengthQuantity {
 
     private List<String> encodeSingleNumber(Long number) {
 
-        Stack<String> vlqNumbers = new Stack<>();
+        List<String> vlqBytes = new ArrayList<>();
 
         boolean firstTime = true;
         String remainingBits = Long.toBinaryString(number);
@@ -37,18 +38,14 @@ class VariableLengthQuantity {
             }
 
             String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
-            vlqNumbers.push(bitString);
+            vlqBytes.add(bitString);
 
             int endIndex = Math.max(0, remainingBits.length() - 7);
             remainingBits = remainingBits.substring(0, endIndex);
         }
 
-        List<String> numberEncoding = new ArrayList<>();
-        while (!vlqNumbers.empty()) {
-            numberEncoding.add(vlqNumbers.pop());
-        }
-
-        return numberEncoding;
+        Collections.reverse(vlqBytes);
+        return vlqBytes;
     }
 
     List<String> decode(List<Long> bytes) {
