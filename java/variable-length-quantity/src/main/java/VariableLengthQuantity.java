@@ -23,9 +23,9 @@ class VariableLengthQuantity {
             String SevenBitByte;
 
             if (number < 128) {
-                SevenBitByte = String.format("%1$7s", remainingBits).replace(' ', '0');
+                SevenBitByte = ensureExactly7BitLength(remainingBits);
             } else if (remainingBits.length() < 7) {
-                SevenBitByte = "1" + String.format("%1$7s", remainingBits).replace(' ', '0');
+                SevenBitByte = "1" + ensureExactly7BitLength(remainingBits);
             } else {
                 String prefix = "1";
                 if (firstTime) {
