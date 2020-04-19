@@ -18,29 +18,29 @@ class VariableLengthQuantity {
         Stack<String> vlqNumbers = new Stack<>();
 
         boolean firstTime = true;
-        String numberAsBits = Long.toBinaryString(number);
-        while (!numberAsBits.isEmpty()) {
-            String thisNumber;
+        String remainingBits = Long.toBinaryString(number);
+        while (!remainingBits.isEmpty()) {
+            String SevenBitByte;
 
             if (number < 128) {
-                thisNumber = String.format("%1$7s", numberAsBits).replace(' ', '0');
-            } else if (numberAsBits.length() < 7) {
-                thisNumber = "1" + String.format("%1$7s", numberAsBits).replace(' ', '0');
+                SevenBitByte = String.format("%1$7s", remainingBits).replace(' ', '0');
+            } else if (remainingBits.length() < 7) {
+                SevenBitByte = "1" + String.format("%1$7s", remainingBits).replace(' ', '0');
             } else {
                 String prefix = "1";
                 if (firstTime) {
                     prefix = "0";
                     firstTime = false;
                 }
-                String rightSide = numberAsBits.substring(numberAsBits.length() - 7);
-                thisNumber = prefix + rightSide;
+                String rightSide = remainingBits.substring(remainingBits.length() - 7);
+                SevenBitByte = prefix + rightSide;
             }
 
-            String bitString = String.format("0x%01x", Integer.parseInt(thisNumber, 2));
+            String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqNumbers.push(bitString);
 
-            int endIndex = Math.max(0, numberAsBits.length() - 7);
-            numberAsBits = numberAsBits.substring(0, endIndex);
+            int endIndex = Math.max(0, remainingBits.length() - 7);
+            remainingBits = remainingBits.substring(0, endIndex);
         }
 
         List<String> numberEncoding = new ArrayList<>();
@@ -85,10 +85,8 @@ class VariableLengthQuantity {
         if (bitString.length() == 8) {
             bitString = bitString.substring(1);
         }
-        while (bitString.length() < 7) {
-            bitString += "0";
-        }
-        return bitString;
+
+        return String.format("%1$7s", bitString).replace(' ', '0');
     }
 
     private String convertBitStringToHex(String bits) {
