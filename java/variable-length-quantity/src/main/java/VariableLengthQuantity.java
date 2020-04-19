@@ -8,12 +8,12 @@ class VariableLengthQuantity {
     List<String> encode(List<Long> numbers) {
 
         return numbers.stream()
-                .map(this::encodeThisNumber)
+                .map(this::encodeSingleNumber)
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
     }
 
-    private List<String> encodeThisNumber(Long number) {
+    private List<String> encodeSingleNumber(Long number) {
 
         Stack<String> vlqNumbers = new Stack<>();
 
