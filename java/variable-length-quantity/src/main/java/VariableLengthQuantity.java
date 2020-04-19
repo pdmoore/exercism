@@ -60,7 +60,8 @@ class VariableLengthQuantity {
         // -- ignore failing test first
 
 
-        List<String> result = new ArrayList<>();
+
+
         String bits = "";
         boolean terminatingByteSeen = false;
         for (int i = 0; i < bytes.size(); i++) {
@@ -76,7 +77,10 @@ class VariableLengthQuantity {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
         }
 
+        List<String> result = new ArrayList<>();
         result.add(convertBitStringToHex(bits));
+
+
         return result;
     }
 

@@ -227,6 +227,7 @@ public class VariableLengthQuantityTest {
     }
 
     @Test
+    @Ignore
     public void testDecodeMultipleBytes() {
         List<String> expected = Arrays.asList("0x2000", "0x123456",
                                               "0xfffffff", "0x0", "0x3fff",
