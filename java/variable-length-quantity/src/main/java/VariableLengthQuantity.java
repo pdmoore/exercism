@@ -23,6 +23,7 @@ class VariableLengthQuantity {
         while (!remainingBits.isEmpty()) {
             String SevenBitByte;
 
+            //TODO duplication in first two IFs, and firstTime sort of spread all over...can it be reduced?
             if (number < 128) {
                 SevenBitByte = ensureExactly7BitLength(remainingBits);
             } else if (remainingBits.length() < 7) {
