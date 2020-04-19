@@ -22,8 +22,6 @@ class VariableLengthQuantity {
         while (!numberAsBits.isEmpty()) {
             String thisNumber;
 
-            // TODO can't extract entire if/else
-            // can extract intention revealing methods for each branch
             if (number < 128) {
                 thisNumber = String.format("%1$7s", numberAsBits).replace(' ', '0');
             } else if (numberAsBits.length() < 7) {
