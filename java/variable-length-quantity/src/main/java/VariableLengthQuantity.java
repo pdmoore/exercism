@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -55,19 +54,15 @@ class VariableLengthQuantity {
     }
 
     List<String> decode(List<Long> bytes) {
-        // TODO - code below works for a single encoded number, need to wrap the input in a loop
-        // and gather each decoded number and return that group as a result
-        // First step - extract below and return just a single number
-        // -- ignore failing test first
-
-        // Split up the all the bytes into groups of series
         List<String> result = new ArrayList<>();
-        ArrayList<Long> series = new ArrayList<>();
+
+        ArrayList<Long> thisSeries = new ArrayList<>();
         for (int i = 0; i < bytes.size(); i++) {
-            series.add(bytes.get(i));
-            if (bytes.get(i) < 128) {
-                result.add(decodeSingleNumber(series));
-                series = new ArrayList<>();
+            Long thisLong = bytes.get(i);
+            thisSeries.add(thisLong);
+            if (thisLong < 128) {
+                result.add(decodeSingleNumber(thisSeries));
+                thisSeries = new ArrayList<>();
             }
         }
 
@@ -81,14 +76,14 @@ class VariableLengthQuantity {
     private String decodeSingleNumber(List<Long> bytes) {
         String bits = "";
         for (int i = 0; i < bytes.size(); i++) {
-            String bitString = ensure7Bits(Long.toBinaryString(bytes.get(i)));
-            bits += bitString;
+            String bitStringOfLong = Long.toBinaryString(bytes.get(i));
+            bits += ensureExactly7BitLength(bitStringOfLong);
         }
 
         return convertBitStringToHex(bits);
     }
 
-    private String ensure7Bits(String bitString) {
+    private String ensureExactly7BitLength(String bitString) {
         if (bitString.length() == 8) {
             bitString = bitString.substring(1);
         }
