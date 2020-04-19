@@ -92,7 +92,7 @@ class VariableLengthQuantity {
         if (bitString.length() == 8) {
             bitString = bitString.substring(1);
         }
-        while (bitString.length() != 7) {
+        while (bitString.length() < 7) {
             bitString += "0";
         }
         return bitString;
