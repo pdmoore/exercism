@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -59,29 +60,32 @@ class VariableLengthQuantity {
         // First step - extract below and return just a single number
         // -- ignore failing test first
 
-
-
-
-        String bits = "";
-        boolean terminatingByteSeen = false;
+        // Split up the all the bytes into groups of series
+        List<String> result = new ArrayList<>();
+        ArrayList<Long> series = new ArrayList<>();
         for (int i = 0; i < bytes.size(); i++) {
-            if (bytes.get(i) < 128L) {
-                terminatingByteSeen = true;
+            series.add(bytes.get(i));
+            if (bytes.get(i) < 128) {
+                result.add(decodeSingleNumber(series));
+                series = new ArrayList<>();
             }
+        }
 
+        if (result.isEmpty()) {
+            throw new IllegalArgumentException("Invalid variable-length quantity encoding");
+        }
+
+        return result;
+    }
+
+    private String decodeSingleNumber(List<Long> bytes) {
+        String bits = "";
+        for (int i = 0; i < bytes.size(); i++) {
             String bitString = ensure7Bits(Long.toBinaryString(bytes.get(i)));
             bits += bitString;
         }
 
-        if (!terminatingByteSeen) {
-            throw new IllegalArgumentException("Invalid variable-length quantity encoding");
-        }
-
-        List<String> result = new ArrayList<>();
-        result.add(convertBitStringToHex(bits));
-
-
-        return result;
+        return convertBitStringToHex(bits);
     }
 
     private String ensure7Bits(String bitString) {
