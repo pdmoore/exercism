@@ -21,9 +21,9 @@ class VariableLengthQuantity {
         while (!remainingBits.isEmpty()) {
             String SevenBitByte;
 
-            String prefix = "1";
+            String bit7 = "1";
             if (lastByte) {
-                prefix = "0";
+                bit7 = "0";
                 lastByte = false;
             }
             String rightSide;
@@ -32,7 +32,7 @@ class VariableLengthQuantity {
             } else {
                 rightSide = remainingBits.substring(remainingBits.length() - 7);
             }
-            SevenBitByte = prefix + rightSide;
+            SevenBitByte = bit7 + rightSide;
 
             String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(bitString);
