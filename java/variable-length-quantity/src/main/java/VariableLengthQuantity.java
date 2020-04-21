@@ -26,13 +26,13 @@ class VariableLengthQuantity {
                 bit7 = "0";
                 lastByte = false;
             }
-            String rightSide;
+            String bits0to6;
             if (remainingBits.length() < 7) {
-                rightSide = ensureExactly7BitLength(remainingBits);
+                bits0to6 = ensureExactly7BitLength(remainingBits);
             } else {
-                rightSide = remainingBits.substring(remainingBits.length() - 7);
+                bits0to6 = remainingBits.substring(remainingBits.length() - 7);
             }
-            SevenBitByte = bit7 + rightSide;
+            SevenBitByte = bit7 + bits0to6;
 
             String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(bitString);
