@@ -16,22 +16,23 @@ class VariableLengthQuantity {
     private List<String> encodeSingleNumber(Long number) {
         List<String> vlqBytes = new ArrayList<>();
 
-        boolean firstTime = true;
+        boolean lastByte = true;
         String remainingBits = Long.toBinaryString(number);
         while (!remainingBits.isEmpty()) {
             String SevenBitByte;
 
             String prefix = "1";
-            if (firstTime) {
+            if (lastByte) {
                 prefix = "0";
-                firstTime = false;
+                lastByte = false;
             }
+            String rightSide;
             if ((number < 128) || (remainingBits.length() < 7)) {
-                SevenBitByte = prefix + ensureExactly7BitLength(remainingBits);
+                rightSide = ensureExactly7BitLength(remainingBits);
             } else {
-                String rightSide = remainingBits.substring(remainingBits.length() - 7);
-                SevenBitByte = prefix + rightSide;
+                rightSide = remainingBits.substring(remainingBits.length() - 7);
             }
+            SevenBitByte = prefix + rightSide;
 
             String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(bitString);
