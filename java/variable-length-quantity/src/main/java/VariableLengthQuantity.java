@@ -27,7 +27,7 @@ class VariableLengthQuantity {
                 lastByte = false;
             }
             String rightSide;
-            if ((number < 128) || (remainingBits.length() < 7)) {
+            if (remainingBits.length() < 7) {
                 rightSide = ensureExactly7BitLength(remainingBits);
             } else {
                 rightSide = remainingBits.substring(remainingBits.length() - 7);
