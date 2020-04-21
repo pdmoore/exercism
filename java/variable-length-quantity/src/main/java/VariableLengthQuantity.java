@@ -21,17 +21,14 @@ class VariableLengthQuantity {
         while (!remainingBits.isEmpty()) {
             String SevenBitByte;
 
-            //TODO duplication in first two IFs, and firstTime sort of spread all over...can it be reduced?
-            if (number < 128) {
-                SevenBitByte = "0" + ensureExactly7BitLength(remainingBits);
-            } else if (remainingBits.length() < 7) {
-                SevenBitByte = "1" + ensureExactly7BitLength(remainingBits);
+            String prefix = "1";
+            if (firstTime) {
+                prefix = "0";
+                firstTime = false;
+            }
+            if ((number < 128) || (remainingBits.length() < 7)) {
+                SevenBitByte = prefix + ensureExactly7BitLength(remainingBits);
             } else {
-                String prefix = "1";
-                if (firstTime) {
-                    prefix = "0";
-                    firstTime = false;
-                }
                 String rightSide = remainingBits.substring(remainingBits.length() - 7);
                 SevenBitByte = prefix + rightSide;
             }
