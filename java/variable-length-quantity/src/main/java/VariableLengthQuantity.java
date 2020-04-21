@@ -14,7 +14,6 @@ class VariableLengthQuantity {
     }
 
     private List<String> encodeSingleNumber(Long number) {
-
         List<String> vlqBytes = new ArrayList<>();
 
         boolean firstTime = true;
@@ -24,7 +23,7 @@ class VariableLengthQuantity {
 
             //TODO duplication in first two IFs, and firstTime sort of spread all over...can it be reduced?
             if (number < 128) {
-                SevenBitByte = ensureExactly7BitLength(remainingBits);
+                SevenBitByte = "0" + ensureExactly7BitLength(remainingBits);
             } else if (remainingBits.length() < 7) {
                 SevenBitByte = "1" + ensureExactly7BitLength(remainingBits);
             } else {
