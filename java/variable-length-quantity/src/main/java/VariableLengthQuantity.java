@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 class VariableLengthQuantity {
 
-    private static final String LAST_BYTE_OF_SERIES = "1";
+    private static final String LAST_BYTE_OF_SERIES = "0";
 
     List<String> encode(List<Long> numbers) {
 
@@ -23,9 +23,9 @@ class VariableLengthQuantity {
         while (!remainingBits.isEmpty()) {
             String SevenBitByte;
 
-            String bit7 = LAST_BYTE_OF_SERIES;
+            String bit7 = "1";
             if (lastByte) {
-                bit7 = "0";
+                bit7 = LAST_BYTE_OF_SERIES;
                 lastByte = false;
             }
             String bits0to6;
