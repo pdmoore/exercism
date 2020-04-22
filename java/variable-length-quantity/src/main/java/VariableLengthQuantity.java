@@ -33,8 +33,8 @@ class VariableLengthQuantity {
             }
             String SevenBitByte = bit7 + bits0to6;
 
-            String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
-            vlqBytes.add(bitString);
+            String hexValue = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
+            vlqBytes.add(hexValue);
 
             int endIndex = Math.max(0, remainingBits.length() - 7);
             remainingBits = remainingBits.substring(0, endIndex);
