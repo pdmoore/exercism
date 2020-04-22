@@ -24,18 +24,19 @@ class VariableLengthQuantity {
         while (!remainingBits.isEmpty()) {
             String SevenBitByte;
 
-            String bit7 = PRECEDING_BYTE_IN_SERIES;
-            if (lastByte) {
-                bit7 = LAST_BYTE_IN_SERIES;
-                lastByte = false;
-            }
+
             String bits0to6;
             if (remainingBits.length() < 7) {
                 bits0to6 = ensureExactly7BitLength(remainingBits);
             } else {
                 bits0to6 = remainingBits.substring(remainingBits.length() - 7);
             }
-            SevenBitByte = bit7 + bits0to6;
+
+            String bit7 = PRECEDING_BYTE_IN_SERIES;
+            if (lastByte) {
+                bit7 = LAST_BYTE_IN_SERIES;
+                lastByte = false;
+            }            SevenBitByte = bit7 + bits0to6;
 
             String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(bitString);
