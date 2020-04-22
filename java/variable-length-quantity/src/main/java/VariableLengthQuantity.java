@@ -22,9 +22,6 @@ class VariableLengthQuantity {
         boolean lastByte = true;
         String remainingBits = Long.toBinaryString(number);
         while (!remainingBits.isEmpty()) {
-            String SevenBitByte;
-
-
             String bits0to6;
             if (remainingBits.length() < 7) {
                 bits0to6 = ensureExactly7BitLength(remainingBits);
@@ -32,12 +29,14 @@ class VariableLengthQuantity {
                 bits0to6 = remainingBits.substring(remainingBits.length() - 7);
             }
 
+            // Hmmmmm....the first time it is always '0', the rest of the time '1'.
+            // Some other way to accomplish this apart from the lastByte flag?
             String bit7 = PRECEDING_BYTE_IN_SERIES;
             if (lastByte) {
                 bit7 = LAST_BYTE_IN_SERIES;
                 lastByte = false;
             }
-            SevenBitByte = bit7 + bits0to6;
+            String SevenBitByte = bit7 + bits0to6;
 
             String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(bitString);
