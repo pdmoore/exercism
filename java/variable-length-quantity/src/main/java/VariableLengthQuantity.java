@@ -24,16 +24,7 @@ class VariableLengthQuantity {
         String remainingBits = Long.toBinaryString(number);
         LAST_BYTE = true;
         while (!remainingBits.isEmpty()) {
-            String bits0to6 = getBits0To6(remainingBits);
-
-            // Hmmmmm....the first time it is always '0', the rest of the time '1'.
-            // Some other way to accomplish this apart from the lastByte flag?
-            String bit7 = PRECEDING_BYTE_IN_SERIES;
-            if (LAST_BYTE) {
-                bit7 = LAST_BYTE_IN_SERIES;
-                LAST_BYTE = false;
-            }
-            String SevenBitByte = bit7 + bits0to6;
+            String SevenBitByte = getBit7() + getBits0To6(remainingBits);
 
             String hexValue = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(hexValue);
@@ -43,6 +34,15 @@ class VariableLengthQuantity {
 
         Collections.reverse(vlqBytes);
         return vlqBytes;
+    }
+
+    private String getBit7() {
+        String bit7 = PRECEDING_BYTE_IN_SERIES;
+        if (LAST_BYTE) {
+            bit7 = LAST_BYTE_IN_SERIES;
+            LAST_BYTE = false;
+        }
+        return bit7;
     }
 
     private String removeBitsJustEncoded(String remainingBits) {
