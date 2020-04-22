@@ -8,6 +8,8 @@ class VariableLengthQuantity {
     private static final String LAST_BYTE_IN_SERIES = "0";
     private static final String PRECEDING_BYTE_IN_SERIES = "1";
 
+    private boolean LAST_BYTE = true;
+
     List<String> encode(List<Long> numbers) {
 
         return numbers.stream()
@@ -19,17 +21,17 @@ class VariableLengthQuantity {
     private List<String> encodeSingleNumber(Long number) {
         List<String> vlqBytes = new ArrayList<>();
 
-        boolean lastByte = true;
         String remainingBits = Long.toBinaryString(number);
+        LAST_BYTE = true;
         while (!remainingBits.isEmpty()) {
             String bits0to6 = getBits0To6(remainingBits);
 
             // Hmmmmm....the first time it is always '0', the rest of the time '1'.
             // Some other way to accomplish this apart from the lastByte flag?
             String bit7 = PRECEDING_BYTE_IN_SERIES;
-            if (lastByte) {
+            if (LAST_BYTE) {
                 bit7 = LAST_BYTE_IN_SERIES;
-                lastByte = false;
+                LAST_BYTE = false;
             }
             String SevenBitByte = bit7 + bits0to6;
 
