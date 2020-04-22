@@ -36,7 +36,8 @@ class VariableLengthQuantity {
             if (lastByte) {
                 bit7 = LAST_BYTE_IN_SERIES;
                 lastByte = false;
-            }            SevenBitByte = bit7 + bits0to6;
+            }
+            SevenBitByte = bit7 + bits0to6;
 
             String bitString = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(bitString);
