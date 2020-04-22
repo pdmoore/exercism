@@ -37,12 +37,11 @@ class VariableLengthQuantity {
     }
 
     private String getBit7() {
-        String bit7 = PRECEDING_BYTE_IN_SERIES;
         if (LAST_BYTE) {
-            bit7 = LAST_BYTE_IN_SERIES;
             LAST_BYTE = false;
+            return LAST_BYTE_IN_SERIES;
         }
-        return bit7;
+        return PRECEDING_BYTE_IN_SERIES;
     }
 
     private String removeBitsJustEncoded(String remainingBits) {
