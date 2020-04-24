@@ -20,15 +20,15 @@ class VariableLengthQuantity {
     private List<String> encodeSingleNumber(Long number) {
         List<String> vlqBytes = new ArrayList<>();
 
-        String remainingBits = Long.toBinaryString(number);
+        String remainingBitsToEncode = Long.toBinaryString(number);
         LAST_BYTE = true;
-        while (!remainingBits.isEmpty()) {
-            String SevenBitByte = getBit7() + getBits0To6(remainingBits);
+        while (!remainingBitsToEncode.isEmpty()) {
+            String SevenBitByte = getBit7() + getBits0To6(remainingBitsToEncode);
 
             String hexValue = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(hexValue);
 
-            remainingBits = removeBitsJustEncoded(remainingBits);
+            remainingBitsToEncode = removeBitsJustEncoded(remainingBitsToEncode);
         }
 
         Collections.reverse(vlqBytes);
