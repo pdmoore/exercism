@@ -45,12 +45,6 @@ class VariableLengthQuantity {
         return PRECEDING_BYTE_IN_SERIES;
     }
 
-    private String removeBitsJustEncoded(String remainingBits) {
-        int endIndex = Math.max(0, remainingBits.length() - VLQ_BYTE_LENGTH);
-        remainingBits = remainingBits.substring(0, endIndex);
-        return remainingBits;
-    }
-
     private String getNextBitsToEncode(String remainingBits) {
         String bits0to6;
         if (remainingBits.length() < VLQ_BYTE_LENGTH) {
@@ -59,6 +53,12 @@ class VariableLengthQuantity {
             bits0to6 = remainingBits.substring(remainingBits.length() - VLQ_BYTE_LENGTH);
         }
         return bits0to6;
+    }
+
+    private String removeBitsJustEncoded(String remainingBits) {
+        int endIndex = Math.max(0, remainingBits.length() - VLQ_BYTE_LENGTH);
+        remainingBits = remainingBits.substring(0, endIndex);
+        return remainingBits;
     }
 
     List<String> decode(List<Long> bytes) {
