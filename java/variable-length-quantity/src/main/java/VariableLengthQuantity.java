@@ -46,7 +46,7 @@ class VariableLengthQuantity {
     }
 
     private String removeBitsJustEncoded(String remainingBits) {
-        int endIndex = Math.max(0, remainingBits.length() - 7);
+        int endIndex = Math.max(0, remainingBits.length() - VLQ_BYTE_LENGTH);
         remainingBits = remainingBits.substring(0, endIndex);
         return remainingBits;
     }
