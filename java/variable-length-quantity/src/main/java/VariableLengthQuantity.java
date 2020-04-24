@@ -25,7 +25,7 @@ class VariableLengthQuantity {
         String remainingBitsToEncode = Long.toBinaryString(number);
         LAST_BYTE = true;
         while (!remainingBitsToEncode.isEmpty()) {
-            String SevenBitByte = getBit7() + getBits0To6(remainingBitsToEncode);
+            String SevenBitByte = getEncodingBit() + getBits0To6(remainingBitsToEncode);
 
             String hexValue = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(hexValue);
@@ -37,7 +37,7 @@ class VariableLengthQuantity {
         return vlqBytes;
     }
 
-    private String getBit7() {
+    private String getEncodingBit() {
         if (LAST_BYTE) {
             LAST_BYTE = false;
             return LAST_BYTE_IN_SERIES;
