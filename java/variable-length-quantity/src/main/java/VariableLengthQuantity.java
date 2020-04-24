@@ -11,7 +11,6 @@ class VariableLengthQuantity {
     private boolean LAST_BYTE = true;
 
     List<String> encode(List<Long> numbers) {
-
         return numbers.stream()
                 .map(this::encodeSingleNumber)
                 .flatMap(List::stream)
