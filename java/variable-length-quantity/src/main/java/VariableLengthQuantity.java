@@ -8,6 +8,8 @@ class VariableLengthQuantity {
     private static final String LAST_BYTE_IN_SERIES = "0";
     private static final String PRECEDING_BYTE_IN_SERIES = "1";
 
+    private static final int VLQ_BYTE_LENGTH = 7;
+
     private boolean LAST_BYTE = true;
 
     List<String> encode(List<Long> numbers) {
@@ -51,10 +53,10 @@ class VariableLengthQuantity {
 
     private String getBits0To6(String remainingBits) {
         String bits0to6;
-        if (remainingBits.length() < 7) {
+        if (remainingBits.length() < VLQ_BYTE_LENGTH) {
             bits0to6 = ensureExactly7BitLength(remainingBits);
         } else {
-            bits0to6 = remainingBits.substring(remainingBits.length() - 7);
+            bits0to6 = remainingBits.substring(remainingBits.length() - VLQ_BYTE_LENGTH);
         }
         return bits0to6;
     }
