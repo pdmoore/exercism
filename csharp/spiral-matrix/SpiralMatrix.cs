@@ -31,13 +31,17 @@ public class SpiralMatrix
         }
         else if (size == 3)
         {
-            matrix[1, 2] = 4;
-            matrix[2, 2] = 5;
+            for (int i = 1; i < size; i++)
+            {
+                matrix[i, 2] = count++;
+            }
+            
+            
             matrix[2, 1] = 6;
             matrix[2, 0] = 7;
+            
             matrix[1, 0] = 8;
             matrix[1, 1] = 9;
-            
         }
         
         return matrix;
