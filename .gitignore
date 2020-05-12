@@ -2,6 +2,7 @@
 gradlew
 gradlew.bat
 csharp/OLD-*
+Folder.DotSettings.user
 composer.phar
 composer.json
 phpunit.phar
