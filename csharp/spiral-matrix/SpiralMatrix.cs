@@ -61,14 +61,12 @@
                 matrix[limitBottom - 1, fillColumn] = count++;
             }
 
-            
+            limitBottom--;
             // go up
-            // for (int fillRow = limitBottom - 1; fillRow < limitTop; fillRow--)
-            // {
-            //     matrix[fillRow, limitLeft] = count++;
-            // }
-
-            matrix[1, 0] = 8;
+            for (int fillRow = limitBottom - 1; fillRow >= limitTop; fillRow--)
+            {
+                matrix[fillRow, limitLeft] = count++;
+            }
             
             matrix[1, 1] = 9;
         }
