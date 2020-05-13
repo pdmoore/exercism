@@ -8,7 +8,7 @@
         int limitLeft = 0;
         int limitRight = size - 1;
         int limitTop = 0;
-        int limitBottom = size;
+        int limitBottom = size - 1;
 
         while (count <= size * size)
         {
@@ -20,7 +20,7 @@
             limitTop++;
 
             // fill down rightmost unfilled edge
-            for (int fillRow = limitTop; fillRow < limitBottom; fillRow++)
+            for (int fillRow = limitTop; fillRow <= limitBottom; fillRow++)
             {
                 matrix[fillRow, limitRight] = count++;
             }
@@ -29,12 +29,12 @@
             // fill across bottom
             for (int fillColumn = limitRight; fillColumn >= limitLeft; fillColumn--)
             {
-                matrix[limitBottom - 1, fillColumn] = count++;
+                matrix[limitBottom, fillColumn] = count++;
             }
             limitBottom--;
             
             // fill up leftmost unfilled edge
-            for (int fillRow = limitBottom - 1; fillRow >= limitTop; fillRow--)
+            for (int fillRow = limitBottom; fillRow >= limitTop; fillRow--)
             {
                 matrix[fillRow, limitLeft] = count++;
             }
