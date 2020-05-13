@@ -70,11 +70,11 @@
             
             //go right again
             //TODO wrap all the above in a loop, and short circuit when count == size*size
+            // likely need to do the same check after each for loop
             for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
             {
                 matrix[limitTop, fillColumn] = count++;
             }
-            // matrix[1, 1] = 9;
         }
         
         return matrix;
