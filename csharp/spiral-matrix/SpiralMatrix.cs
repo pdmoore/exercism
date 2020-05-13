@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-
-public class SpiralMatrix
+﻿public class SpiralMatrix
 {
     public static int[,] GetMatrix(int size)
     {
@@ -32,13 +29,23 @@ public class SpiralMatrix
         }
         else if (size == 3)
         {
-            
-            
-            matrix[0, 0] = 1;
-            matrix[0, 1] = 2;
-            matrix[0, 2] = 3;
-            matrix[1, 2] = 4;
-            matrix[2, 2] = 5;
+            row = 0;
+            count = 1;
+            int col = 0;
+
+            // go right
+            for (int fillColumn = 0; fillColumn < size; fillColumn++)
+            {
+                matrix[row, fillColumn] = count++;
+            }
+
+            // go down
+            row++;
+            for (int fillRow = row; fillRow < size; fillRow++)
+            {
+                matrix[fillRow, 2] = count++;
+            }
+
             
             matrix[2, 1] = 6;
             matrix[2, 0] = 7;
