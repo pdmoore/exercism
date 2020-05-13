@@ -17,17 +17,7 @@
             matrix[row, col] = count++;
         }
         
-        if (size == 2)
-        {
-            // fill in last row from right to left
-            // collapses Down and Left
-            row++;
-            for (int i = size - 1; i >= 0; i--)
-            {
-                matrix[row, i] = count++;
-            }
-        }
-        else if (size == 3)
+        if (size >= 2)
         {
             count = 1;
 
