@@ -52,11 +52,15 @@
             {
                 matrix[fillRow, limitRight - 1] = count++;
             }
-            
 
+            limitRight--;
+
+            // go left
+            for (int fillColumn = limitRight - 1; fillColumn >= limitLeft; fillColumn--)
+            {
+                matrix[limitBottom - 1, fillColumn] = count++;
+            }
             
-            matrix[2, 1] = 6;
-            matrix[2, 0] = 7;
             
             matrix[1, 0] = 8;
             matrix[1, 1] = 9;
