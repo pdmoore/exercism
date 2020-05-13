@@ -26,7 +26,7 @@
             }
             limitRight--;
 
-            // fill across bottom
+            // fill across bottom, to the left
             for (int fillColumn = limitRight; fillColumn >= limitLeft; fillColumn--)
             {
                 matrix[limitBottom, fillColumn] = count++;
