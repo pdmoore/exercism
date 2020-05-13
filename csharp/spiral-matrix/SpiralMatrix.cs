@@ -6,8 +6,7 @@
         {
             return new int[size, size];
         }
-
-
+        
         int[,] matrix = new int[size, size];
 
         int count = 1;
@@ -49,7 +48,6 @@
 
             limitLeft++;
         }
-
 
         return matrix;
     }
