@@ -29,9 +29,7 @@
         }
         else if (size == 3)
         {
-            row = 0;
             count = 1;
-            int col = 0;
 
             int limitLeft = 0;
             int limitRight = size;
