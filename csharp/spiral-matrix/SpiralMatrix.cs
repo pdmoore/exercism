@@ -33,18 +33,26 @@
             count = 1;
             int col = 0;
 
+            int limitLeft = 0;
+            int limitRight = size;
+            int limitTop = 0;
+            int limitBottom = size;
+            
+
             // go right
-            for (int fillColumn = 0; fillColumn < size; fillColumn++)
+            for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
             {
                 matrix[row, fillColumn] = count++;
             }
 
+            limitTop++;
+
             // go down
-            row++;
-            for (int fillRow = row; fillRow < size; fillRow++)
+            for (int fillRow = limitTop; fillRow < limitBottom; fillRow++)
             {
-                matrix[fillRow, 2] = count++;
+                matrix[fillRow, limitRight - 1] = count++;
             }
+            
 
             
             matrix[2, 1] = 6;
