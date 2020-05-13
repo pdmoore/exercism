@@ -6,14 +6,14 @@
 
         int count = 1;
         int limitLeft = 0;
-        int limitRight = size;
+        int limitRight = size - 1;
         int limitTop = 0;
         int limitBottom = size;
 
         while (count <= size * size)
         {
             // fill across right
-            for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
+            for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++)
             {
                 matrix[limitTop, fillColumn] = count++;
             }
@@ -22,12 +22,12 @@
             // fill down rightmost unfilled edge
             for (int fillRow = limitTop; fillRow < limitBottom; fillRow++)
             {
-                matrix[fillRow, limitRight - 1] = count++;
+                matrix[fillRow, limitRight] = count++;
             }
             limitRight--;
 
             // fill across bottom
-            for (int fillColumn = limitRight - 1; fillColumn >= limitLeft; fillColumn--)
+            for (int fillColumn = limitRight; fillColumn >= limitLeft; fillColumn--)
             {
                 matrix[limitBottom - 1, fillColumn] = count++;
             }
