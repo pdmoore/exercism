@@ -12,35 +12,32 @@
 
         while (count <= size * size)
         {
-            // go right
+            // fill across right
             for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
             {
                 matrix[limitTop, fillColumn] = count++;
             }
-
             limitTop++;
 
-            // go down
+            // fill down rightmost unfilled edge
             for (int fillRow = limitTop; fillRow < limitBottom; fillRow++)
             {
                 matrix[fillRow, limitRight - 1] = count++;
             }
-
             limitRight--;
 
-            // go left
+            // fill across bottom
             for (int fillColumn = limitRight - 1; fillColumn >= limitLeft; fillColumn--)
             {
                 matrix[limitBottom - 1, fillColumn] = count++;
             }
-
             limitBottom--;
-            // go up
+            
+            // fill up leftmost unfilled edge
             for (int fillRow = limitBottom - 1; fillRow >= limitTop; fillRow--)
             {
                 matrix[fillRow, limitLeft] = count++;
             }
-
             limitLeft++;
         }
 
