@@ -35,45 +35,40 @@
             int limitRight = size;
             int limitTop = 0;
             int limitBottom = size;
-            
 
-            // go right
-            for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
+
+            while (count <= size * size)
             {
-                matrix[limitTop, fillColumn] = count++;
-            }
+                // go right
+                for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
+                {
+                    matrix[limitTop, fillColumn] = count++;
+                }
 
-            limitTop++;
+                limitTop++;
 
-            // go down
-            for (int fillRow = limitTop; fillRow < limitBottom; fillRow++)
-            {
-                matrix[fillRow, limitRight - 1] = count++;
-            }
+                // go down
+                for (int fillRow = limitTop; fillRow < limitBottom; fillRow++)
+                {
+                    matrix[fillRow, limitRight - 1] = count++;
+                }
 
-            limitRight--;
+                limitRight--;
 
-            // go left
-            for (int fillColumn = limitRight - 1; fillColumn >= limitLeft; fillColumn--)
-            {
-                matrix[limitBottom - 1, fillColumn] = count++;
-            }
+                // go left
+                for (int fillColumn = limitRight - 1; fillColumn >= limitLeft; fillColumn--)
+                {
+                    matrix[limitBottom - 1, fillColumn] = count++;
+                }
 
-            limitBottom--;
-            // go up
-            for (int fillRow = limitBottom - 1; fillRow >= limitTop; fillRow--)
-            {
-                matrix[fillRow, limitLeft] = count++;
-            }
+                limitBottom--;
+                // go up
+                for (int fillRow = limitBottom - 1; fillRow >= limitTop; fillRow--)
+                {
+                    matrix[fillRow, limitLeft] = count++;
+                }
 
-            limitLeft++;
-            
-            //go right again
-            //TODO wrap all the above in a loop, and short circuit when count == size*size
-            // likely need to do the same check after each for loop
-            for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
-            {
-                matrix[limitTop, fillColumn] = count++;
+                limitLeft++;
             }
         }
         
