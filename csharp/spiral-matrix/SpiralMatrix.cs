@@ -65,15 +65,16 @@
             {
                 matrix[fillRow, limitLeft] = count++;
             }
+
+            limitLeft++;
             
             //go right again
             //TODO wrap all the above in a loop, and short circuit when count == size*size
-            // for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
-            // {
-            //     matrix[row, fillColumn] = count++;
-            // }
-
-            matrix[1, 1] = 9;
+            for (int fillColumn = limitLeft; fillColumn < limitRight; fillColumn++)
+            {
+                matrix[limitTop, fillColumn] = count++;
+            }
+            // matrix[1, 1] = 9;
         }
         
         return matrix;
