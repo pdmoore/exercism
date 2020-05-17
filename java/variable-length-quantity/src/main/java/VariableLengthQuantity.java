@@ -22,6 +22,10 @@ class VariableLengthQuantity {
     private List<String> encodeSingleNumber(Long number) {
         List<String> vlqBytes = new ArrayList<>();
 
+        // currently - convert long to Binary string,
+        // figuring our prefix, then converting binary VLQ byte to hex string
+        // shifting off the bits just processed
+
         String remainingBitsToEncode = Long.toBinaryString(number);
         LAST_BYTE = true;
         while (!remainingBitsToEncode.isEmpty()) {
