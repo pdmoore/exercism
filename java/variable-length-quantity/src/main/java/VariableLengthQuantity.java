@@ -5,13 +5,7 @@ import java.util.stream.Collectors;
 
 class VariableLengthQuantity {
 
-    private static final String LAST_BYTE_IN_SERIES = "0";
-    private static final String PRECEDING_BYTE_IN_SERIES = "1";
-
     private static final int VLQ_BYTE_LENGTH = 7;
-
-    private boolean LAST_BYTE = true;
-
     public static final long SET_BIT_7 = 128;
 
     List<String> encode(List<Long> numbers) {
@@ -24,11 +18,11 @@ class VariableLengthQuantity {
     private List<String> encodeSingleNumber(Long number) {
         List<String> vlqBytes = new ArrayList<>();
 
-        vlqBytes.add(convertLeftmostBitsToHex(number & 0x7Fl));
+        vlqBytes.add(convertLeftmostBitsToHex(getNext7BitsOf(number)));
 
         number >>= VLQ_BYTE_LENGTH;
         while (number > 0) {
-            vlqBytes.add(convertLeftmostBitsToHex(SET_BIT_7 | (number & 0x7Fl)));
+            vlqBytes.add(convertLeftmostBitsToHex(SET_BIT_7 | (getNext7BitsOf(number))));
             number >>= VLQ_BYTE_LENGTH;
         }
 
@@ -36,33 +30,12 @@ class VariableLengthQuantity {
         return vlqBytes;
     }
 
+    private long getNext7BitsOf(Long number) {
+        return number & 0x7Fl;
+    }
+
     private String convertLeftmostBitsToHex(long l) {
         return "0x" + Long.toHexString(l);
-    }
-
-
-    private String getEncodingBit() {
-        if (LAST_BYTE) {
-            LAST_BYTE = false;
-            return LAST_BYTE_IN_SERIES;
-        }
-        return PRECEDING_BYTE_IN_SERIES;
-    }
-
-    private String getNextBitsToEncode(String remainingBits) {
-        String bits0to6;
-        if (remainingBits.length() < VLQ_BYTE_LENGTH) {
-            bits0to6 = ensureExactly7BitLength(remainingBits);
-        } else {
-            bits0to6 = remainingBits.substring(remainingBits.length() - VLQ_BYTE_LENGTH);
-        }
-        return bits0to6;
-    }
-
-    private String removeBitsJustEncoded(String remainingBits) {
-        int endIndex = Math.max(0, remainingBits.length() - VLQ_BYTE_LENGTH);
-        remainingBits = remainingBits.substring(0, endIndex);
-        return remainingBits;
     }
 
     List<String> decode(List<Long> bytes) {
