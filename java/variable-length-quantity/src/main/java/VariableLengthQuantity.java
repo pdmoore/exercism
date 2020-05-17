@@ -12,6 +12,8 @@ class VariableLengthQuantity {
 
     private boolean LAST_BYTE = true;
 
+    public static final long SET_BIT_7 = 128;
+
     List<String> encode(List<Long> numbers) {
         return numbers.stream()
                 .map(this::encodeSingleNumber)
@@ -22,24 +24,22 @@ class VariableLengthQuantity {
     private List<String> encodeSingleNumber(Long number) {
         List<String> vlqBytes = new ArrayList<>();
 
-        // currently - convert long to Binary string,
-        // figuring our prefix, then converting binary VLQ byte to hex string
-        // shifting off the bits just processed
+        vlqBytes.add(convertLeftmostBitsToHex(number & 0x7Fl));
 
-        String remainingBitsToEncode = Long.toBinaryString(number);
-        LAST_BYTE = true;
-        while (!remainingBitsToEncode.isEmpty()) {
-            String SevenBitByte = getEncodingBit() + getNextBitsToEncode(remainingBitsToEncode);
-
-            String hexValue = String.format("0x%x", Integer.parseInt(SevenBitByte, 2));
-            vlqBytes.add(hexValue);
-
-            remainingBitsToEncode = removeBitsJustEncoded(remainingBitsToEncode);
+        number >>= VLQ_BYTE_LENGTH;
+        while (number > 0) {
+            vlqBytes.add(convertLeftmostBitsToHex(SET_BIT_7 | (number & 0x7Fl)));
+            number >>= VLQ_BYTE_LENGTH;
         }
 
         Collections.reverse(vlqBytes);
         return vlqBytes;
     }
+
+    private String convertLeftmostBitsToHex(long l) {
+        return "0x" + Long.toHexString(l);
+    }
+
 
     private String getEncodingBit() {
         if (LAST_BYTE) {
