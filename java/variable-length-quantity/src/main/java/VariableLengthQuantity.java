@@ -27,7 +27,7 @@ class VariableLengthQuantity {
         while (!remainingBitsToEncode.isEmpty()) {
             String SevenBitByte = getEncodingBit() + getNextBitsToEncode(remainingBitsToEncode);
 
-            String hexValue = String.format("0x%01x", Integer.parseInt(SevenBitByte, 2));
+            String hexValue = String.format("0x%x", Integer.parseInt(SevenBitByte, 2));
             vlqBytes.add(hexValue);
 
             remainingBitsToEncode = removeBitsJustEncoded(remainingBitsToEncode);
