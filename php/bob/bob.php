@@ -11,8 +11,9 @@ class Bob
         return "Whatever.";
     }
 
-    public function isYelling(string $string): bool
+    public function isYelling(string $bobHeard): bool
     {
-        return strpos($string, "!") !== false;
+        return ($bobHeard === strtoupper($bobHeard)) ||
+            (strpos($bobHeard, "!") !== false);
     }
 }
