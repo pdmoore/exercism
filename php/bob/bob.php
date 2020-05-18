@@ -8,6 +8,10 @@ class Bob
             return "Whoa, chill out!";
         }
 
+        if (strpos($string, "?") !== false) {
+            return "Sure.";
+        }
+
         return "Whatever.";
     }
 
