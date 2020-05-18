@@ -17,8 +17,7 @@ class Bob
 
     public function isYelling(string $bobHeard): bool
     {
-        return ($bobHeard === strtoupper($bobHeard)) ||
-            (strpos($bobHeard, "!") !== false);
+        return ($bobHeard === strtoupper($bobHeard));
     }
 
     public function isQuestioning(string $bobHeard): bool
