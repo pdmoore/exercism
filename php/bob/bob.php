@@ -8,7 +8,7 @@ class Bob
             return "Whoa, chill out!";
         }
 
-        if (strpos($string, "?") !== false) {
+        if ($this->isQuestioning($string)) {
             return "Sure.";
         }
 
@@ -19,5 +19,10 @@ class Bob
     {
         return ($bobHeard === strtoupper($bobHeard)) ||
             (strpos($bobHeard, "!") !== false);
+    }
+
+    public function isQuestioning(string $bobHeard): bool
+    {
+        return strpos($bobHeard, "?") !== false;
     }
 }
