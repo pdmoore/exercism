@@ -4,11 +4,19 @@ class Bob
 {
     public function respondTo(string $string)
     {
-        if ($this->isYelling($string)) {
+
+        $isYelling = $this->isYelling($string);
+        $isQuestioning = $this->isQuestioning($string);
+
+        if ($isYelling && $isQuestioning) {
+            return "Calm down, I know what I'm doing!";
+        }
+
+        if ($isYelling) {
             return "Whoa, chill out!";
         }
 
-        if ($this->isQuestioning($string)) {
+        if ($isQuestioning) {
             return "Sure.";
         }
 
@@ -17,7 +25,9 @@ class Bob
 
     public function isYelling(string $bobHeard): bool
     {
-        return ($bobHeard === strtoupper($bobHeard));
+        $containsLetters = preg_match( '/[a-zA-Z]/', $bobHeard);
+        $allUpperCase = $bobHeard === strtoupper($bobHeard);
+        return $containsLetters && $allUpperCase;
     }
 
     public function isQuestioning(string $bobHeard): bool
