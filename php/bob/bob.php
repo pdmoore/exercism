@@ -41,12 +41,8 @@ class Bob
         return (substr($bobHeard, $lastCharPosition) === "?");
     }
 
-    /**
-     * @param string $string
-     * @return bool
-     */
     public function isSilent(string $string): bool
     {
-        return empty($string);
+        return ctype_space($string);
     }
 }
