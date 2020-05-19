@@ -34,6 +34,7 @@ class Bob
 
     public function isQuestioning(string $bobHeard): bool
     {
-        return strpos($bobHeard, "?") !== false;
+        $lastCharPosition = strlen($bobHeard) - 1;
+        return (substr($bobHeard, $lastCharPosition) === "?");
     }
 }
