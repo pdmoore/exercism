@@ -41,8 +41,8 @@ class Bob
         return (substr($bobHeard, $lastCharPosition) === "?");
     }
 
-    public function isSilent(string $string): bool
+    public function isSilent(string $bobHeard): bool
     {
-        return ctype_space($string);
+        return strlen($bobHeard) === 0 || ctype_space($bobHeard);
     }
 }
