@@ -4,6 +4,9 @@ class Bob
 {
     public function respondTo(string $string)
     {
+        if (empty($string)) {
+            return "Fine. Be that way!";
+        }
 
         $isYelling = $this->isYelling($string);
         $isQuestioning = $this->isQuestioning($string);
