@@ -4,7 +4,7 @@ class Bob
 {
     public function respondTo(string $string)
     {
-        if (empty($string)) {
+        if ($this->isSilent($string)) {
             return "Fine. Be that way!";
         }
 
@@ -39,5 +39,14 @@ class Bob
     {
         $lastCharPosition = strlen($bobHeard) - 1;
         return (substr($bobHeard, $lastCharPosition) === "?");
+    }
+
+    /**
+     * @param string $string
+     * @return bool
+     */
+    public function isSilent(string $string): bool
+    {
+        return empty($string);
     }
 }
