@@ -2,14 +2,14 @@
 
 class Bob
 {
-    public function respondTo(string $string)
+    public function respondTo(string $whatBobHeard)
     {
-        if ($this->isSilent($string)) {
+        if ($this->isSilence($whatBobHeard)) {
             return "Fine. Be that way!";
         }
 
-        $isYelling = $this->isYelling($string);
-        $isQuestioning = $this->isQuestioning($string);
+        $isYelling = $this->isYelling($whatBobHeard);
+        $isQuestioning = $this->isQuestioning($whatBobHeard);
 
         if ($isYelling && $isQuestioning) {
             return "Calm down, I know what I'm doing!";
@@ -24,8 +24,6 @@ class Bob
         }
 
         return "Whatever.";
-
-        //TODO - mostly there, 5 failing tests (from line 95 down
     }
 
     public function isYelling(string $bobHeard): bool
@@ -42,7 +40,7 @@ class Bob
         return (substr($trimmed, $lastCharPosition) === "?");
     }
 
-    public function isSilent(string $bobHeard): bool
+    public function isSilence(string $bobHeard): bool
     {
         return strlen($bobHeard) === 0 || ctype_space($bobHeard);
     }
