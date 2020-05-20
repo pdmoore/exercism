@@ -22,8 +22,10 @@
 #   main "$@"
 #
 # *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
-main () {
-  return "Hello, World!"
+
+main() {
+  echo "Hello, World!"
+  return 0
 }
 
 main "$@"
