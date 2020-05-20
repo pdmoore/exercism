@@ -1,7 +1,7 @@
 
 main() {
   echo "Hello, World!"
-  return 0
+  exit 0
 }
 
 main "$@"
