@@ -2,7 +2,7 @@
 
 class Bob
 {
-    public function respondTo(string $whatBobHeard)
+    public function respondTo(string $whatBobHeard): string 
     {
         if ($this->isSilence($whatBobHeard)) {
             return "Fine. Be that way!";
