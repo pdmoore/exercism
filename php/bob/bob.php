@@ -42,7 +42,8 @@ class Bob
 
     public function isSilence(string $bobHeard): bool
     {
-        $trimmed = preg_replace('/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $bobHeard);
+        // retain only characters a-Z
+        $trimmed = preg_replace("/[^a-zA-Z]+/", "", $bobHeard);
         return $trimmed === '';
     }
 }
