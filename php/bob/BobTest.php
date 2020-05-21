@@ -154,4 +154,9 @@ class BobTest extends PHPUnit\Framework\TestCase
     {
         $this->assertEquals("Whatever.", $this->bob->respondTo("ÜMLäÜTS!"));
     }
+    
+    public function testShoutingWithJustUmlauts()
+    {
+        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("ÜÄÜ!"));
+    }
 }
