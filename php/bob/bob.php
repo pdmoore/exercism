@@ -43,6 +43,6 @@ class Bob
     public function isSilence(string $bobHeard): bool
     {
         $trimmed = preg_replace('/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $bobHeard);
-        return strlen($trimmed) === 0 || ctype_space($trimmed);
+        return strlen($trimmed) === 0;
     }
 }
