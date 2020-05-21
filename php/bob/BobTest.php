@@ -145,11 +145,11 @@ class BobTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Fine. Be that way!", $this->bob->respondTo("\n\r \t\u{000b}\u{00a0}\u{2002}"));
     }
 
-//    public function testShoutingWithUmlauts()
-//    {
-//        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("ÜMLÄÜTS!"));
-//    }
-//
+    public function testShoutingWithUmlauts()
+    {
+        $this->assertEquals("Whoa, chill out!", $this->bob->respondTo("ÜMLÄÜTS!"));
+    }
+
 //    public function testCalmlySpeakingWithUmlauts()
 //    {
 //        $this->assertEquals("Whatever.", $this->bob->respondTo("ÜMLäÜTS!"));
