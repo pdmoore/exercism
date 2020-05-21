@@ -29,7 +29,7 @@ class Bob
     public function isYelling(string $bobHeard): bool
     {
         $containsLetters = preg_match( '/[a-zA-Z]/', $bobHeard);
-        $allUpperCase = $bobHeard === strtoupper($bobHeard);
+        $allUpperCase = $bobHeard === mb_strtoupper($bobHeard);
         return $containsLetters && $allUpperCase;
     }
 
@@ -42,8 +42,7 @@ class Bob
 
     public function isSilence(string $bobHeard): bool
     {
-        // retain only characters a-Z
-        $trimmed = preg_replace("/[^a-zA-Z]+/", "", $bobHeard);
+        $trimmed = preg_replace('/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $bobHeard);
         return $trimmed === '';
     }
 }
