@@ -2,7 +2,7 @@
 
 class Bob
 {
-    public function respondTo(string $whatBobHeard): string 
+    public function respondTo(string $whatBobHeard): string
     {
         if ($this->isSilence($whatBobHeard)) {
             return "Fine. Be that way!";
@@ -42,6 +42,7 @@ class Bob
 
     public function isSilence(string $bobHeard): bool
     {
-        return strlen($bobHeard) === 0 || ctype_space($bobHeard);
+        $trimmed = preg_replace('/^[\pZ\pC]+|[\pZ\pC]+$/u', '', $bobHeard);
+        return strlen($trimmed) === 0 || ctype_space($trimmed);
     }
 }
