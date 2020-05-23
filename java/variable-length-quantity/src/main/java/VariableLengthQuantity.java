@@ -78,7 +78,6 @@ class VariableLengthQuantity {
     }
 
     private String convertBitStringToHex(String bits) {
-        String prefix = "0x";
-        return prefix + Long.toHexString(Long.parseUnsignedLong(bits, 2));
+        return HEX_PREFIX + Long.toHexString(Long.parseUnsignedLong(bits, 2));
     }
 }
