@@ -7,6 +7,7 @@ class VariableLengthQuantity {
 
     private static final int VLQ_BYTE_LENGTH = 7;
     public static final long SET_BIT_7 = 128;
+    public static final String HEX_PREFIX = "0x";
 
     List<String> encode(List<Long> numbers) {
         return numbers.stream()
@@ -19,8 +20,8 @@ class VariableLengthQuantity {
         List<String> vlqBytes = new ArrayList<>();
 
         vlqBytes.add(convertLeftmostBitsToHex(getNext7BitsOf(number)));
-
         number >>= VLQ_BYTE_LENGTH;
+
         while (number > 0) {
             vlqBytes.add(convertLeftmostBitsToHex(SET_BIT_7 | (getNext7BitsOf(number))));
             number >>= VLQ_BYTE_LENGTH;
@@ -35,7 +36,7 @@ class VariableLengthQuantity {
     }
 
     private String convertLeftmostBitsToHex(long l) {
-        return "0x" + Long.toHexString(l);
+        return HEX_PREFIX + Long.toHexString(l);
     }
 
     List<String> decode(List<Long> bytes) {
