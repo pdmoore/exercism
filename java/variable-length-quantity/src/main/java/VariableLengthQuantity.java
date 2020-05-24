@@ -39,7 +39,19 @@ class VariableLengthQuantity {
         return HEX_PREFIX + Long.toHexString(l);
     }
 
+
+
+    // encode(List<Long>) ==> encodeSingleNumber(Long) returns List<String>
+    // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
+    
     List<String> decode(List<Long> bytes) {
+
+//        return numbers.stream()
+//                .map(this::encodeSingleNumber)
+//                .flatMap(List::stream)
+//                .collect(Collectors.toList());
+
+
         List<String> result = new ArrayList<>();
 
         ArrayList<Long> thisSeries = new ArrayList<>();
