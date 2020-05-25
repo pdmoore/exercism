@@ -17,19 +17,18 @@
         limitRight = size - 1;
         limitBottom = size - 1;
 
-        while (_count <= size * size)
+        while (matrixHasEmptyCells(size))
         {
             fillAcrossToTheRight();
-
             fillDownRightmostEdgeToBottom();
-
             fillAcrossBottomToLeftmostEdge();
-
             FillUpLeftmostEdgeToTop();
         }
 
         return _matrix;
     }
+
+    private static bool matrixHasEmptyCells(int size) => _count <= size * size;
 
     private static void FillUpLeftmostEdgeToTop() {
         for (int fillRow = limitBottom; fillRow >= limitTop; fillRow--) {
