@@ -9,19 +9,15 @@
         _count = 1;
         
         int limitLeft = 0;
-        int limitRight = size - 1;
         int limitTop = 0;
+        int limitRight = size - 1;
         int limitBottom = size - 1;
 
         while (_count <= size * size)
         {
             // fill across right
-            for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++)
-            {
-                _matrix[limitTop, fillColumn] = _count++;
-            }
-            limitTop++;
-            
+            limitTop = fillAcrossToRight(limitLeft, limitRight, limitTop);
+
             // fill down rightmost unfilled edge
             for (int fillRow = limitTop; fillRow <= limitBottom; fillRow++)
             {
@@ -45,5 +41,14 @@
         }
 
         return _matrix;
+    }
+
+    private static int fillAcrossToRight(int limitLeft, int limitRight, int limitTop) {
+        for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++) {
+            _matrix[limitTop, fillColumn] = _count++;
+        }
+
+        limitTop++;
+        return limitTop;
     }
 }
