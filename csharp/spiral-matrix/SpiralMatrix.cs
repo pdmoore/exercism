@@ -19,35 +19,47 @@
 
         while (_count <= size * size)
         {
-            // fill across right
-            for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++)
-            {
-                _matrix[limitTop, fillColumn] = _count++;
-            }
-            limitTop++;
-            
-            // fill down rightmost unfilled edge
-            for (int fillRow = limitTop; fillRow <= limitBottom; fillRow++)
-            {
-                _matrix[fillRow, limitRight] = _count++;
-            }
-            limitRight--;
+            fillAcrossToTheRight();
 
-            // fill across bottom, to the left
-            for (int fillColumn = limitRight; fillColumn >= limitLeft; fillColumn--)
-            {
-                _matrix[limitBottom, fillColumn] = _count++;
-            }
-            limitBottom--;
-            
-            // fill up leftmost unfilled edge
-            for (int fillRow = limitBottom; fillRow >= limitTop; fillRow--)
-            {
-                _matrix[fillRow, limitLeft] = _count++;
-            }
-            limitLeft++;
+            fillDownRightmostEdgeToBottom();
+
+            fillAcrossBottomToLeftmostEdge();
+
+            FillUpLeftmostEdgeToTop();
         }
 
         return _matrix;
+    }
+
+    private static void FillUpLeftmostEdgeToTop() {
+        for (int fillRow = limitBottom; fillRow >= limitTop; fillRow--) {
+            _matrix[fillRow, limitLeft] = _count++;
+        }
+
+        limitLeft++;
+    }
+
+    private static void fillAcrossBottomToLeftmostEdge() {
+        for (int fillColumn = limitRight; fillColumn >= limitLeft; fillColumn--) {
+            _matrix[limitBottom, fillColumn] = _count++;
+        }
+
+        limitBottom--;
+    }
+
+    private static void fillDownRightmostEdgeToBottom() {
+        for (int fillRow = limitTop; fillRow <= limitBottom; fillRow++) {
+            _matrix[fillRow, limitRight] = _count++;
+        }
+
+        limitRight--;
+    }
+
+    private static void fillAcrossToTheRight() {
+        for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++) {
+            _matrix[limitTop, fillColumn] = _count++;
+        }
+
+        limitTop++;
     }
 }
