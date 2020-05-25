@@ -1,7 +1,7 @@
 ﻿public class SpiralMatrix
 {
-    static int _count;
-    static int[,] _matrix;
+    private static int _count;
+    private static int[,] _matrix;
     
     public static int[,] GetMatrix(int size)
     {
