@@ -2,22 +2,30 @@
 {
     private static int _count;
     private static int[,] _matrix;
+    private static int limitLeft;
+    private static int limitTop;
+    private static int limitRight;
+    private static int limitBottom;
     
     public static int[,] GetMatrix(int size)
     {
         _matrix = new int[size, size];
         _count = 1;
         
-        int limitLeft = 0;
-        int limitTop = 0;
-        int limitRight = size - 1;
-        int limitBottom = size - 1;
+        limitLeft = 0;
+        limitTop = 0;
+        limitRight = size - 1;
+        limitBottom = size - 1;
 
         while (_count <= size * size)
         {
             // fill across right
-            limitTop = fillAcrossToRight(limitLeft, limitRight, limitTop);
-
+            for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++)
+            {
+                _matrix[limitTop, fillColumn] = _count++;
+            }
+            limitTop++;
+            
             // fill down rightmost unfilled edge
             for (int fillRow = limitTop; fillRow <= limitBottom; fillRow++)
             {
@@ -41,14 +49,5 @@
         }
 
         return _matrix;
-    }
-
-    private static int fillAcrossToRight(int limitLeft, int limitRight, int limitTop) {
-        for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++) {
-            _matrix[limitTop, fillColumn] = _count++;
-        }
-
-        limitTop++;
-        return limitTop;
     }
 }
