@@ -17,18 +17,18 @@
         limitRight = size - 1;
         limitBottom = size - 1;
 
-        while (matrixHasEmptyCells(size))
+        while (MatrixHasEmptyCells(size))
         {
-            fillAcrossToTheRight();
-            fillDownRightmostEdgeToBottom();
-            fillAcrossBottomToLeftmostEdge();
+            FillAcrossTopToTheRightmostEdge();
+            FillDownRightmostEdgeToBottom();
+            FillBackAcrossBottomToLeftmostEdge();
             FillUpLeftmostEdgeToTop();
         }
 
         return _matrix;
     }
 
-    private static bool matrixHasEmptyCells(int size) => _count <= size * size;
+    private static bool MatrixHasEmptyCells(int size) => _count <= size * size;
 
     private static void FillUpLeftmostEdgeToTop() {
         for (int fillRow = limitBottom; fillRow >= limitTop; fillRow--) {
@@ -38,7 +38,7 @@
         limitLeft++;
     }
 
-    private static void fillAcrossBottomToLeftmostEdge() {
+    private static void FillBackAcrossBottomToLeftmostEdge() {
         for (int fillColumn = limitRight; fillColumn >= limitLeft; fillColumn--) {
             _matrix[limitBottom, fillColumn] = _count++;
         }
@@ -46,7 +46,7 @@
         limitBottom--;
     }
 
-    private static void fillDownRightmostEdgeToBottom() {
+    private static void FillDownRightmostEdgeToBottom() {
         for (int fillRow = limitTop; fillRow <= limitBottom; fillRow++) {
             _matrix[fillRow, limitRight] = _count++;
         }
@@ -54,7 +54,7 @@
         limitRight--;
     }
 
-    private static void fillAcrossToTheRight() {
+    private static void FillAcrossTopToTheRightmostEdge() {
         for (int fillColumn = limitLeft; fillColumn <= limitRight; fillColumn++) {
             _matrix[limitTop, fillColumn] = _count++;
         }
