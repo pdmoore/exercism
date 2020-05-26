@@ -37,19 +37,21 @@
 
     private static bool MatrixHasEmptyCells(int size) => _count <= size * size;
 
+    private static void Populate(int row, int column) => _matrix[row, column] = _count++;
+    
     private static void FillAcrossTopToTheRightmostEdge()
     {
         for (int fillColumn = _limitLeft; fillColumn <= _limitRight; fillColumn++)
         {
-            _matrix[_limitTop, fillColumn] = _count++;
+            Populate(_limitTop, fillColumn);
         }
     }
-
+    
     private static void FillDownRightmostEdgeToBottom()
     {
         for (int fillRow = _limitTop; fillRow <= _limitBottom; fillRow++)
         {
-            _matrix[fillRow, _limitRight] = _count++;
+            Populate(fillRow, _limitRight);
         }
     }
 
@@ -57,7 +59,7 @@
     {
         for (int fillColumn = _limitRight; fillColumn >= _limitLeft; fillColumn--)
         {
-            _matrix[_limitBottom, fillColumn] = _count++;
+            Populate(_limitBottom, fillColumn);
         }
     }
 
@@ -65,7 +67,7 @@
     {
         for (int fillRow = _limitBottom; fillRow >= _limitTop; fillRow--)
         {
-            _matrix[fillRow, _limitLeft] = _count++;
+            Populate(fillRow, _limitLeft);
         }
     }
 }
