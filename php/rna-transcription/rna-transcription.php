@@ -26,7 +26,9 @@ class rnatranscription {
             case 'T':
                 return 'A';
         }
-        return 'bad input';
+
+        // not sure this is the best approach
+        throw new Exception('invalid nucleotide' . $rna);
     }
 
 }
