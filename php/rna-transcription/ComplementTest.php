@@ -9,9 +9,9 @@ class ComplementTest extends PHPUnit\Framework\TestCase
 
     public function testTranscribesGuanineToCytosine() : void
     {
-        $this->assertSame('G', toRna('C'));
+        $this->assertSame('G', rnatranscription::toRna('C'));
     }
-    
+
     public function testTranscribesCytosineToGuanine() : void
     {
         $this->assertSame('C', toRna('G'));
