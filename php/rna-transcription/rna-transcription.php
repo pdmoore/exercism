@@ -4,8 +4,6 @@ class rnatranscription {
 
     public static function toRna(string $rna): string
     {
-
-        //TODO - iterate over whole rna string, converting each character as you go
         $nucleotides = str_split($rna);
         $result = "";
 
@@ -15,8 +13,8 @@ class rnatranscription {
         return $result;
     }
 
-    public static function convert(string $rna) {
-        switch ($rna) {
+    public static function convert(string $nucleotide) {
+        switch ($nucleotide) {
             case 'A':
                 return 'U';
             case 'C':
@@ -28,7 +26,7 @@ class rnatranscription {
         }
 
         // not sure this is the best approach
-        throw new Exception('invalid nucleotide' . $rna);
+        throw new Exception('invalid nucleotide' . $nucleotide);
     }
 
 }
