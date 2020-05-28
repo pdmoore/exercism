@@ -14,21 +14,21 @@ class ComplementTest extends PHPUnit\Framework\TestCase
 
     public function testTranscribesCytosineToGuanine() : void
     {
-        $this->assertSame('C', toRna('G'));
+        $this->assertSame('C', rnatranscription::toRna('G'));
     }
 
     public function testTranscribesThymineToAdenine() : void
     {
-        $this->assertSame('A', toRna('T'));
+        $this->assertSame('A', rnatranscription::toRna('T'));
     }
 
     public function testTranscribesAdenineToUracil() : void
     {
-        $this->assertSame('U', toRna('A'));
+        $this->assertSame('U', rnatranscription::toRna('A'));
     }
 
     public function testTranscribesAllOccurencesOne() : void
     {
-        $this->assertSame('UGCACCAGAAUU', toRna('ACGTGGTCTTAA'));
+        $this->assertSame('UGCACCAGAAUU', rnatranscription::toRna('ACGTGGTCTTAA'));
     }
 }
