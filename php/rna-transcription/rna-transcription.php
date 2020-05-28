@@ -3,6 +3,9 @@
 class rnatranscription {
 
     public static function toRna(string $rna): string {
+
+        //TODO - iterate over whole rna string, converting each character as you go
+
         switch ($rna) {
             case 'A':
                 return 'U';
