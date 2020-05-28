@@ -2,18 +2,18 @@
 
 class rnatranscription {
 
-    public static function toRna(string $rna): string
+    public static function toRna(string $dnaStrand): string
     {
-        $nucleotides = str_split($rna);
-        $result = "";
+        $nucleotides = str_split($dnaStrand);
+        $rnaComplement = "";
 
         foreach ($nucleotides as $char) {
-            $result .= rnatranscription::convert($char);
+            $rnaComplement .= rnatranscription::transcribe($char);
         }
-        return $result;
+        return $rnaComplement;
     }
 
-    public static function convert(string $nucleotide) {
+    public static function transcribe(string $nucleotide) {
         switch ($nucleotide) {
             case 'A':
                 return 'U';
