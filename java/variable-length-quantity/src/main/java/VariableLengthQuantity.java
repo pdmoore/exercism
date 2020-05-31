@@ -43,10 +43,9 @@ class VariableLengthQuantity {
     // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
     
     List<String> decode(List<Long> bytes) {
-        //Examples
-        //0x7f
-        //0x2000, 0x123456
 
+        //TODO naming could be improved
+        //TODO extract metho to create the list of thing to decode
         ArrayList<ArrayList<Long> > temp =
                 new ArrayList<ArrayList<Long> >();
 
@@ -65,6 +64,8 @@ class VariableLengthQuantity {
                 .map(this::decodeSingleNumber)
                 .collect(Collectors.toList());
 
+        // TODO: Is there a way to check the result contains anything following line 66 (instead of the isEmpty check below)
+//                .orElseThrow(() -> new IllegalArgumentException("Invalid variable-length quantity encoding"));
         if (result.isEmpty()) {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
         }
