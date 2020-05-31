@@ -40,9 +40,6 @@ class VariableLengthQuantity {
         return HEX_PREFIX + Long.toHexString(l);
     }
 
-    // encode(List<Long>) ==> encodeSingleNumber(Long) returns List<String>
-    // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
-
     List<String> decode(List<Long> seriesOfSevenBitBytes) {
         ArrayList<ArrayList<Long>> encodedVLQs = breakIntoEncodedVLQs(seriesOfSevenBitBytes);
 
