@@ -45,7 +45,7 @@ class VariableLengthQuantity {
     List<String> decode(List<Long> bytes) {
 
         //TODO naming could be improved
-        //TODO extract metho to create the list of thing to decode
+        //TODO extract method to create the list of thing to decode
         ArrayList<ArrayList<Long> > temp =
                 new ArrayList<ArrayList<Long> >();
 
@@ -60,9 +60,11 @@ class VariableLengthQuantity {
             }
         }
 
+        // TODO - this could be part of the above
         if (temp.isEmpty()) {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
         }
+
 
         List<String> result = temp.stream()
                 .map(this::decodeSingleNumber)
