@@ -73,7 +73,7 @@ class VariableLengthQuantity {
     private String decodeSingleNumber(List<Long> encodedVLQ) {
         String vlqAsBits = encodedVLQ.stream()
                 .map(Long::toBinaryString).map(this::ensureExactly7BitLength).
-                        collect(Collectors.joining(""));
+                        collect(Collectors.joining());
 
         return convertBitStringToHex(vlqAsBits);
     }
