@@ -55,14 +55,14 @@ class VariableLengthQuantity {
     private ArrayList<ArrayList<Long>> foo(List<Long> bytes) {
         ArrayList<ArrayList<Long>> encodedBytes = new ArrayList<ArrayList<Long>>();
 
-        ArrayList<Long> aNumberAsBytes = new ArrayList<>();
+        ArrayList<Long> aVLQ = new ArrayList<>();
         for (int i = 0; i < bytes.size(); i++) {
             Long thisLong = bytes.get(i);
-            aNumberAsBytes.add(thisLong);
+            aVLQ.add(thisLong);
 
             if (thisLong < 128) {
-                encodedBytes.add(aNumberAsBytes);
-                aNumberAsBytes = new ArrayList<>();
+                encodedBytes.add(aVLQ);
+                aVLQ = new ArrayList<>();
             }
         }
 
