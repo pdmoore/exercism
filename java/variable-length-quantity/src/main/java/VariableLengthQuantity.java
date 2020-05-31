@@ -53,7 +53,7 @@ class VariableLengthQuantity {
     }
 
     private ArrayList<ArrayList<Long>> foo(List<Long> bytes) {
-        ArrayList<ArrayList<Long> > temp =
+        ArrayList<ArrayList<Long> > encodedBytes =
                 new ArrayList<ArrayList<Long> >();
 
         ArrayList<Long> thisSeries = new ArrayList<>();
@@ -62,16 +62,15 @@ class VariableLengthQuantity {
             thisSeries.add(thisLong);
 
             if (thisLong < 128) {
-                temp.add(thisSeries);
+                encodedBytes.add(thisSeries);
                 thisSeries = new ArrayList<>();
             }
         }
 
-        // TODO - this could be part of the above
-        if (temp.isEmpty()) {
+        if (encodedBytes.isEmpty()) {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
         }
-        return temp;
+        return encodedBytes;
     }
 
     private String decodeSingleNumber(List<Long> bytes) {
