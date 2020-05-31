@@ -43,17 +43,9 @@ class VariableLengthQuantity {
     // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
     
     List<String> decode(List<Long> bytes) {
-
-//        return numbers.stream()
-//                .map(this::encodeSingleNumber)
-//                .flatMap(List::stream)
-//                .collect(Collectors.toList());
-
         //Examples
         //0x7f
         //0x2000, 0x123456
-
-//        List<String> result = new ArrayList<>();
 
         ArrayList<ArrayList<Long> > temp =
                 new ArrayList<ArrayList<Long> >();
@@ -64,20 +56,14 @@ class VariableLengthQuantity {
             thisSeries.add(thisLong);
 
             if (thisLong < 128) {
-//                result.add(decodeSingleNumber(thisSeries));
                 temp.add(thisSeries);
                 thisSeries = new ArrayList<>();
             }
         }
 
-//        for (int i = 0; i < temp.size(); i++) {
-//            result.add(decodeSingleNumber(temp.get(i)));
-//        }
-
         List<String> result = temp.stream()
                 .map(this::decodeSingleNumber)
                 .collect(Collectors.toList());
-
 
         if (result.isEmpty()) {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
