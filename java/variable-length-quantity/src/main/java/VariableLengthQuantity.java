@@ -60,15 +60,14 @@ class VariableLengthQuantity {
             }
         }
 
+        if (temp.isEmpty()) {
+            throw new IllegalArgumentException("Invalid variable-length quantity encoding");
+        }
+
         List<String> result = temp.stream()
                 .map(this::decodeSingleNumber)
                 .collect(Collectors.toList());
 
-        // TODO: Is there a way to check the result contains anything following line 66 (instead of the isEmpty check below)
-//                .orElseThrow(() -> new IllegalArgumentException("Invalid variable-length quantity encoding"));
-        if (result.isEmpty()) {
-            throw new IllegalArgumentException("Invalid variable-length quantity encoding");
-        }
         return result;
     }
 
