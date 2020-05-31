@@ -42,10 +42,17 @@ class VariableLengthQuantity {
     // encode(List<Long>) ==> encodeSingleNumber(Long) returns List<String>
     // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
     
-    List<String> decode(List<Long> bytes) {
+    List<String> decode(List<Long> SevenBitBytes) {
+        ArrayList<ArrayList<Long>> temp = foo(SevenBitBytes);
 
-        //TODO naming could be improved
-        //TODO extract method to create the list of thing to decode
+        List<String> result = temp.stream()
+                .map(this::decodeSingleNumber)
+                .collect(Collectors.toList());
+
+        return result;
+    }
+
+    private ArrayList<ArrayList<Long>> foo(List<Long> bytes) {
         ArrayList<ArrayList<Long> > temp =
                 new ArrayList<ArrayList<Long> >();
 
@@ -64,13 +71,7 @@ class VariableLengthQuantity {
         if (temp.isEmpty()) {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
         }
-
-
-        List<String> result = temp.stream()
-                .map(this::decodeSingleNumber)
-                .collect(Collectors.toList());
-
-        return result;
+        return temp;
     }
 
     private String decodeSingleNumber(List<Long> bytes) {
