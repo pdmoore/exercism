@@ -38,9 +38,7 @@ class VariableLengthQuantity {
     private String convertLeftmostBitsToHex(long l) {
         return HEX_PREFIX + Long.toHexString(l);
     }
-
-
-
+    
     // encode(List<Long>) ==> encodeSingleNumber(Long) returns List<String>
     // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
     
@@ -51,18 +49,31 @@ class VariableLengthQuantity {
 //                .flatMap(List::stream)
 //                .collect(Collectors.toList());
 
+        //Examples
+        //0x7f
+        //0x2000, 0x123456
 
         List<String> result = new ArrayList<>();
+
+        ArrayList<ArrayList<Long> > temp =
+                new ArrayList<ArrayList<Long> >();
 
         ArrayList<Long> thisSeries = new ArrayList<>();
         for (int i = 0; i < bytes.size(); i++) {
             Long thisLong = bytes.get(i);
             thisSeries.add(thisLong);
+
             if (thisLong < 128) {
-                result.add(decodeSingleNumber(thisSeries));
+//                result.add(decodeSingleNumber(thisSeries));
+                temp.add(thisSeries);
                 thisSeries = new ArrayList<>();
             }
         }
+
+        for (int i = 0; i < temp.size(); i++) {
+            result.add(decodeSingleNumber(temp.get(i)));
+        }
+
 
         if (result.isEmpty()) {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
