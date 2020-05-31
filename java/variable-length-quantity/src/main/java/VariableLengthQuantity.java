@@ -57,10 +57,10 @@ class VariableLengthQuantity {
 
         ArrayList<Long> aVLQ = new ArrayList<>();
         for (int i = 0; i < bytes.size(); i++) {
-            Long thisLong = bytes.get(i);
-            aVLQ.add(thisLong);
+            Long sevenBitByte = bytes.get(i);
+            aVLQ.add(sevenBitByte);
 
-            if (thisLong < 128) {
+            if (sevenBitByte < 128) {
                 encodedBytes.add(aVLQ);
                 aVLQ = new ArrayList<>();
             }
