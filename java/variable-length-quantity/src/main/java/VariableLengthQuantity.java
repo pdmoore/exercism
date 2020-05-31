@@ -8,6 +8,7 @@ class VariableLengthQuantity {
     private static final int VLQ_BYTE_LENGTH = 7;
     public static final long SET_BIT_7 = 128;
     public static final String HEX_PREFIX = "0x";
+    public static final int LARGEST_7_BIT_NUMBER = 128;
 
     List<String> encode(List<Long> numbers) {
         return numbers.stream()
@@ -60,7 +61,7 @@ class VariableLengthQuantity {
             Long sevenBitByte = bytes.get(i);
             aVLQ.add(sevenBitByte);
 
-            if (sevenBitByte < 128) {
+            if (sevenBitByte < LARGEST_7_BIT_NUMBER) {
                 encodedBytes.add(aVLQ);
                 aVLQ = new ArrayList<>();
             }
