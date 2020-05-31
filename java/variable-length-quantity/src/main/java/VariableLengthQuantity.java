@@ -54,23 +54,23 @@ class VariableLengthQuantity {
     }
 
     private ArrayList<ArrayList<Long>> foo(List<Long> bytes) {
-        ArrayList<ArrayList<Long>> encodedBytes = new ArrayList<ArrayList<Long>>();
+        ArrayList<ArrayList<Long>> allEncodedVLQs = new ArrayList<ArrayList<Long>>();
 
-        ArrayList<Long> aVLQ = new ArrayList<>();
+        ArrayList<Long> BytesInASingleVLQ = new ArrayList<>();
         for (int i = 0; i < bytes.size(); i++) {
             Long sevenBitByte = bytes.get(i);
-            aVLQ.add(sevenBitByte);
+            BytesInASingleVLQ.add(sevenBitByte);
 
             if (sevenBitByte < LARGEST_7_BIT_NUMBER) {
-                encodedBytes.add(aVLQ);
-                aVLQ = new ArrayList<>();
+                allEncodedVLQs.add(BytesInASingleVLQ);
+                BytesInASingleVLQ = new ArrayList<>();
             }
         }
 
-        if (encodedBytes.isEmpty()) {
+        if (allEncodedVLQs.isEmpty()) {
             throw new IllegalArgumentException("Invalid variable-length quantity encoding");
         }
-        return encodedBytes;
+        return allEncodedVLQs;
     }
 
     private String decodeSingleNumber(List<Long> bytes) {
