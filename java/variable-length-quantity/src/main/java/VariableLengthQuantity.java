@@ -43,17 +43,17 @@ class VariableLengthQuantity {
     // encode(List<Long>) ==> encodeSingleNumber(Long) returns List<String>
     // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
 
-    List<String> decode(List<Long> SevenBitBytes) {
-        ArrayList<ArrayList<Long>> temp = foo(SevenBitBytes);
+    List<String> decode(List<Long> seriesOfSevenBitBytes) {
+        ArrayList<ArrayList<Long>> encodedVLQs = breakIntoEncodedVLQs(seriesOfSevenBitBytes);
 
-        List<String> result = temp.stream()
+        List<String> result = encodedVLQs.stream()
                 .map(this::decodeSingleNumber)
                 .collect(Collectors.toList());
 
         return result;
     }
 
-    private ArrayList<ArrayList<Long>> foo(List<Long> bytes) {
+    private ArrayList<ArrayList<Long>> breakIntoEncodedVLQs(List<Long> bytes) {
         ArrayList<ArrayList<Long>> allEncodedVLQs = new ArrayList<ArrayList<Long>>();
 
         ArrayList<Long> BytesInASingleVLQ = new ArrayList<>();
@@ -73,10 +73,10 @@ class VariableLengthQuantity {
         return allEncodedVLQs;
     }
 
-    private String decodeSingleNumber(List<Long> bytes) {
+    private String decodeSingleNumber(List<Long> encodedVLQ) {
         String bits = "";
-        for (int i = 0; i < bytes.size(); i++) {
-            String bitStringOfLong = Long.toBinaryString(bytes.get(i));
+        for (int i = 0; i < encodedVLQ.size(); i++) {
+            String bitStringOfLong = Long.toBinaryString(encodedVLQ.get(i));
             bits += ensureExactly7BitLength(bitStringOfLong);
         }
 
