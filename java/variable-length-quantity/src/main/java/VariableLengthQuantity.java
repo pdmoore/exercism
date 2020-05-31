@@ -41,7 +41,7 @@ class VariableLengthQuantity {
 
     // encode(List<Long>) ==> encodeSingleNumber(Long) returns List<String>
     // decode(List<Long>) ==> decodeSingleNumber(List<Long>) returns String
-    
+
     List<String> decode(List<Long> SevenBitBytes) {
         ArrayList<ArrayList<Long>> temp = foo(SevenBitBytes);
 
@@ -53,17 +53,16 @@ class VariableLengthQuantity {
     }
 
     private ArrayList<ArrayList<Long>> foo(List<Long> bytes) {
-        ArrayList<ArrayList<Long> > encodedBytes =
-                new ArrayList<ArrayList<Long> >();
+        ArrayList<ArrayList<Long>> encodedBytes = new ArrayList<ArrayList<Long>>();
 
-        ArrayList<Long> thisSeries = new ArrayList<>();
+        ArrayList<Long> aNumberAsBytes = new ArrayList<>();
         for (int i = 0; i < bytes.size(); i++) {
             Long thisLong = bytes.get(i);
-            thisSeries.add(thisLong);
+            aNumberAsBytes.add(thisLong);
 
             if (thisLong < 128) {
-                encodedBytes.add(thisSeries);
-                thisSeries = new ArrayList<>();
+                encodedBytes.add(aNumberAsBytes);
+                aNumberAsBytes = new ArrayList<>();
             }
         }
 
