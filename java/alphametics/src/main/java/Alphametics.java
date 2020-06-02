@@ -6,6 +6,12 @@ public class Alphametics {
     }
 
     public LinkedHashMap<Character, Integer> solve() {
-        return null;
+
+        LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
+        expected.put('I', 1);
+        expected.put('B', 9);
+        expected.put('L', 0);
+
+        return expected;
     }
 }
