@@ -5,8 +5,11 @@ public class Alphametics {
 
     public static final int UNASSIGNED = -1;
     private LinkedHashMap<Character, Integer> _result;
+    private String _expression;
 
     public Alphametics(String expression) {
+        _expression = expression;
+
         //split expression
         // - into components (things added, result after the equals)
         // - the unique letters
@@ -14,8 +17,7 @@ public class Alphametics {
         // Following grabs unique characters out of the expression
         String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
         HashSet<Character> _uniqueCharSet = new HashSet();
-        for(int i=0;i < justLetters.length();i++)
-        {
+        for (int i = 0; i < justLetters.length(); i++) {
             _uniqueCharSet.add(justLetters.charAt(i));
         }
 
@@ -26,8 +28,6 @@ public class Alphametics {
             _result.put(key, UNASSIGNED);
         }
 
-
-
         // need to get the addends (things added A + B + C)
         // need to get the sum (thing to right of = sign)
 
@@ -36,7 +36,12 @@ public class Alphametics {
 
     }
 
-    public LinkedHashMap<Character, Integer> solve() {
+    private void validateExpression() throws UnsolvablePuzzleException {
+//            throw new UnsolvablePuzzleException();
+    }
+
+    public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
+        validateExpression();
 
         // Need an algorithm to solve the expression
         // brute force?
