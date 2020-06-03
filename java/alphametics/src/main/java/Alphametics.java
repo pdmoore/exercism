@@ -20,7 +20,7 @@ public class Alphametics {
 
         String leftHand = _expression.substring(0, equalsIndex - 1);
         String[] addends = leftHand.split("\\+");
-        String sum = _expression.substring(equalsIndex + "== ".length());
+        String targetSum = _expression.substring(equalsIndex + "== ".length());
 
 
         // need to convert letters to number value
@@ -56,6 +56,13 @@ public class Alphametics {
 
         // Need an algorithm to solve the expression
         // brute force?
+        // for each addend, convert it to a number
+        // convert sum to number
+        // sum all the addends
+        // does the sum match the targetSum?
+
+
+
 
         // Need to sort result by value
 
