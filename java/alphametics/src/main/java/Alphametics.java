@@ -4,29 +4,29 @@ import java.util.LinkedHashMap;
 public class Alphametics {
 
     public static final int UNASSIGNED = -1;
-    private LinkedHashMap<Character, Integer> result;
+    private final HashSet<Character> _uniqueCharSet;
+    private LinkedHashMap<Character, Integer> _result;
 
     public Alphametics(String expression) {
         //split expression
         // - into components (things added, result after the equals)
         // - the unique letters
 
-
-
         // Following grabs unique characters out of the expression
         String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
-        HashSet < Character> uniqueCharSet= new HashSet();
+        _uniqueCharSet = new HashSet();
         for(int i=0;i < justLetters.length();i++)
         {
-            uniqueCharSet.add(justLetters.charAt(i));
+            _uniqueCharSet.add(justLetters.charAt(i));
         }
 
-        result = new LinkedHashMap<>();
+        _result = new LinkedHashMap<>();
 
         for (Character key :
-                uniqueCharSet) {
-            result.put(key, UNASSIGNED);
+                _uniqueCharSet) {
+            _result.put(key, UNASSIGNED);
         }
+
 
 
         // need to get the addends (things added A + B + C)
@@ -49,6 +49,9 @@ public class Alphametics {
 //        expected.put('B', 9);
 //        expected.put('L', 0);
 
-        return result;
+
+
+
+        return _result;
     }
 }
