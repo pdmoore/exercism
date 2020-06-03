@@ -10,11 +10,29 @@ public class Alphametics {
     public Alphametics(String expression) {
         _expression = expression;
 
-        //split expression
-        // - into components (things added, result after the equals)
-        // - the unique letters
-
         // Following grabs unique characters out of the expression
+        storeUniqueCharacters(expression);
+
+        // need to get the addends (things added A + B + C)
+        // need to get the sum (thing to right of = sign)
+
+        int equalsIndex = _expression.indexOf("==");
+
+        String leftHand = _expression.substring(0, equalsIndex - 1);
+        String[] addends = leftHand.split("\\+");
+        String sum = _expression.substring(equalsIndex + "== ".length());
+
+
+        // need to convert letters to number value
+
+        // then brute force each letter 0...9
+        // and ability to evaluate an expression for given set of values
+        // and halt if the expresson "works"
+
+
+    }
+
+    private void storeUniqueCharacters(String expression) {
         String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
         HashSet<Character> _uniqueCharSet = new HashSet();
         for (int i = 0; i < justLetters.length(); i++) {
@@ -27,13 +45,6 @@ public class Alphametics {
                 _uniqueCharSet) {
             _result.put(key, UNASSIGNED);
         }
-
-        // need to get the addends (things added A + B + C)
-        // need to get the sum (thing to right of = sign)
-
-
-        // need to convert letters to number value
-
     }
 
     private void validateExpression() throws UnsolvablePuzzleException {
