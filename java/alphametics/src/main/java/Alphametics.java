@@ -14,16 +14,16 @@ public class Alphametics {
 
         // Following grabs unique characters out of the expression
         String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
-        HashSet < Character> uniquecharset= new HashSet();
+        HashSet < Character> uniqueCharSet= new HashSet();
         for(int i=0;i < justLetters.length();i++)
         {
-            uniquecharset.add(justLetters.charAt(i));
+            uniqueCharSet.add(justLetters.charAt(i));
         }
 
         result = new LinkedHashMap<>();
 
         for (Character key :
-                uniquecharset) {
+                uniqueCharSet) {
             result.put(key, -99);
         }
 
