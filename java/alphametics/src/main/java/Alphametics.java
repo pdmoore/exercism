@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 
 public class Alphametics {
 
+    public static final int UNASSIGNED = -1;
     private LinkedHashMap<Character, Integer> result;
 
     public Alphametics(String expression) {
@@ -24,7 +25,7 @@ public class Alphametics {
 
         for (Character key :
                 uniqueCharSet) {
-            result.put(key, -99);
+            result.put(key, UNASSIGNED);
         }
 
 
@@ -32,6 +33,7 @@ public class Alphametics {
         // need to get the sum (thing to right of = sign)
 
 
+        // need to convert letters to number value
 
     }
 
