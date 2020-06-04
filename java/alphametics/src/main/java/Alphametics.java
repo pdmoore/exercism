@@ -1,16 +1,16 @@
-import java.util.HashSet;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class Alphametics {
 
     public static final int UNASSIGNED = -1;
-    private final String[] _addends;
+    private final List _addends;
     private final String _targetSum;
     private LinkedHashMap<Character, Integer> _result;
     private String _expression;
 
     public Alphametics(String expression) {
         _expression = expression;
+        _addends = new ArrayList<String>();
 
         // Following grabs unique characters out of the expression
         storeUniqueCharacters(expression);
@@ -21,7 +21,13 @@ public class Alphametics {
         int equalsIndex = _expression.indexOf("==");
 
         String leftHand = _expression.substring(0, equalsIndex - 1);
-        _addends = leftHand.split("\\+");
+        //TODO - addends have spaces, where to trim?
+        String[] split = leftHand.split("\\+");
+        for (String addend:
+                split) {
+            _addends.add(addend.trim());
+        }
+
         _targetSum = _expression.substring(equalsIndex + "== ".length());
 
 
@@ -74,24 +80,25 @@ public class Alphametics {
     }
 
     private boolean evaluate(LinkedHashMap<Character, Integer> candidates) {
-        // for each addend, convert it to a number
-        // convert sum to number
-        // sum all the addends
-        // does the sum match the targetSum?
-
-//        "I + BB == ILL"
-//
-
         int currentSum = 0;
-        for (String addend :
-                _addends) {
-            currentSum += valueFor(addend, candidates);
+        for (Iterator it = _addends.iterator(); it.hasNext(); ) {
+            String addend = (String) it.next();
+            currentSum += valueFor(addend,candidates);
         }
 
         return currentSum == valueFor(_targetSum, candidates);
     }
 
     private int valueFor(String addend, LinkedHashMap<Character, Integer> candidates) {
-        return 0;
+        // "I"
+        // "LL"
+        // "ILL"
+
+        String numbersForAddend = "";
+        for (int i = 0; i < addend.length(); i++) {
+            numbersForAddend += candidates.get(addend.charAt(i));
+        }
+
+        return Integer.parseInt(numbersForAddend);
     }
 }
