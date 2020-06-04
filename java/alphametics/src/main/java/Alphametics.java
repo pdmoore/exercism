@@ -62,9 +62,12 @@ public class Alphametics {
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
         validateExpression();
 
+        // TODO NEXT TIME
         // TODO - need to track and iterate through candidate solutions
-        // Need an algorithm to solve the expression
+        // loop over possible values, don't duplicate values,
+        // assign a value to each unique character
         // brute force?
+
         //TODO - hardcoded to pass first test, starting to process invalid cases
         _result.put('I', 1);
         _result.put('B', 9);
@@ -90,10 +93,6 @@ public class Alphametics {
     }
 
     private int valueFor(String addend, LinkedHashMap<Character, Integer> candidates) {
-        // "I"
-        // "LL"
-        // "ILL"
-
         String numbersForAddend = "";
         for (int i = 0; i < addend.length(); i++) {
             numbersForAddend += candidates.get(addend.charAt(i));
