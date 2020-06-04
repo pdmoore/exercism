@@ -56,33 +56,42 @@ public class Alphametics {
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
         validateExpression();
 
+        // TODO - need to track and iterate through candidate solutions
         // Need an algorithm to solve the expression
         // brute force?
-        // for each addend, convert it to a number
-        // convert sum to number
-        // sum all the addends
-        // does the sum match the targetSum?
         //TODO - hardcoded to pass first test, starting to process invalid cases
         _result.put('I', 1);
         _result.put('B', 9);
         _result.put('L', 0);
 
         if (evaluate(_result)) {
+            // TODO - Need to sort result by value
             return _result;
         }
 
-
-        // Need to sort result by value
-
-//        "I + BB == ILL"
-//
-
-//        return _result;
         throw new UnsolvablePuzzleException();
 
     }
 
     private boolean evaluate(LinkedHashMap<Character, Integer> candidates) {
-        return true;
+        // for each addend, convert it to a number
+        // convert sum to number
+        // sum all the addends
+        // does the sum match the targetSum?
+
+//        "I + BB == ILL"
+//
+
+        int currentSum = 0;
+        for (String addend :
+                _addends) {
+            currentSum += valueFor(addend, candidates);
+        }
+
+        return currentSum == valueFor(_targetSum, candidates);
+    }
+
+    private int valueFor(String addend, LinkedHashMap<Character, Integer> candidates) {
+        return 0;
     }
 }
