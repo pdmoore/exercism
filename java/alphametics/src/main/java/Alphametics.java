@@ -13,16 +13,12 @@ public class Alphametics {
         _expression = expression;
         _addends = new ArrayList<String>();
 
-        // Following grabs unique characters out of the expression
         storeUniqueCharacters(expression);
-
-        // need to get the addends (things added A + B + C)
-        // need to get the sum (thing to right of = sign)
 
         int equalsIndex = _expression.indexOf("==");
 
         String leftHand = _expression.substring(0, equalsIndex - 1);
-        //TODO - addends have spaces, where to trim?
+
         String[] split = leftHand.split("\\+");
         for (String addend:
                 split) {
