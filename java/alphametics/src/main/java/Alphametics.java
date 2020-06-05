@@ -74,8 +74,6 @@ public class Alphametics {
 
         // feels like recursion....
 
-
-
         LinkedHashMap<Character, Integer> candidateSet = new LinkedHashMap<>();
         for (Character c :
                 _result.keySet()) {
@@ -93,9 +91,7 @@ public class Alphametics {
             }
         }
 
-
         throw new UnsolvablePuzzleException();
-
     }
 
     private boolean evaluate(LinkedHashMap<Character, Integer> candidates) {
