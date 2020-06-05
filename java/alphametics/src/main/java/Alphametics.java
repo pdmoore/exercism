@@ -69,14 +69,17 @@ public class Alphametics {
         // brute force?
 
         //TODO - hardcoded to pass first test, starting to process invalid cases
-        _result.put('I', 1);
-        _result.put('B', 9);
-        _result.put('L', 0);
 
-        if (evaluate(_result)) {
-            // TODO - Need to sort result by value
-            return _result;
+        for (int attempt = 0; attempt <= 9; attempt++) {
+            _result.put('I', attempt);
+            _result.put('B', 9);
+            _result.put('L', 0);
+
+            if (evaluate(_result)) {
+                return _result;
+            }
         }
+
 
         throw new UnsolvablePuzzleException();
 
