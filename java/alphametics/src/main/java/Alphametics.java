@@ -7,6 +7,7 @@ public class Alphametics {
     private final String _targetSum;
     private LinkedHashMap<Character, Integer> _result;
     private String _expression;
+    private HashSet<Character> _uniqueCharSet;
 
     public Alphametics(String expression) {
         _expression = expression;
@@ -42,7 +43,7 @@ public class Alphametics {
 
     private void storeUniqueCharacters(String expression) {
         String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
-        HashSet<Character> _uniqueCharSet = new HashSet();
+        _uniqueCharSet = new HashSet();
         for (int i = 0; i < justLetters.length(); i++) {
             _uniqueCharSet.add(justLetters.charAt(i));
         }
@@ -63,14 +64,25 @@ public class Alphametics {
         validateExpression();
 
         // TODO NEXT TIME
-        // TODO - need to track and iterate through candidate solutions
         // loop over possible values, don't duplicate values,
         // assign a value to each unique character
-        // brute force?
 
-        //TODO - hardcoded to pass first test, starting to process invalid cases
+        // Need to try each addend
+        // Need to track numbers in play or not
+        // need to cycle through all the combos
+
+        // create list of 0..9
+        // loop over addends and assign a number
+        // increase last most one until exhausted
+        // then bump second to last and start over with last
+
+        // feels like recursion....
+
+
+
 
         for (int attempt = 0; attempt <= 9; attempt++) {
+
             _result.put('I', attempt);
             _result.put('B', 9);
             _result.put('L', 0);
