@@ -76,15 +76,13 @@ public class Alphametics {
 
 
 
+        LinkedHashMap<Character, Integer> candidateSet = new LinkedHashMap<>();
+        for (Character c :
+                _result.keySet()) {
+            candidateSet.put(c, UNASSIGNED);
+        }
 
         for (int attempt = 0; attempt <= 9; attempt++) {
-
-            LinkedHashMap<Character, Integer> candidateSet = new LinkedHashMap<>();
-
-            for (Character c :
-                    _result.keySet()) {
-                candidateSet.put(c, UNASSIGNED);
-            }
 
             candidateSet.put('I', attempt);
             candidateSet.put('B', 9);
@@ -93,13 +91,6 @@ public class Alphametics {
             if (evaluate(candidateSet)) {
                 return candidateSet;
             }
-//            _result.put('I', attempt);
-//            _result.put('B', 9);
-//            _result.put('L', 0);
-//
-//            if (evaluate(_result)) {
-//                return _result;
-//            }
         }
 
 
