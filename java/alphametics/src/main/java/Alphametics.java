@@ -59,26 +59,20 @@ public class Alphametics {
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
         validateExpression();
 
-        // TODO NEXT TIME
-        // loop over possible values, don't duplicate values,
-        // assign a value to each unique character
-
-        // Need to try each addend
-        // Need to track numbers in play or not
-        // need to cycle through all the combos
-
-        // create list of 0..9
-        // loop over addends and assign a number
-        // increase last most one until exhausted
-        // then bump second to last and start over with last
-
-        // feels like recursion....
-
         LinkedHashMap<Character, Integer> candidateSet = new LinkedHashMap<>();
         for (Character c :
                 _result.keySet()) {
             candidateSet.put(c, UNASSIGNED);
         }
+
+        // TODO NEXT TIME
+        // loop over possible values, don't duplicate values,
+        // assign a value to each unique character
+
+        // create one list of 0..9 per each addend
+        // for each addend, grab a number, confirm it is not in play yet, assign it to candidateSet
+        // try candidateSet
+
 
         for (int attempt = 0; attempt <= 9; attempt++) {
 
