@@ -20,7 +20,7 @@ public class Alphametics {
         String leftHand = _expression.substring(0, equalsIndex - 1);
 
         String[] split = leftHand.split("\\+");
-        for (String addend:
+        for (String addend :
                 split) {
             _addends.add(addend.trim());
         }
@@ -79,29 +79,38 @@ public class Alphametics {
         // list of attempted numbers, one list per unique character
         // or string of attempts - 012, 013, 014, etc save that in a list to make sure no dupes
 
+
         // These are the letters that need to be filled in
-//        candidateSet.keySet();
+        Object[] keys = candidateSet.keySet().toArray();
 
         List<String> attempts = new ArrayList<>();
 
-        Object[] keys = candidateSet.keySet().toArray();
+        for (int tryThisNumber_1 = 0; tryThisNumber_1 <= 9; tryThisNumber_1++) {
+            for (int tryThisNumber_2 = 0; tryThisNumber_2 <= 9; tryThisNumber_2++) {
+                for (int tryThisNumber_3 = 0; tryThisNumber_3 <= 9; tryThisNumber_3++) {
+
+                    if (tryThisNumber_1 != tryThisNumber_2 &&
+                            tryThisNumber_1 != tryThisNumber_3 &&
+                            tryThisNumber_2 !=tryThisNumber_3){
 
 
-        for (int tryThisNumber = 0; tryThisNumber <= 9; tryThisNumber++) {
+                        // keys are sorted? Shouldn't matter in the long run
+                        candidateSet.put((Character) keys[1], tryThisNumber_1);
+                        candidateSet.put('B', tryThisNumber_2);
+                        candidateSet.put('L', tryThisNumber_3);
 
-            candidateSet.put((Character) keys[1], tryThisNumber);
-            candidateSet.put('B', 9);
-            candidateSet.put('L', 0);
+                        // create a stamp of this attempted combination
+                        String thisAttempt = valuesOf(candidateSet);
 
-            // create a stamp of this attempted combination
-            String thisAttempt = valuesOf(candidateSet);
+                        // if it hasn't been tried before...
+                        if (!attempts.contains(thisAttempt)) {
+                            attempts.add(thisAttempt);
 
-            // if it hasn't been tried before...
-            if (!attempts.contains(thisAttempt)) {
-                attempts.add(thisAttempt);
-
-                if (evaluate(candidateSet)) {
-                    return candidateSet;
+                            if (evaluate(candidateSet)) {
+                                return candidateSet;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -122,7 +131,7 @@ public class Alphametics {
         int currentSum = 0;
         for (Iterator it = _addends.iterator(); it.hasNext(); ) {
             String addend = (String) it.next();
-            currentSum += valueFor(addend,candidates);
+            currentSum += valueFor(addend, candidates);
         }
 
         return currentSum == valueFor(_targetSum, candidates);
