@@ -84,9 +84,12 @@ public class Alphametics {
 
         List<String> attempts = new ArrayList<>();
 
+        Object[] keys = candidateSet.keySet().toArray();
+
+
         for (int tryThisNumber = 0; tryThisNumber <= 9; tryThisNumber++) {
 
-            candidateSet.put('I', tryThisNumber);
+            candidateSet.put((Character) keys[1], tryThisNumber);
             candidateSet.put('B', 9);
             candidateSet.put('L', 0);
 
