@@ -89,6 +89,8 @@ public class Alphametics {
             for (int tryThisNumber_2 = 0; tryThisNumber_2 <= 9; tryThisNumber_2++) {
                 for (int tryThisNumber_3 = 0; tryThisNumber_3 <= 9; tryThisNumber_3++) {
 
+                    //TODO - instead of this, track 0..9 and pull the value from the list if it's there
+                    // if it is not there, then the number is already at play
                     if (tryThisNumber_1 != tryThisNumber_2 &&
                             tryThisNumber_1 != tryThisNumber_3 &&
                             tryThisNumber_2 !=tryThisNumber_3){
