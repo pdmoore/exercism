@@ -79,11 +79,14 @@ public class Alphametics {
         // list of attempted numbers, one list per unique character
         // or string of attempts - 012, 013, 014, etc save that in a list to make sure no dupes
 
+        // These are the letters that need to be filled in
+//        candidateSet.keySet();
+
         List<String> attempts = new ArrayList<>();
 
-        for (int attempt = 0; attempt <= 9; attempt++) {
+        for (int tryThisNumber = 0; tryThisNumber <= 9; tryThisNumber++) {
 
-            candidateSet.put('I', attempt);
+            candidateSet.put('I', tryThisNumber);
             candidateSet.put('B', 9);
             candidateSet.put('L', 0);
 
