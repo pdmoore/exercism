@@ -72,7 +72,12 @@ public class Alphametics {
         // create one list of 0..9 per each addend
         // for each addend, grab a number, confirm it is not in play yet, assign it to candidateSet
         // try candidateSet
+        // 0,1  0,2  0,3  0,4  0,5  0,6  0,7  0,8  0,9
+        // 1,0  1,2  1,3  1,4  1,5  1,6  1,7  1,8  1,9
 
+        // list of available numbers 0..9
+        // list of attempted numbers, one list per unique character
+        // or string of attempts - 012, 013, 014, etc save that in a list to make sure no dupes
 
         for (int attempt = 0; attempt <= 9; attempt++) {
 
