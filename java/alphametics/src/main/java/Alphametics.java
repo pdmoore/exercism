@@ -79,18 +79,37 @@ public class Alphametics {
         // list of attempted numbers, one list per unique character
         // or string of attempts - 012, 013, 014, etc save that in a list to make sure no dupes
 
+        List<String> attempts = new ArrayList<>();
+
         for (int attempt = 0; attempt <= 9; attempt++) {
 
             candidateSet.put('I', attempt);
             candidateSet.put('B', 9);
             candidateSet.put('L', 0);
 
-            if (evaluate(candidateSet)) {
-                return candidateSet;
+            // create a stamp of this attempted combination
+            String thisAttempt = valuesOf(candidateSet);
+
+            // if it hasn't been tried before...
+            if (!attempts.contains(thisAttempt)) {
+                attempts.add(thisAttempt);
+
+                if (evaluate(candidateSet)) {
+                    return candidateSet;
+                }
             }
         }
 
         throw new UnsolvablePuzzleException();
+    }
+
+    private String valuesOf(LinkedHashMap<Character, Integer> candidateSet) {
+        String result = "";
+        for (Integer value :
+                candidateSet.values()) {
+            result += value;
+        }
+        return result;
     }
 
     private boolean evaluate(LinkedHashMap<Character, Integer> candidates) {
