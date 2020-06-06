@@ -93,7 +93,7 @@ public class Alphametics {
                     // if it is not there, then the number is already at play
                     if (tryThisNumber_1 != tryThisNumber_2 &&
                             tryThisNumber_1 != tryThisNumber_3 &&
-                            tryThisNumber_2 !=tryThisNumber_3){
+                            tryThisNumber_2 !=tryThisNumber_3) {
 
 
                         // keys are sorted? Shouldn't matter in the long run
