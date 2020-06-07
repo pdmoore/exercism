@@ -70,6 +70,17 @@ public class Alphametics {
         // list of attempted numbers, one list per unique character
         // or string of attempts - 012, 013, 014, etc save that in a list to make sure no dupes
 
+        List<Integer> availableNumbers = new ArrayList<>();
+        for (int i = 0; i <= 9; i++) {
+            availableNumbers.add(i);
+        }
+
+        // How to dynamically produce combinations of available numbers
+        // and assign value to keys in candidateSet
+        // not knowing how many keys/combos there are
+
+        
+
 
         // These are the letters that need to be filled in
         Object[] keys = candidateSet.keySet().toArray();
@@ -84,7 +95,9 @@ public class Alphametics {
                     // if it is not there, then the number is already at play
                     if (tryThisNumber_1 != tryThisNumber_2 &&
                             tryThisNumber_1 != tryThisNumber_3 &&
-                            tryThisNumber_2 !=tryThisNumber_3) {
+                            tryThisNumber_2 != tryThisNumber_3) {
+
+
 
 
                         // keys are sorted? Shouldn't matter in the long run
