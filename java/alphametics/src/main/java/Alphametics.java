@@ -89,7 +89,7 @@ public class Alphametics {
 
                         // keys are sorted? Shouldn't matter in the long run
                         candidateSet.put((Character) keys[1], tryThisNumber_1);
-                        candidateSet.put('B', tryThisNumber_2);
+                        candidateSet.put((Character) keys[0], tryThisNumber_2);
                         candidateSet.put('L', tryThisNumber_3);
 
                         // create a stamp of this attempted combination
