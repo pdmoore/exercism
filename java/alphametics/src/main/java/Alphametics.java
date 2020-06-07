@@ -26,15 +26,6 @@ public class Alphametics {
         }
 
         _targetSum = _expression.substring(equalsIndex + "== ".length());
-
-
-        // need to convert letters to number value
-
-        // then brute force each letter 0...9
-        // and ability to evaluate an expression for given set of values
-        // and halt if the expresson "works"
-
-
     }
 
     private void storeUniqueCharacters(String expression) {
