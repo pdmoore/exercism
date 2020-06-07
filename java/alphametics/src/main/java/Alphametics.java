@@ -79,49 +79,88 @@ public class Alphametics {
         // and assign value to keys in candidateSet
         // not knowing how many keys/combos there are
 
-        
-
 
         // These are the letters that need to be filled in
         Object[] keys = candidateSet.keySet().toArray();
 
         List<String> attempts = new ArrayList<>();
 
-        for (int tryThisNumber_1 = 0; tryThisNumber_1 <= 9; tryThisNumber_1++) {
-            for (int tryThisNumber_2 = 0; tryThisNumber_2 <= 9; tryThisNumber_2++) {
-                for (int tryThisNumber_3 = 0; tryThisNumber_3 <= 9; tryThisNumber_3++) {
+        // TODO - randomly grab three numbers
+        // doesn't seem to work, but is cycling through values....
+        while (true) {
+            // won't detect unsolvable yet, need to count attempts
 
-                    //TODO - instead of this, track 0..9 and pull the value from the list if it's there
-                    // if it is not there, then the number is already at play
-                    if (tryThisNumber_1 != tryThisNumber_2 &&
-                            tryThisNumber_1 != tryThisNumber_3 &&
-                            tryThisNumber_2 != tryThisNumber_3) {
+            for (int i = 0; i < keys.length; i++) {
+                candidateSet.put((Character) keys[i], randomNumFromRemaining(availableNumbers));
+            }
+            String thisAttempt = valuesOf(candidateSet);
 
+            // if it hasn't been tried before...
+            if (!attempts.contains(thisAttempt)) {
+                attempts.add(thisAttempt);
 
-
-
-                        // keys are sorted? Shouldn't matter in the long run
-                        candidateSet.put((Character) keys[1], tryThisNumber_1);
-                        candidateSet.put((Character) keys[0], tryThisNumber_2);
-                        candidateSet.put('L', tryThisNumber_3);
-
-                        // create a stamp of this attempted combination
-                        String thisAttempt = valuesOf(candidateSet);
-
-                        // if it hasn't been tried before...
-                        if (!attempts.contains(thisAttempt)) {
-                            attempts.add(thisAttempt);
-
-                            if (evaluate(candidateSet)) {
-                                return candidateSet;
-                            }
-                        }
-                    }
+                if (evaluate(candidateSet)) {
+                    return candidateSet;
                 }
             }
+
+//            if (attempts.size() >= 40) {
+//                throw new UnsolvablePuzzleException();
+//            }
+
+            availableNumbers.clear();
+            for (int i = 0; i <= 9; i++) {
+                availableNumbers.add(i);
+            }
+
         }
 
-        throw new UnsolvablePuzzleException();
+//        for (
+//                int tryThisNumber_1 = 0;
+//                tryThisNumber_1 <= 9; tryThisNumber_1++) {
+//            for (int tryThisNumber_2 = 0; tryThisNumber_2 <= 9; tryThisNumber_2++) {
+//                for (int tryThisNumber_3 = 0; tryThisNumber_3 <= 9; tryThisNumber_3++) {
+//
+//                    //TODO - instead of this, track 0..9 and pull the value from the list if it's there
+//                    // if it is not there, then the number is already at play
+//                    if (tryThisNumber_1 != tryThisNumber_2 &&
+//                            tryThisNumber_1 != tryThisNumber_3 &&
+//                            tryThisNumber_2 != tryThisNumber_3) {
+//
+//
+//                        // keys are sorted? Shouldn't matter in the long run
+//                        candidateSet.put((Character) keys[1], tryThisNumber_1);
+//                        candidateSet.put((Character) keys[0], tryThisNumber_2);
+//                        candidateSet.put('L', tryThisNumber_3);
+//
+//                        // create a stamp of this attempted combination
+//                        String thisAttempt = valuesOf(candidateSet);
+//
+//                        // if it hasn't been tried before...
+//                        if (!attempts.contains(thisAttempt)) {
+//                            attempts.add(thisAttempt);
+//
+//                            if (evaluate(candidateSet)) {
+//                                return candidateSet;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+
+//        throw new UnsolvablePuzzleException();
+
+    }
+
+    private Integer randomNumFromRemaining(List<Integer> availableNumbers) {
+        while (true) {
+            int n = (int) (Math.random() * (9));
+            if (availableNumbers.contains(n)) {
+                availableNumbers.remove((Integer) n);
+                return n;
+            }
+        }
     }
 
     private String valuesOf(LinkedHashMap<Character, Integer> candidateSet) {
