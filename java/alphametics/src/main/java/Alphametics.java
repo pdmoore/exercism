@@ -103,10 +103,20 @@ public class Alphametics {
         // hardcoding for exactly 3 unique characters
         // likely create array of size #uniqueChars, and fill each with 0
         // then increment each element of the array to try out all the combos
-        for (int try1 = 0; try1 <= 9; try1++) {
-            for (int try2 = 0; try2 <= 9; try2++) {
-                for (int try3 = 0; try3 <= 9; try3++) {
 
+        // try adding the availableNumbers array to this working loop, to remove the large if check (line 114)
+
+        int try1 = 0;
+        int try2 = 0;
+        int try3 = 0;
+
+        while (try1 < 10) {
+            try2 = 0;
+
+            while (try2 < 10) {
+                    try3 = 0;
+
+                    while (try3 < 10) {
                     if (try1 != try2 &&
                             try1 != try3 &&
                             try2 != try3) {
@@ -119,6 +129,7 @@ public class Alphametics {
 
                         // if it hasn't been tried before...
                         if (!attempts.contains(thisAttempt)) {
+//System.out.println("attempt " + thisAttempt);
                             attempts.add(thisAttempt);
 
                             if (evaluate(candidateSet)) {
@@ -126,9 +137,11 @@ public class Alphametics {
                             }
                         }
                     }
-
+                    try3++;
                 }
+                try2++;
             }
+            try1++;
         }
 
         throw new UnsolvablePuzzleException();
