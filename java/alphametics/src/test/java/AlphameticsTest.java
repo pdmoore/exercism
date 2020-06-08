@@ -33,7 +33,6 @@ public class AlphameticsTest {
         assertThrows(UnsolvablePuzzleException.class, alphametics::solve);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testTwoDigitsFinalCarry() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
