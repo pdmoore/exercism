@@ -99,6 +99,10 @@ public class Alphametics {
         List<String> attempts = new ArrayList<>();
 
 
+        // TODO - dynamically cycle through values and compare usage instead of
+        // hardcoding for exactly 3 unique characters
+        // likely create array of size #uniqueChars, and fill each with 0
+        // then increment each element of the array to try out all the combos
         for (int try1 = 0; try1 <= 9; try1++) {
             for (int try2 = 0; try2 <= 9; try2++) {
                 for (int try3 = 0; try3 <= 9; try3++) {
@@ -129,43 +133,6 @@ public class Alphametics {
 
         throw new UnsolvablePuzzleException();
     }
-
-//        for (
-//                int tryThisNumber_1 = 0;
-//                tryThisNumber_1 <= 9; tryThisNumber_1++) {
-//            for (int tryThisNumber_2 = 0; tryThisNumber_2 <= 9; tryThisNumber_2++) {
-//                for (int tryThisNumber_3 = 0; tryThisNumber_3 <= 9; tryThisNumber_3++) {
-//
-//                    //TODO - instead of this, track 0..9 and pull the value from the list if it's there
-//                    // if it is not there, then the number is already at play
-//                    if (tryThisNumber_1 != tryThisNumber_2 &&
-//                            tryThisNumber_1 != tryThisNumber_3 &&
-//                            tryThisNumber_2 != tryThisNumber_3) {
-//
-//
-//                        // keys are sorted? Shouldn't matter in the long run
-//                        candidateSet.put((Character) keys[1], tryThisNumber_1);
-//                        candidateSet.put((Character) keys[0], tryThisNumber_2);
-//                        candidateSet.put('L', tryThisNumber_3);
-//
-//                        // create a stamp of this attempted combination
-//                        String thisAttempt = valuesOf(candidateSet);
-//
-//                        // if it hasn't been tried before...
-//                        if (!attempts.contains(thisAttempt)) {
-//                            attempts.add(thisAttempt);
-//
-//                            if (evaluate(candidateSet)) {
-//                                return candidateSet;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-//        throw new UnsolvablePuzzleException();
-
 
 
     private Integer randomNumFromRemaining(List<Integer> availableNumbers) {
