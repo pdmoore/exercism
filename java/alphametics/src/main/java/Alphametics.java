@@ -138,9 +138,11 @@ public class Alphametics {
                             return candidateSet;
                         }
                     }
+                    
                     numbersInPlay.remove((Integer) try3);
                     try3++;
                 }
+
                 numbersInPlay.remove((Integer) try2);
                 try2++;
             }
