@@ -110,37 +110,40 @@ public class Alphametics {
         int try2 = 0;
         int try3 = 0;
 
-        while (try1 < 10) {
+        List<Integer> numbersInPlay = new ArrayList<>();
+
+        while (try1 < 10 && !numbersInPlay.contains(try1)) {
+            numbersInPlay.add(try1);
             try2 = 0;
 
-            while (try2 < 10) {
-                    try3 = 0;
+            while (try2 < 10 && !numbersInPlay.contains(try2)) {
 
-                    while (try3 < 10) {
-                    if (try1 != try2 &&
-                            try1 != try3 &&
-                            try2 != try3) {
+                try3 = 0;
 
-                        candidateSet.put((Character) keys[0], try1);
-                        candidateSet.put((Character) keys[1], try2);
-                        candidateSet.put((Character) keys[2], try3);
+                while (try3 < 10 && !numbersInPlay.contains(try3)) {
+                    candidateSet.put((Character) keys[0], try1);
+                    candidateSet.put((Character) keys[1], try2);
+                    candidateSet.put((Character) keys[2], try3);
 
-                        String thisAttempt = valuesOf(candidateSet);
+                    String thisAttempt = valuesOf(candidateSet);
 
-                        // if it hasn't been tried before...
-                        if (!attempts.contains(thisAttempt)) {
+                    // if it hasn't been tried before...
+                    if (!attempts.contains(thisAttempt)) {
 //System.out.println("attempt " + thisAttempt);
-                            attempts.add(thisAttempt);
+                        attempts.add(thisAttempt);
 
-                            if (evaluate(candidateSet)) {
-                                return candidateSet;
-                            }
+                        if (evaluate(candidateSet)) {
+                            return candidateSet;
                         }
                     }
+                    numbersInPlay.remove((Integer) try3);
                     try3++;
                 }
+                numbersInPlay.remove((Integer) try2);
                 try2++;
             }
+
+            numbersInPlay.remove((Integer) try1);
             try1++;
         }
 
