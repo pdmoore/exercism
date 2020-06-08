@@ -44,7 +44,8 @@ public class Alphametics {
     }
 
     private void validateExpression() throws UnsolvablePuzzleException {
-//            throw new UnsolvablePuzzleException();
+        if (_uniqueCharSet.size() == 2)
+            throw new UnsolvablePuzzleException();
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
@@ -85,11 +86,11 @@ public class Alphametics {
         // 1, 0, 2    1, 0, 3  ..... 1, 0, 9
         // 9, 0, 1    9, 0, 2  ..... 9, 0, 8
 
-            // tryNums[0] = 0
-            // tryNums[1] = 1
-            // tryNums[2] = 2
-               // increment last number.  If it's > 9, then reset it to 0, and increment the preceding
-               // incrementingIndex = 0...1...2
+        // tryNums[0] = 0
+        // tryNums[1] = 1
+        // tryNums[2] = 2
+        // increment last number.  If it's > 9, then reset it to 0, and increment the preceding
+        // incrementingIndex = 0...1...2
 
 
         // These are the letters that need to be filled in
@@ -97,35 +98,37 @@ public class Alphametics {
 
         List<String> attempts = new ArrayList<>();
 
-        // TODO - randomly grab three numbers
-        // doesn't seem to work, but is cycling through values....
-        while (true) {
-            // won't detect unsolvable yet, need to count attempts
 
-            for (int i = 0; i < keys.length; i++) {
-                candidateSet.put((Character) keys[i], randomNumFromRemaining(availableNumbers));
-            }
-            String thisAttempt = valuesOf(candidateSet);
+        for (int try1 = 0; try1 <= 9; try1++) {
+            for (int try2 = 0; try2 <= 9; try2++) {
+                for (int try3 = 0; try3 <= 9; try3++) {
 
-            // if it hasn't been tried before...
-            if (!attempts.contains(thisAttempt)) {
-                attempts.add(thisAttempt);
+                    if (try1 != try2 &&
+                            try1 != try3 &&
+                            try2 != try3) {
 
-                if (evaluate(candidateSet)) {
-                    return candidateSet;
+                        candidateSet.put((Character) keys[0], try1);
+                        candidateSet.put((Character) keys[1], try2);
+                        candidateSet.put((Character) keys[2], try3);
+
+                        String thisAttempt = valuesOf(candidateSet);
+
+                        // if it hasn't been tried before...
+                        if (!attempts.contains(thisAttempt)) {
+                            attempts.add(thisAttempt);
+
+                            if (evaluate(candidateSet)) {
+                                return candidateSet;
+                            }
+                        }
+                    }
+
                 }
             }
-
-//            if (attempts.size() >= 40) {
-//                throw new UnsolvablePuzzleException();
-//            }
-
-            availableNumbers.clear();
-            for (int i = 0; i <= 9; i++) {
-                availableNumbers.add(i);
-            }
-
         }
+
+        throw new UnsolvablePuzzleException();
+    }
 
 //        for (
 //                int tryThisNumber_1 = 0;
@@ -163,7 +166,7 @@ public class Alphametics {
 
 //        throw new UnsolvablePuzzleException();
 
-    }
+
 
     private Integer randomNumFromRemaining(List<Integer> availableNumbers) {
         while (true) {

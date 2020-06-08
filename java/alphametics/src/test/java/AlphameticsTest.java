@@ -18,7 +18,6 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("I + BB == ILL").solve());
     }
 
-    @Ignore
     @Test
     public void testUniqueValue() {
         Alphametics alphametics = new Alphametics("A == B");
