@@ -85,6 +85,11 @@ public class Alphametics {
         // 1, 0, 2    1, 0, 3  ..... 1, 0, 9
         // 9, 0, 1    9, 0, 2  ..... 9, 0, 8
 
+            // tryNums[0] = 0
+            // tryNums[1] = 1
+            // tryNums[2] = 2
+               // increment last number.  If it's > 9, then reset it to 0, and increment the preceding
+               // incrementingIndex = 0...1...2
 
 
         // These are the letters that need to be filled in
