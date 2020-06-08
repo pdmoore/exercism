@@ -117,10 +117,12 @@ public class Alphametics {
             try2 = 0;
 
             while (try2 < 10 && !numbersInPlay.contains(try2)) {
-
+                numbersInPlay.add(try2);
                 try3 = 0;
 
                 while (try3 < 10 && !numbersInPlay.contains(try3)) {
+                    numbersInPlay.add(try3);
+
                     candidateSet.put((Character) keys[0], try1);
                     candidateSet.put((Character) keys[1], try2);
                     candidateSet.put((Character) keys[2], try3);
