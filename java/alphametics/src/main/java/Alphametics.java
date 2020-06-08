@@ -79,6 +79,13 @@ public class Alphametics {
         // and assign value to keys in candidateSet
         // not knowing how many keys/combos there are
 
+        // 3 keys, 3 letters to find
+        // 0, 1, 2    0, 1, 3, ..... 0, 1, 9
+        // 0, 2, 1    0, 2, 3  ..... 0, 2, 9
+        // 1, 0, 2    1, 0, 3  ..... 1, 0, 9
+        // 9, 0, 1    9, 0, 2  ..... 9, 0, 8
+
+
 
         // These are the letters that need to be filled in
         Object[] keys = candidateSet.keySet().toArray();
