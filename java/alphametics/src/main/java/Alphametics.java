@@ -104,10 +104,6 @@ public class Alphametics {
 
         // try adding the availableNumbers array to this working loop, to remove the large if check (line 114)
 
-        int try1 = 0;
-        int try2 = 0;
-        int try3 = 0;
-
         // pass in depth, numbersInPlay, candidateSet
         // return candidateSet
         // if depth < candidateSet size (-1?) then recurse first
@@ -115,56 +111,10 @@ public class Alphametics {
         int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
 
-        try1 = 0;
 
-
-        // TODO - this might be it,
-        // Leading Zero test needs to pass first
-        // add one more test, then start cleaning up
         if (digForSolution(depth, numbersInPlay, candidateSet, keys)) {
             return candidateSet;
         }
-
-
-//        while (try1 < 10 && !numbersInPlay.contains(try1)) {
-//            numbersInPlay.add(try1);
-//            candidateSet.put((Character) keys[depth], try1);
-//
-//            depth++;
-//            try2 = 0;
-//            while (try2 < 10 && !numbersInPlay.contains(try2)) {
-//                numbersInPlay.add(try2);
-//                candidateSet.put((Character) keys[depth], try2);
-//
-//                if (digForSolution(depth, numbersInPlay, candidateSet)) {
-//                    return candidateSet;
-//                }
-//
-////                depth++;
-////                try3 = 0;
-////                while (try3 < 10 && !numbersInPlay.contains(try3)) {
-////                    numbersInPlay.add(try3);
-////                    candidateSet.put((Character) keys[depth], try3);
-////
-////                    String thisAttempt = valuesOf(candidateSet);
-//////System.out.println("attempt " + thisAttempt);
-////
-////                        if (evaluate(candidateSet)) {
-////                            return candidateSet;
-////                        }
-////
-////                    numbersInPlay.remove((Integer) try3);
-////                    try3++;
-////                }
-//
-////                depth--;
-//                numbersInPlay.remove((Integer) try2);
-//                try2++;
-//            }
-//            depth--;
-//            numbersInPlay.remove((Integer) try1);
-//            try1++;
-//        }
 
         throw new UnsolvablePuzzleException();
     }
@@ -222,7 +172,6 @@ public class Alphametics {
     }
 
     private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidates) {
-
         for (String addend :
                 _addends) {
             char initialChar = addend.charAt(0);
