@@ -96,8 +96,6 @@ public class Alphametics {
         // These are the letters that need to be filled in
         Object[] keys = candidateSet.keySet().toArray();
 
-        List<String> attempts = new ArrayList<>();
-
 
         // TODO - dynamically cycle through values and compare usage instead of
         // hardcoding for exactly 3 unique characters
@@ -109,8 +107,12 @@ public class Alphametics {
         int try1 = 0;
         int try2 = 0;
         int try3 = 0;
-        int depth = 0;
 
+        // pass in depth, numbersInPlay, candidateSet
+        // return candidateSet
+        // if depth < candidateSet size (-1?) then recurse first
+        // if depth is bottom, then while loop
+        int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
 
         try1 = 0;
@@ -131,20 +133,16 @@ public class Alphametics {
                     candidateSet.put((Character) keys[depth], try3);
 
                     String thisAttempt = valuesOf(candidateSet);
-
-                    // if it hasn't been tried before...
-                    if (!attempts.contains(thisAttempt)) {
 //System.out.println("attempt " + thisAttempt);
-                        attempts.add(thisAttempt);
 
                         if (evaluate(candidateSet)) {
                             return candidateSet;
                         }
-                    }
 
                     numbersInPlay.remove((Integer) try3);
                     try3++;
                 }
+
                 depth--;
                 numbersInPlay.remove((Integer) try2);
                 try2++;
@@ -156,7 +154,7 @@ public class Alphametics {
 
         throw new UnsolvablePuzzleException();
     }
-
+    
 
     private Integer randomNumFromRemaining(List<Integer> availableNumbers) {
         while (true) {
