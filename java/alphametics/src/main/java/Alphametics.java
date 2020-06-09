@@ -65,7 +65,7 @@ public class Alphametics {
     }
 
     private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet) {
-        if (depth >= candidateSet.size()) {
+        if (depth == candidateSet.size()) {
             return evaluate(candidateSet);
         }
 
