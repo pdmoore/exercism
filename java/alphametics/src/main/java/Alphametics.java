@@ -214,6 +214,8 @@ public class Alphametics {
             currentSum += valueFor(addend, candidates);
         }
 
+        // TODO check for leading zero and reject any candidate set that has that
+
         return currentSum == valueFor(_targetSum, candidates);
     }
 
