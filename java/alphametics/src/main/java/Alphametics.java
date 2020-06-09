@@ -116,76 +116,79 @@ public class Alphametics {
         List<Integer> numbersInPlay = new ArrayList<>();
 
         try1 = 0;
-        while (try1 < 10 && !numbersInPlay.contains(try1)) {
-            numbersInPlay.add(try1);
-            candidateSet.put((Character) keys[depth], try1);
 
-            depth++;
-            try2 = 0;
-            while (try2 < 10 && !numbersInPlay.contains(try2)) {
-                numbersInPlay.add(try2);
-                candidateSet.put((Character) keys[depth], try2);
-
-                if (digForSolution(depth, numbersInPlay, candidateSet)) {
-                    return candidateSet;
-                }
-
-//                depth++;
-//                try3 = 0;
-//                while (try3 < 10 && !numbersInPlay.contains(try3)) {
-//                    numbersInPlay.add(try3);
-//                    candidateSet.put((Character) keys[depth], try3);
-//
-//                    String thisAttempt = valuesOf(candidateSet);
-////System.out.println("attempt " + thisAttempt);
-//
-//                        if (evaluate(candidateSet)) {
-//                            return candidateSet;
-//                        }
-//
-//                    numbersInPlay.remove((Integer) try3);
-//                    try3++;
-//                }
-
-//                depth--;
-                numbersInPlay.remove((Integer) try2);
-                try2++;
-            }
-            depth--;
-            numbersInPlay.remove((Integer) try1);
-            try1++;
+        if (digForSolution(depth, numbersInPlay, candidateSet, keys)) {
+            return candidateSet;
         }
+
+
+//        while (try1 < 10 && !numbersInPlay.contains(try1)) {
+//            numbersInPlay.add(try1);
+//            candidateSet.put((Character) keys[depth], try1);
+//
+//            depth++;
+//            try2 = 0;
+//            while (try2 < 10 && !numbersInPlay.contains(try2)) {
+//                numbersInPlay.add(try2);
+//                candidateSet.put((Character) keys[depth], try2);
+//
+//                if (digForSolution(depth, numbersInPlay, candidateSet)) {
+//                    return candidateSet;
+//                }
+//
+////                depth++;
+////                try3 = 0;
+////                while (try3 < 10 && !numbersInPlay.contains(try3)) {
+////                    numbersInPlay.add(try3);
+////                    candidateSet.put((Character) keys[depth], try3);
+////
+////                    String thisAttempt = valuesOf(candidateSet);
+//////System.out.println("attempt " + thisAttempt);
+////
+////                        if (evaluate(candidateSet)) {
+////                            return candidateSet;
+////                        }
+////
+////                    numbersInPlay.remove((Integer) try3);
+////                    try3++;
+////                }
+//
+////                depth--;
+//                numbersInPlay.remove((Integer) try2);
+//                try2++;
+//            }
+//            depth--;
+//            numbersInPlay.remove((Integer) try1);
+//            try1++;
+//        }
 
         throw new UnsolvablePuzzleException();
     }
 
-    private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet) {
+    private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet, Object[] keys) {
+        if (depth >= candidateSet.size()) {
+            return evaluate(candidateSet);
+        }
+
         int tryThisNumber = 0;
-        depth++;
 
-        if (depth == candidateSet.size() - 1) {
-            while (tryThisNumber < 10 && !numbersInPlay.contains(tryThisNumber)) {
+        while (tryThisNumber < 10) {
+            if (numbersInPlay.contains(tryThisNumber)) {
+                tryThisNumber++;
+            } else {
                 numbersInPlay.add(tryThisNumber);
-                candidateSet.put((Character) candidateSet.keySet().toArray()[depth], tryThisNumber);
+                candidateSet.put((Character) keys[depth], tryThisNumber);
 
-                String thisAttempt = valuesOf(candidateSet);
-//System.out.println("attempt " + thisAttempt);
-
-                if (evaluate(candidateSet)) {
-                    return true;
+                if (depth < candidateSet.size()) {
+                    depth++;
+                    if (digForSolution(depth, numbersInPlay, candidateSet, keys)) {
+                        return true;
+                    }
+                    depth--;
                 }
-
                 numbersInPlay.remove((Integer) tryThisNumber);
                 tryThisNumber++;
             }
-        } else {
-
-            // TODO - this isn't executed -- need to push a number totry and then dive down one deeper
-//            numbersInPlay.add(try3);
-//            depth++;
-//            digForSolution(depth, numbersInPlay, candidateSet);
-//            depth--;
-//            numbersInPlay.remove((Integer) try3);
         }
 
         return false;
