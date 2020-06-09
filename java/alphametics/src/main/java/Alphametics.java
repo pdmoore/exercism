@@ -102,15 +102,6 @@ public class Alphametics {
         return false;
     }
 
-    private String valuesOf(LinkedHashMap<Character, Integer> candidateSet) {
-        String result = "";
-        for (Integer value :
-                candidateSet.values()) {
-            result += value;
-        }
-        return result;
-    }
-
     private boolean evaluate(LinkedHashMap<Character, Integer> candidates) {
         if (anyLeadingZeros(candidates)) {
             return false;
