@@ -117,6 +117,10 @@ public class Alphametics {
 
         try1 = 0;
 
+
+        // TODO - this might be it,
+        // Leading Zero test needs to pass first
+        // add one more test, then start cleaning up
         if (digForSolution(depth, numbersInPlay, candidateSet, keys)) {
             return candidateSet;
         }
