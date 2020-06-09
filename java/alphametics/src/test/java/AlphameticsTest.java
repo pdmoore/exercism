@@ -25,7 +25,6 @@ public class AlphameticsTest {
         assertThrows(UnsolvablePuzzleException.class, alphametics::solve);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testLeadingZero() {
         Alphametics alphametics = new Alphametics("ACA + DD == BD");

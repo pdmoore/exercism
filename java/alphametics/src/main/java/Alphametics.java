@@ -3,7 +3,7 @@ import java.util.*;
 public class Alphametics {
 
     public static final int UNASSIGNED = -1;
-    private final List _addends;
+    private final List<String> _addends;
     private final String _targetSum;
     private LinkedHashMap<Character, Integer> _result;
     private String _expression;
@@ -208,15 +208,30 @@ public class Alphametics {
     }
 
     private boolean evaluate(LinkedHashMap<Character, Integer> candidates) {
+        if (anyLeadingZeros(candidates)) {
+            return false;
+        }
+
         int currentSum = 0;
         for (Iterator it = _addends.iterator(); it.hasNext(); ) {
             String addend = (String) it.next();
             currentSum += valueFor(addend, candidates);
         }
 
-        // TODO check for leading zero and reject any candidate set that has that
-
         return currentSum == valueFor(_targetSum, candidates);
+    }
+
+    private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidates) {
+
+        for (String addend :
+                _addends) {
+            char initialChar = addend.charAt(0);
+            if (candidates.get(initialChar) == 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private int valueFor(String addend, LinkedHashMap<Character, Integer> candidates) {
