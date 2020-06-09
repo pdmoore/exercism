@@ -160,13 +160,13 @@ public class Alphametics {
     }
 
     private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet) {
+        int tryThisNumber = 0;
         depth++;
 
         if (depth == candidateSet.size() - 1) {
-            int try3 = 0;
-            while (try3 < 10 && !numbersInPlay.contains(try3)) {
-                numbersInPlay.add(try3);
-                candidateSet.put((Character) candidateSet.keySet().toArray()[depth], try3);
+            while (tryThisNumber < 10 && !numbersInPlay.contains(tryThisNumber)) {
+                numbersInPlay.add(tryThisNumber);
+                candidateSet.put((Character) candidateSet.keySet().toArray()[depth], tryThisNumber);
 
                 String thisAttempt = valuesOf(candidateSet);
 //System.out.println("attempt " + thisAttempt);
@@ -175,14 +175,19 @@ public class Alphametics {
                     return true;
                 }
 
-                numbersInPlay.remove((Integer) try3);
-                try3++;
+                numbersInPlay.remove((Integer) tryThisNumber);
+                tryThisNumber++;
             }
         } else {
-            digForSolution(depth, numbersInPlay, candidateSet);
-            depth--;
+
+            // TODO - this isn't executed -- need to push a number totry and then dive down one deeper
+//            numbersInPlay.add(try3);
+//            depth++;
+//            digForSolution(depth, numbersInPlay, candidateSet);
+//            depth--;
+//            numbersInPlay.remove((Integer) try3);
         }
-        
+
         return false;
     }
 
