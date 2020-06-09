@@ -63,17 +63,16 @@ public class Alphametics {
         }
 
         // These are the letters that need to be filled in
-        Object[] keys = candidateSet.keySet().toArray();
         int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
-        if (digForSolution(depth, numbersInPlay, candidateSet, keys)) {
+        if (digForSolution(depth, numbersInPlay, candidateSet)) {
             return candidateSet;
         }
 
         throw new UnsolvablePuzzleException();
     }
 
-    private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet, Object[] keys) {
+    private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet) {
         if (depth >= candidateSet.size()) {
             return evaluate(candidateSet);
         }
@@ -85,11 +84,12 @@ public class Alphametics {
                 tryThisNumber++;
             } else {
                 numbersInPlay.add(tryThisNumber);
+                Object[] keys = candidateSet.keySet().toArray();
                 candidateSet.put((Character) keys[depth], tryThisNumber);
 
                 if (depth < candidateSet.size()) {
                     depth++;
-                    if (digForSolution(depth, numbersInPlay, candidateSet, keys)) {
+                    if (digForSolution(depth, numbersInPlay, candidateSet)) {
                         return true;
                     }
                     depth--;
