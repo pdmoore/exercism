@@ -57,61 +57,15 @@ public class Alphametics {
             candidateSet.put(c, UNASSIGNED);
         }
 
-        // TODO NEXT TIME
-        // loop over possible values, don't duplicate values,
-        // assign a value to each unique character
-
-        // create one list of 0..9 per each addend
-        // for each addend, grab a number, confirm it is not in play yet, assign it to candidateSet
-        // try candidateSet
-        // 0,1  0,2  0,3  0,4  0,5  0,6  0,7  0,8  0,9
-        // 1,0  1,2  1,3  1,4  1,5  1,6  1,7  1,8  1,9
-
-        // list of available numbers 0..9
-        // list of attempted numbers, one list per unique character
-        // or string of attempts - 012, 013, 014, etc save that in a list to make sure no dupes
-
         List<Integer> availableNumbers = new ArrayList<>();
         for (int i = 0; i <= 9; i++) {
             availableNumbers.add(i);
         }
 
-        // How to dynamically produce combinations of available numbers
-        // and assign value to keys in candidateSet
-        // not knowing how many keys/combos there are
-
-        // 3 keys, 3 letters to find
-        // 0, 1, 2    0, 1, 3, ..... 0, 1, 9
-        // 0, 2, 1    0, 2, 3  ..... 0, 2, 9
-        // 1, 0, 2    1, 0, 3  ..... 1, 0, 9
-        // 9, 0, 1    9, 0, 2  ..... 9, 0, 8
-
-        // tryNums[0] = 0
-        // tryNums[1] = 1
-        // tryNums[2] = 2
-        // increment last number.  If it's > 9, then reset it to 0, and increment the preceding
-        // incrementingIndex = 0...1...2
-
-
         // These are the letters that need to be filled in
         Object[] keys = candidateSet.keySet().toArray();
-
-
-        // TODO - dynamically cycle through values and compare usage instead of
-        // hardcoding for exactly 3 unique characters
-        // likely create array of size #uniqueChars, and fill each with 0
-        // then increment each element of the array to try out all the combos
-
-        // try adding the availableNumbers array to this working loop, to remove the large if check (line 114)
-
-        // pass in depth, numbersInPlay, candidateSet
-        // return candidateSet
-        // if depth < candidateSet size (-1?) then recurse first
-        // if depth is bottom, then while loop
         int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
-
-
         if (digForSolution(depth, numbersInPlay, candidateSet, keys)) {
             return candidateSet;
         }
