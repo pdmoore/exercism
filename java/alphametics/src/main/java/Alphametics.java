@@ -109,23 +109,26 @@ public class Alphametics {
         int try1 = 0;
         int try2 = 0;
         int try3 = 0;
+        int depth = 0;
 
         List<Integer> numbersInPlay = new ArrayList<>();
 
         try1 = 0;
         while (try1 < 10 && !numbersInPlay.contains(try1)) {
             numbersInPlay.add(try1);
-            candidateSet.put((Character) keys[0], try1);
+            candidateSet.put((Character) keys[depth], try1);
 
+            depth++;
             try2 = 0;
             while (try2 < 10 && !numbersInPlay.contains(try2)) {
                 numbersInPlay.add(try2);
-                candidateSet.put((Character) keys[1], try2);
+                candidateSet.put((Character) keys[depth], try2);
 
+                depth++;
                 try3 = 0;
                 while (try3 < 10 && !numbersInPlay.contains(try3)) {
                     numbersInPlay.add(try3);
-                    candidateSet.put((Character) keys[2], try3);
+                    candidateSet.put((Character) keys[depth], try3);
 
                     String thisAttempt = valuesOf(candidateSet);
 
@@ -138,15 +141,15 @@ public class Alphametics {
                             return candidateSet;
                         }
                     }
-                    
+
                     numbersInPlay.remove((Integer) try3);
                     try3++;
                 }
-
+                depth--;
                 numbersInPlay.remove((Integer) try2);
                 try2++;
             }
-
+            depth--;
             numbersInPlay.remove((Integer) try1);
             try1++;
         }
