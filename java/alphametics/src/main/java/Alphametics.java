@@ -231,6 +231,11 @@ public class Alphametics {
             }
         }
 
+        char initialChar = _targetSum.charAt(0);
+        if (candidates.get(initialChar) == 0) {
+            return true;
+        }
+
         return false;
     }
 

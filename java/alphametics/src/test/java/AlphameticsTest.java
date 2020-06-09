@@ -42,7 +42,6 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("A + A + A + A + A + A + A + A + A + A + A + B == BCC").solve());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testFourLetters() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();
