@@ -126,24 +126,28 @@ public class Alphametics {
                 numbersInPlay.add(try2);
                 candidateSet.put((Character) keys[depth], try2);
 
-                depth++;
-                try3 = 0;
-                while (try3 < 10 && !numbersInPlay.contains(try3)) {
-                    numbersInPlay.add(try3);
-                    candidateSet.put((Character) keys[depth], try3);
-
-                    String thisAttempt = valuesOf(candidateSet);
-//System.out.println("attempt " + thisAttempt);
-
-                        if (evaluate(candidateSet)) {
-                            return candidateSet;
-                        }
-
-                    numbersInPlay.remove((Integer) try3);
-                    try3++;
+                if (digForSolution(depth, numbersInPlay, candidateSet)) {
+                    return candidateSet;
                 }
 
-                depth--;
+//                depth++;
+//                try3 = 0;
+//                while (try3 < 10 && !numbersInPlay.contains(try3)) {
+//                    numbersInPlay.add(try3);
+//                    candidateSet.put((Character) keys[depth], try3);
+//
+//                    String thisAttempt = valuesOf(candidateSet);
+////System.out.println("attempt " + thisAttempt);
+//
+//                        if (evaluate(candidateSet)) {
+//                            return candidateSet;
+//                        }
+//
+//                    numbersInPlay.remove((Integer) try3);
+//                    try3++;
+//                }
+
+//                depth--;
                 numbersInPlay.remove((Integer) try2);
                 try2++;
             }
@@ -153,6 +157,33 @@ public class Alphametics {
         }
 
         throw new UnsolvablePuzzleException();
+    }
+
+    private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet) {
+        depth++;
+
+        if (depth == candidateSet.size() - 1) {
+            int try3 = 0;
+            while (try3 < 10 && !numbersInPlay.contains(try3)) {
+                numbersInPlay.add(try3);
+                candidateSet.put((Character) candidateSet.keySet().toArray()[depth], try3);
+
+                String thisAttempt = valuesOf(candidateSet);
+//System.out.println("attempt " + thisAttempt);
+
+                if (evaluate(candidateSet)) {
+                    return true;
+                }
+
+                numbersInPlay.remove((Integer) try3);
+                try3++;
+            }
+        } else {
+            digForSolution(depth, numbersInPlay, candidateSet);
+            depth--;
+        }
+        
+        return false;
     }
 
     private String valuesOf(LinkedHashMap<Character, Integer> candidateSet) {
