@@ -154,17 +154,6 @@ public class Alphametics {
 
         throw new UnsolvablePuzzleException();
     }
-    
-
-    private Integer randomNumFromRemaining(List<Integer> availableNumbers) {
-        while (true) {
-            int n = (int) (Math.random() * (9));
-            if (availableNumbers.contains(n)) {
-                availableNumbers.remove((Integer) n);
-                return n;
-            }
-        }
-    }
 
     private String valuesOf(LinkedHashMap<Character, Integer> candidateSet) {
         String result = "";
