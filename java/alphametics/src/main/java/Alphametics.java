@@ -5,7 +5,6 @@ public class Alphametics {
     public static final int UNASSIGNED = -1;
     private final List<String> _addends;
     private final String _targetSum;
-    private LinkedHashMap<Character, Integer> _result;
     private String _expression;
     private HashSet<Character> _uniqueCharSet;
 
@@ -34,13 +33,6 @@ public class Alphametics {
         for (int i = 0; i < justLetters.length(); i++) {
             _uniqueCharSet.add(justLetters.charAt(i));
         }
-
-        _result = new LinkedHashMap<>();
-
-        for (Character key :
-                _uniqueCharSet) {
-            _result.put(key, UNASSIGNED);
-        }
     }
 
     private void validateExpression() throws UnsolvablePuzzleException {
@@ -53,7 +45,7 @@ public class Alphametics {
 
         LinkedHashMap<Character, Integer> candidateSet = new LinkedHashMap<>();
         for (Character c :
-                _result.keySet()) {
+                _uniqueCharSet) {
             candidateSet.put(c, UNASSIGNED);
         }
 
