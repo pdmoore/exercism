@@ -112,7 +112,6 @@ public class AlphameticsTest {
         assertEquals(expected, new Alphametics("AND + A + STRONG + OFFENSE + AS + A + GOOD == DEFENSE").solve());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testTenLetters41Addends() throws UnsolvablePuzzleException {
         LinkedHashMap<Character, Integer> expected = new LinkedHashMap<>();

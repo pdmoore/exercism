@@ -99,7 +99,7 @@ public class Alphametics {
             return false;
         }
 
-        int currentSum = 0;
+        long currentSum = 0;
         for (Iterator it = _addends.iterator(); it.hasNext(); ) {
             String addend = (String) it.next();
             currentSum += valueFor(addend, candidates);
@@ -125,12 +125,12 @@ public class Alphametics {
         return false;
     }
 
-    private int valueFor(String addend, LinkedHashMap<Character, Integer> candidates) {
+    private long valueFor(String addend, LinkedHashMap<Character, Integer> candidates) {
         String numbersForAddend = "";
         for (int i = 0; i < addend.length(); i++) {
             numbersForAddend += candidates.get(addend.charAt(i));
         }
 
-        return Integer.parseInt(numbersForAddend);
+        return Long.parseLong(numbersForAddend);
     }
 }
