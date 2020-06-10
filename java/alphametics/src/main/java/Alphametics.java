@@ -8,28 +8,35 @@ public class Alphametics {
     private HashSet<Character> _uniqueCharSet;
 
     public Alphametics(String expression) {
-        storeUniqueCharacters(expression);
+        _uniqueCharSet = getUniqueCharactersFrom(expression);
+
+        _addends = getAddendsFrom(expression);
 
         int equalsIndex = expression.indexOf("==");
-
-        String leftHand = expression.substring(0, equalsIndex - 1);
-
-        _addends = new ArrayList<String>();
-        String[] split = leftHand.split("\\+");
-        for (String addend :
-                split) {
-            _addends.add(addend.trim());
-        }
-
         _targetSum = expression.substring(equalsIndex + "== ".length());
     }
 
-    private void storeUniqueCharacters(String expression) {
-        String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
-        _uniqueCharSet = new HashSet();
-        for (int i = 0; i < justLetters.length(); i++) {
-            _uniqueCharSet.add(justLetters.charAt(i));
+    private List<String> getAddendsFrom(String expression) {
+        int equalsIndex = expression.indexOf("==");
+        String leftHand = expression.substring(0, equalsIndex - 1);
+
+        ArrayList<String> addends = new ArrayList<String>();
+        String[] split = leftHand.split("\\+");
+        for (String addend :
+                split) {
+            addends.add(addend.trim());
         }
+
+        return addends;
+    }
+
+    private HashSet<Character> getUniqueCharactersFrom(String expression) {
+        String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
+        HashSet<Character> uniqueCharSet = new HashSet();
+        for (int i = 0; i < justLetters.length(); i++) {
+            uniqueCharSet.add(justLetters.charAt(i));
+        }
+        return uniqueCharSet;
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
