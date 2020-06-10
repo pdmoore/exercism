@@ -6,6 +6,8 @@ public class Alphametics {
     public static final String EQUALS = "==";
     private final List<String> _addends;
     private final String _targetSum;
+
+    //TODO only used to build the candidateSet starting point...could do that in ctor?
     private HashSet<Character> _uniqueCharSet;
 
     public Alphametics(String expression) {
