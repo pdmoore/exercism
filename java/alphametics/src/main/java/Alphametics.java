@@ -69,6 +69,8 @@ public class Alphametics {
                 tryThisNumber++;
             } else {
                 numbersInPlay.add(tryThisNumber);
+
+                //TODO - feels like this could be simpler
                 Object[] keys = candidateSet.keySet().toArray();
                 candidateSet.put((Character) keys[depth], tryThisNumber);
 
