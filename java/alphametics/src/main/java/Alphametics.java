@@ -60,7 +60,7 @@ public class Alphametics {
 
     private boolean digForSolution(int depth, List<Integer> numbersInPlay, LinkedHashMap<Character, Integer> candidateSet) {
         if (depth == candidateSet.size()) {
-            return evaluate(candidateSet);
+            return equationIsSolvedBy(candidateSet);
         }
 
         int tryThisNumber = 0;
@@ -87,7 +87,7 @@ public class Alphametics {
         return false;
     }
 
-    private boolean evaluate(LinkedHashMap<Character, Integer> candidateSet) {
+    private boolean equationIsSolvedBy(LinkedHashMap<Character, Integer> candidateSet) {
         if (anyLeadingZeros(candidateSet)) {
             return false;
         }
