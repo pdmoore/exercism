@@ -8,14 +8,13 @@ public class Alphametics {
     private HashSet<Character> _uniqueCharSet;
 
     public Alphametics(String expression) {
-        _addends = new ArrayList<String>();
-
         storeUniqueCharacters(expression);
 
         int equalsIndex = expression.indexOf("==");
 
         String leftHand = expression.substring(0, equalsIndex - 1);
 
+        _addends = new ArrayList<String>();
         String[] split = leftHand.split("\\+");
         for (String addend :
                 split) {
@@ -33,14 +32,7 @@ public class Alphametics {
         }
     }
 
-    private void validateExpression() throws UnsolvablePuzzleException {
-        if (_uniqueCharSet.size() == 2)
-            throw new UnsolvablePuzzleException();
-    }
-
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
-        validateExpression();
-
         LinkedHashMap<Character, Integer> candidateSet = new LinkedHashMap<>();
         for (Character c :
                 _uniqueCharSet) {
