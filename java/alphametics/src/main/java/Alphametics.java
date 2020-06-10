@@ -38,7 +38,7 @@ public class Alphametics {
                 _uniqueCharSet) {
             candidateSet.put(c, UNASSIGNED);
         }
-        
+
         int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
         if (digForSolution(depth, numbersInPlay, candidateSet)) {
@@ -54,7 +54,6 @@ public class Alphametics {
         }
 
         int tryThisNumber = 0;
-
         while (tryThisNumber < 10) {
             if (numbersInPlay.contains(tryThisNumber)) {
                 tryThisNumber++;
@@ -78,18 +77,18 @@ public class Alphametics {
         return false;
     }
 
-    private boolean evaluate(LinkedHashMap<Character, Integer> candidates) {
-        if (anyLeadingZeros(candidates)) {
+    private boolean evaluate(LinkedHashMap<Character, Integer> candidateSet) {
+        if (anyLeadingZeros(candidateSet)) {
             return false;
         }
 
         long currentSum = 0;
         for (Iterator it = _addends.iterator(); it.hasNext(); ) {
             String addend = (String) it.next();
-            currentSum += valueFor(addend, candidates);
+            currentSum += valueFor(addend, candidateSet);
         }
 
-        return currentSum == valueFor(_targetSum, candidates);
+        return currentSum == valueFor(_targetSum, candidateSet);
     }
 
     private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidates) {
