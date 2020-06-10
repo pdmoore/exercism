@@ -5,18 +5,16 @@ public class Alphametics {
     public static final int UNASSIGNED = -1;
     private final List<String> _addends;
     private final String _targetSum;
-    private String _expression;
     private HashSet<Character> _uniqueCharSet;
 
     public Alphametics(String expression) {
-        _expression = expression;
         _addends = new ArrayList<String>();
 
         storeUniqueCharacters(expression);
 
-        int equalsIndex = _expression.indexOf("==");
+        int equalsIndex = expression.indexOf("==");
 
-        String leftHand = _expression.substring(0, equalsIndex - 1);
+        String leftHand = expression.substring(0, equalsIndex - 1);
 
         String[] split = leftHand.split("\\+");
         for (String addend :
@@ -24,7 +22,7 @@ public class Alphametics {
             _addends.add(addend.trim());
         }
 
-        _targetSum = _expression.substring(equalsIndex + "== ".length());
+        _targetSum = expression.substring(equalsIndex + "== ".length());
     }
 
     private void storeUniqueCharacters(String expression) {
