@@ -9,11 +9,17 @@ public class Alphametics {
 
     public Alphametics(String expression) {
         _uniqueCharSet = getUniqueCharactersFrom(expression);
-
         _addends = getAddendsFrom(expression);
+        _targetSum = getSumFrom(expression);
+    }
 
-        int equalsIndex = expression.indexOf("==");
-        _targetSum = expression.substring(equalsIndex + "== ".length());
+    private HashSet<Character> getUniqueCharactersFrom(String expression) {
+        String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
+        HashSet<Character> uniqueCharSet = new HashSet();
+        for (int i = 0; i < justLetters.length(); i++) {
+            uniqueCharSet.add(justLetters.charAt(i));
+        }
+        return uniqueCharSet;
     }
 
     private List<String> getAddendsFrom(String expression) {
@@ -30,13 +36,9 @@ public class Alphametics {
         return addends;
     }
 
-    private HashSet<Character> getUniqueCharactersFrom(String expression) {
-        String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
-        HashSet<Character> uniqueCharSet = new HashSet();
-        for (int i = 0; i < justLetters.length(); i++) {
-            uniqueCharSet.add(justLetters.charAt(i));
-        }
-        return uniqueCharSet;
+    private String getSumFrom(String expression) {
+        int equalsIndex = expression.indexOf("==");
+        return expression.substring(equalsIndex + "== ".length());
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
