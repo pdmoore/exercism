@@ -74,13 +74,12 @@ public class Alphametics {
                 Object[] keys = candidateSet.keySet().toArray();
                 candidateSet.put((Character) keys[depth], tryThisNumber);
 
-                if (depth < candidateSet.size()) {
-                    depth++;
-                    if (digForSolution(depth, numbersInPlay, candidateSet)) {
-                        return true;
-                    }
-                    depth--;
+                depth++;
+                if (digForSolution(depth, numbersInPlay, candidateSet)) {
+                    return true;
                 }
+                depth--;
+
                 numbersInPlay.remove((Integer) tryThisNumber);
                 tryThisNumber++;
             }
