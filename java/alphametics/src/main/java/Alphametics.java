@@ -38,13 +38,7 @@ public class Alphametics {
                 _uniqueCharSet) {
             candidateSet.put(c, UNASSIGNED);
         }
-
-        List<Integer> availableNumbers = new ArrayList<>();
-        for (int i = 0; i <= 9; i++) {
-            availableNumbers.add(i);
-        }
-
-        // These are the letters that need to be filled in
+        
         int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
         if (digForSolution(depth, numbersInPlay, candidateSet)) {
