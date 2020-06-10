@@ -3,6 +3,7 @@ import java.util.*;
 public class Alphametics {
 
     public static final int UNASSIGNED = -1;
+    public static final String EQUALS = "==";
     private final List<String> _addends;
     private final String _targetSum;
     private HashSet<Character> _uniqueCharSet;
@@ -23,7 +24,7 @@ public class Alphametics {
     }
 
     private List<String> getAddendsFrom(String expression) {
-        int equalsIndex = expression.indexOf("==");
+        int equalsIndex = expression.indexOf(EQUALS);
         String leftHand = expression.substring(0, equalsIndex - 1);
 
         ArrayList<String> addends = new ArrayList<String>();
@@ -37,8 +38,8 @@ public class Alphametics {
     }
 
     private String getSumFrom(String expression) {
-        int equalsIndex = expression.indexOf("==");
-        return expression.substring(equalsIndex + "== ".length());
+        int equalsIndex = expression.indexOf(EQUALS);
+        return expression.substring(equalsIndex + EQUALS.length() + 1);
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
