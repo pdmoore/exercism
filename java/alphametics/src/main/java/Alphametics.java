@@ -91,17 +91,17 @@ public class Alphametics {
         return currentSum == valueFor(_targetSum, candidateSet);
     }
 
-    private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidates) {
+    private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidateSet) {
         for (String addend :
                 _addends) {
             char initialChar = addend.charAt(0);
-            if (candidates.get(initialChar) == 0) {
+            if (candidateSet.get(initialChar) == 0) {
                 return true;
             }
         }
 
         char initialChar = _targetSum.charAt(0);
-        if (candidates.get(initialChar) == 0) {
+        if (candidateSet.get(initialChar) == 0) {
             return true;
         }
 
