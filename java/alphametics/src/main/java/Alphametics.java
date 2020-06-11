@@ -6,14 +6,17 @@ public class Alphametics {
     public static final String EQUALS = "==";
     private final List<String> _addends;
     private final String _targetSum;
-
-    //TODO only used to build the candidateSet starting point...could do that in ctor?
-    private HashSet<Character> _uniqueCharSet;
+    LinkedHashMap<Character, Integer> _candidateSet;
 
     public Alphametics(String expression) {
-        _uniqueCharSet = getUniqueCharactersFrom(expression);
         _addends = getAddendsFrom(expression);
         _targetSum = getSumFrom(expression);
+
+        _candidateSet = new LinkedHashMap<>();
+        for (Character c :
+                getUniqueCharactersFrom(expression)) {
+            _candidateSet.put(c, UNASSIGNED);
+        }
     }
 
     private HashSet<Character> getUniqueCharactersFrom(String expression) {
@@ -45,16 +48,10 @@ public class Alphametics {
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
-        LinkedHashMap<Character, Integer> candidateSet = new LinkedHashMap<>();
-        for (Character c :
-                _uniqueCharSet) {
-            candidateSet.put(c, UNASSIGNED);
-        }
-
         int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
-        if (digForSolution(depth, numbersInPlay, candidateSet)) {
-            return candidateSet;
+        if (digForSolution(depth, numbersInPlay, _candidateSet)) {
+            return _candidateSet;
         }
 
         throw new UnsolvablePuzzleException();
