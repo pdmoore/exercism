@@ -5,7 +5,6 @@ import java.util.stream.Stream;
 public class Alphametics {
 
     public static final int UNASSIGNED = -1;
-    public static final String EQUALS = "==";
     private final List<String> _addends;
     private final String _targetSum;
     LinkedHashMap<Character, Integer> _candidateSet;
