@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Alphametics {
 
@@ -7,18 +9,25 @@ public class Alphametics {
     private final List<String> _addends;
     private final String _targetSum;
     LinkedHashMap<Character, Integer> _candidateSet;
-    Object[] _keys;
+    Object[] _characters;
 
     public Alphametics(String expression) {
-        _addends = getAddendsFrom(expression);
-        _targetSum = getSumFrom(expression);
+        List<String> elements = elementsOf(expression);
+        _addends = elements.subList(0, elements.size() - 1);
+        _targetSum = elements.get(elements.size() - 1);
 
         _candidateSet = new LinkedHashMap<>();
         for (Character c :
                 getUniqueCharactersFrom(expression)) {
             _candidateSet.put(c, UNASSIGNED);
         }
-        _keys = _candidateSet.keySet().toArray();
+        _characters = _candidateSet.keySet().toArray();
+    }
+
+    private List<String> elementsOf(String expression) {
+        return Stream.of(expression.split("\\+|=="))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
     private HashSet<Character> getUniqueCharactersFrom(String expression) {
@@ -28,25 +37,6 @@ public class Alphametics {
             uniqueCharSet.add(justLetters.charAt(i));
         }
         return uniqueCharSet;
-    }
-
-    private List<String> getAddendsFrom(String expression) {
-        int equalsIndex = expression.indexOf(EQUALS);
-        String leftHand = expression.substring(0, equalsIndex - 1);
-
-        ArrayList<String> addends = new ArrayList<String>();
-        String[] split = leftHand.split("\\+");
-        for (String addend :
-                split) {
-            addends.add(addend.trim());
-        }
-
-        return addends;
-    }
-
-    private String getSumFrom(String expression) {
-        int equalsIndex = expression.indexOf(EQUALS);
-        return expression.substring(equalsIndex + EQUALS.length() + 1);
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
@@ -70,9 +60,7 @@ public class Alphametics {
                 tryThisNumber++;
             } else {
                 numbersInPlay.add(tryThisNumber);
-
-                //TODO - feels like this could be simpler
-                candidateSet.put((Character) _keys[depth], tryThisNumber);
+                candidateSet.put((Character) _characters[depth], tryThisNumber);
 
                 depth++;
                 if (digForSolution(depth, numbersInPlay, candidateSet)) {
