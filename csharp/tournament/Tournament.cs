@@ -14,6 +14,10 @@ public static class Tournament
         sw.Write("Team".PadRight(31, ' '));
         sw.Write(ColumnSeparator);
         sw.Write("MP".CenterTitle(4));
+        
+//TODO - get rid of passing the space in
+// Just do a padleft on the last column
+// Capture 4 as field width
         sw.Write(ColumnSeparator);
         sw.Write(" W".CenterTitle(4));
         sw.Write(ColumnSeparator);
