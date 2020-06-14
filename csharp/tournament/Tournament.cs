@@ -13,16 +13,15 @@ public static class Tournament
         // sw.Write("Team                           ");
         sw.Write("Team".PadRight(31, ' '));
         sw.Write(ColumnSeparator);
-        sw.Write("MP".CenterTitle(4));
+        sw.Write("MP".CenterTitle());
         
 //TODO - get rid of passing the space in
-// Capture 4 as field width
         sw.Write(ColumnSeparator);
-        sw.Write(" W".CenterTitle(4));
+        sw.Write(" W".CenterTitle());
         sw.Write(ColumnSeparator);
-        sw.Write(" D".CenterTitle(4));
+        sw.Write(" D".CenterTitle());
         sw.Write(ColumnSeparator);
-        sw.Write(" L".CenterTitle(4));
+        sw.Write(" L".CenterTitle());
         sw.Write(ColumnSeparator);
         sw.Write("P".PadLeft(3));
 
@@ -34,7 +33,7 @@ public static class Tournament
 
 public static class StringExtensions
 {
-    public static string CenterTitle(this string str, int totalWidth, char paddingChar = ' ')
+    public static string CenterTitle(this string str, int totalWidth = 4, char paddingChar = ' ')
     {
         int padding = totalWidth - str.Length;
         int padLeft = padding / 2 + str.Length;
