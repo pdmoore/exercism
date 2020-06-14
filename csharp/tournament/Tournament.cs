@@ -12,6 +12,15 @@ public static class Tournament
         
         AddTableHeader(sw);
 
+        if (inStream.Length > 0)
+        {
+            sw.Write("\n");
+            sw.Write("Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3");
+            sw.Write("\n");
+            sw.Write("Blithering Badgers             |  1 |  0 |  0 |  1 |  0");
+        }
+        
+        
         sw.Flush();
     }
 

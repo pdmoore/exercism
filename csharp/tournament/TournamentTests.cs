@@ -15,7 +15,7 @@ public class TournamentTests
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void A_win_is_three_points_a_loss_is_zero_points()
     {
         var rows = "Allegoric Alaskans;Blithering Badgers;win";
