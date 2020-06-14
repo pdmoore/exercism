@@ -25,16 +25,20 @@ public static class Tournament
             // BB loss
             // "Allegoric Alaskans;Blithering Badgers;win";
             var lineElements = line.Split(";");
-            string team1 = lineElements[0];
-            string team2 = lineElements[1];
+            var teamStat1 = new TeamStatistic();
+            teamStat1.name = lineElements[0];
+            var teamStat2 = new TeamStatistic();
+            teamStat2.name = lineElements[1];
 
 
             // TODO - this will loop over all teams & stats
+            // Track stats and calculate a score based on stats
+            // maybe ask the teamStatistic to print itself?
             sw.Write("\n");
-            sw.Write(team1.PadRight(TeamNameWidth));
+            sw.Write(teamStat1.name.PadRight(TeamNameWidth));
             sw.Write("|  1 |  1 |  0 |  0 |  3");
             sw.Write("\n");
-            sw.Write(team2.PadRight(TeamNameWidth));
+            sw.Write(teamStat2.name.PadRight(TeamNameWidth));
             sw.Write("|  1 |  0 |  0 |  1 |  0");
         }
 
@@ -56,6 +60,15 @@ public static class Tournament
         sw.Write(ColumnSeparator);
         sw.Write("P".PadLeft(3));
     }
+}
+
+internal class TeamStatistic
+{
+    public string name;
+    public int matchesPlayed;
+    public int wins;
+    public int losses;
+    public int draws;
 }
 
 public static class StringExtensions
