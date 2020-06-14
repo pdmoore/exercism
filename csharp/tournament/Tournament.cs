@@ -16,7 +16,6 @@ public static class Tournament
         sw.Write("MP".CenterTitle(4));
         
 //TODO - get rid of passing the space in
-// Just do a padleft on the last column
 // Capture 4 as field width
         sw.Write(ColumnSeparator);
         sw.Write(" W".CenterTitle(4));
@@ -25,7 +24,7 @@ public static class Tournament
         sw.Write(ColumnSeparator);
         sw.Write(" L".CenterTitle(4));
         sw.Write(ColumnSeparator);
-        sw.Write("  P");
+        sw.Write("P".PadLeft(3));
 
         sw.Flush();
     }
