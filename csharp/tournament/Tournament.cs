@@ -14,7 +14,14 @@ public static class Tournament
         sw.Write("Team".PadRight(31, ' '));
         sw.Write(ColumnSeparator);
         sw.Write("MP".CenterTitle(4));
-        sw.Write("|  W |  D |  L |  P");
+        sw.Write(ColumnSeparator);
+        sw.Write(" W".CenterTitle(4));
+        sw.Write(ColumnSeparator);
+        sw.Write(" D".CenterTitle(4));
+        sw.Write(ColumnSeparator);
+        sw.Write(" L".CenterTitle(4));
+        sw.Write(ColumnSeparator);
+        sw.Write("  P");
 
         sw.Flush();
     }
