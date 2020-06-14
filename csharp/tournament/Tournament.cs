@@ -8,13 +8,17 @@ public static class Tournament
 
     public static void Tally(Stream inStream, Stream outStream)
     {
-        //TODO - split the header into it's own thing, format to ensure spacing is correct    
         StreamWriter sw = new StreamWriter(outStream);
-        // sw.Write("Team                           ");
+        
+        AddTableHeader(sw);
+
+        sw.Flush();
+    }
+
+    private static void AddTableHeader(StreamWriter sw) {
         sw.Write("Team".PadRight(31, ' '));
         sw.Write(ColumnSeparator);
         sw.Write("MP".CenterTitle());
-        
         sw.Write(ColumnSeparator);
         sw.Write("W".CenterTitle());
         sw.Write(ColumnSeparator);
@@ -23,11 +27,7 @@ public static class Tournament
         sw.Write("L".CenterTitle());
         sw.Write(ColumnSeparator);
         sw.Write("P".PadLeft(3));
-
-        sw.Flush();
     }
-
-
 }
 
 public static class StringExtensions
