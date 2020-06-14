@@ -7,7 +7,9 @@ public static class Tournament
     {
         //TODO - split the header into it's own thing, format to ensure spacing is correct    
         StreamWriter sw = new StreamWriter(outStream);
-        sw.Write("Team                           | MP |  W |  D |  L |  P");
+        sw.Write("Team                           ");
+        sw.Write("| MP |  W |  D |  L |  P");
+        
         sw.Flush();
     }
 }
