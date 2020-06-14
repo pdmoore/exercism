@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 
 public static class Tournament
 {
+    private static readonly int TeamNameWidth = 31;
     private const string ColumnSeparator = "|";
 
     public static void Tally(Stream inStream, Stream outStream)
@@ -12,8 +13,23 @@ public static class Tournament
         
         AddTableHeader(sw);
 
+        // TODO likely move all of this above line 11 and create the list of teams/wins/losses/draws
         if (inStream.Length > 0)
         {
+            
+            StreamReader sr = new StreamReader(inStream);
+            
+            //TODO loop over this while sr has something in it
+            var line = sr.ReadLine();
+
+            // AA win
+            // BB loss
+            // "Allegoric Alaskans;Blithering Badgers;win";
+            var lineElements = line.Split(";");
+            string team1 = lineElements[0];
+            string team2 = lineElements[1];
+
+
             sw.Write("\n");
             sw.Write("Allegoric Alaskans             |  1 |  1 |  0 |  0 |  3");
             sw.Write("\n");
@@ -25,7 +41,7 @@ public static class Tournament
     }
 
     private static void AddTableHeader(StreamWriter sw) {
-        sw.Write("Team".PadRight(31, ' '));
+        sw.Write("Team".PadRight(TeamNameWidth, ' '));
         sw.Write(ColumnSeparator);
         sw.Write("MP".CenterTitle());
         sw.Write(ColumnSeparator);
