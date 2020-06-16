@@ -41,7 +41,6 @@ public static class Tournament
             sw.Write(teamStat2.ToString());
         }
 
-
         sw.Flush();
     }
 
@@ -64,44 +63,42 @@ public static class Tournament
 internal class TeamStatistic
 {
     public string Name;
-    private int MatchesPlayed;
-    public int Wins;
-    public int Losses;
-    public int Draws;
+    private int _matchesPlayed;
+    private int _wins;
+    private int _losses;
+    private int _draws;
 
     public override string ToString()
     {
+        //TODO - consts don't carry over from other class
         string result = "";
         result += Name.PadRight(31);
         result += "|";
-        result += MatchesPlayed.ToString().CenterTitle();
+        result += _matchesPlayed.ToString().CenterTitle();
         result += "|";
-        result += Wins.ToString().CenterTitle();
+        result += _wins.ToString().CenterTitle();
         result += "|";
-        result += Draws.ToString().CenterTitle();
+        result += _draws.ToString().CenterTitle();
         result += "|";
-        result += Losses.ToString().CenterTitle();
+        result += _losses.ToString().CenterTitle();
         result += "|";
         result += Score().ToString().PadLeft(3);
         return result;
     }
 
-    private int Score()
-    {
-        return (3 * Wins) + Draws;
-    }
+    private int Score() => (3 * _wins) + _draws;
 
 
     public void AddWin()
     {
-        MatchesPlayed++;
-        Wins++;
+        _matchesPlayed++;
+        _wins++;
     }
 
     public void AddLoss()
     {
-        MatchesPlayed++;
-        Losses++;
+        _matchesPlayed++;
+        _losses++;
     }
 }
 
