@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Xml.Schema;
 
 public static class Tournament
 {
@@ -81,10 +82,16 @@ internal class TeamStatistic
         result += Draws.ToString().CenterTitle();
         result += "|";
         result += Losses.ToString().CenterTitle();
-
-        result += "|  3";
+        result += "|";
+        result += Score().ToString().PadLeft(3);
         return result;
     }
+
+    private int Score()
+    {
+        return (3 * Wins) + Draws;
+    }
+
 
     public void AddWin()
     {
