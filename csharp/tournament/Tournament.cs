@@ -75,8 +75,10 @@ internal class TeamStatistic
         result += Name.PadRight(31);
         result += "|";
         result += MatchesPlayed.ToString().CenterTitle();
+        result += "|";
+        result += Wins.ToString().CenterTitle();
 
-        result += "|  1 |  0 |  0 |  3";
+        result += "|  0 |  0 |  3";
         return result;
     }
 
