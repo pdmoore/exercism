@@ -26,7 +26,9 @@ public static class Tournament
             // "Allegoric Alaskans;Blithering Badgers;win";
             var lineElements = line.Split(";");
             var teamStat1 = new TeamStatistic {name = lineElements[0]};
+            teamStat1.wins += 1;
             var teamStat2 = new TeamStatistic {name = lineElements[1]};
+            teamStat2.losses += 1;
 
 
             // TODO - this will loop over all teams & stats
