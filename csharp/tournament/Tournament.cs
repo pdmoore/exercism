@@ -29,7 +29,7 @@ public static class Tournament
             var teamStat1 = new TeamStatistic {Name = lineElements[0]};
             teamStat1.AddWin();
             var teamStat2 = new TeamStatistic {Name = lineElements[1]};
-            teamStat2.Losses += 1;
+            teamStat2.AddLoss();
 
 
             // TODO - this will loop over all teams & stats
@@ -38,8 +38,7 @@ public static class Tournament
             sw.Write("\n");
             sw.Write(teamStat1.ToString());
             sw.Write("\n");
-            sw.Write(teamStat2.Name.PadRight(TeamNameWidth));
-            sw.Write("|  1 |  0 |  0 |  1 |  0");
+            sw.Write(teamStat2.ToString());
         }
 
 
@@ -97,6 +96,12 @@ internal class TeamStatistic
     {
         MatchesPlayed++;
         Wins++;
+    }
+
+    public void AddLoss()
+    {
+        MatchesPlayed++;
+        Losses++;
     }
 }
 
