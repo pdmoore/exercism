@@ -35,8 +35,7 @@ public static class Tournament
             // Track stats and calculate a score based on stats
             // maybe ask the teamStatistic to print itself?
             sw.Write("\n");
-            sw.Write(teamStat1.Name.PadRight(TeamNameWidth));
-            sw.Write("|  1 |  1 |  0 |  0 |  3");
+            sw.Write(teamStat1.ToString());
             sw.Write("\n");
             sw.Write(teamStat2.Name.PadRight(TeamNameWidth));
             sw.Write("|  1 |  0 |  0 |  1 |  0");
@@ -69,6 +68,14 @@ internal class TeamStatistic
     public int Wins;
     public int Losses;
     public int Draws;
+
+    public override string ToString()
+    {
+        string result = "";
+        result += Name.PadRight(31);
+        result += "|  1 |  1 |  0 |  0 |  3";
+        return result;
+    }
 }
 
 public static class StringExtensions
