@@ -26,7 +26,7 @@ public static class Tournament
             // "Allegoric Alaskans;Blithering Badgers;win";
             var lineElements = line.Split(";");
             var teamStat1 = new TeamStatistic {Name = lineElements[0]};
-            teamStat1.Wins += 1;
+            teamStat1.AddWin();
             var teamStat2 = new TeamStatistic {Name = lineElements[1]};
             teamStat2.Losses += 1;
 
@@ -64,7 +64,7 @@ public static class Tournament
 internal class TeamStatistic
 {
     public string Name;
-    public int MatchesPlayed;
+    private int MatchesPlayed;
     public int Wins;
     public int Losses;
     public int Draws;
@@ -73,8 +73,17 @@ internal class TeamStatistic
     {
         string result = "";
         result += Name.PadRight(31);
-        result += "|  1 |  1 |  0 |  0 |  3";
+        result += "|";
+        result += MatchesPlayed.ToString().CenterTitle();
+
+        result += "|  1 |  0 |  0 |  3";
         return result;
+    }
+
+    public void AddWin()
+    {
+        MatchesPlayed++;
+        Wins++;
     }
 }
 
