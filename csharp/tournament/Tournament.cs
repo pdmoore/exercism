@@ -25,10 +25,8 @@ public static class Tournament
             // BB loss
             // "Allegoric Alaskans;Blithering Badgers;win";
             var lineElements = line.Split(";");
-            var teamStat1 = new TeamStatistic();
-            teamStat1.name = lineElements[0];
-            var teamStat2 = new TeamStatistic();
-            teamStat2.name = lineElements[1];
+            var teamStat1 = new TeamStatistic {name = lineElements[0]};
+            var teamStat2 = new TeamStatistic {name = lineElements[1]};
 
 
             // TODO - this will loop over all teams & stats
