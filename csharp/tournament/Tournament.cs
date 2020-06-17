@@ -22,41 +22,37 @@ public static class Tournament
             //TODO loop over this while sr has something in it
             var line = sr.ReadLine();
 
-            // AA win
-            // BB loss
-            // "Allegoric Alaskans;Blithering Badgers;win";
-            // TODO not paying attention to the last element!?!?
             var lineElements = line.Split(";");
             var teamStat1 = new TeamStatistic {Name = lineElements[0]};
             var teamStat2 = new TeamStatistic {Name = lineElements[1]};
-            if (lineElements[2] == "win")
-            {
-                teamStat1.AddWin();
-                teamStat2.AddLoss();
+            switch (lineElements[2]) {
+                case "win":
+                    teamStat1.AddWin();
+                    teamStat2.AddLoss();
                 
-                sw.Write("\n");
-                sw.Write(teamStat1.ToString());
-                sw.Write("\n");
-                sw.Write(teamStat2.ToString());
-            }
-            else if (lineElements[2] == "loss")
-            {
-                teamStat1.AddLoss();
-                teamStat2.AddWin();
+                    sw.Write("\n");
+                    sw.Write(teamStat1.ToString());
+                    sw.Write("\n");
+                    sw.Write(teamStat2.ToString());
+                    break;
+                case "loss":
+                    teamStat1.AddLoss();
+                    teamStat2.AddWin();
 
-                sw.Write("\n");
-                sw.Write(teamStat2.ToString());
-                sw.Write("\n");
-                sw.Write(teamStat1.ToString());
-            } else
-            {
-                teamStat1.AddDraw();
-                teamStat2.AddDraw();
+                    sw.Write("\n");
+                    sw.Write(teamStat2.ToString());
+                    sw.Write("\n");
+                    sw.Write(teamStat1.ToString());
+                    break;
+                default:
+                    teamStat1.AddDraw();
+                    teamStat2.AddDraw();
 
-                sw.Write("\n");
-                sw.Write(teamStat1.ToString());
-                sw.Write("\n");
-                sw.Write(teamStat2.ToString());
+                    sw.Write("\n");
+                    sw.Write(teamStat1.ToString());
+                    sw.Write("\n");
+                    sw.Write(teamStat2.ToString());
+                    break;
             }
 
 
