@@ -39,7 +39,7 @@ public static class Tournament
                 sw.Write("\n");
                 sw.Write(teamStat2.ToString());
             }
-            else // TODO assuming not a win is a loss, need to check for draw/loss
+            else if (lineElements[2] == "loss")
             {
                 teamStat1.AddLoss();
                 teamStat2.AddWin();
@@ -48,6 +48,15 @@ public static class Tournament
                 sw.Write(teamStat2.ToString());
                 sw.Write("\n");
                 sw.Write(teamStat1.ToString());
+            } else
+            {
+                teamStat1.AddDraw();
+                teamStat2.AddDraw();
+
+                sw.Write("\n");
+                sw.Write(teamStat1.ToString());
+                sw.Write("\n");
+                sw.Write(teamStat2.ToString());
             }
 
 
@@ -116,6 +125,12 @@ internal class TeamStatistic
     {
         _matchesPlayed++;
         _losses++;
+    }
+
+    public void AddDraw()
+    {
+        _draws++;
+        _matchesPlayed++;
     }
 }
 
