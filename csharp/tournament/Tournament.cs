@@ -28,18 +28,34 @@ public static class Tournament
             // TODO not paying attention to the last element!?!?
             var lineElements = line.Split(";");
             var teamStat1 = new TeamStatistic {Name = lineElements[0]};
-            teamStat1.AddWin();
             var teamStat2 = new TeamStatistic {Name = lineElements[1]};
-            teamStat2.AddLoss();
+            if (lineElements[2] == "win")
+            {
+                teamStat1.AddWin();
+                teamStat2.AddLoss();
+                
+                sw.Write("\n");
+                sw.Write(teamStat1.ToString());
+                sw.Write("\n");
+                sw.Write(teamStat2.ToString());
+            }
+            else // TODO assuming not a win is a loss, need to check for draw/loss
+            {
+                teamStat1.AddLoss();
+                teamStat2.AddWin();
+
+                sw.Write("\n");
+                sw.Write(teamStat2.ToString());
+                sw.Write("\n");
+                sw.Write(teamStat1.ToString());
+            }
 
 
             // TODO - this will loop over all teams & stats
+            // alphabetical team name order?
             // Track stats and calculate a score based on stats
             // maybe ask the teamStatistic to print itself?
-            sw.Write("\n");
-            sw.Write(teamStat1.ToString());
-            sw.Write("\n");
-            sw.Write(teamStat2.ToString());
+            
         }
 
         sw.Flush();
