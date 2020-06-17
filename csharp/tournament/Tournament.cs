@@ -25,6 +25,7 @@ public static class Tournament
             // AA win
             // BB loss
             // "Allegoric Alaskans;Blithering Badgers;win";
+            // TODO not paying attention to the last element!?!?
             var lineElements = line.Split(";");
             var teamStat1 = new TeamStatistic {Name = lineElements[0]};
             teamStat1.AddWin();
