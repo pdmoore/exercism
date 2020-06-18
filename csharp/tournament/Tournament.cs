@@ -18,25 +18,13 @@ public static class Tournament
 
         Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
 
-        // TODO likely move all of this above line 11 and create the list of teams/wins/losses/draws
         if (inStream.Length > 0)
         {
             StreamReader sr = new StreamReader(inStream);
 
-            //TODO loop over this while sr has something in it
-
-            // var lineElements = line.Split(";");
-            // TeamStatistic teamStat1 = teamStatistics.ContainsKey(lineElements[0]) ? teamStatistics[lineElements[0]] : new TeamStatistic {Name = lineElements[0]};
-            // TeamStatistic teamStat2 = teamStatistics.ContainsKey(lineElements[1]) ? teamStatistics[lineElements[1]] : new TeamStatistic {Name = lineElements[1]};
-            // string? line;
-            // while (sr.ReadLine() != null)
-            // {
-            //     
-            // }
-
             var line = sr.ReadLine();
 
-            // TODO grab existing if it is in dictionary already
+            // TODO - lots of code for 'grab existing or create new'
             var lineElements = line.Split(";");
             TeamStatistic teamStat1;
             TeamStatistic teamStat2;
@@ -59,8 +47,7 @@ public static class Tournament
                 teamStat2 = new TeamStatistic {Name = lineElements[1]};
                 teamStatistics.Add(teamStat2.Name, teamStat2);
             }
-
-
+            
             switch (lineElements[2])
             {
                 case "win":
