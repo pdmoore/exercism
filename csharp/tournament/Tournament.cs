@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Schema;
 
@@ -15,14 +16,15 @@ public static class Tournament
 
         AddTableHeader(sw);
 
+        Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
+
         // TODO likely move all of this above line 11 and create the list of teams/wins/losses/draws
         if (inStream.Length > 0)
         {
             StreamReader sr = new StreamReader(inStream);
 
             //TODO loop over this while sr has something in it
-            
-            Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
+
             // var lineElements = line.Split(";");
             // TeamStatistic teamStat1 = teamStatistics.ContainsKey(lineElements[0]) ? teamStatistics[lineElements[0]] : new TeamStatistic {Name = lineElements[0]};
             // TeamStatistic teamStat2 = teamStatistics.ContainsKey(lineElements[1]) ? teamStatistics[lineElements[1]] : new TeamStatistic {Name = lineElements[1]};
@@ -31,58 +33,56 @@ public static class Tournament
             // {
             //     
             // }
-            
+
             var line = sr.ReadLine();
 
             // TODO grab existing if it is in dictionary already
             var lineElements = line.Split(";");
-            TeamStatistic teamStat1 = teamStatistics.ContainsKey(lineElements[0]) ? teamStatistics[lineElements[0]] : new TeamStatistic {Name = lineElements[0]};
-            TeamStatistic teamStat2 = teamStatistics.ContainsKey(lineElements[1]) ? teamStatistics[lineElements[1]] : new TeamStatistic {Name = lineElements[1]};
-            
-            
-            switch (lineElements[2]) {
+            TeamStatistic teamStat1;
+            TeamStatistic teamStat2;
+            if (teamStatistics.ContainsKey(lineElements[0]))
+            {
+                teamStat1 = teamStatistics[lineElements[0]];
+            }
+            else
+            {
+                teamStat1 = new TeamStatistic {Name = lineElements[0]};
+                teamStatistics.Add(teamStat1.Name, teamStat1);
+            }
+
+            if (teamStatistics.ContainsKey(lineElements[1]))
+            {
+                teamStat2 = teamStatistics[lineElements[1]];
+            }
+            else
+            {
+                teamStat2 = new TeamStatistic {Name = lineElements[1]};
+                teamStatistics.Add(teamStat2.Name, teamStat2);
+            }
+
+
+            switch (lineElements[2])
+            {
                 case "win":
                     teamStat1.AddWin();
                     teamStat2.AddLoss();
-                
-                    sw.Write("\n");
-                    sw.Write(teamStat1.ToString());
-                    sw.Write("\n");
-                    sw.Write(teamStat2.ToString());
                     break;
                 case "loss":
                     teamStat1.AddLoss();
                     teamStat2.AddWin();
-
-                    sw.Write("\n");
-                    sw.Write(teamStat2.ToString());
-                    sw.Write("\n");
-                    sw.Write(teamStat1.ToString());
                     break;
                 default:
                     teamStat1.AddDraw();
                     teamStat2.AddDraw();
-
-                    sw.Write("\n");
-                    sw.Write(teamStat1.ToString());
-                    sw.Write("\n");
-                    sw.Write(teamStat2.ToString());
                     break;
             }
+        }
 
 
-            // TODO - this will loop over all teams & stats
-            // sorted by wins, then alpha by team name if same num wins
-            // alphabetical team name order?
-            
-            // Track stats and calculate a score based on stats
-            // maybe ask the teamStatistic to print itself?
-            // sw.Write("\n");
-            // sw.Write(teamStat1.ToString());
-            // sw.Write("\n");
-            // sw.Write(teamStat2.ToString());
-
-            
+        foreach (KeyValuePair<string, TeamStatistic> entry in teamStatistics.OrderByDescending(i => i.Value._wins))
+        {
+            sw.Write("\n");
+            sw.Write(entry.Value.ToString());
         }
 
         sw.Flush();
@@ -108,7 +108,7 @@ internal class TeamStatistic
 {
     public string Name;
     private int _matchesPlayed;
-    private int _wins;
+    public int _wins;
     private int _losses;
     private int _draws;
 
