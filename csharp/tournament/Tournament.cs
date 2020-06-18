@@ -20,6 +20,17 @@ public static class Tournament
             StreamReader sr = new StreamReader(inStream);
 
             //TODO loop over this while sr has something in it
+            
+            // Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
+            // var lineElements = line.Split(";");
+            // TeamStatistic teamStat1 = teamStatistics.ContainsKey(lineElements[0]) ? teamStatistics[lineElements[0]] : new TeamStatistic {Name = lineElements[0]};
+            // TeamStatistic teamStat2 = teamStatistics.ContainsKey(lineElements[1]) ? teamStatistics[lineElements[1]] : new TeamStatistic {Name = lineElements[1]};
+            // string? line;
+            // while (sr.ReadLine() != null)
+            // {
+            //     
+            // }
+            
             var line = sr.ReadLine();
 
             var lineElements = line.Split(";");
