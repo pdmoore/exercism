@@ -34,12 +34,10 @@ public static class Tournament
             
             var line = sr.ReadLine();
 
+            // TODO grab existing if it is in dictionary already
             var lineElements = line.Split(";");
-            var teamStat1 = new TeamStatistic {Name = lineElements[0]};
-            teamStatistics.Add(teamStat1.Name, teamStat1);
-            
-            var teamStat2 = new TeamStatistic {Name = lineElements[1]};
-            teamStatistics.Add(teamStat2.Name, teamStat2);
+            TeamStatistic teamStat1 = teamStatistics.ContainsKey(lineElements[0]) ? teamStatistics[lineElements[0]] : new TeamStatistic {Name = lineElements[0]};
+            TeamStatistic teamStat2 = teamStatistics.ContainsKey(lineElements[1]) ? teamStatistics[lineElements[1]] : new TeamStatistic {Name = lineElements[1]};
             
             
             switch (lineElements[2]) {
@@ -74,7 +72,9 @@ public static class Tournament
 
 
             // TODO - this will loop over all teams & stats
+            // sorted by wins, then alpha by team name if same num wins
             // alphabetical team name order?
+            
             // Track stats and calculate a score based on stats
             // maybe ask the teamStatistic to print itself?
             // sw.Write("\n");
