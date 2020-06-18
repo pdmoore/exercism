@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Xml.Schema;
 
 public static class Tournament
 {
@@ -66,7 +63,7 @@ public static class Tournament
         }
 
 
-        foreach (KeyValuePair<string, TeamStatistic> entry in teamStatistics.OrderByDescending(i => i.Value._wins))
+        foreach (KeyValuePair<string, TeamStatistic> entry in teamStatistics.OrderByDescending(i => i.Value.Wins))
         {
             sw.Write("\n");
             sw.Write(entry.Value.ToString());
@@ -95,7 +92,7 @@ internal class TeamStatistic
 {
     public string Name;
     private int _matchesPlayed;
-    public int _wins;
+    public int Wins;
     private int _losses;
     private int _draws;
 
@@ -107,7 +104,7 @@ internal class TeamStatistic
         result += "|";
         result += _matchesPlayed.ToString().CenterTitle();
         result += "|";
-        result += _wins.ToString().CenterTitle();
+        result += Wins.ToString().CenterTitle();
         result += "|";
         result += _draws.ToString().CenterTitle();
         result += "|";
@@ -117,13 +114,13 @@ internal class TeamStatistic
         return result;
     }
 
-    private int Score() => (3 * _wins) + _draws;
+    private int Score() => (3 * Wins) + _draws;
 
 
     public void AddWin()
     {
         _matchesPlayed++;
-        _wins++;
+        Wins++;
     }
 
     public void AddLoss()
