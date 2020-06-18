@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Xml.Schema;
@@ -21,7 +22,7 @@ public static class Tournament
 
             //TODO loop over this while sr has something in it
             
-            // Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
+            Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
             // var lineElements = line.Split(";");
             // TeamStatistic teamStat1 = teamStatistics.ContainsKey(lineElements[0]) ? teamStatistics[lineElements[0]] : new TeamStatistic {Name = lineElements[0]};
             // TeamStatistic teamStat2 = teamStatistics.ContainsKey(lineElements[1]) ? teamStatistics[lineElements[1]] : new TeamStatistic {Name = lineElements[1]};
@@ -35,7 +36,12 @@ public static class Tournament
 
             var lineElements = line.Split(";");
             var teamStat1 = new TeamStatistic {Name = lineElements[0]};
+            teamStatistics.Add(teamStat1.Name, teamStat1);
+            
             var teamStat2 = new TeamStatistic {Name = lineElements[1]};
+            teamStatistics.Add(teamStat2.Name, teamStat2);
+            
+            
             switch (lineElements[2]) {
                 case "win":
                     teamStat1.AddWin();
@@ -71,6 +77,11 @@ public static class Tournament
             // alphabetical team name order?
             // Track stats and calculate a score based on stats
             // maybe ask the teamStatistic to print itself?
+            // sw.Write("\n");
+            // sw.Write(teamStat1.ToString());
+            // sw.Write("\n");
+            // sw.Write(teamStat2.ToString());
+
             
         }
 
