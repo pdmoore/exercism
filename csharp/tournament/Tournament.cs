@@ -18,47 +18,48 @@ public static class Tournament
         if (inStream.Length > 0)
         {
             StreamReader sr = new StreamReader(inStream);
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                // TODO - lots of code for 'grab existing or create new'
+                var lineElements = line.Split(";");
+                TeamStatistic teamStat1;
+                TeamStatistic teamStat2;
+                if (teamStatistics.ContainsKey(lineElements[0]))
+                {
+                    teamStat1 = teamStatistics[lineElements[0]];
+                }
+                else
+                {
+                    teamStat1 = new TeamStatistic {Name = lineElements[0]};
+                    teamStatistics.Add(teamStat1.Name, teamStat1);
+                }
 
-            var line = sr.ReadLine();
+                if (teamStatistics.ContainsKey(lineElements[1]))
+                {
+                    teamStat2 = teamStatistics[lineElements[1]];
+                }
+                else
+                {
+                    teamStat2 = new TeamStatistic {Name = lineElements[1]};
+                    teamStatistics.Add(teamStat2.Name, teamStat2);
+                }
 
-            // TODO - lots of code for 'grab existing or create new'
-            var lineElements = line.Split(";");
-            TeamStatistic teamStat1;
-            TeamStatistic teamStat2;
-            if (teamStatistics.ContainsKey(lineElements[0]))
-            {
-                teamStat1 = teamStatistics[lineElements[0]];
-            }
-            else
-            {
-                teamStat1 = new TeamStatistic {Name = lineElements[0]};
-                teamStatistics.Add(teamStat1.Name, teamStat1);
-            }
-
-            if (teamStatistics.ContainsKey(lineElements[1]))
-            {
-                teamStat2 = teamStatistics[lineElements[1]];
-            }
-            else
-            {
-                teamStat2 = new TeamStatistic {Name = lineElements[1]};
-                teamStatistics.Add(teamStat2.Name, teamStat2);
-            }
-            
-            switch (lineElements[2])
-            {
-                case "win":
-                    teamStat1.AddWin();
-                    teamStat2.AddLoss();
-                    break;
-                case "loss":
-                    teamStat1.AddLoss();
-                    teamStat2.AddWin();
-                    break;
-                default:
-                    teamStat1.AddDraw();
-                    teamStat2.AddDraw();
-                    break;
+                switch (lineElements[2])
+                {
+                    case "win":
+                        teamStat1.AddWin();
+                        teamStat2.AddLoss();
+                        break;
+                    case "loss":
+                        teamStat1.AddLoss();
+                        teamStat2.AddWin();
+                        break;
+                    default:
+                        teamStat1.AddDraw();
+                        teamStat2.AddDraw();
+                        break;
+                }
             }
         }
 
