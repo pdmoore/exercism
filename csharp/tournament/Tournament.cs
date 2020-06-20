@@ -6,6 +6,11 @@ public static class Tournament
 {
     private static readonly int TeamNameWidth = 31;
     private const string ColumnSeparator = "|";
+    private const string TitleMatchesPlayed = "MP";
+    private const string TitleWins = "W";
+    private const string TitleDraws = "D";
+    private const string TitleLosses = "L";
+    private const string TitlePoints = "P";
 
     public static void Tally(Stream inStream, Stream outStream)
     {
@@ -77,15 +82,15 @@ public static class Tournament
     {
         sw.Write("Team".PadRight(TeamNameWidth, ' '));
         sw.Write(ColumnSeparator);
-        sw.Write("MP".CenterTitle());
+        sw.Write(TitleMatchesPlayed.CenterTitle());
         sw.Write(ColumnSeparator);
-        sw.Write("W".CenterTitle());
+        sw.Write(TitleWins.CenterTitle());
         sw.Write(ColumnSeparator);
-        sw.Write("D".CenterTitle());
+        sw.Write(TitleDraws.CenterTitle());
         sw.Write(ColumnSeparator);
-        sw.Write("L".CenterTitle());
+        sw.Write(TitleLosses.CenterTitle());
         sw.Write(ColumnSeparator);
-        sw.Write("P".PadLeft(3));
+        sw.Write(TitlePoints.PadLeft(3));
     }
 }
 
