@@ -67,11 +67,8 @@ public static class Tournament
                 }
             }
         }
-
-
-        foreach (KeyValuePair<string, TeamStatistic> entry in teamStatistics
-            .OrderByDescending(i => i.Value.Wins)
-            .ThenBy(i=> i.Value.Name))
+        
+        foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics))
         {
             sw.Write("\n");
             sw.Write(entry.Value.ToString());
@@ -79,6 +76,11 @@ public static class Tournament
 
         sw.Flush();
     }
+
+    private static IOrderedEnumerable<KeyValuePair<string, TeamStatistic>> StatsByWinsThenNames(Dictionary<string, TeamStatistic> teamStatistics) =>
+        teamStatistics
+            .OrderByDescending(i => i.Value.Wins)
+            .ThenBy(i=> i.Value.Name);
 
     private static void AddTableHeader(StreamWriter sw)
     {
