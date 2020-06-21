@@ -85,7 +85,7 @@ public class TournamentTests
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void There_can_be_more_than_two_teams()
     {
         var rows = 
