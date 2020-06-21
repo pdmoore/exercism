@@ -4,7 +4,7 @@ using System.Linq;
 
 public static class Tournament
 {
-    private static readonly int TeamNameWidth = 31;
+    private const int TeamNameWidth = 31;
     private const string ColumnSeparator = "|";
     private const string TitleMatchesPlayed = "MP";
     private const string TitleWins = "W";
