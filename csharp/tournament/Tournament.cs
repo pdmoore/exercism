@@ -26,21 +26,10 @@ public static class Tournament
             string line;
             while ((line = sr.ReadLine()) != null)
             {
-                // TODO - lots of code for 'grab existing or create new'
                 var lineElements = line.Split(";");
                 var teamStat1 = GetTeamStatisticFor(teamStatistics, lineElements[0]);
-
-                TeamStatistic teamStat2;
-                if (teamStatistics.ContainsKey(lineElements[1]))
-                {
-                    teamStat2 = teamStatistics[lineElements[1]];
-                }
-                else
-                {
-                    teamStat2 = new TeamStatistic {Name = lineElements[1]};
-                    teamStatistics.Add(teamStat2.Name, teamStat2);
-                }
-
+                var teamStat2 = GetTeamStatisticFor(teamStatistics, lineElements[1]);
+                
                 switch (lineElements[2])
                 {
                     case "win":
