@@ -14,9 +14,6 @@ public static class Tournament
 
     public static void Tally(Stream inStream, Stream outStream)
     {
-        StreamWriter sw = new StreamWriter(outStream);
-
-        AddTableHeader(sw);
 
         Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
 
@@ -48,12 +45,13 @@ public static class Tournament
             }
         }
         
+        StreamWriter sw = new StreamWriter(outStream);
+        AddTableHeader(sw);
         foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics))
         {
             sw.Write("\n");
             sw.Write(entry.Value.ToString());
         }
-
         sw.Flush();
     }
 
