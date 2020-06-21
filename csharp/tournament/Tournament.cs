@@ -28,18 +28,9 @@ public static class Tournament
             {
                 // TODO - lots of code for 'grab existing or create new'
                 var lineElements = line.Split(";");
-                TeamStatistic teamStat1;
-                TeamStatistic teamStat2;
-                if (teamStatistics.ContainsKey(lineElements[0]))
-                {
-                    teamStat1 = teamStatistics[lineElements[0]];
-                }
-                else
-                {
-                    teamStat1 = new TeamStatistic {Name = lineElements[0]};
-                    teamStatistics.Add(teamStat1.Name, teamStat1);
-                }
+                var teamStat1 = GetTeamStatisticFor(teamStatistics, lineElements[0]);
 
+                TeamStatistic teamStat2;
                 if (teamStatistics.ContainsKey(lineElements[1]))
                 {
                     teamStat2 = teamStatistics[lineElements[1]];
@@ -75,6 +66,19 @@ public static class Tournament
         }
 
         sw.Flush();
+    }
+
+    private static TeamStatistic GetTeamStatisticFor(Dictionary<string, TeamStatistic> teamStatistics, string teamName) {
+        TeamStatistic teamStat1;
+        if (teamStatistics.ContainsKey(teamName)) {
+            teamStat1 = teamStatistics[teamName];
+        }
+        else {
+            teamStat1 = new TeamStatistic {Name = teamName};
+            teamStatistics.Add(teamStat1.Name, teamStat1);
+        }
+
+        return teamStat1;
     }
 
     private static IOrderedEnumerable<KeyValuePair<string, TeamStatistic>> StatsByWinsThenNames(Dictionary<string, TeamStatistic> teamStatistics) =>
