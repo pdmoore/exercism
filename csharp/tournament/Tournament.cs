@@ -16,28 +16,31 @@ public static class Tournament
 
     private static Dictionary<string, TeamStatistic> TallyStatistics(Stream inStream) {
         Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
-        if (inStream.Length > 0) {
-            StreamReader sr = new StreamReader(inStream);
-            string line;
-            while ((line = sr.ReadLine()) != null) {
-                var lineElements = line.Split(";");
-                var teamStat1 = GetTeamStatisticFor(teamStatistics, lineElements[0]);
-                var teamStat2 = GetTeamStatisticFor(teamStatistics, lineElements[1]);
+        if (inStream.Length <= 0)
+        {
+            return teamStatistics;
+        }
 
-                switch (lineElements[2]) {
-                    case "win":
-                        teamStat1.AddWin();
-                        teamStat2.AddLoss();
-                        break;
-                    case "loss":
-                        teamStat1.AddLoss();
-                        teamStat2.AddWin();
-                        break;
-                    default:
-                        teamStat1.AddDraw();
-                        teamStat2.AddDraw();
-                        break;
-                }
+        StreamReader sr = new StreamReader(inStream);
+        string line;
+        while ((line = sr.ReadLine()) != null) {
+            var lineElements = line.Split(";");
+            var teamStat1 = GetTeamStatisticFor(teamStatistics, lineElements[0]);
+            var teamStat2 = GetTeamStatisticFor(teamStatistics, lineElements[1]);
+
+            switch (lineElements[2]) {
+                case "win":
+                    teamStat1.AddWin();
+                    teamStat2.AddLoss();
+                    break;
+                case "loss":
+                    teamStat1.AddLoss();
+                    teamStat2.AddWin();
+                    break;
+                default:
+                    teamStat1.AddDraw();
+                    teamStat2.AddDraw();
+                    break;
             }
         }
 
