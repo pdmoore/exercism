@@ -119,7 +119,7 @@ public class TournamentTests
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Incomplete_competition_not_all_pairs_have_played_()
     {
         var rows = 

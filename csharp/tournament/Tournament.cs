@@ -69,7 +69,7 @@ public static class Tournament
         }
 
 
-        foreach (KeyValuePair<string, TeamStatistic> entry in teamStatistics.OrderByDescending(i => i.Value.Wins))
+        foreach (KeyValuePair<string, TeamStatistic> entry in teamStatistics.OrderByDescending(i => i.Value.Wins).ThenBy(i=> i.Value.Name))
         {
             sw.Write("\n");
             sw.Write(entry.Value.ToString());
