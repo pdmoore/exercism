@@ -12,23 +12,30 @@ public static class Tournament
     private const string TitleLosses = "L";
     private const string TitlePoints = "P";
 
-    public static void Tally(Stream inStream, Stream outStream)
-    {
+    public static void Tally(Stream inStream, Stream outStream) => OutputStatistics(outStream, TallyStatistics(inStream));
 
+    private static void OutputStatistics(Stream outStream, Dictionary<string, TeamStatistic> teamStatistics) {
+        StreamWriter sw = new StreamWriter(outStream);
+        AddTableHeader(sw);
+        foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics)) {
+            sw.Write("\n");
+            sw.Write(entry.Value.ToString());
+        }
+
+        sw.Flush();
+    }
+
+    private static Dictionary<string, TeamStatistic> TallyStatistics(Stream inStream) {
         Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
-
-        if (inStream.Length > 0)
-        {
+        if (inStream.Length > 0) {
             StreamReader sr = new StreamReader(inStream);
             string line;
-            while ((line = sr.ReadLine()) != null)
-            {
+            while ((line = sr.ReadLine()) != null) {
                 var lineElements = line.Split(";");
                 var teamStat1 = GetTeamStatisticFor(teamStatistics, lineElements[0]);
                 var teamStat2 = GetTeamStatisticFor(teamStatistics, lineElements[1]);
-                
-                switch (lineElements[2])
-                {
+
+                switch (lineElements[2]) {
                     case "win":
                         teamStat1.AddWin();
                         teamStat2.AddLoss();
@@ -44,15 +51,8 @@ public static class Tournament
                 }
             }
         }
-        
-        StreamWriter sw = new StreamWriter(outStream);
-        AddTableHeader(sw);
-        foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics))
-        {
-            sw.Write("\n");
-            sw.Write(entry.Value.ToString());
-        }
-        sw.Flush();
+
+        return teamStatistics;
     }
 
     private static TeamStatistic GetTeamStatisticFor(Dictionary<string, TeamStatistic> teamStatistics, string teamName) {
