@@ -14,17 +14,6 @@ public static class Tournament
 
     public static void Tally(Stream inStream, Stream outStream) => OutputStatistics(outStream, TallyStatistics(inStream));
 
-    private static void OutputStatistics(Stream outStream, Dictionary<string, TeamStatistic> teamStatistics) {
-        StreamWriter sw = new StreamWriter(outStream);
-        AddTableHeader(sw);
-        foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics)) {
-            sw.Write("\n");
-            sw.Write(entry.Value.ToString());
-        }
-
-        sw.Flush();
-    }
-
     private static Dictionary<string, TeamStatistic> TallyStatistics(Stream inStream) {
         Dictionary<string, TeamStatistic> teamStatistics = new Dictionary<string, TeamStatistic>();
         if (inStream.Length > 0) {
@@ -72,6 +61,17 @@ public static class Tournament
         teamStatistics
             .OrderByDescending(i => i.Value.Wins)
             .ThenBy(i=> i.Value.Name);
+
+    private static void OutputStatistics(Stream outStream, Dictionary<string, TeamStatistic> teamStatistics) {
+        StreamWriter sw = new StreamWriter(outStream);
+        AddTableHeader(sw);
+        foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics)) {
+            sw.Write("\n");
+            sw.Write(entry.Value.ToString());
+        }
+
+        sw.Flush();
+    }
 
     private static void AddTableHeader(StreamWriter sw)
     {
