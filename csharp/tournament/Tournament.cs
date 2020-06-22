@@ -12,6 +12,11 @@ public static class Tournament
     private const string TitleLosses = "L";
     private const string TitlePoints = "P";
 
+    private const int TeamName1 = 0;
+    private const int TeamName2 = 1;
+    private const int MatchResult = 2;
+    
+    
     public static void Tally(Stream inStream, Stream outStream) => OutputStatistics(outStream, TallyStatistics(inStream));
 
     private static Dictionary<string, TeamStatistic> TallyStatistics(Stream inStream) {
@@ -24,10 +29,10 @@ public static class Tournament
         StreamReader sr = new StreamReader(inStream);
         string line;
         while ((line = sr.ReadLine()) != null) {
-            var lineElements = line.Split(";");
-            var teamStat1 = GetTeamStatisticFor(teamStatistics, lineElements[0]);
-            var teamStat2 = GetTeamStatisticFor(teamStatistics, lineElements[1]);
-            TallyMatch(lineElements[2], teamStat1, teamStat2);
+            var matchElements = line.Split(";");
+            var teamStat1 = GetTeamStatisticFor(teamStatistics, matchElements[TeamName1]);
+            var teamStat2 = GetTeamStatisticFor(teamStatistics, matchElements[TeamName2]);
+            TallyMatch(matchElements[MatchResult], teamStat1, teamStat2);
         }
 
         return teamStatistics;
