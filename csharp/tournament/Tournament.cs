@@ -27,24 +27,27 @@ public static class Tournament
             var lineElements = line.Split(";");
             var teamStat1 = GetTeamStatisticFor(teamStatistics, lineElements[0]);
             var teamStat2 = GetTeamStatisticFor(teamStatistics, lineElements[1]);
-
-            switch (lineElements[2]) {
-                case "win":
-                    teamStat1.AddWin();
-                    teamStat2.AddLoss();
-                    break;
-                case "loss":
-                    teamStat1.AddLoss();
-                    teamStat2.AddWin();
-                    break;
-                default:
-                    teamStat1.AddDraw();
-                    teamStat2.AddDraw();
-                    break;
-            }
+            TallyMatch(lineElements[2], teamStat1, teamStat2);
         }
 
         return teamStatistics;
+    }
+
+    private static void TallyMatch(string matchResult, TeamStatistic team1, TeamStatistic team2) {
+        switch (matchResult) {
+            case "win":
+                team1.AddWin();
+                team2.AddLoss();
+                break;
+            case "loss":
+                team1.AddLoss();
+                team2.AddWin();
+                break;
+            default:
+                team1.AddDraw();
+                team2.AddDraw();
+                break;
+        }
     }
 
     private static TeamStatistic GetTeamStatisticFor(Dictionary<string, TeamStatistic> teamStatistics, string teamName) {
