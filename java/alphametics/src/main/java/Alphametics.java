@@ -8,7 +8,7 @@ public class Alphametics {
     private final List<String> _addends;
     private final String _targetSum;
     LinkedHashMap<Character, Integer> _candidateSet;
-    Object[] _characters;
+    Character[] _characters;
 
     public Alphametics(String expression) {
         List<String> elements = elementsOf(expression);
@@ -20,7 +20,7 @@ public class Alphametics {
                 getUniqueCharactersFrom(expression)) {
             _candidateSet.put(c, UNASSIGNED);
         }
-        _characters = _candidateSet.keySet().toArray();
+        _characters = _candidateSet.keySet().toArray(new Character[0]);
     }
 
     private List<String> elementsOf(String expression) {
@@ -59,7 +59,7 @@ public class Alphametics {
                 tryThisNumber++;
             } else {
                 numbersInPlay.add(tryThisNumber);
-                candidateSet.put((Character) _characters[depth], tryThisNumber);
+                candidateSet.put(_characters[depth], tryThisNumber);
 
                 depth++;
                 if (digForSolution(depth, numbersInPlay, candidateSet)) {
