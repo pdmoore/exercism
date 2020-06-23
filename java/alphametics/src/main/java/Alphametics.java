@@ -7,7 +7,7 @@ public class Alphametics {
     public static final int UNASSIGNED = -1;
     private final List<String> _addends;
     private final String _targetSum;
-    LinkedHashMap<Character, Integer> _candidateSet;
+    LinkedHashMap<Character, Integer> _candidateSolution;
     Character[] _characters;
 
     public Alphametics(String expression) {
@@ -15,12 +15,12 @@ public class Alphametics {
         _addends = elements.subList(0, elements.size() - 1);
         _targetSum = elements.get(elements.size() - 1);
 
-        _candidateSet = new LinkedHashMap<>();
+        _candidateSolution = new LinkedHashMap<>();
         for (Character c :
                 getUniqueCharactersFrom(expression)) {
-            _candidateSet.put(c, UNASSIGNED);
+            _candidateSolution.put(c, UNASSIGNED);
         }
-        _characters = _candidateSet.keySet().toArray(new Character[0]);
+        _characters = _candidateSolution.keySet().toArray(new Character[0]);
     }
 
     private List<String> elementsOf(String expression) {
@@ -41,8 +41,8 @@ public class Alphametics {
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
         int depth = 0;
         List<Integer> numbersInPlay = new ArrayList<>();
-        if (digForSolution(depth, numbersInPlay, _candidateSet)) {
-            return _candidateSet;
+        if (digForSolution(depth, numbersInPlay, _candidateSolution)) {
+            return _candidateSolution;
         }
 
         throw new UnsolvablePuzzleException();
