@@ -14,13 +14,17 @@ public class Alphametics {
         List<String> elements = elementsOf(expression);
         _addends = elements.subList(0, elements.size() - 1);
         _targetSum = elements.get(elements.size() - 1);
+        _candidateSolution = initializeSolution(expression);
+        _characters = _candidateSolution.keySet().toArray(new Character[0]);
+    }
 
-        _candidateSolution = new LinkedHashMap<>();
+    private LinkedHashMap<Character, Integer> initializeSolution(String expression) {
+        LinkedHashMap<Character, Integer> empty = new LinkedHashMap<>();
         for (Character c :
                 getUniqueCharactersFrom(expression)) {
-            _candidateSolution.put(c, UNASSIGNED);
+            empty.put(c, UNASSIGNED);
         }
-        _characters = _candidateSolution.keySet().toArray(new Character[0]);
+        return empty;
     }
 
     private List<String> elementsOf(String expression) {
