@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 
 public static class Tournament
 {
@@ -147,9 +148,11 @@ internal class TeamStatistic
 
 public static class StringExtensions
 {
-    public static string CenterTitle(this string str, int totalWidth = 4)
+    private const int ColumnWidth = 4;
+    
+    public static string CenterTitle(this string str)
     {
-        int padding = totalWidth - str.Length;
+        int padding = ColumnWidth - str.Length;
         int padLeft = 0;
         if (str.Length % 2 == 0)
         {
@@ -160,6 +163,6 @@ public static class StringExtensions
             padLeft = padding / 2 + str.Length + 1;
         }
 
-        return str.PadLeft(padLeft, ' ').PadRight(totalWidth, ' ');
+        return str.PadLeft(padLeft, ' ').PadRight(ColumnWidth, ' ');
     }
 }
