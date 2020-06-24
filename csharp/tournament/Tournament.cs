@@ -15,8 +15,7 @@ public static class Tournament
     private const int TeamName1 = 0;
     private const int TeamName2 = 1;
     private const int MatchResult = 2;
-    
-    
+
     public static void Tally(Stream inStream, Stream outStream) => OutputStatistics(outStream, TallyStatistics(inStream));
 
     private static Dictionary<string, TeamStatistic> TallyStatistics(Stream inStream) {
@@ -148,7 +147,7 @@ internal class TeamStatistic
 
 public static class StringExtensions
 {
-    public static string CenterTitle(this string str, int totalWidth = 4, char paddingChar = ' ')
+    public static string CenterTitle(this string str, int totalWidth = 4)
     {
         int padding = totalWidth - str.Length;
         int padLeft = 0;
@@ -161,6 +160,6 @@ public static class StringExtensions
             padLeft = padding / 2 + str.Length + 1;
         }
 
-        return str.PadLeft(padLeft, paddingChar).PadRight(totalWidth, paddingChar);
+        return str.PadLeft(padLeft, ' ').PadRight(totalWidth, ' ');
     }
 }
