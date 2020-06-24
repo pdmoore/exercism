@@ -87,17 +87,15 @@ public static class Tournament
     private static void AddTableHeader(StreamWriter sw)
     {
         sw.Write("Team".PadRight(TeamNameWidth, ' '));
-        sw.Write(ColumnSeparator);
-        sw.Write(TitleMatchesPlayed.CenterTitle());
-        sw.Write(ColumnSeparator);
-        sw.Write(TitleWins.CenterTitle());
-        sw.Write(ColumnSeparator);
-        sw.Write(TitleDraws.CenterTitle());
-        sw.Write(ColumnSeparator);
-        sw.Write(TitleLosses.CenterTitle());
+        sw.Write(CenteredColumnTitle(TitleMatchesPlayed));
+        sw.Write(CenteredColumnTitle(TitleWins));
+        sw.Write(CenteredColumnTitle(TitleDraws));
+        sw.Write(CenteredColumnTitle(TitleLosses));
         sw.Write(ColumnSeparator);
         sw.Write(TitlePoints.PadLeft(3));
     }
+
+    private static string CenteredColumnTitle(string name) => ColumnSeparator + name.CenterTitle();
 }
 
 internal class TeamStatistic
