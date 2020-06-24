@@ -70,7 +70,7 @@ public static class Tournament
 
     private static IOrderedEnumerable<KeyValuePair<string, TeamStatistic>> StatsByWinsThenNames(Dictionary<string, TeamStatistic> teamStatistics) =>
         teamStatistics
-            .OrderByDescending(i => i.Value.Wins)
+            .OrderByDescending(i => i.Value.Score())
             .ThenBy(i=> i.Value.Name);
 
     private static void OutputStatistics(Stream outStream, Dictionary<string, TeamStatistic> teamStatistics) {
@@ -106,6 +106,8 @@ internal class TeamStatistic
     private int _losses;
     private int _draws;
 
+    //TODO - separator doesn't belong inside this class. Instead have a Stringifier outside that takes this object and
+    // grabs the field contents
     public override string ToString()
     {
         //TODO - consts don't carry over from other class
@@ -124,7 +126,7 @@ internal class TeamStatistic
         return result;
     }
 
-    private int Score() => (3 * Wins) + _draws;
+    public int Score() => (3 * Wins) + _draws;
 
 
     public void AddWin()
