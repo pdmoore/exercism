@@ -82,7 +82,7 @@ public static class Tournament
             // sw.Write(entry.Value.ToString());
 
             sw.Write(
-                $"{entry.Value.Name.PadRight(31)}|{entry.Value._matchesPlayed.ToString().CenterTitle()}|{entry.Value.Wins.ToString().CenterTitle()}|{entry.Value._draws.ToString().CenterTitle()}|{entry.Value._losses.ToString().CenterTitle()}|{entry.Value.Score().ToString().PadLeft(3)}");
+                $"{entry.Value.Name.PadRight(31)}|{entry.Value.MatchesPlayed.ToString().CenterTitle()}|{entry.Value.Wins.ToString().CenterTitle()}|{entry.Value.Draws.ToString().CenterTitle()}|{entry.Value.Losses.ToString().CenterTitle()}|{entry.Value.Score().ToString().PadLeft(3)}");
         }
 
         sw.Flush();
@@ -105,50 +105,30 @@ public static class Tournament
 internal class TeamStatistic
 {
     public string Name;
-    public int _matchesPlayed;
+    public int MatchesPlayed;
     public int Wins;
-    public int _losses;
-    public int _draws;
-
-    //TODO - separator doesn't belong inside this class. Instead have a Stringifier outside that takes this object and
-    // grabs the field contents
-    public override string ToString()
-    {
-        //TODO - consts don't carry over from other class
-        string result = "";
-        result += Name.PadRight(31);
-        result += "|";
-        result += _matchesPlayed.ToString().CenterTitle();
-        result += "|";
-        result += Wins.ToString().CenterTitle();
-        result += "|";
-        result += _draws.ToString().CenterTitle();
-        result += "|";
-        result += _losses.ToString().CenterTitle();
-        result += "|";
-        result += Score().ToString().PadLeft(3);
-        return result;
-    }
-
-    public int Score() => (3 * Wins) + _draws;
+    public int Losses;
+    public int Draws;
+    
+    public int Score() => (3 * Wins) + Draws;
 
 
     public void AddWin()
     {
-        _matchesPlayed++;
+        MatchesPlayed++;
         Wins++;
     }
 
     public void AddLoss()
     {
-        _matchesPlayed++;
-        _losses++;
+        MatchesPlayed++;
+        Losses++;
     }
 
     public void AddDraw()
     {
-        _draws++;
-        _matchesPlayed++;
+        Draws++;
+        MatchesPlayed++;
     }
 }
 
