@@ -79,10 +79,14 @@ public static class Tournament
         AddTableHeader(sw);
         foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics)) {
             sw.Write("\n");
-            // sw.Write(entry.Value.ToString());
-
+            var stats = entry.Value;
             sw.Write(
-                $"{entry.Value.Name.PadRight(31)}|{entry.Value.MatchesPlayed.ToString().CenterTitle()}|{entry.Value.Wins.ToString().CenterTitle()}|{entry.Value.Draws.ToString().CenterTitle()}|{entry.Value.Losses.ToString().CenterTitle()}|{entry.Value.Score().ToString().PadLeft(3)}");
+                $"{stats.Name.PadRight(31)}|" +
+                $"{stats.MatchesPlayed.ToString().CenterTitle()}|" +
+                $"{stats.Wins.ToString().CenterTitle()}|" +
+                $"{stats.Draws.ToString().CenterTitle()}|" +
+                $"{stats.Losses.ToString().CenterTitle()}|" +
+                $"{stats.Score().ToString().PadLeft(3)}");
         }
 
         sw.Flush();
@@ -111,7 +115,6 @@ internal class TeamStatistic
     public int Draws;
     
     public int Score() => (3 * Wins) + Draws;
-
 
     public void AddWin()
     {
