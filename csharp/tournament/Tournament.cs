@@ -143,10 +143,7 @@ public static class StringExtensions
     {
         int padding = ColumnWidth - str.Length;
         int padLeft = padding / 2 + str.Length;
-        if (str.Length % 2 == 0)
-        {
-        }
-        else
+        if (str.Length % 2 != 0)
         {
             padLeft += 1;
         }
