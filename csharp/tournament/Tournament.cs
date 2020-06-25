@@ -142,14 +142,13 @@ public static class StringExtensions
     public static string CenterTitle(this string str)
     {
         int padding = ColumnWidth - str.Length;
-        int padLeft = 0;
+        int padLeft = padding / 2 + str.Length;
         if (str.Length % 2 == 0)
         {
-            padLeft = padding / 2 + str.Length;
         }
         else
         {
-            padLeft = padding / 2 + str.Length + 1;
+            padLeft += 1;
         }
 
         return str.PadLeft(padLeft, ' ').PadRight(ColumnWidth, ' ');
