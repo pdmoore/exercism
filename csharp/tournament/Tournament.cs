@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -78,7 +79,10 @@ public static class Tournament
         AddTableHeader(sw);
         foreach (KeyValuePair<string, TeamStatistic> entry in StatsByWinsThenNames(teamStatistics)) {
             sw.Write("\n");
-            sw.Write(entry.Value.ToString());
+            // sw.Write(entry.Value.ToString());
+
+            sw.Write(
+                $"{entry.Value.Name.PadRight(31)}|{entry.Value._matchesPlayed.ToString().CenterTitle()}|{entry.Value.Wins.ToString().CenterTitle()}|{entry.Value._draws.ToString().CenterTitle()}|{entry.Value._losses.ToString().CenterTitle()}|{entry.Value.Score().ToString().PadLeft(3)}");
         }
 
         sw.Flush();
@@ -101,10 +105,10 @@ public static class Tournament
 internal class TeamStatistic
 {
     public string Name;
-    private int _matchesPlayed;
+    public int _matchesPlayed;
     public int Wins;
-    private int _losses;
-    private int _draws;
+    public int _losses;
+    public int _draws;
 
     //TODO - separator doesn't belong inside this class. Instead have a Stringifier outside that takes this object and
     // grabs the field contents
