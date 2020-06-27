@@ -115,25 +115,13 @@ internal class TeamStatistic
     
     public int Score() => (3 * Wins) + Draws;
 
-    public void AddWin()
-    {
-        Wins++;
-    }
+    public void AddWin() => Wins++;
 
-    public void AddLoss()
-    {
-        Losses++;
-    }
+    public void AddLoss() => Losses++;
 
-    public void AddDraw()
-    {
-        Draws++;
-    }
+    public void AddDraw() => Draws++;
 
-    public int MatchesPlayed()
-    {
-        return Wins + Losses + Draws;
-    }
+    public int MatchesPlayed() => Wins + Losses + Draws;
 }
 
 public static class StringExtensions
