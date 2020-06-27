@@ -82,7 +82,7 @@ public static class Tournament
             var stats = entry.Value;
             sw.Write(
                 $"{stats.Name.PadRight(31)}|" +
-                $"{stats.MatchesPlayed.ToString().CenterTitle()}|" +
+                $"{stats.MatchesPlayed().ToString().CenterTitle()}|" +
                 $"{stats.Wins.ToString().CenterTitle()}|" +
                 $"{stats.Draws.ToString().CenterTitle()}|" +
                 $"{stats.Losses.ToString().CenterTitle()}|" +
@@ -109,7 +109,7 @@ public static class Tournament
 internal class TeamStatistic
 {
     public string Name;
-    public int MatchesPlayed;
+    // public int MatchesPlayed;
     public int Wins;
     public int Losses;
     public int Draws;
@@ -118,20 +118,25 @@ internal class TeamStatistic
 
     public void AddWin()
     {
-        MatchesPlayed++;
+        // MatchesPlayed++;
         Wins++;
     }
 
     public void AddLoss()
     {
-        MatchesPlayed++;
+        // MatchesPlayed++;
         Losses++;
     }
 
     public void AddDraw()
     {
         Draws++;
-        MatchesPlayed++;
+        // MatchesPlayed++;
+    }
+
+    public int MatchesPlayed()
+    {
+        return Wins + Losses + Draws;
     }
 }
 
