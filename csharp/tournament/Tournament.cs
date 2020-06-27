@@ -109,7 +109,6 @@ public static class Tournament
 internal class TeamStatistic
 {
     public string Name;
-    // public int MatchesPlayed;
     public int Wins;
     public int Losses;
     public int Draws;
@@ -118,20 +117,17 @@ internal class TeamStatistic
 
     public void AddWin()
     {
-        // MatchesPlayed++;
         Wins++;
     }
 
     public void AddLoss()
     {
-        // MatchesPlayed++;
         Losses++;
     }
 
     public void AddDraw()
     {
         Draws++;
-        // MatchesPlayed++;
     }
 
     public int MatchesPlayed()
