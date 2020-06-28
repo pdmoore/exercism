@@ -124,7 +124,7 @@ internal class TeamStatistic
     public int MatchesPlayed() => Wins + Losses + Draws;
 }
 
-public static class StringExtensions
+public static class String
 {
     private const int ColumnWidth = 4;
     
