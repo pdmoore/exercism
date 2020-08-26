@@ -36,7 +36,9 @@ public class Alphametics {
     private Collection<Character> getUniqueCharactersFrom(String expression) {
         String justTheLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
 
-        return justTheLetters.chars().distinct().
+        return justTheLetters.chars().
+                distinct().
+                sorted().
                 mapToObj(c -> (char) c).
                 collect(Collectors.toList());
     }
