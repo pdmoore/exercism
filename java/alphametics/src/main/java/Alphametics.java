@@ -11,11 +11,17 @@ public class Alphametics {
     Character[] _characters;
 
     public Alphametics(String expression) {
-        List<String> elements = elementsOf(expression);
-        _addends = elements.subList(0, elements.size() - 1);
-        _targetSum = elements.get(elements.size() - 1);
+        List<String> words = wordsFrom(expression);
+        _addends = words.subList(0, words.size() - 1);
+        _targetSum = words.get(words.size() - 1);
         _candidateSolution = initializeSolution(expression);
         _characters = _candidateSolution.keySet().toArray(new Character[0]);
+    }
+
+    private List<String> wordsFrom(String expression) {
+        return Stream.of(expression.split("\\+|=="))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
     private LinkedHashMap<Character, Integer> initializeSolution(String expression) {
@@ -27,17 +33,11 @@ public class Alphametics {
         return empty;
     }
 
-    private List<String> elementsOf(String expression) {
-        return Stream.of(expression.split("\\+|=="))
-                .map(String::trim)
-                .collect(Collectors.toList());
-    }
-
-    private HashSet<Character> getUniqueCharactersFrom(String expression) {
-        String justLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
+    private Collection<Character> getUniqueCharactersFrom(String expression) {
+        String justTheLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
         HashSet<Character> uniqueCharSet = new HashSet();
-        for (int i = 0; i < justLetters.length(); i++) {
-            uniqueCharSet.add(justLetters.charAt(i));
+        for (int i = 0; i < justTheLetters.length(); i++) {
+            uniqueCharSet.add(justTheLetters.charAt(i));
         }
         return uniqueCharSet;
     }
