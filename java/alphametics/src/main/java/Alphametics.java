@@ -95,6 +95,7 @@ public class Alphametics {
     }
 
     private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidateSet) {
+        //TODO - capture this set once in the ctor
         for (String addend :
                 _addends) {
             char initialChar = addend.charAt(0);
@@ -103,6 +104,7 @@ public class Alphametics {
             }
         }
 
+        //TODO ...and add this character to that set
         char initialChar = _targetSum.charAt(0);
         if (candidateSet.get(initialChar) == 0) {
             return true;
