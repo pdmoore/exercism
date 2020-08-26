@@ -72,17 +72,12 @@ public class Alphametics {
 
         int tryThisNumber = 0;
         while (tryThisNumber < 10) {
-            if (numbersInPlay.contains(tryThisNumber)) {
+            if (numbersInPlay.contains(tryThisNumber) ||
+                (tryThisNumber == 0 && _initialCharacters.contains(_characters[depth]))) {
                 tryThisNumber++;
             } else {
                 numbersInPlay.add(tryThisNumber);
                 candidateSet.put(_characters[depth], tryThisNumber);
-
-                // Track which character is mapped to Zero
-                // TODO - reject a letter being mapped to zero if it is in the initial set
-                if (tryThisNumber == 0) {
-                    _zeroMappedTo = _characters[depth];
-                }
 
                 depth++;
                 if (digForSolution(depth, numbersInPlay, candidateSet)) {
