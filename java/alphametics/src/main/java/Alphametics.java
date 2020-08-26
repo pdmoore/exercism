@@ -10,6 +10,7 @@ public class Alphametics {
     private final HashSet<Character> _initialCharacters;
     LinkedHashMap<Character, Integer> _candidateSolution;
     Character[] _characters;
+    private Character _zeroMappedTo;
 
     public Alphametics(String expression) {
         List<String> words = wordsFrom(expression);
@@ -77,6 +78,12 @@ public class Alphametics {
                 numbersInPlay.add(tryThisNumber);
                 candidateSet.put(_characters[depth], tryThisNumber);
 
+                // Track which character is mapped to Zero
+                // TODO - reject a letter being mapped to zero if it is in the initial set
+                if (tryThisNumber == 0) {
+                    _zeroMappedTo = _characters[depth];
+                }
+
                 depth++;
                 if (digForSolution(depth, numbersInPlay, candidateSet)) {
                     return true;
@@ -106,11 +113,7 @@ public class Alphametics {
     }
 
     private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidateSet) {
-        for (Character character:
-              _initialCharacters) {
-            if (candidateSet.get(character) == 0) return true;
-        }
-        return false;
+        return _initialCharacters.contains(_zeroMappedTo);
     }
 
     private long valueFor(String addend, LinkedHashMap<Character, Integer> candidates) {
