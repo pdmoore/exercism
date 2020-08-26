@@ -35,11 +35,10 @@ public class Alphametics {
 
     private Collection<Character> getUniqueCharactersFrom(String expression) {
         String justTheLetters = expression.replaceAll("[^a-zA-Z0-9]", "");
-        HashSet<Character> uniqueCharSet = new HashSet();
-        for (int i = 0; i < justTheLetters.length(); i++) {
-            uniqueCharSet.add(justTheLetters.charAt(i));
-        }
-        return uniqueCharSet;
+
+        return justTheLetters.chars().distinct().
+                mapToObj(c -> (char) c).
+                collect(Collectors.toList());
     }
 
     public LinkedHashMap<Character, Integer> solve() throws UnsolvablePuzzleException {
