@@ -8,7 +8,7 @@ public class Alphametics {
     private final List<String> _addends;
     private final String _targetSum;
     private final HashSet<Character> _initialCharacters;
-    LinkedHashMap<Character, Integer> _candidateSolution;
+    private final LinkedHashMap<Character, Integer> _candidateSolution;
     Character[] _characters;
     private Character _zeroMappedTo;
 
@@ -17,6 +17,7 @@ public class Alphametics {
         _addends = words.subList(0, words.size() - 1);
         _targetSum = words.get(words.size() - 1);
         _initialCharacters = initialLetterOfEach(words);
+
         _candidateSolution = initializeSolution(expression);
         _characters = _candidateSolution.keySet().toArray(new Character[0]);
     }
