@@ -7,6 +7,7 @@ public class Alphametics {
     public static final int UNASSIGNED = -1;
     private final List<String> _addends;
     private final String _targetSum;
+    private final HashSet<Character> _initialCharacters;
     LinkedHashMap<Character, Integer> _candidateSolution;
     Character[] _characters;
 
@@ -14,8 +15,18 @@ public class Alphametics {
         List<String> words = wordsFrom(expression);
         _addends = words.subList(0, words.size() - 1);
         _targetSum = words.get(words.size() - 1);
+        _initialCharacters = initialLetterOfEach(words);
         _candidateSolution = initializeSolution(expression);
         _characters = _candidateSolution.keySet().toArray(new Character[0]);
+    }
+
+    private HashSet<Character> initialLetterOfEach(List<String> words) {
+        HashSet<Character> result = new HashSet();
+        for (String word :
+                words) {
+            result.add(word.charAt(0));
+        }
+        return result;
     }
 
     private List<String> wordsFrom(String expression) {
@@ -95,21 +106,10 @@ public class Alphametics {
     }
 
     private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidateSet) {
-        //TODO - capture this set once in the ctor
-        for (String addend :
-                _addends) {
-            char initialChar = addend.charAt(0);
-            if (candidateSet.get(initialChar) == 0) {
-                return true;
-            }
+        for (Character character:
+              _initialCharacters) {
+            if (candidateSet.get(character) == 0) return true;
         }
-
-        //TODO ...and add this character to that set
-        char initialChar = _targetSum.charAt(0);
-        if (candidateSet.get(initialChar) == 0) {
-            return true;
-        }
-
         return false;
     }
 
