@@ -10,7 +10,7 @@ public class Alphametics {
     private final HashSet<Character> _initialCharacters;
     private final LinkedHashMap<Character, Integer> _candidateSolution;
     Character[] _characters;
-    private Character _zeroMappedTo;
+    private Character _characterZeroIsMappedTo;
 
     public Alphametics(String expression) {
         List<String> words = wordsFrom(expression);
@@ -109,7 +109,7 @@ public class Alphametics {
     }
 
     private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidateSet) {
-        return _initialCharacters.contains(_zeroMappedTo);
+        return _initialCharacters.contains(_characterZeroIsMappedTo);
     }
 
     private long valueFor(String word, LinkedHashMap<Character, Integer> candidates) {
