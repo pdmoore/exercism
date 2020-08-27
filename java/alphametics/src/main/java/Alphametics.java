@@ -112,10 +112,10 @@ public class Alphametics {
         return _initialCharacters.contains(_zeroMappedTo);
     }
 
-    private long valueFor(String numberAsWord, LinkedHashMap<Character, Integer> candidates) {
+    private long valueFor(String word, LinkedHashMap<Character, Integer> candidates) {
         String wordAsNumbers = "";
-        for (int i = 0; i < numberAsWord.length(); i++) {
-            wordAsNumbers += candidates.get(numberAsWord.charAt(i));
+        for (int i = 0; i < word.length(); i++) {
+            wordAsNumbers += candidates.get(word.charAt(i));
         }
 
         return Long.parseLong(wordAsNumbers);
