@@ -7,7 +7,7 @@ public class Alphametics {
     public static final int UNASSIGNED = -1;
     private final List<String> _addends;
     private final String _targetSum;
-    private final HashSet<Character> _initialCharacters;
+    private final HashSet<Character> _initialLettersOfWords;
     private final LinkedHashMap<Character, Integer> _candidateSolution;
     Character[] _characters;
     private Character _characterZeroIsMappedTo;
@@ -16,7 +16,7 @@ public class Alphametics {
         List<String> words = wordsFrom(expression);
         _addends = words.subList(0, words.size() - 1);
         _targetSum = words.get(words.size() - 1);
-        _initialCharacters = initialLetterOfEach(words);
+        _initialLettersOfWords = initialLetterOfEach(words);
 
         _candidateSolution = initializeSolution(expression);
         _characters = _candidateSolution.keySet().toArray(new Character[0]);
@@ -74,7 +74,7 @@ public class Alphametics {
         int tryThisNumber = 0;
         while (tryThisNumber < 10) {
             if (numbersInPlay.contains(tryThisNumber) ||
-                (tryThisNumber == 0 && _initialCharacters.contains(_characters[depth]))) {
+                (tryThisNumber == 0 && _initialLettersOfWords.contains(_characters[depth]))) {
                 tryThisNumber++;
             } else {
                 numbersInPlay.add(tryThisNumber);
@@ -109,7 +109,7 @@ public class Alphametics {
     }
 
     private boolean anyLeadingZeros(LinkedHashMap<Character, Integer> candidateSet) {
-        return _initialCharacters.contains(_characterZeroIsMappedTo);
+        return _initialLettersOfWords.contains(_characterZeroIsMappedTo);
     }
 
     private long valueFor(String word, LinkedHashMap<Character, Integer> candidates) {
