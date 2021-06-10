@@ -22,13 +22,11 @@ public class SayTest {
         assertEquals("fourteen", say.say(14));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void twenty() {
         assertEquals("twenty", say.say(20));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void twentyTwo() {
         assertEquals("twenty-two", say.say(22));

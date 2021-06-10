@@ -3,16 +3,23 @@ import java.util.Map;
 
 public class Say {
 
-    private final HashMap<Long, String> _digitToWord;
+    private final HashMap<Integer, String> _digitToWord;
 
     public Say() {
         _digitToWord = new HashMap();
-        _digitToWord.put(0L, "zero");
-        _digitToWord.put(1L, "one");
-        _digitToWord.put(14L, "fourteen");
+        _digitToWord.put(0, "zero");
+        _digitToWord.put(1, "one");
+        _digitToWord.put(2, "two");
+        _digitToWord.put(14, "fourteen");
+        _digitToWord.put(20, "twenty");
     }
 
     public String say(long number) {
-        return _digitToWord.get(number);
+        if (number > 20) {
+            int remainder = (int) (number % 20);
+            return _digitToWord.get(20) + "-" + _digitToWord.get(remainder);
+        }
+
+        return _digitToWord.get((int)number);
     }
 }
