@@ -15,6 +15,11 @@ public class Say {
     }
 
     public String say(long number) {
+        if (number > 99) {
+            int hundreds = (int) (number / 100);
+            return _digitToWord.get(hundreds) + " hundred";
+        }
+
         if (number > 20) {
             int remainder = (int) (number % 20);
             return _digitToWord.get(20) + "-" + _digitToWord.get(remainder);
