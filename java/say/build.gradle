@@ -10,6 +10,10 @@ dependencies {
   testCompile "junit:junit:4.12"
 }
 
+compileJava {
+  options.compilerArgs << "-Xlint:unchecked"
+}
+
 test {
   testLogging {
     exceptionFormat = 'full'
