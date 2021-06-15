@@ -20,6 +20,10 @@ public class Say {
         // starting to recurse
         // very limited to 20-ish numbers and 100-ish numbers
         // sensing duplication for 100 vs 1xx -
+        if (number > 999999) {
+            return "one million";
+        }
+
 
         if (number > 999) {
             int thousands = Math.toIntExact(number / 1000);
