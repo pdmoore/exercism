@@ -22,6 +22,10 @@ public class Say {
         // starting to recurse
         // very limited to 20-ish numbers and 100-ish numbers
         // sensing duplication for 100 vs 1xx -
+        if (number > 999_999_999) {
+            return "one billion";
+        }
+
         if (number > 999999) {
             int remainder = Math.toIntExact(number % 1_000_000);
             if (remainder == 0) {
