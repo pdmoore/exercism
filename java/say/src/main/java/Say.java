@@ -19,14 +19,13 @@ public class Say {
     }
 
     public String say(long number) {
-        // starting to recurse
-        // very limited to 20-ish numbers and 100-ish numbers
-        // sensing duplication for 100 vs 1xx -
+
+        // duplication for 100 vs 1xx -
         if (number > 999_999_999) {
             return "one billion";
         }
 
-        if (number > 999999) {
+        if (number > 999_999) {
             int remainder = Math.toIntExact(number % 1_000_000);
             if (remainder == 0) {
                 return "one million";
@@ -37,8 +36,8 @@ public class Say {
 
 
         if (number > 999) {
-            int thousands = Math.toIntExact(number / 1000);
-            int remainder = Math.toIntExact(number % 1000);
+            int thousands = Math.toIntExact(number / 1_000);
+            int remainder = Math.toIntExact(number % 1_000);
             if (remainder > 0) {
                 return _digitToWord.get(thousands) + " thousand" + " " + say(remainder);
             }
@@ -56,7 +55,6 @@ public class Say {
             return _digitToWord.get(hundreds) + " hundred";
         }
 
-        // not just 20.....remainder
         if (number > 20) {
             int tens = Math.toIntExact(number / 10);
 
