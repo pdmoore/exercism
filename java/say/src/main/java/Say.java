@@ -10,8 +10,10 @@ public class Say {
         _digitToWord.put(1, "one");
         _digitToWord.put(2, "two");
         _digitToWord.put(3, "three");
+        _digitToWord.put(4, "four");
         _digitToWord.put(14, "fourteen");
         _digitToWord.put(20, "twenty");
+        _digitToWord.put(30, "thirty");
     }
 
     public String say(long number) {
@@ -21,10 +23,12 @@ public class Say {
 
         if (number > 999) {
             int thousands = Math.toIntExact(number / 1000);
+            int remainder = Math.toIntExact(number % 1000);
+            if (remainder > 0) {
+                return _digitToWord.get(thousands) + " thousand" + " " + say(remainder);
+            }
+
             return _digitToWord.get(thousands) + " thousand";
-
-            //TODO - check for remainder and recurse
-
         }
 
         if (number > 99) {
@@ -37,9 +41,12 @@ public class Say {
             return _digitToWord.get(hundreds) + " hundred";
         }
 
+        // not just 20.....remainder
         if (number > 20) {
-            int remainder = Math.toIntExact(number % 20);
-            return _digitToWord.get(20) + "-" + _digitToWord.get(remainder);
+            int tens = Math.toIntExact(number / 10);
+
+            int remainder = Math.toIntExact(number % 10);
+            return _digitToWord.get(tens * 10) + "-" + _digitToWord.get(remainder);
         }
 
         return _digitToWord.get(Math.toIntExact(number));
