@@ -19,6 +19,9 @@ public class Say {
     }
 
     public String say(long number) {
+        if (number == -1) {
+            throw new IllegalArgumentException("what?");
+        }
 
         // duplication for 100 vs 1xx -
         if (number > 999_999_999) {
