@@ -11,9 +11,11 @@ public class Say {
         _digitToWord.put(2, "two");
         _digitToWord.put(3, "three");
         _digitToWord.put(4, "four");
+        _digitToWord.put(5, "five");
         _digitToWord.put(14, "fourteen");
         _digitToWord.put(20, "twenty");
         _digitToWord.put(30, "thirty");
+        _digitToWord.put(40, "forty");
     }
 
     public String say(long number) {
@@ -21,7 +23,12 @@ public class Say {
         // very limited to 20-ish numbers and 100-ish numbers
         // sensing duplication for 100 vs 1xx -
         if (number > 999999) {
-            return "one million";
+            int remainder = Math.toIntExact(number % 1_000_000);
+            if (remainder == 0) {
+                return "one million";
+            }
+
+            return _digitToWord.get(1) + " million" + " " + say(remainder);
         }
 
 
