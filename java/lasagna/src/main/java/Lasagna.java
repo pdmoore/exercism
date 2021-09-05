@@ -7,8 +7,8 @@ public class Lasagna {
         return 40 - actualMinutesInOven;
     }
 
-    public boolean preparationTimeInMinutes(int i) {
-        return false;
+    public int preparationTimeInMinutes(int numberOfLayers) {
+        return 2 * numberOfLayers;
     }
 
     public boolean totalTimeInMinutes(int i, int i1) {
