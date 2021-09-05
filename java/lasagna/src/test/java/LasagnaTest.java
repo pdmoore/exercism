@@ -20,7 +20,6 @@ public class LasagnaTest {
         assertThat(new Lasagna().preparationTimeInMinutes(1)).isEqualTo(2);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void preparation_time_in_minutes_for_multiple_layers() {
         assertThat(new Lasagna().preparationTimeInMinutes(4)).isEqualTo(8);
