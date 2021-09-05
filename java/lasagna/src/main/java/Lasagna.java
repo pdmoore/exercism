@@ -3,8 +3,8 @@ public class Lasagna {
         return 40;
     }
 
-    public boolean remainingMinutesInOven(int i) {
-        return false;
+    public int remainingMinutesInOven(int actualMinutesInOven) {
+        return 40 - actualMinutesInOven;
     }
 
     public boolean preparationTimeInMinutes(int i) {
