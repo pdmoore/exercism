@@ -12,7 +12,7 @@ public class Lasagna {
     }
 
     public int preparationTimeInMinutes(int numberOfLayers) {
-        return MINUTES_PER_LAYER * numberOfLayers;
+        return numberOfLayers * MINUTES_PER_LAYER;
     }
 
     public int totalTimeInMinutes(int numberOfLayers, int actualMinutesInOven) {
