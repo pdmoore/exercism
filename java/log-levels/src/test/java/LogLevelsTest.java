@@ -14,7 +14,6 @@ public class LogLevelsTest {
         assertThat(LogLevels.message("[WARNING]: Disk almost full")).isEqualTo("Disk almost full");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void info_message() {
         assertThat(LogLevels.message("[INFO]: File moved")).isEqualTo("File moved");
