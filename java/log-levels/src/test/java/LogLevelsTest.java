@@ -39,7 +39,6 @@ public class LogLevelsTest {
         assertThat(LogLevels.logLevel("[INFO]: Timezone changed")).isEqualTo("info");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void error_reformat() {
         assertThat(LogLevels.reformat("[ERROR]: Segmentation fault"))
