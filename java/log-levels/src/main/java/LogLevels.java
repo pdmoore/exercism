@@ -13,6 +13,11 @@ public class LogLevels {
     }
 
     public static String reformat(String logLine) {
-        return message(logLine) + " (" + logLevel(logLine) + ")";
+        StringBuilder sb = new StringBuilder();
+        sb.append(message(logLine));
+        sb.append(" (");
+        sb.append(logLevel(logLine));
+        sb.append(")");
+        return sb.toString();
     }
 }
