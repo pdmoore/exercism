@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class LogLevels {
     
     public static String message(String logLine) {
@@ -6,7 +8,8 @@ public class LogLevels {
     }
 
     public static String logLevel(String logLine) {
-        return "error";
+        int closingBracketIndex = logLine.indexOf(']');
+        return logLine.substring(1, closingBracketIndex).toLowerCase(Locale.ROOT);
     }
 
     public static String reformat(String logLine) {

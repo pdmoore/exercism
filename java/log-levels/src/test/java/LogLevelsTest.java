@@ -29,13 +29,11 @@ public class LogLevelsTest {
         assertThat(LogLevels.logLevel("[ERROR]: Disk full")).isEqualTo("error");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void warning_log_level() {
         assertThat(LogLevels.logLevel("[WARNING]: Unsafe password")).isEqualTo("warning");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void info_log_level() {
         assertThat(LogLevels.logLevel("[INFO]: Timezone changed")).isEqualTo("info");
