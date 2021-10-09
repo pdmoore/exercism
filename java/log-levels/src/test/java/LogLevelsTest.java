@@ -19,7 +19,6 @@ public class LogLevelsTest {
         assertThat(LogLevels.message("[INFO]: File moved")).isEqualTo("File moved");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void message_with_leading_and_trailing_white_space() {
         assertThat(LogLevels.message("[WARNING]:   \tTimezone not set  \r\n")).isEqualTo("Timezone not set");

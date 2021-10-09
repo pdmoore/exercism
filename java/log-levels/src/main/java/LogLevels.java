@@ -2,7 +2,7 @@ public class LogLevels {
     
     public static String message(String logLine) {
         int colonIndex = logLine.indexOf(':');
-        return logLine.substring(colonIndex + 2);
+        return logLine.substring(colonIndex + 2).trim();
     }
 
     public static String logLevel(String logLine) {
