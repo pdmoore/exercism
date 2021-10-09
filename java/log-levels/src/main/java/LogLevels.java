@@ -1,5 +1,7 @@
 import java.util.Locale;
 
+import static java.lang.String.format;
+
 public class LogLevels {
     
     public static String message(String logLine) {
@@ -16,11 +18,6 @@ public class LogLevels {
     }
 
     public static String reformat(String logLine) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(message(logLine));
-        sb.append(" (");
-        sb.append(logLevel(logLine));
-        sb.append(")");
-        return sb.toString();
+        return format("%s (%s)", message(logLine), logLevel(logLine));
     }
 }
