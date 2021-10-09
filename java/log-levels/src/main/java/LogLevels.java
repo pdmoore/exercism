@@ -1,7 +1,8 @@
 public class LogLevels {
     
     public static String message(String logLine) {
-        return "Stack overflow";
+        int colonIndex = logLine.indexOf(':');
+        return logLine.substring(colonIndex + 2);
     }
 
     public static String logLevel(String logLine) {

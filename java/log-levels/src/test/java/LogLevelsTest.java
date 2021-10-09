@@ -9,7 +9,6 @@ public class LogLevelsTest {
         assertThat(LogLevels.message("[ERROR]: Stack overflow")).isEqualTo("Stack overflow");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void warning_message() {
         assertThat(LogLevels.message("[WARNING]: Disk almost full")).isEqualTo("Disk almost full");
