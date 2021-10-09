@@ -24,7 +24,6 @@ public class LogLevelsTest {
         assertThat(LogLevels.message("[WARNING]:   \tTimezone not set  \r\n")).isEqualTo("Timezone not set");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void error_log_level() {
         assertThat(LogLevels.logLevel("[ERROR]: Disk full")).isEqualTo("error");
