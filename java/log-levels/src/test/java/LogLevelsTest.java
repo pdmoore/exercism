@@ -45,21 +45,18 @@ public class LogLevelsTest {
             .isEqualTo("Segmentation fault (error)");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void warning_reformat() {
         assertThat(LogLevels.reformat("[WARNING]: Decreased performance"))
             .isEqualTo("Decreased performance (warning)");        
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void info_reformat() {
         assertThat(LogLevels.reformat("[INFO]: Disk defragmented"))
             .isEqualTo("Disk defragmented (info)");        
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void reformat_with_leading_and_trailing_white_space() {
         assertThat(LogLevels.reformat("[ERROR]: \t Corrupt disk\t \t \r\n"))

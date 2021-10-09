@@ -13,6 +13,6 @@ public class LogLevels {
     }
 
     public static String reformat(String logLine) {
-        return "Segmentation fault (error)";
+        return message(logLine) + " (" + logLevel(logLine) + ")";
     }
 }
