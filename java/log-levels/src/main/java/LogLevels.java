@@ -7,8 +7,7 @@ public class LogLevels {
     }
 
     public static String logLevel(String logLine) {
-        int closingBracketIndex = logLine.indexOf(']');
-        return logLine.substring(1, closingBracketIndex).toLowerCase(Locale.ROOT);
+        return logLine.split("]")[0].substring(1).toLowerCase(Locale.ROOT);
     }
 
     public static String reformat(String logLine) {
