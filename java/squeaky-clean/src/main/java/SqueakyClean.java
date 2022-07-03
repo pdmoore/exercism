@@ -2,21 +2,14 @@ import java.nio.charset.Charset;
 
 class SqueakyClean {
     static String clean(String identifier) {
-        // stream the string as char/codepoint
-        // call a local conversion method
-        // space -> underscore
-        // isISOControl -> "CTRL"
-        // dash -> nothing
-        // !isCharacter -> nothing
-
         StringBuffer sb = new StringBuffer();
         boolean convertToCamel = false;
         for (int c :
                 identifier.codePoints().toArray()) {
 
-            if (c == '-') {
+            if (beginsKebabCase(c)) {
                 convertToCamel = true;
-            } else if (c >= 'α' && c <= 'ω') {
+            } else if (isGreekLowerCase(c)) {
                 // ignore Greek lower case
             } else if (Character.isLetter(c)) {
                 if (convertToCamel) {
@@ -32,7 +25,14 @@ class SqueakyClean {
             }
         }
 
-
         return sb.toString();
+    }
+
+    private static boolean isGreekLowerCase(int c) {
+        return c >= 'α' && c <= 'ω';
+    }
+
+    private static boolean beginsKebabCase(int c) {
+        return c == '-';
     }
 }
