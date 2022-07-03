@@ -1,7 +1,7 @@
+import java.nio.charset.Charset;
+
 class SqueakyClean {
     static String clean(String identifier) {
-        identifier = identifier.replaceAll(" ", "_");
-
         // stream the string as char/codepoint
         // call a local conversion method
         // space -> underscore
@@ -9,6 +9,25 @@ class SqueakyClean {
         // dash -> nothing
         // !isCharacter -> nothing
 
-        return identifier;
+        StringBuffer sb = new StringBuffer();
+        for (int c :
+                identifier.codePoints().toArray()) {
+
+
+            if (c >= 'α'&& c <= 'ω') {
+                // ignore Greek lower case
+            } else if (Character.isLetter(c)) {
+                sb.append(Character.toChars(c));
+            }
+            else if (Character.isSpaceChar(c)) {
+                sb.append("_");
+            } else if (Character.isISOControl(c)) {
+                sb.append("CTRL");
+            }
+        }
+
+
+
+        return sb.toString();
     }
 }
