@@ -1,16 +1,20 @@
 import java.nio.charset.Charset;
 
 class SqueakyClean {
+
+    public static final String REPLACE_SPACE_WITH_UNDERSCORE = "_";
+    public static final String REPLACE_CONTROL_CHARACTERS_WITH_CTRL = "CTRL";
+
     static String clean(String identifier) {
         StringBuffer sb = new StringBuffer();
         boolean convertToCamel = false;
         for (int c :
-                identifier.codePoints().toArray()) {
+                identifier.toCharArray()) {
 
             if (beginsKebabCase(c)) {
                 convertToCamel = true;
             } else if (isGreekLowerCase(c)) {
-                // ignore Greek lower case
+                continue;
             } else if (Character.isLetter(c)) {
                 if (convertToCamel) {
                     sb.append(Character.toChars(Character.toUpperCase(c)));
@@ -19,9 +23,9 @@ class SqueakyClean {
                     sb.append(Character.toChars(c));
                 }
             } else if (Character.isSpaceChar(c)) {
-                sb.append("_");
+                sb.append(REPLACE_SPACE_WITH_UNDERSCORE);
             } else if (Character.isISOControl(c)) {
-                sb.append("CTRL");
+                sb.append(REPLACE_CONTROL_CHARACTERS_WITH_CTRL);
             }
         }
 
