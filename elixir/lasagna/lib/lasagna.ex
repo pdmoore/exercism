@@ -8,6 +8,9 @@ defmodule Lasagna do
   end
 
   # Please define the 'preparation_time_in_minutes/1' function
+  def preparation_time_in_minutes(number_of_layers) do
+    2 * number_of_layers
+  end
 
   # Please define the 'total_time_in_minutes/2' function
 
