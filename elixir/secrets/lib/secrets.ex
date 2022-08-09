@@ -4,15 +4,15 @@ defmodule Secrets do
   end
 
   def secret_subtract(secret) do
-    # Please implement the secret_subtract/1 function
+    &(&1 - secret)
   end
 
   def secret_multiply(secret) do
-    # Please implement the secret_multiply/1 function
+    &(&1 * secret)
   end
 
   def secret_divide(secret) do
-    # Please implement the secret_divide/1 function
+    &(div(&1, secret))
   end
 
   def secret_and(secret) do
