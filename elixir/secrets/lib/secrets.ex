@@ -16,7 +16,7 @@ defmodule Secrets do
   end
 
   def secret_and(secret) do
-    # Please implement the secret_and/1 function
+    &(Bitwise.band(&1, secret))
   end
 
   def secret_xor(secret) do
