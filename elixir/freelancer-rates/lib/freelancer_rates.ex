@@ -6,10 +6,10 @@ defmodule FreelancerRates do
   def apply_discount(before_discount, discount) do
     discount_rate = (100 - discount) / 100.0
     before_discount * discount_rate
-    # Please implement the apply_discount/2 function
   end
 
   def monthly_rate(hourly_rate, discount) do
+    ceil(@hours_per_day * hourly_rate * 22)
     # Please implement the monthly_rate/2 function
   end
 
