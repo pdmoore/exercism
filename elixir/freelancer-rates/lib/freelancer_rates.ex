@@ -20,3 +20,4 @@ defmodule FreelancerRates do
       |> Float.floor(1)
   end
 end
+
