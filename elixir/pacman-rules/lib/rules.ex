@@ -4,7 +4,7 @@ defmodule Rules do
   end
 
   def score?(touching_power_pellet, touching_dot) do
-    # Please implement the score?/2 function
+    touching_power_pellet or touching_dot
   end
 
   def lose?(power_pellet_active, touching_ghost) do
