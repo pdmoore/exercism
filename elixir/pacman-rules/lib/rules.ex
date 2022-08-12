@@ -12,6 +12,6 @@ defmodule Rules do
   end
 
   def win?(has_eaten_all_dots, power_pellet_active, touching_ghost) do
-    # Please implement the win?/3 function
+    has_eaten_all_dots and not lose?(power_pellet_active, touching_ghost)
   end
 end
