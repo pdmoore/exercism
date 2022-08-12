@@ -13,6 +13,8 @@ defmodule FreelancerRates do
   end
 
   def days_in_budget(budget, hourly_rate, discount) do
-    Float.floor(budget / (hourly_rate * @hours_per_day), 1)
+    daily = daily_rate(hourly_rate)
+    discounted = apply_discount(daily, discount)
+    Float.floor(budget / (discounted), 1)
   end
 end
