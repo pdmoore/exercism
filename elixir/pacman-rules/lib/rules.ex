@@ -8,7 +8,7 @@ defmodule Rules do
   end
 
   def lose?(power_pellet_active, touching_ghost) do
-    # Please implement the lose?/2 function
+    touching_ghost and not power_pellet_active
   end
 
   def win?(has_eaten_all_dots, power_pellet_active, touching_ghost) do
