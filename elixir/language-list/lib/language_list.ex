@@ -8,7 +8,7 @@ defmodule LanguageList do
   end
 
   def remove(list) do
-    # Please implement the remove/1 function
+    tl(list)
   end
 
   def first(list) do
