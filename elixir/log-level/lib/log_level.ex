@@ -6,7 +6,7 @@ defmodule LogLevel do
       level == 2 -> :info
       level == 3 -> :warning
       level == 4 -> :error
-      level == 5 -> if legacy?, do: :unknown, else: :fatal
+      level == 5 and not legacy?-> :fatal
       true -> :unknown
     end
   end
