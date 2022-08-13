@@ -12,10 +12,11 @@ defmodule LogLevel do
   end
 
   def alert_recipient(level, legacy?) do
+    label = to_label(level, legacy?)
     cond do
-      level in [0, 5, 6] and legacy? -> :dev1
-      level in [4, 5] -> :ops
-      level == 6 -> :dev2
+      legacy? and label in [:trace, :unknown] -> :dev1
+      label in [:error, :fatal] -> :ops
+      label == :unknown -> :dev2
       true -> false
     end
   end
