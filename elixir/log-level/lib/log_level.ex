@@ -1,7 +1,5 @@
 defmodule LogLevel do
   def to_label(level, legacy?) do
-    # Please implement the to_label/2 function
-
     cond do
       level == 0 -> if legacy?, do: :unknown, else: :trace
       level == 1 -> :debug
@@ -14,7 +12,14 @@ defmodule LogLevel do
   end
 
   def alert_recipient(level, legacy?) do
-    if level == 5 or level == 4, do: :ops
-    # Please implement the alert_recipient/2 function
+#    if level == 5 or level == 4 do
+#      :ops
+#    else
+#    end
+    cond do
+      level == 4 -> :ops
+      level == 5 -> :ops
+      true -> false
+    end
   end
 end
