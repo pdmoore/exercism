@@ -20,6 +20,6 @@ defmodule LanguageList do
   end
 
   def functional_list?(list) do
-    Enum.member?(list, "Elixir")
+    "Elixir" in list
   end
 end
