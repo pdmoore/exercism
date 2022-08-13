@@ -11,7 +11,11 @@ defmodule LogLevel do
       if level == 1 do
         :debug
         else
-        :unknown
+        if level == 2 do
+          :info
+        else
+          :unknown
+        end
       end
     end
   end
