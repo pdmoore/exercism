@@ -11,6 +11,7 @@ defmodule LogLevel do
       cond do
         level == 1 -> :debug
         level == 2 -> :info
+        level == 3 -> :warning
         true -> :unknown
       end
     end
