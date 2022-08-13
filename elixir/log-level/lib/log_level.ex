@@ -13,11 +13,9 @@ defmodule LogLevel do
 
   def alert_recipient(level, legacy?) do
     cond do
-      level == 0 and legacy? -> :dev1
+      level in [0, 5, 6] and legacy? -> :dev1
       level == 4 -> :ops
-      level == 5 and legacy? -> :dev1
       level == 5 -> :ops
-      level == 6 and legacy? -> :dev1
       level == 6 -> :dev2
       true -> false
     end
