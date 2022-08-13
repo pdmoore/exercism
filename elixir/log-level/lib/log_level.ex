@@ -8,14 +8,10 @@ defmodule LogLevel do
           :trace
       end
     else
-      if level == 1 do
-        :debug
-        else
-        if level == 2 do
-          :info
-        else
-          :unknown
-        end
+      cond do
+        level == 1 -> :debug
+        level == 2 -> :info
+        true -> :unknown
       end
     end
   end
