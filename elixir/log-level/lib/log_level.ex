@@ -12,6 +12,7 @@ defmodule LogLevel do
         level == 1 -> :debug
         level == 2 -> :info
         level == 3 -> :warning
+        level == 4 -> :error
         true -> :unknown
       end
     end
