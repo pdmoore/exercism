@@ -14,7 +14,7 @@ defmodule LogLevel do
   end
 
   def alert_recipient(level, legacy?) do
-    if level == 5, do: :ops
+    if level == 5 or level == 4, do: :ops
     # Please implement the alert_recipient/2 function
   end
 end
