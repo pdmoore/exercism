@@ -15,8 +15,10 @@ defmodule LogLevel do
     cond do
       level == 0 and legacy? -> :dev1
       level == 4 -> :ops
-      level == 5 -> if legacy?, do: :dev1, else: :ops
-      level == 6 -> if legacy?, do: :dev1, else: :dev2
+      level == 5 and legacy? -> :dev1
+      level == 5 -> :ops
+      level == 6 and legacy? -> :dev1
+      level == 6 -> :dev2
       true -> false
     end
   end
