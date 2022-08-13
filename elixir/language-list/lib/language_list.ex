@@ -12,7 +12,7 @@ defmodule LanguageList do
   end
 
   def first(list) do
-    # Please implement the first/1 function
+    List.first(list)
   end
 
   def count(list) do
