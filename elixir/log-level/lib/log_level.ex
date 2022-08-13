@@ -19,6 +19,7 @@ defmodule LogLevel do
     cond do
       level == 4 -> :ops
       level == 5 -> :ops
+      level == 6 -> :dev2
       true -> false
     end
   end
