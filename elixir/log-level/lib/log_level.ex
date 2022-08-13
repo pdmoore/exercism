@@ -1,8 +1,6 @@
 defmodule LogLevel do
   def to_label(level, legacy?) do
     # Please implement the to_label/2 function
-
-
     if level == 0 do
       if legacy? do
           :unknown
@@ -10,7 +8,11 @@ defmodule LogLevel do
           :trace
       end
     else
-      :unknown
+      if level == 1 do
+        :debug
+        else
+        :unknown
+      end
     end
   end
 
