@@ -1,21 +1,15 @@
 defmodule LogLevel do
   def to_label(level, legacy?) do
     # Please implement the to_label/2 function
-    if level == 0 do
-      if legacy? do
-          :unknown
-        else
-          :trace
-      end
-    else
-      cond do
-        level == 1 -> :debug
-        level == 2 -> :info
-        level == 3 -> :warning
-        level == 4 -> :error
-        level == 5 -> if legacy?, do: :unknown, else: :fatal
-        true -> :unknown
-      end
+
+    cond do
+      level == 0 -> if legacy?, do: :unknown, else: :trace
+      level == 1 -> :debug
+      level == 2 -> :info
+      level == 3 -> :warning
+      level == 4 -> :error
+      level == 5 -> if legacy?, do: :unknown, else: :fatal
+      true -> :unknown
     end
   end
 
