@@ -16,7 +16,7 @@ defmodule LanguageList do
   end
 
   def count(list) do
-    # Please implement the count/1 function
+    Kernel.length(list)
   end
 
   def functional_list?(list) do
