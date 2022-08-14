@@ -8,7 +8,7 @@ defmodule Darts do
   def score({x, y}) do
     deltaX = 0 - x
     deltaY = 0 - y
-    sum = (deltaX * deltaX) + (deltaY * deltaY)
+    sum = :math.pow(deltaX, 2) + :math.pow(deltaY, 2)
     # sqrt of (0 - x)^2 + (o-y)^2
     distance = :math.sqrt(sum)
     cond do
