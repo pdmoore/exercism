@@ -12,6 +12,7 @@ defmodule Darts do
     # sqrt of (0 - x)^2 + (o-y)^2
     distance = :math.sqrt(sum)
     cond do
+      distance <= 5 -> 5
       distance <= 10 -> 1
       true -> 0
     end

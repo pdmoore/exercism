@@ -9,7 +9,6 @@ defmodule DartsTest do
     assert Darts.score({0, 10}) == 1
   end
 
-  @tag :pending
   test "On the middle circle" do
     assert Darts.score({-5, 0}) == 5
   end
