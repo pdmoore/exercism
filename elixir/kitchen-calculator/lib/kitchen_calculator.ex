@@ -1,5 +1,6 @@
 defmodule KitchenCalculator do
   @ml_per_cup 240
+  @ml_per_fluid_ounce 30
 
   def get_volume(volume_pair) do
     elem(volume_pair, 1)
@@ -13,6 +14,7 @@ defmodule KitchenCalculator do
     cond do
       unit == :milliliter -> {:milliliter, elem(volume_pair, 1)}
       unit == :cup -> {:milliliter, @ml_per_cup * elem(volume_pair, 1)}
+      unit == :fluid_ounce -> {:milliliter, @ml_per_fluid_ounce * elem(volume_pair, 1)}
       true -> -99
     end
 
