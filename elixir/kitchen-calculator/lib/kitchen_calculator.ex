@@ -27,6 +27,6 @@ defmodule KitchenCalculator do
   def from_milliliter(volume_pair, unit) when unit == :teaspoon, do: {unit, elem(volume_pair, 1) / @ml_per_teaspoon}
 
   def convert(volume_pair, unit) do
-    to_milliliter(volume_pair) |> from_milliliter(unit)
+    volume_pair |> to_milliliter() |> from_milliliter(unit)
   end
 end
