@@ -33,6 +33,6 @@ defmodule KitchenCalculator do
   end
 
   def convert(volume_pair, unit) do
-    # Please implement the convert/2 function
+    from_milliliter(to_milliliter(volume_pair), unit)
   end
 end
