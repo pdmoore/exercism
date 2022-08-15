@@ -1,4 +1,6 @@
 defmodule KitchenCalculator do
+  @ml_per_cup 240
+
   def get_volume(volume_pair) do
     elem(volume_pair, 1)
   end
@@ -10,6 +12,7 @@ defmodule KitchenCalculator do
     # TODO - next step is to create a new tuple with :milliliter on the left and the conversion on the right
     cond do
       unit == :milliliter -> {:milliliter, elem(volume_pair, 1)}
+      unit == :cup -> {:milliliter, @ml_per_cup * elem(volume_pair, 1)}
       true -> -99
     end
 
