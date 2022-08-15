@@ -6,7 +6,6 @@ defmodule YearTest do
     refute Year.leap_year?(2015)
   end
 
-  @tag :pending
   test "year divisible by 2, not divisible by 4 is common year" do
     refute Year.leap_year?(1970)
   end

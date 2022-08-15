@@ -9,6 +9,6 @@ defmodule Year do
       unless the year is also evenly divisible by 400
   """
   @spec leap_year?(non_neg_integer) :: boolean
-  def leap_year?(year) do
-  end
+  def leap_year?(year) when Kernel.rem(year, 4) != 0, do: false
+
 end
