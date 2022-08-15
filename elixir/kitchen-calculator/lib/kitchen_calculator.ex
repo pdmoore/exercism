@@ -17,7 +17,6 @@ defmodule KitchenCalculator do
       unit == :fluid_ounce -> {:milliliter, @ml_per_fluid_ounce * elem(volume_pair, 1)}
       unit == :tablespoon -> {:milliliter, @ml_per_tablespoon * elem(volume_pair, 1)}
       unit == :teaspoon -> {:milliliter, @ml_per_teaspoon * elem(volume_pair, 1)}
-      true -> -99
     end
   end
 
