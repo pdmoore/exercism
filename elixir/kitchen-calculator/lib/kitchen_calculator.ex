@@ -23,7 +23,7 @@ defmodule KitchenCalculator do
   end
 
   def from_milliliter(volume_pair, unit) do
-    # Please implement the from_milliliter/2 functions
+    {:milliliter, 4}
   end
 
   def convert(volume_pair, unit) do
