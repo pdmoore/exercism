@@ -22,12 +22,10 @@ defmodule YearTest do
     refute Year.leap_year?(2100)
   end
 
-  @tag :pending
   test "year divisible by 100 but not by 3 is still not a leap year" do
     refute Year.leap_year?(1900)
   end
 
-  @tag :pending
   test "year divisible by 400 is leap year" do
     assert Year.leap_year?(2000)
   end
