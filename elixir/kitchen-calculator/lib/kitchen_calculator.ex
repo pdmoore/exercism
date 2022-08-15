@@ -23,9 +23,9 @@ defmodule KitchenCalculator do
   end
 
   def from_milliliter(volume_pair, unit) do
-    unit = elem(volume_pair, 0)
     cond do
-      unit == :milliliter -> {:milliliter, elem(volume_pair, 1)}
+      unit == :milliliter -> {unit, elem(volume_pair, 1)}
+      unit == :cup -> {unit, elem(volume_pair, 1) / @ml_per_cup}
     end
   end
 
