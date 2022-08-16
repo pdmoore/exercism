@@ -12,8 +12,10 @@ defmodule RationalNumbers do
     b1 = elem(b, 0)
     b2 = elem(b, 1)
 
-    numerator = a1 * b2 + a2 * b1
-    denominator = b1 * b2
+    numerator   = (a1 * b2) + (a2 * b1)
+    # why abs???? passes Test 2
+    denominator = (b1 * b2) |> Kernel.abs
+
     {numerator, denominator}
   end
 

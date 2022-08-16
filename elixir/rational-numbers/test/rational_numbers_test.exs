@@ -2,12 +2,10 @@ defmodule RationalNumbersTest do
   use ExUnit.Case
 
   describe "Addition" do
-    # @tag :pending
     test "Add two positive rational numbers" do
       assert RationalNumbers.add({1, 2}, {2, 3}) == {7, 6}
     end
 
-    @tag :pending
     test "Add a positive rational number and a negative rational number" do
       assert RationalNumbers.add({1, 2}, {-2, 3}) == {-1, 6}
     end
