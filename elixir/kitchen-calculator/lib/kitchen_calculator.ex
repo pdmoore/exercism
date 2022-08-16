@@ -4,20 +4,20 @@ defmodule KitchenCalculator do
   @ml_per_fluid_ounce 30
   @ml_per_cup 240
 
+  @conversions %{
+    :milliliter  =>   1,
+    :teaspoon    =>   5,
+    :tablespoon  =>  15,
+    :fluid_ounce =>  30,
+    :cup         => 240
+  }
+
   def get_volume(volume_pair) do
     elem(volume_pair, 1)
   end
 
   def to_milliliter(volume_pair) do
-    unit = elem(volume_pair, 0)
-
-    cond do
-      unit == :milliliter -> volume_pair
-      unit == :cup -> {:milliliter, @ml_per_cup * get_volume(volume_pair)}
-      unit == :fluid_ounce -> {:milliliter, @ml_per_fluid_ounce * get_volume(volume_pair)}
-      unit == :tablespoon -> {:milliliter, @ml_per_tablespoon * get_volume(volume_pair)}
-      unit == :teaspoon -> {:milliliter, @ml_per_teaspoon * get_volume(volume_pair)}
-    end
+    {:milliliter, @conversions[elem(volume_pair, 0)] * get_volume(volume_pair)}
   end
 
   def from_milliliter(volume_pair, unit) when unit == :milliliter, do: volume_pair
