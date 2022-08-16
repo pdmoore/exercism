@@ -10,7 +10,7 @@ defmodule Darts do
   """
   @spec score(position) :: integer
   def score({x, y}) do
-    distance_from_center = :math.sqrt((x |> squared) + (y |> squared))
+    distance_from_center = (x |> squared) + (y |> squared) |> :math.sqrt()
     cond do
       distance_from_center <= 1  -> @inner_circle_score
       distance_from_center <= 5  -> @middle_circle_score
