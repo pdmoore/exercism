@@ -14,7 +14,6 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.add({-1, 2}, {-2, 3}) == {-7, 6}
     end
 
-    @tag :pending
     test "Add a rational number to its additive inverse" do
       assert RationalNumbers.add({1, 2}, {-1, 2}) == {0, 1}
     end
