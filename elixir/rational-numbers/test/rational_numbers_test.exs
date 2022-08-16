@@ -24,17 +24,14 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.subtract({1, 2}, {2, 3}) == {-1, 6}
     end
 
-    @tag :pending
     test "Subtract a positive rational number and a negative rational number" do
       assert RationalNumbers.subtract({1, 2}, {-2, 3}) == {7, 6}
     end
 
-    @tag :pending
     test "Subtract two negative rational numbers" do
       assert RationalNumbers.subtract({-1, 2}, {-2, 3}) == {1, 6}
     end
 
-    @tag :pending
     test "Subtract a rational number from itself" do
       assert RationalNumbers.subtract({1, 2}, {1, 2}) == {0, 1}
     end
