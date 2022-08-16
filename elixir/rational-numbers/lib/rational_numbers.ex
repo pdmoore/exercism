@@ -30,6 +30,7 @@ defmodule RationalNumbers do
   """
   @spec subtract(a :: rational, b :: rational) :: rational
   def subtract(a, b) do
+    # can this be refactored?
     negate_b = {-1 * elem(b, 0), elem(b, 1)}
     add(a, negate_b)
   end
@@ -39,6 +40,18 @@ defmodule RationalNumbers do
   """
   @spec multiply(a :: rational, b :: rational) :: rational
   def multiply(a, b) do
+    #r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
+
+    # duplicate code from Addition
+    a1 = elem(a, 0)
+    a2 = elem(a, 1)
+    b1 = elem(b, 0)
+    b2 = elem(b, 1)
+
+    numerator   = (a1 * a2)
+    denominator = (b1 * b2)
+
+    {numerator, denominator} |> reduce
   end
 
   @doc """
@@ -74,5 +87,9 @@ defmodule RationalNumbers do
   """
   @spec reduce(a :: rational) :: rational
   def reduce(a) do
+
   end
+
+#  def gcd(x, 0), do: x
+#  def gcd(x, y), do: gcd(y, rem(x,y))
 end
