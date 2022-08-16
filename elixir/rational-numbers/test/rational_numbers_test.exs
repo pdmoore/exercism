@@ -10,7 +10,6 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.add({1, 2}, {-2, 3}) == {-1, 6}
     end
 
-    @tag :pending
     test "Add two negative rational numbers" do
       assert RationalNumbers.add({-1, 2}, {-2, 3}) == {-7, 6}
     end
