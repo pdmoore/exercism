@@ -30,6 +30,8 @@ defmodule RationalNumbers do
   """
   @spec subtract(a :: rational, b :: rational) :: rational
   def subtract(a, b) do
+    negate_b = {-1 * elem(b, 0), elem(b, 1)}
+    add(a, negate_b)
   end
 
   @doc """
