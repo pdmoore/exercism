@@ -7,12 +7,11 @@ defmodule KitchenCalculator do
     :cup         => 240
   }
 
-  def get_volume(volume_pair) do
-    elem(volume_pair, 1)
-  end
+  def get_units(volume_pair),  do: elem(volume_pair, 0)
+  def get_volume(volume_pair), do: elem(volume_pair, 1)
 
   def to_milliliter(volume_pair) do
-    {:milliliter, @conversions[elem(volume_pair, 0)] * get_volume(volume_pair)}
+    {:milliliter, @conversions[get_units(volume_pair)] * get_volume(volume_pair)}
   end
 
   def from_milliliter(volume_pair, unit), do: {unit, get_volume(volume_pair) / @conversions[unit]}
