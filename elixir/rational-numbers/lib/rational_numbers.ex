@@ -40,7 +40,6 @@ defmodule RationalNumbers do
   """
   @spec multiply(a :: rational, b :: rational) :: rational
   def multiply(a, b) do
-
  #    r₁ = a₁/b₁ and r₂ = a₂/b₂ is r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
     # duplicated code from Addition
     a1 = elem(a, 0)
@@ -64,6 +63,19 @@ defmodule RationalNumbers do
   """
   @spec divide_by(num :: rational, den :: rational) :: rational
   def divide_by(num, den) do
+
+#    r₁ = a₁/b₁ by another r₂ = a₂/b₂ is r₁ / r₂ = (a₁ * b₂) / (a₂ * b₁) if a₂ is not zero.
+    # duplicated code from Addition
+    a1 = elem(num, 0)
+    b1 = elem(num, 1)
+    a2 = elem(den, 0)
+    b2 = elem(den, 1)
+
+    numerator = (a1 * b2)
+    denominator = (a2 * b1)
+
+    {numerator, denominator}
+
   end
 
   @doc """
