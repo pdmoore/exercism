@@ -15,18 +15,15 @@ defmodule HighSchoolSweetheart do
   end
 
   def pair(full_name1, full_name2) do
-    left = initials(full_name1)
+    left  = initials(full_name1)
     right = initials(full_name2)
-    plussed = "**     " <> left <> "  +  " <> right <> "     **\n"
     """
          ******       ******
        **      **   **      **
      **         ** **         **
     **            *            **
     **                         **
-    """
-    <> plussed <>
-    """
+    **     #{left}  +  #{right}     **
      **                       **
        **                   **
          **               **
