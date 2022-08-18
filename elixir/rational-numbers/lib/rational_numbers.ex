@@ -15,13 +15,7 @@ defmodule RationalNumbers do
     numerator   = (a1 * b2) + (a2 * b1)
     denominator = (b1 * b2) |> _abs
 
-    # ugh - hard coded to pass test 4
-    #denominators match as 2, but don't reduce to 1
-    if (numerator == 0) do
-      {0, 1}
-    else
-      {numerator, denominator}
-    end
+    { numerator, denominator } |> reduce
   end
 
   @doc """
