@@ -87,9 +87,14 @@ defmodule RationalNumbers do
   """
   @spec reduce(a :: rational) :: rational
   def reduce(a) do
+    numerator = elem(a, 0)
+    denominator = elem(a, 1)
 
+    greatest_common_divisor = gcd(numerator, denominator)
+
+    {numerator / greatest_common_divisor, denominator / greatest_common_divisor }
   end
 
-#  def gcd(x, 0), do: x
-#  def gcd(x, y), do: gcd(y, rem(x,y))
+  def gcd(x, 0), do: x
+  def gcd(x, y), do: gcd(y, rem(x,y))
 end
