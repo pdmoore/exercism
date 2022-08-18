@@ -1,7 +1,6 @@
 defmodule HighSchoolSweetheart do
   def first_letter(name) do
-    String.first(String.trim(name))
-
+    name |> String.trim |> String.first
   end
 
   def initial(name) do
