@@ -8,8 +8,8 @@ defmodule RationalNumbers do
   def add(a, b) do
     #r₁ + r₂ = a₁/b₁ + a₂/b₂ = (a₁ * b₂ + a₂ * b₁) / (b₁ * b₂)
     a1 = elem(a, 0)
-    a2 = elem(a, 1)
-    b1 = elem(b, 0)
+    a2 = elem(b, 0)
+    b1 = elem(a, 1)
     b2 = elem(b, 1)
 
     numerator   = (a1 * b2) + (a2 * b1)
