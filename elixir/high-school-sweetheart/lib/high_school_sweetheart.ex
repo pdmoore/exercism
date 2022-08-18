@@ -4,7 +4,7 @@ defmodule HighSchoolSweetheart do
   end
 
   def initial(name) do
-    # Please implement the initial/1 function
+    first_letter(name) <> "."
   end
 
   def initials(full_name) do
