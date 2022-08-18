@@ -86,22 +86,18 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.abs({1, 2}) == {1, 2}
     end
 
-    @tag :pending
     test "Absolute value of a positive rational number with negative numerator and denominator" do
       assert RationalNumbers.abs({-1, -2}) == {1, 2}
     end
 
-    @tag :pending
     test "Absolute value of a negative rational number" do
       assert RationalNumbers.abs({-1, 2}) == {1, 2}
     end
 
-    @tag :pending
     test "Absolute value of a negative rational number with negative denominator" do
       assert RationalNumbers.abs({1, -2}) == {1, 2}
     end
 
-    @tag :pending
     test "Absolute value of zero" do
       assert RationalNumbers.abs({0, 1}) == {0, 1}
     end

@@ -85,7 +85,15 @@ defmodule RationalNumbers do
   """
   @spec abs(a :: rational) :: rational
   def abs(a) do
-    a
+    a1 = elem(a, 0)
+    a2 = elem(a, 1)
+    cond do
+      a1 < 0 and a2 < 0 -> { 0 - a1, 0 - a2 }
+      a1 < 0            -> { 0 - a1, a2 }
+      a2 < 0            -> { a1, 0 - a2 }
+      true -> a
+    end
+
   end
 
   @doc """
