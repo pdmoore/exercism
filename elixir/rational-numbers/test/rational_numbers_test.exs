@@ -173,7 +173,6 @@ defmodule RationalNumbersTest do
   end
 
   describe "Reduction to lowest terms" do
-    @tag :pending
     test "Reduce a positive rational number to lowest terms" do
       assert RationalNumbers.reduce({2, 4}) == {1, 2}
     end
@@ -183,7 +182,6 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.reduce({3, -4}) == {-3, 4}
     end
 
-    @tag :pending
     test "Reduce a negative rational number to lowest terms" do
       assert RationalNumbers.reduce({-4, 6}) == {-2, 3}
     end
@@ -193,17 +191,14 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.reduce({3, -9}) == {-1, 3}
     end
 
-    @tag :pending
     test "Reduce zero to lowest terms" do
       assert RationalNumbers.reduce({0, 6}) == {0, 1}
     end
 
-    @tag :pending
     test "Reduce an integer to lowest terms" do
       assert RationalNumbers.reduce({-14, 7}) == {-2, 1}
     end
 
-    @tag :pending
     test "Reduce one to lowest terms" do
       assert RationalNumbers.reduce({13, 13}) == {1, 1}
     end
