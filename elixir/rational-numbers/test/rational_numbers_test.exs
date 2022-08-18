@@ -108,7 +108,6 @@ defmodule RationalNumbersTest do
   end
 
   describe "Exponentiation of a rational number" do
-    @tag :pending
     test "Raise a positive rational number to a positive integer power" do
       assert RationalNumbers.pow_rational({1, 2}, 3) == {1, 8}
     end

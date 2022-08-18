@@ -91,7 +91,15 @@ defmodule RationalNumbers do
   """
   @spec pow_rational(a :: rational, n :: integer) :: rational
   def pow_rational(a, n) do
+#    r^n = (a^n)/(b^n)
+    a1 = elem(a, 0)
+    a2 = elem(a, 1)
+
+    { _pow(a1, n), _pow(a2, n) }
   end
+
+  def _pow(x, n) when n == 1, do: x
+  def _pow(x, n), do: x * _pow(x, n - 1)
 
   @doc """
   Exponentiation of a real number by a rational number
