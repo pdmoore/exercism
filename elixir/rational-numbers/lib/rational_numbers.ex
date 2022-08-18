@@ -112,9 +112,6 @@ defmodule RationalNumbers do
   """
   @spec pow_real(x :: integer, n :: rational) :: float
   def pow_real(x, n) do
-    # Exponentiation of a rational number r = a/b to a real (floating-point) number x
-    #   is the quotient (a^x)/(b^x), which is a real number.
-    #
     # Exponentiation of a real number x to a rational number r = a/b
     # is x^(a/b) = root(x^a, b), where root(p, q) is the qth root of p.
 
