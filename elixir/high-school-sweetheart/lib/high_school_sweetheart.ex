@@ -4,11 +4,12 @@ defmodule HighSchoolSweetheart do
   end
 
   def initial(name) do
-    first_letter(name) <> "."
+    first_letter(name) <> "." |> String.upcase
   end
 
   def initials(full_name) do
-    # Please implement the initials/1 function
+#    full_name |> String.upcase |> initial
+
   end
 
   def pair(full_name1, full_name2) do
