@@ -13,8 +13,7 @@ defmodule RationalNumbers do
     b2 = elem(b, 1)
 
     numerator   = (a1 * b2) + (a2 * b1)
-    # why abs???? passes Test 2
-    denominator = (b1 * b2) |> Kernel.abs
+    denominator = (b1 * b2) |> _abs
 
     # ugh - hard coded to pass test 4
     #denominators match as 2, but don't reduce to 1
@@ -48,7 +47,7 @@ defmodule RationalNumbers do
     b2 = elem(b, 1)
 
     numerator   = (a1 * a2)
-    denominator = (b1 * b2) |> Kernel.abs
+    denominator = (b1 * b2) |> _abs
 
     # Ugh again - hard coded to pass Multiple by 0 case
     if (denominator == 0) do
@@ -74,7 +73,7 @@ defmodule RationalNumbers do
     numerator = (a1 * b2)
     denominator = (a2 * b1)
     if (denominator < 0) do
-      { 0 - numerator, Kernel.abs(denominator)}
+      { 0 - numerator, _abs(denominator)}
     else
       {numerator, denominator}
     end
