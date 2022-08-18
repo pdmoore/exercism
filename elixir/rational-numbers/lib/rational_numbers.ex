@@ -42,10 +42,12 @@ defmodule RationalNumbers do
   def multiply(a, b) do
     #r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
 
+#    r₁ = a₁/b₁ and r₂ = a₂/b₂ is r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
+
     # duplicated code from Addition
     a1 = elem(a, 0)
-    a2 = elem(a, 1)
-    b1 = elem(b, 0)
+    b1 = elem(a, 1)
+    a2 = elem(b, 0)
     b2 = elem(b, 1)
 
     numerator   = (a1 * a2)
@@ -57,7 +59,6 @@ defmodule RationalNumbers do
     else
       {numerator, denominator} |> reduce
     end
-
   end
 
   @doc """
