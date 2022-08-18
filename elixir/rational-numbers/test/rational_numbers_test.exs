@@ -120,7 +120,6 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.pow_rational({3, 5}, -2) == {25, 9}
     end
 
-    @tag :pending
     test "Raise a negative rational number to an even negative integer power" do
       assert RationalNumbers.pow_rational({-3, 5}, -2) == {25, 9}
     end
