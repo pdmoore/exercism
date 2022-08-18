@@ -64,7 +64,6 @@ defmodule RationalNumbersTest do
   end
 
   describe "Division" do
-    @tag :pending
     test "Divide two positive rational numbers" do
       assert RationalNumbers.divide_by({1, 2}, {2, 3}) == {3, 4}
     end
@@ -79,7 +78,6 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.divide_by({-1, 2}, {-2, 3}) == {3, 4}
     end
 
-    @tag :pending
     test "Divide a rational number by 1" do
       assert RationalNumbers.divide_by({1, 2}, {1, 1}) == {1, 2}
     end
