@@ -82,7 +82,6 @@ defmodule RationalNumbersTest do
   end
 
   describe "Absolute value" do
-    @tag :pending
     test "Absolute value of a positive rational number" do
       assert RationalNumbers.abs({1, 2}) == {1, 2}
     end

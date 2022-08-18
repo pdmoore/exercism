@@ -85,6 +85,7 @@ defmodule RationalNumbers do
   """
   @spec abs(a :: rational) :: rational
   def abs(a) do
+    a
   end
 
   @doc """
