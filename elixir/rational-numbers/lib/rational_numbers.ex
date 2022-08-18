@@ -40,10 +40,8 @@ defmodule RationalNumbers do
   """
   @spec multiply(a :: rational, b :: rational) :: rational
   def multiply(a, b) do
-    #r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
 
-#    r₁ = a₁/b₁ and r₂ = a₂/b₂ is r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
-
+ #    r₁ = a₁/b₁ and r₂ = a₂/b₂ is r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
     # duplicated code from Addition
     a1 = elem(a, 0)
     b1 = elem(a, 1)
@@ -51,7 +49,7 @@ defmodule RationalNumbers do
     b2 = elem(b, 1)
 
     numerator   = (a1 * a2)
-    denominator = (b1 * b2)
+    denominator = (b1 * b2) |> Kernel.abs
 
     # Ugh again - hard coded to pass Multiple by 0 case
     if (denominator == 0) do
@@ -97,7 +95,7 @@ defmodule RationalNumbers do
     numerator = elem(a, 0)
     denominator = elem(a, 1)
 
-    greatest_common_divisor = gcd(numerator, denominator)
+    greatest_common_divisor = gcd(numerator, denominator) |> Kernel.abs
 
     {numerator / greatest_common_divisor, denominator / greatest_common_divisor }
   end
