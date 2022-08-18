@@ -106,7 +106,7 @@ defmodule RationalNumbers do
 
     m = _abs(n)
 
-    { _pow(a2, m), _pow(a1, m) }
+    { _pow(a2, m), _pow(a1, m) }  |> reduce
   end
 
   def _pow(x, n) when n == 1, do: x
