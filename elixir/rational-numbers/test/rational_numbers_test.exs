@@ -129,12 +129,10 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.pow_rational({-3, 5}, -3) == {-125, 27}
     end
 
-    @tag :pending
     test "Raise zero to an integer power" do
       assert RationalNumbers.pow_rational({0, 1}, 5) == {0, 1}
     end
 
-    @tag :pending
     test "Raise one to an integer power" do
       assert RationalNumbers.pow_rational({1, 1}, 4) == {1, 1}
     end
