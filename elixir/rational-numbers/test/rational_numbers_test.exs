@@ -137,12 +137,10 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.pow_rational({1, 1}, 4) == {1, 1}
     end
 
-    @tag :pending
     test "Raise a positive rational number to the power of zero" do
       assert RationalNumbers.pow_rational({1, 2}, 0) == {1, 1}
     end
 
-    @tag :pending
     test "Raise a negative rational number to the power of zero" do
       assert RationalNumbers.pow_rational({-1, 2}, 0) == {1, 1}
     end

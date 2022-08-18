@@ -90,6 +90,7 @@ defmodule RationalNumbers do
   Exponentiation of a rational number by an integer
   """
   @spec pow_rational(a :: rational, n :: integer) :: rational
+  def pow_rational(a, n) when n == 0, do: {1, 1}
   def pow_rational(a, n) when n > 0 do
 #    r^n = (a^n)/(b^n)
     a1 = elem(a, 0)
