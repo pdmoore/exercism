@@ -129,7 +129,15 @@ defmodule RationalNumbers do
 
     greatest_common_divisor = gcd(numerator, denominator) |> Kernel.abs
 
-    {numerator / greatest_common_divisor, denominator / greatest_common_divisor }
+# If a denominator with a negative integer is present, multiply both numerator and denominator by -1 to ensure standard form is reached. For example, 3/-4 should be reduced to -3/4
+
+    cond do
+      denominator < 0 ->
+        { -1 * (numerator / greatest_common_divisor), -1 * (denominator / greatest_common_divisor) }
+      true ->
+        {numerator / greatest_common_divisor, denominator / greatest_common_divisor }
+    end
+
   end
 
   def gcd(x, 0), do: x

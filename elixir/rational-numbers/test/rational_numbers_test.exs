@@ -177,7 +177,6 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.reduce({2, 4}) == {1, 2}
     end
 
-    @tag :pending
     test "Reduce places the minus sign on the numerator" do
       assert RationalNumbers.reduce({3, -4}) == {-3, 4}
     end
@@ -186,7 +185,6 @@ defmodule RationalNumbersTest do
       assert RationalNumbers.reduce({-4, 6}) == {-2, 3}
     end
 
-    @tag :pending
     test "Reduce a rational number with a negative denominator to lowest terms" do
       assert RationalNumbers.reduce({3, -9}) == {-1, 3}
     end
