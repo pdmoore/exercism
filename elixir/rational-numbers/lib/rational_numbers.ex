@@ -91,7 +91,7 @@ defmodule RationalNumbers do
       a1 < 0 and a2 < 0 -> { 0 - a1, 0 - a2 }
       a1 < 0            -> { 0 - a1, a2 }
       a2 < 0            -> { a1, 0 - a2 }
-      true -> a
+      true -> a |> reduce
     end
 
   end
