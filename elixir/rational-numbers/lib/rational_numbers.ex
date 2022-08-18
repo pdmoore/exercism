@@ -85,6 +85,7 @@ defmodule RationalNumbers do
   """
   @spec abs(a :: rational) :: rational
   def abs(a) do
+    # TODO - probably need to reduce all paths, not just the default
     a1 = elem(a, 0)
     a2 = elem(a, 1)
     cond do
@@ -93,7 +94,6 @@ defmodule RationalNumbers do
       a2 < 0            -> { a1, 0 - a2 }
       true -> a |> reduce
     end
-
   end
 
   @doc """
