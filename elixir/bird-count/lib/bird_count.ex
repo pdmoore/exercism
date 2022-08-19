@@ -9,7 +9,7 @@ defmodule BirdCount do
 
   def has_day_without_birds?([]), do: false
   def has_day_without_birds?(list) do
-    # Please implement the has_day_without_birds?/1 function
+    false
   end
 
   def total(list) do
