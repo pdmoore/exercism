@@ -3,7 +3,6 @@ defmodule BirdCount do
   def today([]), do: nil
   def today([h | _]), do: h
 
-
   def increment_day_count([]), do: [1]
   def increment_day_count([h | t]), do: [ h + 1 | t]
 
@@ -12,12 +11,7 @@ defmodule BirdCount do
   def has_day_without_birds?([_ | t]), do: has_day_without_birds?(t)
 
   def total([]), do: 0
-  def total(list) do
-    sum = 0
-    sum + _total(sum, list)
-  end
-
-  def _total(sum, [h | t]), do: sum + h + total(t)
+  def total([h | t]), do: h + total(t)
 
   def busy_days([]), do: 0
   def busy_days([h | t]) do
