@@ -20,5 +20,4 @@ defmodule BirdCount do
       true -> busy_days(t)
     end
   end
-
 end
