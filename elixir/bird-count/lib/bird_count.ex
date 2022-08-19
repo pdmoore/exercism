@@ -11,6 +11,7 @@ defmodule BirdCount do
   def has_day_without_birds?([h | _]) when h == 0, do: true
   def has_day_without_birds?([_ | t]), do: has_day_without_birds?(t)
 
+  def total([]), do: 0
   def total(list) do
     # Please implement the total/1 function
   end
