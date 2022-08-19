@@ -146,7 +146,6 @@ defmodule RationalNumbersTest do
   end
 
   describe "Exponentiation of a real number to a rational number" do
-    @tag :pending
     test "Raise a real number to a positive rational number" do
       x = 8
       r = {4, 3}

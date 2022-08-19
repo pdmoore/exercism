@@ -86,7 +86,7 @@ defmodule RationalNumbers do
   Exponentiation of a rational number by an integer
   """
   @spec pow_rational(a :: rational, n :: integer) :: rational
-  def pow_rational(a, n) when n == 0, do: {1, 1}
+  def pow_rational(_, n) when n == 0, do: {1, 1}
   def pow_rational(a, n) when n > 0 do
 #    r^n = (a^n)/(b^n)
     a1 = elem(a, 0)
@@ -111,12 +111,21 @@ defmodule RationalNumbers do
   Exponentiation of a real number by a rational number
   """
   @spec pow_real(x :: integer, n :: rational) :: float
-  def pow_real(x, n) when elem(n, 0) == 0, do: 1.0
+  def pow_real(_, n) when elem(n, 0) == 0, do: 1.0
 
   def pow_real(x, n) do
     # Exponentiation of a real number x to a rational number r = a/b
     # is x^(a/b) = root(x^a, b), where root(p, q) is the qth root of p.
-    2.0
+    a = elem(n, 0)
+    b = elem(n, 1)
+
+    pow = _pow(x, a)
+
+    { pow, b }
+
+    pow**(1/b)
+
+#    16.0
   end
 
   @doc """
