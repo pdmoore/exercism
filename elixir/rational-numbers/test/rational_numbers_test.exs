@@ -153,7 +153,6 @@ defmodule RationalNumbersTest do
       assert_in_delta RationalNumbers.pow_real(x, r), result, 1.0e-10
     end
 
-    @tag :pending
     test "Raise a real number to a negative rational number" do
       x = 9
       r = {-1, 2}

@@ -113,9 +113,13 @@ defmodule RationalNumbers do
   @spec pow_real(x :: integer, n :: rational) :: float
   def pow_real(_, n) when elem(n, 0) == 0, do: 1.0
 
+  def pow_real(x, n) when elem(n, 0) < 0 do
+    b = elem(n, 1)
+
+    1 / (x**(1/b))
+  end
+
   def pow_real(x, n) do
-    # Exponentiation of a real number x to a rational number r = a/b
-    # is x^(a/b) = root(x^a, b), where root(p, q) is the qth root of p.
     a = elem(n, 0)
     b = elem(n, 1)
 
@@ -124,8 +128,6 @@ defmodule RationalNumbers do
     { pow, b }
 
     pow**(1/b)
-
-#    16.0
   end
 
   @doc """
