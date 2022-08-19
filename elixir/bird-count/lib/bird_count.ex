@@ -8,9 +8,8 @@ defmodule BirdCount do
   def increment_day_count([h | t]), do: [ h + 1 | t]
 
   def has_day_without_birds?([]), do: false
-  def has_day_without_birds?(list) do
-    false
-  end
+  def has_day_without_birds?([h | _]) when h == 0, do: true
+  def has_day_without_birds?([_ | t]), do: has_day_without_birds?(t)
 
   def total(list) do
     # Please implement the total/1 function
