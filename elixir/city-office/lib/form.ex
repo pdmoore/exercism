@@ -50,7 +50,7 @@ defmodule Form do
 #address - can be either an address_map or an address_tuple.
 
   @type address_map :: integer
-  @type address_tuple :: integer
+  @type address_tuple :: {street :: String.t(), postal_code :: String.t(), city :: String.t()}
 
   @type address :: address_map | address_tuple
 
