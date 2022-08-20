@@ -3,8 +3,9 @@ defmodule HighScore do
     %{}
   end
 
+  def add_player(scores, name), do: add_player(scores, name, 0)
   def add_player(scores, name, score) do
-    # Please implement the add_player/3 function
+    Map.put_new(scores, name, score)
   end
 
   def remove_player(scores, name) do
