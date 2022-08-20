@@ -17,7 +17,7 @@ defmodule HighScore do
   end
 
   def update_score(scores, name, score) do
-    # Please implement the update_score/3 function
+    Map.put(scores, name, score)
   end
 
   def get_players(scores) do
