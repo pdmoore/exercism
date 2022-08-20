@@ -14,6 +14,13 @@ defmodule Form do
     String.duplicate("X", n)
   end
 
+  @doc """
+  Splits the string into a list of uppercase letters.
+
+  This is needed for form fields that don't offer a single input for the whole string,
+  but instead require splitting the string into a predefined number of single-letter inputs.
+  """
+  @spec letters( word :: String.t()) :: list(String.t())
   def letters(word) do
     word
     |> String.upcase()
