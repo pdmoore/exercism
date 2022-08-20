@@ -9,7 +9,7 @@ defmodule HighScore do
   end
 
   def remove_player(scores, name) do
-    # Please implement the remove_player/2 function
+    Map.delete(scores, name)
   end
 
   def reset_score(scores, name) do
