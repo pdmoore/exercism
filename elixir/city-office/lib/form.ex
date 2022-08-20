@@ -49,7 +49,7 @@ defmodule Form do
 #address_tuple - a tuple with three values - street, postal_code, and city. Each value is of type string. Differentiate the values by giving them names in the typespec.
 #address - can be either an address_map or an address_tuple.
 
-  @type address_map :: integer
+  @type address_map :: %{street: String.t(), postal_code: String.t(), city: String.t()}
   @type address_tuple :: {street :: String.t(), postal_code :: String.t(), city :: String.t()}
 
   @type address :: address_map | address_tuple
