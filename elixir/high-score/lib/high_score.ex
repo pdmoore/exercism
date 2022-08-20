@@ -30,6 +30,6 @@ defmodule HighScore do
   end
 
   def get_players(scores) do
-    []
+    Map.keys(scores)
   end
 end
