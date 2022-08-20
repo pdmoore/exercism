@@ -5,7 +5,6 @@ defmodule HighScore do
     %{}
   end
 
-#  def add_player(scores, name), do: add_player(scores, name, @initial_score)
   def add_player(scores, name, score \\ @initial_score) do
     Map.put_new(scores, name, score)
   end
