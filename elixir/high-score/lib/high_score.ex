@@ -23,7 +23,6 @@ defmodule HighScore do
     end
   end
 
-  # TODO - is there a simpler way using get_and_update?
   def add_score(scores, name, score) do
     current_score = Map.get(scores, name)
     Map.replace(scores, name, current_score + score)
