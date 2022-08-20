@@ -44,6 +44,16 @@ defmodule Form do
     end
   end
 
+#  @type color :: {hue :: integer, saturation :: integer, lightness :: integer}
+#address_map - a map with the keys :street, :postal_code, and :city. Each key holds a value of type string.
+#address_tuple - a tuple with three values - street, postal_code, and city. Each value is of type string. Differentiate the values by giving them names in the typespec.
+#address - can be either an address_map or an address_tuple.
+
+  @type address_map :: integer
+  @type address_tuple :: integer
+
+  @type address :: address_map | address_tuple
+
   def format_address(%{street: street, postal_code: postal_code, city: city}) do
     format_address({street, postal_code, city})
   end
