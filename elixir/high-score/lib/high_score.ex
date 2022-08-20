@@ -19,14 +19,9 @@ defmodule HighScore do
 
   def update_score(scores, name, score) do
     cond do
-      Map.has_key?(scores, name) -> add_score(scores, name, score)
+      Map.has_key?(scores, name) -> Map.update(scores, name, score, &(&1 + score))
       true -> Map.put(scores, name, score)
     end
-  end
-
-  def add_score(scores, name, score) do
-    current_score = Map.get(scores, name)
-    Map.replace(scores, name, current_score + score)
   end
 
   def get_players(scores) do
