@@ -7,5 +7,9 @@ defmodule Username do
 
     # Please implement the sanitize/1 function
     ''
+
+    username |> Enum.filter(fn ch -> ch >= ?a and ch <= ?z end)
+
   end
+
 end
