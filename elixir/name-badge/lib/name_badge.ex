@@ -1,5 +1,5 @@
 defmodule NameBadge do
   def print(id, name, department) do
-    "[#{id}] - Mary M. Brown - MARKETING"
+    "[#{id}] - " <> name <> " - MARKETING"
   end
 end
