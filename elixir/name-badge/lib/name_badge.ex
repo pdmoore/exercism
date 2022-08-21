@@ -1,19 +1,11 @@
 defmodule NameBadge do
   def print(id, name, department) do
     printable_id = id_from(id)
+    printable_department = department_from(department)
     if department == nil do
-      if id == nil do
-        name <> " - OWNER"
-      else
-        printable_id <> name <> " - OWNER"
-      end
+        printable_id <> name <> printable_department
     else
-    upcased_department = department |> String.upcase
-    if id == nil do
-      name <> " - " <> upcased_department
-    else
-      printable_id <> name <> " - " <> upcased_department
-    end
+      printable_id <> name <> printable_department
     end
   end
 
@@ -22,6 +14,15 @@ defmodule NameBadge do
       ""
     else
       "[#{id}] - "
+    end
+  end
+
+  defp department_from(department) do
+    if department == nil do
+      " - OWNER"
+    else
+      upcased_department = department |> String.upcase
+      " - " <> upcased_department
     end
   end
 end
