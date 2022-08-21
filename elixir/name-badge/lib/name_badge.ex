@@ -1,5 +1,6 @@
 defmodule NameBadge do
   def print(id, name, department) do
-    "[#{id}] - " <> name <> " - " <> department
+    upcased_department = department |> String.upcase
+    "[#{id}] - " <> name <> " - " <> upcased_department
   end
 end
