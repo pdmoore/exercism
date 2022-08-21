@@ -2,11 +2,7 @@ defmodule NameBadge do
   def print(id, name, department) do
     printable_id = id_from(id)
     printable_department = department_from(department)
-    if department == nil do
-        printable_id <> name <> printable_department
-    else
-      printable_id <> name <> printable_department
-    end
+    printable_id <> name <> printable_department
   end
 
   defp id_from(id) do
