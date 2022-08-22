@@ -5,7 +5,7 @@ defmodule BoutiqueInventory do
   end
 
   def with_missing_price(inventory) do
-    []
+    Enum.filter(inventory, fn(i) -> i.price == nil end)
   end
 
   def update_names(inventory, old_word, new_word) do
