@@ -5,7 +5,7 @@ defmodule BoutiqueInventory do
   end
 
   def with_missing_price(inventory) do
-    # Please implement the with_missing_price/1 function
+    []
   end
 
   def update_names(inventory, old_word, new_word) do
