@@ -1,15 +1,19 @@
 defmodule Username do
   def sanitize(username) do
-    # ä becomes ae
-    # ö becomes oe
-    # ü becomes ue
-    # ß becomes ss
+    username
+      |> Enum.map(fn ch -> convert_german(ch) end)
+      |> Enum.filter(fn ch -> (ch >= ?a and ch <= ?z) or (ch == ?_) end)
 
-    # Please implement the sanitize/1 function
-    ''
+  end
 
-    username |> Enum.filter(fn ch -> (ch >= ?a and ch <= ?z) or (ch == ?_) end)
-
+  defp convert_german(ch) do
+        case ch do
+          ?ä -> [?a, ?e]
+          ?ö -> [?o, ?e]
+          ?ü -> [?u, ?e]
+          ?ß -> [?s, ?s]
+          _ -> ch
+        end
   end
 
 end
