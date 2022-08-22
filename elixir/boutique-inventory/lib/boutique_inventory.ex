@@ -9,7 +9,7 @@ defmodule BoutiqueInventory do
   end
 
   def update_names(inventory, old_word, new_word) do
-    # Please implement the update_names/3 function
+    []
   end
 
   def increase_quantity(item, count) do
