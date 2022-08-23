@@ -4,7 +4,7 @@ defmodule RPG.CharacterSheet do
   end
 
   def ask_name() do
-    # Please implement the ask_name/0 function
+    IO.gets("What is your character's name?\n")
   end
 
   def ask_class() do
