@@ -16,6 +16,9 @@ defmodule RPG.CharacterSheet do
   end
 
   def run() do
-    # Please implement the run/0 function
+    welcome
+    name = ask_name
+    class = ask_class
+    level = ask_level
   end
 end
