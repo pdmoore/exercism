@@ -21,12 +21,10 @@ defmodule RPG.CharacterSheet do
     class = ask_class()
     level = ask_level()
 
-
-    IO.write("Your character: ")
     %{
       name: name,
       class: class,
       level: level
-    } |> IO.inspect
+    } |> IO.inspect(label: "Your character")
   end
 end
