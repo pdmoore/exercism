@@ -16,15 +16,17 @@ defmodule RPG.CharacterSheet do
   end
 
   def run() do
-    welcome
-    name = ask_name
-    class = ask_class
-    level = ask_level
+    welcome()
+    name = ask_name()
+    class = ask_class()
+    level = ask_level()
 
+
+    IO.write("Your character: ")
     %{
       name: name,
       class: class,
       level: level
-    }
+    } |> IO.inspect
   end
 end
