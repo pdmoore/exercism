@@ -11,7 +11,6 @@ defmodule Username do
         ?ö -> [?o, ?e]
         ?ü -> [?u, ?e]
         ?ß -> [?s, ?s]
-        ch when ch >= ?a and ch <= ?z -> [ch]
         _ -> ''
       end
   end
