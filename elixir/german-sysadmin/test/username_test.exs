@@ -7,12 +7,12 @@ defmodule UsernameTest do
       assert Username.sanitize('') == ''
     end
 
-    test "it does the simple example from README" do
+    test "it removes everything but lowercase letters" do
       assert Username.sanitize('schmidt1985') == 'schmidt'
     end
 
     @tag task_id: 1
-    test "it keeps lowercase latin letters" do
+    test "it keeps all lowercase Latin and German letters" do
       input = Enum.to_list(0..0x10FFFF) -- [?_, ?ß, ?ä, ?ö, ?ü]
       expected = 'abcdefghijklmnopqrstuvwxyz'
       actual = Username.sanitize(input)
@@ -22,7 +22,7 @@ defmodule UsernameTest do
     end
 
     @tag task_id: 2
-    test "it keeps underscores" do
+    test "it allows underscores" do
       assert Username.sanitize('marcel_huber') == 'marcel_huber'
     end
 
