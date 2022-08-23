@@ -20,5 +20,11 @@ defmodule RPG.CharacterSheet do
     name = ask_name
     class = ask_class
     level = ask_level
+
+    %{
+      name: name,
+      class: class,
+      level: level
+    }
   end
 end
