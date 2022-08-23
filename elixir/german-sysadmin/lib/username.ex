@@ -5,9 +5,13 @@ defmodule Username do
   end
   def sanitize(ch) when ch == ?_, do: '_'
   def sanitize(ch) when ch >= ?a and ch <= ?z, do: [ch]
-  def sanitize(ch) when ch == ?ü, do: [?u, ?e]
-  def sanitize(ch) when ch == ?ä, do: [?a, ?e]
-  def sanitize(ch) when ch == ?ö, do: [?o, ?e]
-  def sanitize(ch) when ch == ?ß, do: [?s, ?s]
+  def sanitize(ch) when ch == ?ü or ch == ?ä or ch == ?ö or ch == ?ß do
+    case ch do
+      ?ü -> [?u, ?e]
+      ?ä -> [?a, ?e]
+      ?ö -> [?o, ?e]
+      ?ß -> [?s, ?s]
+    end
+  end
   def sanitize(_), do: ''
  end
