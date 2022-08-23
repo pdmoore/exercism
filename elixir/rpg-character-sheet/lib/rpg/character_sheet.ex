@@ -4,7 +4,7 @@ defmodule RPG.CharacterSheet do
   end
 
   def ask_name() do
-    IO.gets("What is your character's name?\n")
+    IO.gets("What is your character's name?\n") |> String.trim
   end
 
   def ask_class() do
