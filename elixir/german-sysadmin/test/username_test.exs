@@ -7,14 +7,18 @@ defmodule UsernameTest do
       assert Username.sanitize('') == ''
     end
 
+    test "it does the simple example from README" do
+      assert Username.sanitize('schmidt1985') == 'schmidt'
+    end
+
     @tag task_id: 1
     test "it keeps lowercase latin letters" do
       input = Enum.to_list(0..0x10FFFF) -- [?_, ?ß, ?ä, ?ö, ?ü]
       expected = 'abcdefghijklmnopqrstuvwxyz'
       actual = Username.sanitize(input)
 
-      assert Enum.take(actual, Enum.count(expected)) == expected
       assert Enum.count(actual) == Enum.count(expected)
+      assert Enum.take(actual, Enum.count(expected)) == expected
     end
 
     @tag task_id: 2
