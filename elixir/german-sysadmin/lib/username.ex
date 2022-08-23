@@ -5,8 +5,8 @@ defmodule Username do
   end
   def sanitize(ch) when ch == ?_, do: '_'
   def sanitize(ch) when ch >= ?a and ch <= ?z, do: [ch]
-  def sanitize(first_char) do
-      case first_char do
+  def sanitize(ch) do
+      case ch do
         ?ä -> [?a, ?e]
         ?ö -> [?o, ?e]
         ?ü -> [?u, ?e]
