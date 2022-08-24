@@ -8,7 +8,7 @@ defmodule WineCellar do
   end
 
   def filter(cellar, color, opts \\ []) do
-    # Please implement the filter/3 function
+    []
   end
 
   # The functions below do not need to be modified.
