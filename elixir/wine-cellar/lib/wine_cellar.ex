@@ -12,8 +12,16 @@ defmodule WineCellar do
     # cellar is a keylist
 
     # want to match cellar keylist where key is atom
-    Keyword.get_values(cellar, color)
+    by_color = Keyword.get_values(cellar, color)
 
+    cond do
+      opts == [] -> by_color
+      true ->
+       # how to get 2015 from opts?
+       year = Keyword.get(opts, :year)
+#       year = 2015
+       by_color |> filter_by_year(year)
+    end
 
   end
 
