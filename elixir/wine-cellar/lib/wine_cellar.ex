@@ -14,27 +14,11 @@ defmodule WineCellar do
     country = Keyword.get(opts, :country)
 
     cond do
-      year == nil and country == nil -> by_color
+      year != nil and country != nil -> by_color |> filter_by_year(year) |> filter_by_country(country)
       year == nil and country != nil -> by_color |> filter_by_country(country)
       year != nil and country == nil -> by_color |> filter_by_year(year)
-      true -> by_color |> filter_by_year(year) |> filter_by_country(country)
+      true -> by_color
     end
-
-
-#    if year != nil do
-#      if country != nil do
-#        by_color |> filter_by_year(year) |> filter_by_country(country)
-#      else
-#        by_color |> filter_by_year(year)
-#      end
-#    else
-#      if country != nil do
-#        by_color |> filter_by_country(country)
-#      else
-#        by_color
-#      end
-#    end
-
 
   end
 
