@@ -13,11 +13,10 @@ defmodule WineCellar do
       |> filter_by_country(Keyword.get(opts, :country))
   end
 
-
   # The functions below do not need to be modified.
 
   defp filter_by_year(wines, year)
-  defp filter_by_year(wines, year) when year == nil, do: wines
+  defp filter_by_year(wines, nil), do: wines
   defp filter_by_year([], _year), do: []
 
   defp filter_by_year([{_, year, _} = wine | tail], year) do
@@ -29,7 +28,7 @@ defmodule WineCellar do
   end
 
   defp filter_by_country(wines, country)
-  defp filter_by_country(wines, country) when country == nil, do: wines
+  defp filter_by_country(wines, nil), do: wines
 
   defp filter_by_country([], _country), do: []
 
