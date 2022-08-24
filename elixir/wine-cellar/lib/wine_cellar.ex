@@ -16,10 +16,15 @@ defmodule WineCellar do
     by_color = Keyword.get_values(cellar, color)
 
     if Keyword.has_key?(opts, :year) do
-      year = Keyword.get(opts, :year)
-      by_color |> filter_by_year(year)
+      if Keyword.has_key?(opts, :country) do
+        country = Keyword.get(opts, :country)
+        year = Keyword.get(opts, :year)
+        by_color |> filter_by_year(year) |> filter_by_country(country)
+      else
+        year = Keyword.get(opts, :year)
+        by_color |> filter_by_year(year)
+      end
     else
-
       if Keyword.has_key?(opts, :country) do
         country = Keyword.get(opts, :country)
         by_color |> filter_by_country(country)
