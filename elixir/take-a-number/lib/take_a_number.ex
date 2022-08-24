@@ -13,8 +13,11 @@ defmodule TakeANumber do
       {:take_a_number, sender_pid} ->
         send(sender_pid, count + 1)
         machine(count + 1)
+#      {:stop, _sender_id} ->
+      _ -> machine(count)
     end
  end
+
 
 
 end
