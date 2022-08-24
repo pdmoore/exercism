@@ -8,7 +8,13 @@ defmodule WineCellar do
   end
 
   def filter(cellar, color, opts \\ []) do
-    []
+    # color is an :atom
+    # cellar is a keylist
+
+    # want to match cellar keylist where key is atom
+    Keyword.get_values(cellar, color)
+
+
   end
 
   # The functions below do not need to be modified.
