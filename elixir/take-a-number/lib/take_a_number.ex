@@ -7,12 +7,14 @@ defmodule TakeANumber do
     count = value
 
     receive do
-      {:report_state, sender_pid}  -> send(sender_pid, count)
-      {:take_a_number, sender_pid} -> send(sender_pid, count + 1)
+      {:report_state, sender_pid}  ->
+        send(sender_pid, count)
+        machine(count)
+      {:take_a_number, sender_pid} ->
+        send(sender_pid, count + 1)
+        machine(count + 1)
     end
-
-    machine(count)
-  end
+ end
 
 
 end
