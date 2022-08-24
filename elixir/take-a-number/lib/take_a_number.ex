@@ -10,6 +10,7 @@ defmodule TakeANumber do
       {:report_state, sender_pid} -> send(sender_pid, 0)
     end
 
+    machine()
   end
 
 
