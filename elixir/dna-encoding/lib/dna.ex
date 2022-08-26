@@ -17,6 +17,7 @@ defmodule DNA do
   def decode_nucleotide(encoded_code) do
   end
 
+  # TODO figure out how to collapse this
   def encode(' '), do: <<encode_nucleotide(?\s)::4>>
   def encode('A'), do: <<encode_nucleotide(?A)::4>>
   def encode('C'), do: <<encode_nucleotide(?C)::4>>
@@ -24,11 +25,12 @@ defmodule DNA do
   def encode('T'), do: <<encode_nucleotide(?T)::4>>
 
   def encode(dna) do
-    blank = <<0b0000::4>>
-    a_encoded = <<0b0001::4>>
-    c_encoded = <<0b0010::4>>
-    g_encoded = <<0b0100::4>>
-    t_encoded = <<0b1000::4>>
+    # input is ' ACGT'
+    blank = encode(' ')
+    a_encoded = encode('A')
+    c_encoded = encode('C')
+    g_encoded = encode('G')
+    t_encoded = encode('T')
     <<blank::bitstring, a_encoded::bitstring, c_encoded::bitstring, g_encoded::bitstring, t_encoded::bitstring>>
   end
 
