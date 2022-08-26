@@ -25,14 +25,11 @@ defmodule DNA do
   def encode('T'), do: <<encode_nucleotide(?T)::4>>
 
   def encode(dna) do
-    # input is ' ACGT'
-    blank = encode(' ')
-    a_encoded = encode('A')
-    c_encoded = encode('C')
-    g_encoded = encode('G')
-    t_encoded = encode('T')
-    <<blank::bitstring, a_encoded::bitstring, c_encoded::bitstring, g_encoded::bitstring, t_encoded::bitstring>>
+    do_encode(dna, nil)
   end
+
+   defp do_encode(tail), do: <<encode_nucleotide(tail)::4>>
+   defp do_encode([head | tail], accumulator), do: <<encode_nucleotide(head)::4, encode(tail)::bitstring>>
 
   def decode(dna) do
     # Please implement the decode/1 function
