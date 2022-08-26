@@ -22,9 +22,11 @@ defmodule DNA do
   def encode('C'), do: <<0b0010::4>>
   def encode('G'), do: <<0b0100::4>>
   def encode('T'), do: <<0b1000::4>>
-  def encode(dna) do
-  end
 
+  def encode(dna) do
+    <<0b0000::4, 0b0001::4, 0b0010::4, 0b0100::4, 0b1000::4>>
+  end
+  
   def decode(dna) do
     # Please implement the decode/1 function
   end
