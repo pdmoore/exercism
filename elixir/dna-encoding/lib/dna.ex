@@ -17,19 +17,8 @@ defmodule DNA do
   def decode_nucleotide(encoded_code) do
   end
 
-  # TODO figure out how to collapse this
-  def encode(' '), do: <<encode_nucleotide(?\s)::4>>
-  def encode('A'), do: <<encode_nucleotide(?A)::4>>
-  def encode('C'), do: <<encode_nucleotide(?C)::4>>
-  def encode('G'), do: <<encode_nucleotide(?G)::4>>
-  def encode('T'), do: <<encode_nucleotide(?T)::4>>
-
-  def encode(dna) do
-    do_encode(dna, nil)
-  end
-
-   defp do_encode([tail]), do: <<encode_nucleotide(tail)::4>>
-   defp do_encode([head | tail], accumulator), do: <<encode_nucleotide(head)::4, encode(tail)::bitstring>>
+   def encode([tail]), do: <<encode_nucleotide(tail)::4>>
+   def encode([head | tail]), do: <<encode_nucleotide(head)::4, encode(tail)::bitstring>>
 
   def decode(dna) do
     # Please implement the decode/1 function
