@@ -20,7 +20,5 @@ defmodule DNA do
    def encode([tail]), do: <<encode_nucleotide(tail)::4>>
    def encode([head | tail]), do: <<encode_nucleotide(head)::4, encode(tail)::bitstring>>
 
-  def decode(dna) do
-    # Please implement the decode/1 function
-  end
+  def decode(<<tail::4>>), do: [decode_nucleotide(tail)]
 end
