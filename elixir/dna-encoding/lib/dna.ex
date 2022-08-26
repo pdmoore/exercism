@@ -28,7 +28,7 @@ defmodule DNA do
     do_encode(dna, nil)
   end
 
-   defp do_encode(tail), do: <<encode_nucleotide(tail)::4>>
+   defp do_encode([tail]), do: <<encode_nucleotide(tail)::4>>
    defp do_encode([head | tail], accumulator), do: <<encode_nucleotide(head)::4, encode(tail)::bitstring>>
 
   def decode(dna) do
