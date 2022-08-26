@@ -17,11 +17,11 @@ defmodule DNA do
   def decode_nucleotide(encoded_code) do
   end
 
-  def encode(' '), do: <<0b0000::4>>
-  def encode('A'), do: <<0b0001::4>>
-  def encode('C'), do: <<0b0010::4>>
-  def encode('G'), do: <<0b0100::4>>
-  def encode('T'), do: <<0b1000::4>>
+  def encode(' '), do: <<encode_nucleotide(?\s)::4>>
+  def encode('A'), do: <<encode_nucleotide(?A)::4>>
+  def encode('C'), do: <<encode_nucleotide(?C)::4>>
+  def encode('G'), do: <<encode_nucleotide(?G)::4>>
+  def encode('T'), do: <<encode_nucleotide(?T)::4>>
 
   def encode(dna) do
     blank = <<0b0000::4>>
