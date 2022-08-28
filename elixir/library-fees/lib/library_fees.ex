@@ -1,4 +1,6 @@
 defmodule LibraryFees do
+  @monday 1
+
   def datetime_from_string(string) do
     NaiveDateTime.from_iso8601!(string)
   end
@@ -30,10 +32,10 @@ defmodule LibraryFees do
 
   def monday?(datetime) do
     actual_return_date = NaiveDateTime.to_date(datetime)
-    Date.day_of_week(actual_return_date) == 1
+    Date.day_of_week(actual_return_date) == @monday
   end
 
   def calculate_late_fee(checkout, return, rate) do
-    # Please implement the calculate_late_fee/3 function
+    0
   end
 end
