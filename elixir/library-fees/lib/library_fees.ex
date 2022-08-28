@@ -22,6 +22,7 @@ defmodule LibraryFees do
     actual_return_date = NaiveDateTime.to_date(actual_return_datetime)
     difference = Date.compare(planned_return_date, actual_return_date)
     cond do
+      :lt -> Date.diff(actual_return_date, planned_return_date)
       true -> 0
     end
     # Please implement the days_late/2 function
