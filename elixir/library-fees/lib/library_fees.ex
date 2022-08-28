@@ -10,10 +10,12 @@ defmodule LibraryFees do
   end
 
   def return_date(checkout_datetime) do
-#    if (before_noon?(datetime_from_string))
     checkout_date = NaiveDateTime.to_date(checkout_datetime)
-    Date.add(checkout_date, 28)
-    # Please implement the return_date/1 function
+    if (before_noon?(checkout_datetime)) do
+      Date.add(checkout_date, 28)
+    else
+      Date.add(checkout_date, 29)
+    end
   end
 
   def days_late(planned_return_date, actual_return_datetime) do
