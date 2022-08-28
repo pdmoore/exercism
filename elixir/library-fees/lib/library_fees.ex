@@ -36,10 +36,11 @@ defmodule LibraryFees do
     actual_return_date = datetime_from_string(return)
     days = days_late(expected_return_date, actual_return_date)
 
-    if monday?(actual_return_date) do
-      trunc(days * rate * 0.5)
-    else
-      days * rate
+    late_fee = days * rate
+
+    case monday?(actual_return_date) do
+      true -> trunc(late_fee * 0.5)
+      _ -> late_fee
     end
   end
 end
