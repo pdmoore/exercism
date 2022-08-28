@@ -1,6 +1,7 @@
 defmodule LibraryFees do
   @monday 1
   @noon ~T[12:00:00.000]
+  @late_fee_discount 0.5
 
   @spec datetime_from_string(string :: String.t()) :: NaiveDateTime
   def datetime_from_string(string), do: NaiveDateTime.from_iso8601!(string)
@@ -34,12 +35,10 @@ defmodule LibraryFees do
   def calculate_late_fee(checkout, return, rate) do
     expected_return_date = return_date(datetime_from_string(checkout))
     actual_return_date = datetime_from_string(return)
-    days = days_late(expected_return_date, actual_return_date)
-
-    late_fee = days * rate
+    late_fee = days_late(expected_return_date, actual_return_date) * rate
 
     case monday?(actual_return_date) do
-      true -> trunc(late_fee * 0.5)
+      true -> trunc(late_fee * @late_fee_discount)
       _ -> late_fee
     end
   end
