@@ -39,6 +39,12 @@ defmodule LibraryFees do
     expected_return_date = return_date(datetime_from_string(checkout))
     days = days_late(expected_return_date, datetime_from_string(return))
 
+    if monday?(datetime_from_string(return)) do
+      trunc(days * rate * 0.5)
+    else
+
     days * rate
+    end
+
   end
 end
