@@ -13,23 +13,18 @@ defmodule LibraryFees do
 
   def return_date(checkout_datetime) do
     checkout_date = NaiveDateTime.to_date(checkout_datetime)
-    if (before_noon?(checkout_datetime)) do
-      Date.add(checkout_date, 28)
-    else
-      Date.add(checkout_date, 29)
-    end
+    if before_noon?(checkout_datetime), do: Date.add(checkout_date, 28),
+    else: Date.add(checkout_date, 29)
   end
 
-  # TODO - could prolly be a Min expression
+  @spec days_late(planned_return_date :: Date, actual_return_datetime :: NaiveDateTime) :: integer()
   def days_late(planned_return_date, actual_return_datetime) do
     actual_return_date = NaiveDateTime.to_date(actual_return_datetime)
-    if (Date.compare(planned_return_date, actual_return_date) == :gt) do
-      0
-    else
-      Date.diff(actual_return_date, planned_return_date)
-    end
+    returned_before_due_date = Date.compare(planned_return_date, actual_return_date) == :gt
+    if returned_before_due_date, do: 0, else: Date.diff(actual_return_date, planned_return_date)
   end
 
+  @spec monday?(datetime :: NaiveDateTime) :: :atom
   def monday?(datetime) do
     actual_return_date = NaiveDateTime.to_date(datetime)
     Date.day_of_week(actual_return_date) == @monday
