@@ -1,14 +1,11 @@
 defmodule LibraryFees do
   @monday 1
+  @noon ~T[12:00:00.000]
 
-  def datetime_from_string(string) do
-    NaiveDateTime.from_iso8601!(string)
-  end
+  def datetime_from_string(string), do: NaiveDateTime.from_iso8601!(string)
 
-  # TODO - is this the best way to check less than and convert to boolean?
   def before_noon?(datetime) do
-    noon = ~T[12:00:00.000]
-    Time.compare(NaiveDateTime.to_time(datetime), noon) == :lt
+    Time.compare(NaiveDateTime.to_time(datetime), @noon) == :lt
   end
 
   def return_date(checkout_datetime) do
