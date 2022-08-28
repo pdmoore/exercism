@@ -18,17 +18,19 @@ defmodule LibraryFees do
     end
   end
 
+  # TODO - could prolly be a Min expression
   def days_late(planned_return_date, actual_return_datetime) do
     actual_return_date = NaiveDateTime.to_date(actual_return_datetime)
     if (Date.compare(planned_return_date, actual_return_date) == :gt) do
       0
     else
-      difference = Date.diff(actual_return_date, planned_return_date)
+      Date.diff(actual_return_date, planned_return_date)
     end
   end
 
   def monday?(datetime) do
-    # Please implement the monday?/1 function
+    actual_return_date = NaiveDateTime.to_date(datetime)
+    Date.day_of_week(actual_return_date) == 1
   end
 
   def calculate_late_fee(checkout, return, rate) do
