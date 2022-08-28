@@ -35,6 +35,7 @@ defmodule LibraryFees do
     Date.day_of_week(actual_return_date) == @monday
   end
 
+  @spec calculate_late_fee(checkout :: String.t(), return :: String.t(), return :: integer()) :: integer()
   def calculate_late_fee(checkout, return, rate) do
     expected_return_date = return_date(datetime_from_string(checkout))
     actual_return_date = datetime_from_string(return)
