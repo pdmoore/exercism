@@ -9,7 +9,12 @@ defmodule BoutiqueInventory do
   end
 
   def update_names(inventory, old_word, new_word) do
-    Enum.map(inventory, &(String.replace!(&1, old_word, new_word) ))
+    Enum.map(inventory, fn item -> update_name(item, old_word, new_word) end)
+  end
+
+  def update_name(item, old_word, new_word) do
+    updated_name = String.replace(item[:name], old_word, new_word)
+    %{item | name: updated_name}
   end
 
   def increase_quantity(item, count) do
