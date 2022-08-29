@@ -23,10 +23,15 @@ defmodule BoutiqueInventory do
     # increase value by count
     # replace the sizes
 
-    x = item[:quantity_by_size]
+    quantities_before = item[:quantity_by_size]
 
-    %{item | quantity_by_size: x}
+    quantities_after = x(quantities_before, count)
 
+    %{item | quantity_by_size: quantities_after}
+  end
+
+  defp x(quantity_by_size, count) do
+    quantity_by_size
   end
 
   def total_quantity(item) do
