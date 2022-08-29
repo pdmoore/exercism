@@ -12,7 +12,7 @@ defmodule BoutiqueInventory do
     Enum.map(inventory, fn item -> update_name(item, old_word, new_word) end)
   end
 
-  def update_name(item, old_word, new_word) do
+  defp update_name(item, old_word, new_word) do
     updated_name = String.replace(item[:name], old_word, new_word)
     %{item | name: updated_name}
   end
