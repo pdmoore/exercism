@@ -18,7 +18,15 @@ defmodule BoutiqueInventory do
   end
 
   def increase_quantity(item, count) do
-    # Please implement the increase_quantity/2 function
+    # get the size map
+    # Enum map each size
+    # increase value by count
+    # replace the sizes
+
+    x = item[:quantity_by_size]
+
+    %{item | quantity_by_size: x}
+
   end
 
   def total_quantity(item) do
