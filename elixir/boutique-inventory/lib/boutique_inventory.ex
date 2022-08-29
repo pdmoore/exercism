@@ -18,25 +18,12 @@ defmodule BoutiqueInventory do
   end
 
   def increase_quantity(item, count) do
-    # get the size map
-    # Enum map each size
-    # increase value by count
-    # replace the sizes
-
-    quantities_before = item[:quantity_by_size]
-
-    quantities_after = x(quantities_before, count)
-
+    quantities_after = increase_quantity_of_each(item[:quantity_by_size], count)
     %{item | quantity_by_size: quantities_after}
   end
 
-  defp x(quantity_by_size, count) do
-    # TODO - iterate over each item in the quantity_by_size map
-    # and for each key, increment the value by count
-    # and return the map of the new stuff
-
-
-    Map.new(quantity_by_size, fn {k, v} -> {k, v + count} end)
+  defp increase_quantity_of_each(quantity_by_size, count) do
+    Map.new(quantity_by_size, fn {size, quantity} -> {size, quantity + count} end)
   end
 
   def total_quantity(item) do
