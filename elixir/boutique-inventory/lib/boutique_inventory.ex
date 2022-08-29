@@ -1,6 +1,5 @@
 defmodule BoutiqueInventory do
   def sort_by_price(inventory) do
-#    Enum.sort_by inventory, &Map.fetch(&1, :price)
     Enum.sort_by(inventory, fn(i) -> i.price end)
   end
 
@@ -13,8 +12,7 @@ defmodule BoutiqueInventory do
   end
 
   defp update_name(item, old_word, new_word) do
-    updated_name = String.replace(item[:name], old_word, new_word)
-    %{item | name: updated_name}
+    %{item | name: String.replace(item[:name], old_word, new_word)}
   end
 
   def increase_quantity(item, count) do
@@ -22,8 +20,8 @@ defmodule BoutiqueInventory do
     %{item | quantity_by_size: quantities_after}
   end
 
-  defp increase_quantity_of_each(quantity_by_size, count) do
-    Map.new(quantity_by_size, fn {size, quantity} -> {size, quantity + count} end)
+  defp increase_quantity_of_each(quantity_by_size, increase_by) do
+    Map.new(quantity_by_size, fn {size, quantity} -> {size, quantity + increase_by} end)
   end
 
   def total_quantity(item) do
