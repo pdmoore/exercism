@@ -31,7 +31,12 @@ defmodule BoutiqueInventory do
   end
 
   defp x(quantity_by_size, count) do
-    quantity_by_size
+    # TODO - iterate over each item in the quantity_by_size map
+    # and for each key, increment the value by count
+    # and return the map of the new stuff
+
+
+    Map.new(quantity_by_size, fn {k, v} -> {k, v + count} end)
   end
 
   def total_quantity(item) do
