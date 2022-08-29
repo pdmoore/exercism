@@ -27,6 +27,7 @@ defmodule BoutiqueInventory do
   end
 
   def total_quantity(item) do
-    Enum.reduce(item[:quantity_by_size], 0, fn {_size, quantity}, sum -> quantity + sum end)
+    Enum.reduce(item[:quantity_by_size], 0, fn {_size, quantity_of_this_size},
+      quantity_of_all_sizes -> quantity_of_all_sizes + quantity_of_this_size end)
   end
 end
