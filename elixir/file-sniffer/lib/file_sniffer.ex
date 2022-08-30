@@ -7,8 +7,10 @@ defmodule FileSniffer do
   def type_from_extension(extension) do
   end
 
+  def type_from_binary(<<0x42, 0x4D, _rest::binary>>), do: "image/bmp"
+  def type_from_binary(<<0x47, 0x49, 0x46, _rest::binary>>), do: "image/gif"
   def type_from_binary(file_binary) do
-    # Please implement the type_from_binary/1 function
+    "not done yet"
   end
 
   def verify(file_binary, extension) do
