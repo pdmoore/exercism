@@ -17,6 +17,11 @@ defmodule FileSniffer do
 
   def verify(file_binary, extension) do
 
-    {:ok, type_from_binary(file_binary)}
+    type = type_from_binary(file_binary)
+    match = true
+    if match do
+      {:ok, type}
+
+    end
   end
 end
