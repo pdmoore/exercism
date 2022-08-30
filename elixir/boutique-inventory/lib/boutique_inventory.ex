@@ -16,8 +16,7 @@ defmodule BoutiqueInventory do
   end
 
   def increase_quantity(item, count) do
-    quantities_after = increase_quantity_of_each(item[:quantity_by_size], count)
-    %{item | quantity_by_size: quantities_after}
+    %{item | quantity_by_size: increase_quantity_of_each(item[:quantity_by_size], count)}
   end
 
   defp increase_quantity_of_each(quantity_by_size, increase_by) do
