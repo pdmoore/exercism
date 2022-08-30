@@ -22,6 +22,8 @@ defmodule FileSniffer do
     match = type == type2
     if match do
       {:ok, type}
+    else
+      {:error, "Warning, file format and file extension do not match."}
     end
   end
 end
