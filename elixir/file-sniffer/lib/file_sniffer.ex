@@ -16,6 +16,7 @@ defmodule FileSniffer do
   end
 
   def verify(file_binary, extension) do
-    # Please implement the verify/2 function
+
+    {:ok, type_from_binary(file_binary)}
   end
 end
