@@ -13,7 +13,6 @@ defmodule FileSniffer do
   def type_from_binary(<<0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, _rest::binary>>), do: "image/png"
   def type_from_binary(<<0x7F, 0x45, 0x4C, 0x46, _rest::binary>>), do: "application/octet-stream"
   def type_from_binary(file_binary) do
-    "not done yet"
   end
 
 
