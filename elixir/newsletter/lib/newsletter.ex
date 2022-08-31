@@ -1,7 +1,12 @@
 defmodule Newsletter do
   def read_emails(path) do
     file_contents = File.read!(path)
-    String.split(String.trim(file_contents), "\n")
+    x = String.trim(file_contents)
+    if String.length(x) == 0 do
+      []
+      else
+    String.split(x, "\n")
+    end
   end
 
   def open_log(path) do
