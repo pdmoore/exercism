@@ -8,10 +8,10 @@ defmodule Chessboard do
   end
 
   def ranks do
-    Enum.map(rank_range, fn r -> r end)
+    Enum.map(rank_range(), fn r -> r end)
   end
 
   def files do
-    # Please implement the files/0 function
+    Enum.map(file_range(), fn f -> List.to_string([f]) end)
   end
 end
