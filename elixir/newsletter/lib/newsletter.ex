@@ -2,12 +2,11 @@ defmodule Newsletter do
   def read_emails(path) do
     file_contents = File.read!(path)
     x = String.trim(file_contents)
-    if String.length(x) == 0 do
-      []
-      else
-    String.split(x, "\n")
-    end
+    process_emails(x)
   end
+
+  def process_emails(""), do: []
+  def process_emails(emails), do: String.split(emails, "\n")
 
   def open_log(path) do
     # Please implement the open_log/1 function
