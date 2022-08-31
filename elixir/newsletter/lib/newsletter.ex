@@ -9,7 +9,7 @@ defmodule Newsletter do
   def process_emails(emails), do: String.split(emails, "\n")
 
   def open_log(path) do
-    # Please implement the open_log/1 function
+    File.open!(path, [:write])
   end
 
   def log_sent_email(pid, email) do
