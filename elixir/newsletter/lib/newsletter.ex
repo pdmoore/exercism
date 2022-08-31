@@ -1,8 +1,8 @@
 defmodule Newsletter do
   def read_emails(path) do
-    file_contents = File.read!(path)
-    x = String.trim(file_contents)
-    process_emails(x)
+    File.read!(path)
+      |> String.trim
+      |> process_emails
   end
 
   def process_emails(""), do: []
