@@ -1,6 +1,7 @@
 defmodule Newsletter do
   def read_emails(path) do
-    # Please implement the read_emails/1 function
+    file_contents = File.read!(path)
+    String.split(String.trim(file_contents), "\n")
   end
 
   def open_log(path) do
@@ -13,7 +14,6 @@ defmodule Newsletter do
 
   def close_log(pid) do
     File.close(pid)
-    # Please implement the close_log/1 function
   end
 
   def send_newsletter(emails_path, log_path, send_fun) do
