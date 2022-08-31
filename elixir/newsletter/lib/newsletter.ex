@@ -22,6 +22,13 @@ defmodule Newsletter do
   end
 
   def send_newsletter(emails_path, log_path, send_fun) do
-    # Please implement the send_newsletter/3 function
+    email_list = read_emails(emails_path)
+    log_pid = open_log(log_path)
+
+    Enum.each(email_list, fn email ->
+      if send_fun.(email) == :ok do log_sent_email(log_pid, email) end
+    end)
+
+    close_log(log_pid)
   end
 end
