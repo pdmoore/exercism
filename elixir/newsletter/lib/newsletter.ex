@@ -5,8 +5,8 @@ defmodule Newsletter do
       |> process_emails
   end
 
-  def process_emails(""), do: []
-  def process_emails(emails), do: String.split(emails, "\n")
+  defp process_emails(""), do: []
+  defp process_emails(emails), do: String.split(emails, "\n")
 
   def open_log(path) do
     File.open!(path, [:write])
