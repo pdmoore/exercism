@@ -13,8 +13,7 @@ defmodule Newsletter do
   end
 
   def log_sent_email(pid, email) do
-    IO.write(pid, email)
-    IO.write(pid, "\n")
+    IO.puts(pid, email)
   end
 
   def close_log(pid) do
