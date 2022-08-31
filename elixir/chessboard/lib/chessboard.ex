@@ -8,7 +8,7 @@ defmodule Chessboard do
   end
 
   def ranks do
-    # Please implement the ranks/0 function
+    Enum.map(rank_range, fn r -> r end)
   end
 
   def files do
