@@ -7,5 +7,8 @@ defmodule Chessboard do
 
   def files do
     Enum.map(file_range(), fn f -> <<f>> end)
+
+    # This is equivalent to the above
+    # file_range() |> Enum.map(&<<&1>>)
   end
 end
