@@ -14,6 +14,7 @@ defmodule Newsletter do
 
   def log_sent_email(pid, email) do
     IO.write(pid, email)
+    IO.write(pid, "\n")
   end
 
   def close_log(pid) do
