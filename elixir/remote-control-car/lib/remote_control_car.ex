@@ -1,4 +1,5 @@
 defmodule RemoteControlCar do
+#  @enforce_keys [:nickname]
   defstruct [:nickname,
              battery_percentage: 100,
              distance_driven_in_meters: 0]
@@ -24,9 +25,10 @@ defmodule RemoteControlCar do
 
   def drive(remote_car) when remote_car.battery_percentage == 0, do: remote_car
   def drive(remote_car) do
-#    percentage = remote_car.battery_percentage
-#    if (percentage == 0) do
-#      remote_car
-#    end
+    percentage = remote_car.battery_percentage
+    distance = remote_car.distance_driven_in_meters
+    %RemoteControlCar{battery_percentage: percentage - 1,
+      distance_driven_in_meters: distance + 20,
+      nickname: remote_car.nickname}
   end
 end
