@@ -22,10 +22,11 @@ defmodule RemoteControlCar do
     end
   end
 
+  def drive(remote_car) when remote_car.battery_percentage == 0, do: remote_car
   def drive(remote_car) do
-    percentage = remote_car.battery_percentage
-    if (percentage == 0) do
-      remote_car
-    end
+#    percentage = remote_car.battery_percentage
+#    if (percentage == 0) do
+#      remote_car
+#    end
   end
 end
