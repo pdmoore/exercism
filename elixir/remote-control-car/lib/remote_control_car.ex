@@ -3,7 +3,7 @@ defmodule RemoteControlCar do
   defstruct [:nickname, battery_percentage: 100, distance_driven_in_meters: 0]
 
   def new(nickname \\ "none") do
-    rc = %RemoteControlCar{nickname: nickname}
+    %RemoteControlCar{nickname: nickname}
   end
 
   def display_distance(remote_car = %RemoteControlCar{}) do
