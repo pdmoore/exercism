@@ -15,10 +15,17 @@ defmodule RemoteControlCar do
   end
 
   def display_battery(remote_car) do
-    # Please implement the display_battery/1 function
+    percentage = remote_car.battery_percentage
+    cond do
+      percentage == 0 -> "Battery empty"
+      true -> "Battery at #{percentage}%"
+    end
   end
 
   def drive(remote_car) do
-    # Please implement the drive/1 function
+    percentage = remote_car.battery_percentage
+    if (percentage == 0) do
+      remote_car
+    end
   end
 end
