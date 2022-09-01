@@ -1,11 +1,12 @@
 defmodule RemoteControlCar do
-  defstruct [nickname: "none",
+  defstruct [:nickname,
              battery_percentage: 100,
              distance_driven_in_meters: 0,
             ]
 
   def new() do
-    %RemoteControlCar{}
+    rc = %RemoteControlCar{}
+    %{rc | nickname: "none"}
   end
 
   def new(nickname) do
