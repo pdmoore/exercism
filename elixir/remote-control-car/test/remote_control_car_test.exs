@@ -4,6 +4,8 @@ defmodule FakeRemoteControlCar do
             nickname: nil
 end
 
+
+
 defmodule RemoteControlCarTest do
   use ExUnit.Case
 
@@ -167,3 +169,5 @@ defmodule RemoteControlCarTest do
     assert car.distance_driven_in_meters == 0
   end
 end
+
+
