@@ -5,7 +5,7 @@ defmodule BoutiqueSuggestions do
         bottom <- bottoms,
           top.base_color != bottom.base_color and
           top.price + bottom.price <= maximum_price do
-      combinations = {top, bottom}
+      {top, bottom}
     end
   end
 
