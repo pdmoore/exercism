@@ -5,7 +5,7 @@ defmodule Plot do
 end
 
 defmodule CommunityGarden do
-  def start(opts \\ []) do
+  def start(_opts \\ []) do
     Agent.start(fn -> [] end)
   end
 
@@ -15,7 +15,9 @@ defmodule CommunityGarden do
   end
 
   def register(pid, register_to) do
-    # Please implement the register/2 function
+    plot = %Plot{plot_id: 1, registered_to: register_to}
+    Agent.update(pid, fn plots -> [plot | plots] end)
+    plot
   end
 
   def release(pid, plot_id) do
