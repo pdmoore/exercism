@@ -10,8 +10,7 @@ defmodule CommunityGarden do
   end
 
   def list_registrations(pid) do
-
-    []
+    Agent.get(pid, fn plots -> plots end)
   end
 
   def register(pid, register_to) do
