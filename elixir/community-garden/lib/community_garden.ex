@@ -22,8 +22,7 @@ defmodule CommunityGarden do
   end
 
   def release(pid, plot_id) do
-    # Please implement the release/2 function
-    #Filter the list of plots, retain where plot_id does not match param
+    Agent.update(pid, fn plots -> Enum.filter(plots, fn p -> p.plot_id != plot_id end) end)
   end
 
   def get_registration(pid, plot_id) do
