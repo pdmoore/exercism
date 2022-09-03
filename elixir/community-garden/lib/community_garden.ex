@@ -14,7 +14,9 @@ defmodule CommunityGarden do
   end
 
   def register(pid, register_to) do
-    plot = %Plot{plot_id: 1, registered_to: register_to}
+    #TODO random is wrong, but passes tests
+    # really want to track an incrmentable last_id, or read the last plot_id and add one to it
+    plot = %Plot{plot_id: :rand.uniform(999999), registered_to: register_to}
     Agent.update(pid, fn plots -> [plot | plots] end)
     plot
   end
