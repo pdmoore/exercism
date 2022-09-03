@@ -10,5 +10,4 @@ defmodule BoutiqueSuggestions do
       {top, bottom}
     end
   end
-
 end
