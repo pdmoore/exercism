@@ -23,12 +23,15 @@ defmodule CommunityGarden do
 
   def release(pid, plot_id) do
     # Please implement the release/2 function
+    #Filter the list of plots, retain where plot_id does not match param
   end
 
   def get_registration(pid, plot_id) do
     # TODO - get list of plots,
     # find the %plot in list of plots where plot_id matches
+    plots = list_registrations(pid)
+    Enum.find(plots, {:not_found, "plot is unregistered"}, fn p -> p.plot_id == plot_id end)
 
-    {:not_found, "plot is unregistered"}
+#    {:not_found, "plot is unregistered"}
   end
 end
