@@ -12,6 +12,14 @@ defmodule RPG do
     defstruct []
   end
 
+  defimpl Edible, for: LoafOfBread do
+    def eat(item, character) do
+
+    end
+  end
+
+
+
   defmodule ManaPotion do
     defstruct strength: 10
   end
