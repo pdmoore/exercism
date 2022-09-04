@@ -23,11 +23,6 @@ defmodule RPG do
     defstruct strength: 10
   end
 
-  defimpl Edible, for: ManaPotion do
-    def eat(item, character) do
-    end
-  end
-
       defmodule Poison do
     defstruct []
   end
@@ -37,4 +32,11 @@ defmodule RPG do
   end
 
   # Add code to define the protocol and its implementations below here...
+  defimpl Edible, for: ManaPotion do
+    def eat(item, character) do
+      {%RPG.EmptyBottle{}, character}
+    end
+  end
+
+
 end
