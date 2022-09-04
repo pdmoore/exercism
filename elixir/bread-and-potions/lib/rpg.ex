@@ -35,7 +35,9 @@ defmodule RPG do
   #TODO - need to implement effects of imbibing ManaPotion
   defimpl Edible, for: ManaPotion do
     def eat(item, character) do
-      {%RPG.EmptyBottle{}, character}
+      current_mana = character.mana
+      potion_strength = item.strength
+      {%RPG.EmptyBottle{}, %{character | mana: current_mana + potion_strength}}
     end
   end
 
