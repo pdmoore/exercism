@@ -15,9 +15,9 @@ defmodule CommunityGarden do
 
   def register(pid, register_to) do
     #TODO random is wrong, but passes tests
-    plot = %Plot{plot_id: :rand.uniform(999999), registered_to: register_to}
-    Agent.update(pid, fn plots -> [plot | plots] end)
-    plot
+    new_plot = %Plot{plot_id: :rand.uniform(999999), registered_to: register_to}
+    Agent.update(pid, fn plots -> [new_plot | plots] end)
+    new_plot
   end
 
   def release(pid, plot_id) do
