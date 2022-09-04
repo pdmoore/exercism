@@ -14,7 +14,8 @@ defmodule RPG do
 
   defimpl Edible, for: LoafOfBread do
     def eat(item, character) do
-
+      current_health = character.health
+      {nil, %{character | health: current_health + 5}}
     end
   end
 
