@@ -12,13 +12,6 @@ defmodule RPG do
     defstruct []
   end
 
-  defimpl Edible, for: LoafOfBread do
-    def eat(item, character) do
-      current_health = character.health
-      {nil, %{character | health: current_health + 5}}
-    end
-  end
-
   defmodule ManaPotion do
     defstruct strength: 10
   end
@@ -32,6 +25,14 @@ defmodule RPG do
   end
 
   # Add code to define the protocol and its implementations below here...
+  defimpl Edible, for: LoafOfBread do
+    def eat(item, character) do
+      current_health = character.health
+      {nil, %{character | health: current_health + 5}}
+    end
+  end
+
+  #TODO - need to implement effects of imbibing ManaPotion
   defimpl Edible, for: ManaPotion do
     def eat(item, character) do
       {%RPG.EmptyBottle{}, character}
