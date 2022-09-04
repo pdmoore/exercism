@@ -14,14 +14,14 @@ defmodule CommunityGarden do
   end
 
   def register(pid, register_to) do
-    #TODO random is wrong, but passes tests
-    new_plot = %Plot{plot_id: :rand.uniform(999999), registered_to: register_to}
-    Agent.update(pid, fn plots -> [new_plot | plots] end)
-    new_plot
+    new_plot = %Plot{plot_id: System.unique_integer([:positive, :monotonic]), registered_to: register_to}
+    Agent.get_and_update(pid,
+      fn plots -> {new_plot, [new_plot | plots]}  end)
   end
 
   def release(pid, plot_id) do
-    Agent.update(pid, fn plots -> Enum.filter(plots, fn p -> p.plot_id != plot_id end) end)
+    Agent.update(pid,
+      fn plots -> Enum.filter(plots, fn p -> p.plot_id != plot_id end) end)
   end
 
   def get_registration(pid, plot_id) do
