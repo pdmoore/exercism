@@ -19,13 +19,16 @@ defmodule RPG do
     end
   end
 
-
-
   defmodule ManaPotion do
     defstruct strength: 10
   end
 
-  defmodule Poison do
+  defimpl Edible, for: ManaPotion do
+    def eat(item, character) do
+    end
+  end
+
+      defmodule Poison do
     defstruct []
   end
 
