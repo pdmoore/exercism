@@ -35,7 +35,8 @@ defmodule RPNCalculator.Exception do
     if h == 0 do
       raise DivisionByZeroError
     else
-      2
+
+      div(hd(t), h)
     end
   end
 
