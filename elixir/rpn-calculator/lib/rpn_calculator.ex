@@ -1,7 +1,5 @@
 defmodule RPNCalculator do
-  def calculate!(stack, operation) do
-    operation.(stack)
-  end
+  def calculate!(stack, operation), do: operation.(stack)
 
   def calculate(stack, operation) do
     try do
@@ -19,6 +17,5 @@ defmodule RPNCalculator do
       e in ArgumentError -> {:error, e.message}
       _ -> {:error, "test error"}
     end
-
   end
 end
