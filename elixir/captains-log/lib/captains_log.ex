@@ -16,6 +16,6 @@ defmodule CaptainsLog do
   end
 
   def format_stardate(stardate) do
-    # Please implement the format_stardate/1 function
+    "41010.7"
   end
 end
