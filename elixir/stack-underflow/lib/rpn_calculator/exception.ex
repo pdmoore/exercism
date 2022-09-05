@@ -27,8 +27,8 @@ defmodule RPNCalculator.Exception do
   end
 
   def divide([]), do: raise StackUnderflowError, "when dividing"
+  def divide([_ | []]), do: raise StackUnderflowError, "when dividing"
 #  def divide([h | _]) when h == 0, do: DivisionByZeroError
   #TODO - this passes the one number test, dunno if I trust the impl tho
-  def divide([_ | t]), do: raise StackUnderflowError, "when dividing"
 
 end
