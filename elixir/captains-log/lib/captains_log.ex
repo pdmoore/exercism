@@ -6,8 +6,8 @@ defmodule CaptainsLog do
   end
 
   def random_ship_registry_number() do
-    registry_number = :rand.uniform(9000) + 999
-    "NCC-#{registry_number}"
+    number_portion = :rand.uniform(9000) + 999
+    "NCC-#{number_portion}"
   end
 
   def random_stardate() do
