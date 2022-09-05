@@ -19,6 +19,6 @@ defmodule RPNCalculator.Exception do
     end
   end
 
-  def divide([]), do: raise RPNCalculator.Exception.StackUnderflowError, "when dividing"
+  def divide([]), do: raise StackUnderflowError, "when dividing"
 
 end
