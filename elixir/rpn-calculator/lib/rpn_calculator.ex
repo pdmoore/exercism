@@ -16,7 +16,7 @@ defmodule RPNCalculator do
       operation.(stack)
       {:ok, "operation completed"}
     rescue
-      _ -> :error
+      _ -> {:error, "test error"}
     end
 
   end
