@@ -26,7 +26,7 @@ defmodule RPNCalculator.Exception do
   end
 
   def divide([]), do: raise StackUnderflowError, "when dividing"
-  def divide([_ | []]), do: raise StackUnderflowError, "when dividing"
+  def divide([_just_one_parameter]), do: raise StackUnderflowError, "when dividing"
   def divide([0 | _]), do: raise DivisionByZeroError
   def divide([divisor, dividend]), do: div(dividend, divisor)
 end
