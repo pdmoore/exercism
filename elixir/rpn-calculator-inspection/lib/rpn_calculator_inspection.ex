@@ -8,8 +8,9 @@ defmodule RPNCalculatorInspection do
     receive do
       {:EXIT, ^pid, :normal} -> Map.put(results, input, :ok)
       {:EXIT, ^pid, _} -> Map.put(results, input, :error)
+    after
+        100 ->  Map.put(results, input, :timeout)
     end
-    # Please implement the await_reliability_check_result/2 function
   end
 
   def reliability_check(calculator, inputs) do
