@@ -11,7 +11,8 @@ defmodule RPNCalculator.Exception do
   end
 
   defmodule StackUnderflowError do
-    defexception message: "stack underflow occurred"
+    @message "stack underflow occurred"
+    defexception message: @message
 
     @impl true
     def exception(value) do
@@ -19,7 +20,7 @@ defmodule RPNCalculator.Exception do
         [] ->
           %StackUnderflowError{}
         _ ->
-          %StackUnderflowError{message: "stack underflow occurred, context: " <> value}
+          %StackUnderflowError{message: @message <> ", context: " <> value}
       end
     end
   end
@@ -27,6 +28,5 @@ defmodule RPNCalculator.Exception do
   def divide([]), do: raise StackUnderflowError, "when dividing"
   def divide([_ | []]), do: raise StackUnderflowError, "when dividing"
   def divide([0 | _]), do: raise DivisionByZeroError
-  def divide([h, t]), do: div(t, h)
-#  def divide([h | t]), do: div(hd(t), h)
+  def divide([divisor, dividend]), do: div(dividend, divisor)
 end
