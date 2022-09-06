@@ -2,13 +2,9 @@ defmodule RPNCalculatorInspection do
   def start_reliability_check(calculator, input) do
     # Please implement the start_reliability_check/2 function
 
-    {:ok, pid} = Task.start_link(fn -> something(calculator, input) end)
+    {:ok, pid} = Task.start_link(fn -> calculator.(input) end)
 
     %{pid: pid, input: input}
-  end
-
-  defp something(calculator, input) do
-
   end
 
   def await_reliability_check_result(%{pid: pid, input: input}, results) do
