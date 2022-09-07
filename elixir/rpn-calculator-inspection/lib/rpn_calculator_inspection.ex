@@ -1,5 +1,5 @@
 defmodule RPNCalculatorInspection do
-  @wait_100_ms 100
+  @wait_time 100
 
   def start_reliability_check(calculator, input) do
     {:ok, pid} = Task.start_link(fn -> calculator.(input) end)
@@ -11,7 +11,7 @@ defmodule RPNCalculatorInspection do
       {:EXIT, sender, :normal} when sender == pid -> Map.put(results, input, :ok)
       {:EXIT, sender, _}       when sender == pid -> Map.put(results, input, :error)
     after
-      @wait_100_ms -> Map.put(results, input, :timeout)
+      @wait_time -> Map.put(results, input, :timeout)
     end
   end
 
@@ -28,6 +28,6 @@ defmodule RPNCalculatorInspection do
 
   def correctness_check(calculator, inputs) do
     Enum.map(inputs, fn input -> Task.async(fn -> calculator.(input) end) end)
-      |> Enum.map(fn input -> Task.await(input, @wait_100_ms) end)
+      |> Enum.map(fn input -> Task.await(input, @wait_time) end)
   end
 end
