@@ -15,6 +15,7 @@ defmodule RPNCalculatorInspection do
 
   def reliability_check(calculator, inputs) do
     # Please implement the reliability_check/2 function
+    %{}
   end
 
   def correctness_check(calculator, inputs) do
