@@ -9,7 +9,7 @@ defmodule RPNCalculatorInspection do
       {:EXIT, ^pid, :normal} -> Map.put(results, input, :ok)
       {:EXIT, ^pid, _} -> Map.put(results, input, :error)
     after
-        100 ->  Map.put(results, input, :timeout)
+      100 -> Map.put(results, input, :timeout)
     end
   end
 
