@@ -8,6 +8,11 @@ defmodule LucasNumbers do
   def generate(1), do: [2]
   def generate(2), do: [2, 1]
   def generate(count) do
-    # Please implement the generate/1 function
+    # count goes at the end
+    # subtract one from count and call generate on that
+    # combine the count -1 on the left to the number itself on the right
+    Enum.concat(generate(count - 1), [count])
+
+
   end
 end
