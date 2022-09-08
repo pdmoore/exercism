@@ -7,11 +7,15 @@ defmodule LucasNumbers do
   """
   def generate(1), do: [2]
   def generate(2), do: [2, 1]
+  def generate(count) when count <= 0, do: raise ArgumentError, message: "count must be specified as an integer >= 1"
   def generate(count) do
     # count goes at the end
     # subtract one from count and call generate on that
     # combine the count -1 on the left to the number itself on the right
     Enum.concat(generate(count - 1), [count])
+
+
+
 
 
   end
