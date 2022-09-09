@@ -3,6 +3,9 @@ defmodule NewPassport do
     # Please implement the 'get_new_passport/3' function
     with {:ok, timestamp} <- enter_building(now) do
       {:ok, timestamp}
+    else
+      {:error, message} ->
+        {:error, message}
     end
   end
 
