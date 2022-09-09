@@ -1,5 +1,6 @@
 defmodule NewPassport do
   def get_new_passport(now, birthday, form) do
+    #TODO remove duplication of manual.(birthday)
     with {:ok, timestamp} <- enter_building(now),
          {:ok, manual} <- find_counter_information(now),
          {:ok, checksum} <- stamp_form(timestamp, manual.(birthday), form) do
