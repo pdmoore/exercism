@@ -6,7 +6,6 @@ defmodule NewPassport do
       {:ok, get_new_passport_number(timestamp, manual.(birthday), checksum)}
     else
       {:coffee_break, _} -> {:retry, NaiveDateTime.add(now, 15, :minute)}
-
       {:error, message} -> {:error, message}
     end
   end
