@@ -6,6 +6,7 @@ defmodule TopSecret do
 
   def decode_secret_message_part(ast, acc) do
     # Please implement the decode_secret_message_part/2 function
+    {ast, acc}
   end
 
   def decode_secret_message(string) do
