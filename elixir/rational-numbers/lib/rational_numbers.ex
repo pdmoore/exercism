@@ -40,13 +40,7 @@ defmodule RationalNumbers do
   r₁ = a₁/b₁ by another r₂ = a₂/b₂ is r₁ / r₂ = (a₁ * b₂) / (a₂ * b₁) if a₂ is not zero.
   """
   @spec divide_by(num :: rational, den :: rational) :: rational
-  def divide_by(num, den) do
-    # duplicated code from Addition
-    a1 = num |> elem(0)
-    a2 = den |> elem(0)
-    b1 = num |> elem(1)
-    b2 = den |> elem(1)
-
+  def divide_by({a1, b1}, {a2, b2}) do
     numerator   = (a1 * b2)
     denominator = (a2 * b1)
 
@@ -61,10 +55,7 @@ defmodule RationalNumbers do
   Absolute value of a rational number
   """
   @spec abs(a :: rational) :: rational
-  def abs(a) do
-    a1 = a |> elem(0)
-    a2 = a |> elem(1)
-
+  def abs({a1, a2}) do
     { _abs(a1), _abs(a2) } |> reduce
   end
 
@@ -78,10 +69,7 @@ defmodule RationalNumbers do
   """
   @spec pow_rational(a :: rational, n :: integer) :: rational
   def pow_rational(_, n) when n == 0, do: {1, 1}
-  def pow_rational(a, n) when n > 0 do
-    a1 = a |> elem(0)
-    a2 = a |> elem(1)
-
+  def pow_rational({a1, a2}, n) when n > 0 do
     { pow(a1, n), pow(a2, n) }
   end
   def pow_rational(a, n) do
