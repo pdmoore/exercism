@@ -72,10 +72,7 @@ defmodule RationalNumbers do
   def pow_rational({a1, a2}, n) when n > 0 do
     { pow(a1, n), pow(a2, n) }
   end
-  def pow_rational(a, n) do
-    a1 = a |> elem(0)
-    a2 = a |> elem(1)
-
+  def pow_rational({a1, a2}, n) do
     m = _abs(n)
 
     { pow(a2, m), pow(a1, m) } |> reduce
