@@ -52,12 +52,12 @@ defmodule RationalNumbers do
   """
   @spec divide_by(num :: rational, den :: rational) :: rational
   def divide_by(num, den) do
-
     # duplicated code from Addition
-    a1 = elem(num, 0)
-    b1 = elem(num, 1)
-    a2 = elem(den, 0)
-    b2 = elem(den, 1)
+    a1 = num |> elem(0)
+    a2 = den |> elem(0)
+    b1 = num |> elem(1)
+    b2 = den |> elem(1)
+
 
     numerator = (a1 * b2)
     denominator = (a2 * b1)
