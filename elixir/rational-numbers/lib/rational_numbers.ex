@@ -86,10 +86,8 @@ defmodule RationalNumbers do
   """
   @spec pow_real(x :: integer, n :: rational) :: float
   def pow_real(_, n) when elem(n, 0) == 0, do: 1.0
-  def pow_real(x, n) when elem(n, 0) < 0 do
-    b = n |> elem(1)
-
-    1 / (x**(1/b))
+  def pow_real(x, {b1, b2}) when b1 < 0 do
+    1 / (x**(1/b2))
   end
 
   def pow_real(x, n) do
