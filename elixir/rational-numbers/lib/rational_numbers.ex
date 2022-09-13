@@ -84,20 +84,20 @@ defmodule RationalNumbers do
 
   @doc """
   Exponentiation of a rational number by an integer
+  r^n = (a^n)/(b^n)
   """
   @spec pow_rational(a :: rational, n :: integer) :: rational
   def pow_rational(_, n) when n == 0, do: {1, 1}
   def pow_rational(a, n) when n > 0 do
-#    r^n = (a^n)/(b^n)
-    a1 = elem(a, 0)
-    a2 = elem(a, 1)
+    a1 = a |> elem(0)
+    a2 = a |> elem(1)
 
     { _pow(a1, n), _pow(a2, n) }
   end
   def pow_rational(a, n) do
 #  r = a/b to a negative integer power n is r^n = (b^m)/(a^m), where m = |n|
-    a1 = elem(a, 0)
-    a2 = elem(a, 1)
+    a1 = a |> elem(0)
+    a2 = a |> elem(1)
 
     m = _abs(n)
 
