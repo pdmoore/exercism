@@ -107,10 +107,7 @@ defmodule RationalNumbers do
   Reduce a rational number to its lowest terms
   """
   @spec reduce(a :: rational) :: rational
-  def reduce(a) do
-    numerator   = a |> elem(0)
-    denominator = a |> elem(1)
-
+  def reduce({numerator, denominator}) do
     gcd = greatest_common_divisor(numerator, denominator) |> Kernel.abs
 
     cond do
