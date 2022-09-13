@@ -119,13 +119,10 @@ defmodule RationalNumbers do
   end
 
   def pow_real(x, n) do
-    a = elem(n, 0)
-    b = elem(n, 1)
+    a = n |> elem(0)
+    b = n |> elem(1)
 
     pow = _pow(x, a)
-
-    { pow, b }
-
     pow**(1/b)
   end
 
