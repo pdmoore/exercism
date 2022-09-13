@@ -58,9 +58,9 @@ defmodule RationalNumbers do
     b1 = num |> elem(1)
     b2 = den |> elem(1)
 
-
-    numerator = (a1 * b2)
+    numerator   = (a1 * b2)
     denominator = (a2 * b1)
+
     if (denominator < 0) do
       { 0 - numerator, _abs(denominator)}
     else
@@ -73,8 +73,8 @@ defmodule RationalNumbers do
   """
   @spec abs(a :: rational) :: rational
   def abs(a) do
-    a1 = elem(a, 0)
-    a2 = elem(a, 1)
+    a1 = a |> elem(0)
+    a2 = a |> elem(1)
 
     { _abs(a1), _abs(a2) } |> reduce
   end
