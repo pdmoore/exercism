@@ -39,9 +39,9 @@ defmodule RationalNumbers do
     a2 = b |> elem(0)
     b1 = a |> elem(1)
     b2 = b |> elem(1)
-    
+
     numerator   = (a1 * a2)
-    denominator = (b1 * b2) |> _abs
+    denominator = (b1 * b2)
 
     { numerator, denominator } |> reduce
   end
