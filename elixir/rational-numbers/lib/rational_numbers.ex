@@ -104,8 +104,8 @@ defmodule RationalNumbers do
     { _pow(a2, m), _pow(a1, m) } |> reduce
   end
 
-  def _pow(x, n) when n == 1, do: x
-  def _pow(x, n), do: x * _pow(x, n - 1)
+  defp _pow(x, n) when n == 1, do: x
+  defp _pow(x, n), do: x * _pow(x, n - 1)
 
   @doc """
   Exponentiation of a real number by a rational number
