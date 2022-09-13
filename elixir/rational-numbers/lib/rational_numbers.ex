@@ -90,10 +90,7 @@ defmodule RationalNumbers do
     1 / (x**(1/b2))
   end
 
-  def pow_real(x, n) do
-    a = n |> elem(0)
-    b = n |> elem(1)
-
+  def pow_real(x, {a, b}) do
     pow = pow(x, a)
     pow**(1/b)
   end
