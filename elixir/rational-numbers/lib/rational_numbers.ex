@@ -28,13 +28,7 @@ defmodule RationalNumbers do
   r₁ = a₁/b₁ and r₂ = a₂/b₂ is r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
   """
   @spec multiply(a :: rational, b :: rational) :: rational
-  def multiply(a, b) do
-    # duplicated code from Addition
-    a1 = a |> elem(0)
-    a2 = b |> elem(0)
-    b1 = a |> elem(1)
-    b2 = b |> elem(1)
-
+  def multiply({a1, b1}, {a2, b2}) do
     numerator   = (a1 * a2)
     denominator = (b1 * b2)
 
