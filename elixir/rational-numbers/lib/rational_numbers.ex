@@ -93,7 +93,7 @@ defmodule RationalNumbers do
     a1 = a |> elem(0)
     a2 = a |> elem(1)
 
-    { _pow(a1, n), _pow(a2, n) }
+    { pow(a1, n), pow(a2, n) }
   end
   def pow_rational(a, n) do
     a1 = a |> elem(0)
@@ -101,11 +101,11 @@ defmodule RationalNumbers do
 
     m = _abs(n)
 
-    { _pow(a2, m), _pow(a1, m) } |> reduce
+    { pow(a2, m), pow(a1, m) } |> reduce
   end
 
-  defp _pow(x, n) when n == 1, do: x
-  defp _pow(x, n), do: x * _pow(x, n - 1)
+  defp pow(x, n) when n == 1, do: x
+  defp pow(x, n), do: x * pow(x, n - 1)
 
   @doc """
   Exponentiation of a real number by a rational number
@@ -122,7 +122,7 @@ defmodule RationalNumbers do
     a = n |> elem(0)
     b = n |> elem(1)
 
-    pow = _pow(x, a)
+    pow = pow(x, a)
     pow**(1/b)
   end
 
