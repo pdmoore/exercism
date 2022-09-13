@@ -131,8 +131,8 @@ defmodule RationalNumbers do
   """
   @spec reduce(a :: rational) :: rational
   def reduce(a) do
-    numerator = elem(a, 0)
-    denominator = elem(a, 1)
+    numerator   = a |> elem(0)
+    denominator = a |> elem(1)
 
     gcd = greatest_common_divisor(numerator, denominator) |> Kernel.abs
 
