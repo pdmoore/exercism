@@ -43,7 +43,7 @@ defmodule RationalNumbers do
     numerator   = (a1 * b2)
     denominator = (a2 * b1)
 
-    {numerator, denominator} |> reduce
+    { numerator, denominator } |> reduce
   end
 
   @doc """
