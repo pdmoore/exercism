@@ -35,11 +35,11 @@ defmodule RationalNumbers do
   @spec multiply(a :: rational, b :: rational) :: rational
   def multiply(a, b) do
     # duplicated code from Addition
-    a1 = elem(a, 0)
-    b1 = elem(a, 1)
-    a2 = elem(b, 0)
-    b2 = elem(b, 1)
-
+    a1 = a |> elem(0)
+    a2 = b |> elem(0)
+    b1 = a |> elem(1)
+    b2 = b |> elem(1)
+    
     numerator   = (a1 * a2)
     denominator = (b1 * b2) |> _abs
 
