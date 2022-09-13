@@ -18,7 +18,6 @@ defmodule RationalNumbers do
   """
   @spec subtract(a :: rational, b :: rational) :: rational
   def subtract(a, {b1, b2}) do
-    # can this be refactored?
     negate_b = {-1 * b1, b2}
     add(a, negate_b)
   end
