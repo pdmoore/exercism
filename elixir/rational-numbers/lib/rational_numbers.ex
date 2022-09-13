@@ -3,14 +3,14 @@ defmodule RationalNumbers do
 
   @doc """
   Add two rational numbers
+  r₁ + r₂ = a₁/b₁ + a₂/b₂ = (a₁ * b₂ + a₂ * b₁) / (b₁ * b₂)
   """
   @spec add(a :: rational, b :: rational) :: rational
   def add(a, b) do
-    #r₁ + r₂ = a₁/b₁ + a₂/b₂ = (a₁ * b₂ + a₂ * b₁) / (b₁ * b₂)
-    a1 = elem(a, 0)
-    a2 = elem(b, 0)
-    b1 = elem(a, 1)
-    b2 = elem(b, 1)
+    a1 = a |> elem(0)
+    a2 = b |> elem(0)
+    b1 = a |> elem(1)
+    b2 = b |> elem(1)
 
     numerator   = (a1 * b2) + (a2 * b1)
     denominator = (b1 * b2) |> _abs
@@ -30,10 +30,10 @@ defmodule RationalNumbers do
 
   @doc """
   Multiply two rational numbers
+  r₁ = a₁/b₁ and r₂ = a₂/b₂ is r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
   """
   @spec multiply(a :: rational, b :: rational) :: rational
   def multiply(a, b) do
- #    r₁ = a₁/b₁ and r₂ = a₂/b₂ is r₁ * r₂ = (a₁ * a₂) / (b₁ * b₂)
     # duplicated code from Addition
     a1 = elem(a, 0)
     b1 = elem(a, 1)
@@ -48,11 +48,11 @@ defmodule RationalNumbers do
 
   @doc """
   Divide two rational numbers
+  r₁ = a₁/b₁ by another r₂ = a₂/b₂ is r₁ / r₂ = (a₁ * b₂) / (a₂ * b₁) if a₂ is not zero.
   """
   @spec divide_by(num :: rational, den :: rational) :: rational
   def divide_by(num, den) do
 
-#    r₁ = a₁/b₁ by another r₂ = a₂/b₂ is r₁ / r₂ = (a₁ * b₂) / (a₂ * b₁) if a₂ is not zero.
     # duplicated code from Addition
     a1 = elem(num, 0)
     b1 = elem(num, 1)
@@ -146,7 +146,6 @@ defmodule RationalNumbers do
       true ->
         {numerator / gcd, denominator / gcd }
     end
-
   end
 
   def greatest_common_divisor(x, 0), do: x
