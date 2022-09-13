@@ -79,8 +79,8 @@ defmodule RationalNumbers do
     { _abs(a1), _abs(a2) } |> reduce
   end
 
-  def _abs(x) when x < 0, do: 0 - x
-  def _abs(x), do: x
+  defp _abs(x) when x < 0, do: 0 - x
+  defp _abs(x), do: x
 
   @doc """
   Exponentiation of a rational number by an integer
