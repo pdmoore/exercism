@@ -43,12 +43,7 @@ defmodule RationalNumbers do
     numerator   = (a1 * b2)
     denominator = (a2 * b1)
 
-    cond do
-      denominator < 0 ->
-        { 0 - numerator, _abs(denominator)}
-      true ->
-        {numerator, denominator}
-    end
+    {numerator, denominator} |> reduce
   end
 
   @doc """
