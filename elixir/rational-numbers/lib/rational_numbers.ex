@@ -6,12 +6,7 @@ defmodule RationalNumbers do
   r₁ + r₂ = a₁/b₁ + a₂/b₂ = (a₁ * b₂ + a₂ * b₁) / (b₁ * b₂)
   """
   @spec add(a :: rational, b :: rational) :: rational
-  def add(a, b) do
-    a1 = a |> elem(0)
-    a2 = b |> elem(0)
-    b1 = a |> elem(1)
-    b2 = b |> elem(1)
-
+  def add({a1, b1}, {a2, b2}) do
     numerator   = (a1 * b2) + (a2 * b1)
     denominator = (b1 * b2)
 
