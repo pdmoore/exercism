@@ -144,6 +144,6 @@ defmodule RationalNumbers do
     end
   end
 
-  def greatest_common_divisor(x, 0), do: x
-  def greatest_common_divisor(x, y), do: greatest_common_divisor(y, rem(x,y))
+  defp greatest_common_divisor(x, 0), do: x
+  defp greatest_common_divisor(x, y), do: greatest_common_divisor(y, rem(x,y))
 end
