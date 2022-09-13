@@ -13,7 +13,7 @@ defmodule RationalNumbers do
     b2 = b |> elem(1)
 
     numerator   = (a1 * b2) + (a2 * b1)
-    denominator = (b1 * b2) |> _abs
+    denominator = (b1 * b2)
 
     { numerator, denominator } |> reduce
   end
