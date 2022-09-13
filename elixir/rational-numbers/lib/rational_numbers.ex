@@ -44,10 +44,11 @@ defmodule RationalNumbers do
     numerator   = (a1 * b2)
     denominator = (a2 * b1)
 
-    if (denominator < 0) do
-      { 0 - numerator, _abs(denominator)}
-    else
-      {numerator, denominator}
+    cond do
+      denominator < 0 ->
+        { 0 - numerator, _abs(denominator)}
+      true ->
+        {numerator, denominator}
     end
   end
 
