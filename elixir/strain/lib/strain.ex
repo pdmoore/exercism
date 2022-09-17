@@ -27,6 +27,6 @@ defmodule Strain do
   """
   @spec discard(list :: list(any), fun :: (any -> boolean)) :: list(any)
   def discard(list, fun) do
-    []
+    list
   end
 end

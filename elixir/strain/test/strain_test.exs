@@ -49,7 +49,6 @@ defmodule StrainTest do
     assert Strain.discard([], &noop/1) == []
   end
 
-  @tag :pending
   test "discard nothing" do
     assert Strain.discard([1, 2, 3], fn e -> e > 10 end) == [1, 2, 3]
   end
