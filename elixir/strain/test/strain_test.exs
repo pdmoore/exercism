@@ -45,7 +45,6 @@ defmodule StrainTest do
            ]
   end
 
-  @tag :pending
   test "empty discard" do
     assert Strain.discard([], &noop/1) == []
   end
