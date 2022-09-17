@@ -53,7 +53,6 @@ defmodule StrainTest do
     assert Strain.discard([1, 2, 3], fn e -> e > 10 end) == [1, 2, 3]
   end
 
-  @tag :pending
   test "discard first and last" do
     assert Strain.discard([1, 2, 3], &is_odd?/1) == [2]
   end
