@@ -17,18 +17,15 @@ defmodule StrainTest do
     assert Strain.keep([1, 2, 3], &is_odd?/1) == [1, 3]
   end
 
-  @tag :pending
   test "keep neither first nor last" do
     assert Strain.keep([1, 2, 3, 4, 5], &is_even?/1) == [2, 4]
   end
 
-  @tag :pending
   test "keep strings" do
     words = ~w(apple zebra banana zombies cherimoya zelot)
     assert Strain.keep(words, &String.starts_with?(&1, "z")) == ~w(zebra zombies zelot)
   end
 
-  @tag :pending
   test "keep arrays" do
     rows = [
       [1, 2, 3],
