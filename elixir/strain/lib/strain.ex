@@ -7,8 +7,17 @@ defmodule Strain do
   """
   @spec keep(list :: list(any), fun :: (any -> boolean)) :: list(any)
   def keep(list, fun) do
-    Enum.map(list, fn n -> if fun.(n) do n end end)
+    retain(list, fun)
   end
+
+  defp retain([head | tail], fun) do
+    if (fun.(head)) do
+      [head | retain(tail, fun)]
+    else
+      retain(tail,fun)
+    end
+  end
+  defp retain([], _fun), do: []
 
   @doc """
   Given a `list` of items and a function `fun`, return the list of items where
