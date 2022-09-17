@@ -57,18 +57,15 @@ defmodule StrainTest do
     assert Strain.discard([1, 2, 3], &is_odd?/1) == [2]
   end
 
-  @tag :pending
   test "discard neither first nor last" do
     assert Strain.discard([1, 2, 3, 4, 5], &is_even?/1) == [1, 3, 5]
   end
 
-  @tag :pending
   test "discard strings" do
     words = ~w(apple zebra banana zombies cherimoya zelot)
     assert Strain.discard(words, &String.starts_with?(&1, "z")) == ~w(apple banana cherimoya)
   end
 
-  @tag :pending
   test "discard arrays" do
     rows = [
       [1, 2, 3],
