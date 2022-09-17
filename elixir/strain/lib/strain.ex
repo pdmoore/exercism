@@ -12,7 +12,7 @@ defmodule Strain do
     if (fun.(head)) do
       [head | _keep(tail, fun)]
     else
-      _keep(tail,fun)
+      _keep(tail, fun)
     end
   end
   defp _keep([], _fun), do: []
