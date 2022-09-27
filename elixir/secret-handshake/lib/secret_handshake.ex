@@ -25,7 +25,7 @@ defmodule SecretHandshake do
     _double_blink = 2
     result = []
     if Bitwise.band(code, blink) == 1 do
-      ["wink" | result]
+      ["wink"]
     else
 #      ["double blink"]
 #    FAILS  if Bitwise.band(code, double_blink) == 1 do
