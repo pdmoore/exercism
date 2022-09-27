@@ -6,7 +6,6 @@ defmodule SecretHandshakeTest do
       assert SecretHandshake.commands(1) == ["wink"]
     end
 
-    @tag :pending
     test "double blink for 10" do
       assert SecretHandshake.commands(2) == ["double blink"]
     end

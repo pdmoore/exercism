@@ -15,9 +15,26 @@ defmodule SecretHandshake do
   """
   @spec commands(code :: integer) :: list(String.t())
   def commands(code) do
+
+
+    # It's easy to do the bit checks
+    # completely stuck on how to add the secret string to the list
+    # and then return the resulting list of secrets....
+
     blink = 1
-    if Bitwise.band(code, blink) do
-      ["wink"]
+    _double_blink = 2
+    result = []
+    if Bitwise.band(code, blink) == 1 do
+      ["wink" | result]
+    else
+#      ["double blink"]
+#    FAILS  if Bitwise.band(code, double_blink) == 1 do
+#    WORKS  if (code == 2) do
+      if (Bitwise.bsr(code,1) == 1) do
+        ["double blink"]
+      else
+        ["woof"]
+      end
     end
   end
 end
