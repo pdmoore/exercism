@@ -15,6 +15,9 @@ defmodule SecretHandshake do
   """
   @spec commands(code :: integer) :: list(String.t())
   def commands(code) do
-    ["wink"]
+    blink = 1
+    if Bitwise.band(code, blink) do
+      ["wink"]
+    end
   end
 end
