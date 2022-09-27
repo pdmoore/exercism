@@ -33,7 +33,11 @@ defmodule SecretHandshake do
       if (Bitwise.bsr(code,1) == 1) do
         ["double blink"]
       else
-        ["woof"]
+        if (Bitwise.bsr(code,2) == 1) do
+          ["close your eyes"]
+        else
+          ["woof1"]
+        end
       end
     end
   end
