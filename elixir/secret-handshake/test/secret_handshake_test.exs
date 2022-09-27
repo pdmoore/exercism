@@ -14,7 +14,6 @@ defmodule SecretHandshakeTest do
       assert SecretHandshake.commands(4) == ["close your eyes"]
     end
 
-    @tag :pending
     test "jump for 1000" do
       assert SecretHandshake.commands(8) == ["jump"]
     end
