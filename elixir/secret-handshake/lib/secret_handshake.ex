@@ -20,6 +20,7 @@ defmodule SecretHandshake do
     |> check_for_bit(Bitwise.band(code, 0b00010))
     |> check_for_bit(Bitwise.band(code, 0b00100))
     |> check_for_bit(Bitwise.band(code, 0b01000))
+    |> check_for_bit(Bitwise.band(code, 0b10000))
 
 
 end
@@ -28,6 +29,7 @@ def check_for_bit(secrets, 0b00001), do: secrets ++ ["wink"]
 def check_for_bit(secrets, 0b00010), do: secrets ++ ["double blink"]
 def check_for_bit(secrets, 0b00100), do: secrets ++ ["close your eyes"]
 def check_for_bit(secrets, 0b01000), do: secrets ++ ["jump"]
+def check_for_bit(secrets, 0b10000), do: Enum.reverse(secrets)
 def check_for_bit(secrets, _), do: secrets
 
 end

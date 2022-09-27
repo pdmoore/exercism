@@ -22,7 +22,6 @@ defmodule SecretHandshakeTest do
       assert SecretHandshake.commands(3) == ["wink", "double blink"]
     end
 
-    @tag :pending
     test "reverse two actions" do
       assert SecretHandshake.commands(19) == ["double blink", "wink"]
     end
