@@ -26,32 +26,26 @@ defmodule SecretHandshakeTest do
       assert SecretHandshake.commands(19) == ["double blink", "wink"]
     end
 
-    @tag :pending
     test "reversing one action gives the same action" do
       assert SecretHandshake.commands(24) == ["jump"]
     end
 
-    @tag :pending
     test "reversing no actions still gives no actions" do
       assert SecretHandshake.commands(16) == []
     end
 
-    @tag :pending
     test "all possible actions" do
       assert SecretHandshake.commands(15) == ["wink", "double blink", "close your eyes", "jump"]
     end
 
-    @tag :pending
     test "reverse all possible actions" do
       assert SecretHandshake.commands(31) == ["jump", "close your eyes", "double blink", "wink"]
     end
 
-    @tag :pending
     test "do nothing for zero" do
       assert SecretHandshake.commands(0) == []
     end
 
-    @tag :pending
     test "do nothing if lower 5 bits not set" do
       assert SecretHandshake.commands(32) == []
     end
