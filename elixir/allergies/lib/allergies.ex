@@ -7,12 +7,12 @@ defmodule Allergies do
     []
       |> check_for_allergy(Bitwise.band(flags, 0b00001))
       |> check_for_allergy(Bitwise.band(flags, 0b00010))
-#      |> check_for_allergy(Bitwise.band(flags, 0b00100))
+      |> check_for_allergy(Bitwise.band(flags, 0b01000))
   end
 
   defp check_for_allergy(allergies, 0b00001), do: allergies ++ ["eggs"]
   defp check_for_allergy(allergies, 0b00010), do: allergies ++ ["peanuts"]
-#  defp check_for_allergy(allergies, 0b00100), do: allergies ++ ["strawberries"]
+  defp check_for_allergy(allergies, 0b01000), do: allergies ++ ["strawberries"]
   defp check_for_allergy(allergies, _), do: allergies
 
   @doc """
