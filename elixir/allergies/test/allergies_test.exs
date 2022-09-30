@@ -34,7 +34,6 @@ defmodule AllergiesTest do
       Allergies.list(3) |> assert_is_a_set_containing(~w[eggs peanuts])
     end
 
-    @tag :pending
     test "allergic to more than eggs but not peanuts" do
       Allergies.list(5) |> assert_is_a_set_containing(~w[eggs shellfish])
     end
