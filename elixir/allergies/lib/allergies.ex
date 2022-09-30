@@ -30,6 +30,6 @@ defmodule Allergies do
   """
   @spec allergic_to?(non_neg_integer, String.t()) :: boolean
   def allergic_to?(flags, item) do
-    list(flags) |> Enum.member?(item)
+    item in list(flags)
   end
 end
