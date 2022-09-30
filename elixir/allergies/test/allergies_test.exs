@@ -196,27 +196,22 @@ defmodule AllergiesTest do
   end
 
   describe "score for pollen allergies -" do
-    @tag :pending
     test "not allergic to pollen" do
       refute Allergies.allergic_to?(0, "pollen")
     end
 
-    @tag :pending
     test "is allergic to only pollen" do
       assert Allergies.allergic_to?(64, "pollen")
     end
 
-    @tag :pending
     test "is allergic to pollen and something else" do
       assert Allergies.allergic_to?(224, "pollen")
     end
 
-    @tag :pending
     test "is allergic to something, but not pollen" do
       refute Allergies.allergic_to?(160, "pollen")
     end
 
-    @tag :pending
     test "is allergic to everything (including pollen)" do
       assert Allergies.allergic_to?(255, "pollen")
     end
