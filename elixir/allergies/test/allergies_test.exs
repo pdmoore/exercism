@@ -80,7 +80,6 @@ defmodule AllergiesTest do
       refute Allergies.allergic_to?(2, "eggs")
     end
 
-    @tag :pending
     test "is allergic to everything (including eggs)" do
       assert Allergies.allergic_to?(255, "eggs")
     end
