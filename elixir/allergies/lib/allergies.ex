@@ -36,7 +36,7 @@ defmodule Allergies do
     if set == [] do
       false
     else
-      set
+      Enum.member?(set, item)
     end
 
 
