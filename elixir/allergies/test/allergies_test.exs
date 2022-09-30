@@ -86,27 +86,22 @@ defmodule AllergiesTest do
   end
 
   describe "score for peanuts allergies -" do
-    @tag :pending
     test "not allergic to peanuts" do
       refute Allergies.allergic_to?(0, "peanuts")
     end
 
-    @tag :pending
     test "is allergic to only peanuts" do
       assert Allergies.allergic_to?(2, "peanuts")
     end
 
-    @tag :pending
     test "is allergic to peanuts and something else" do
       assert Allergies.allergic_to?(7, "peanuts")
     end
 
-    @tag :pending
     test "is allergic to something, but not peanuts" do
       refute Allergies.allergic_to?(5, "peanuts")
     end
 
-    @tag :pending
     test "is allergic to everything (including peanuts)" do
       assert Allergies.allergic_to?(255, "peanuts")
     end
