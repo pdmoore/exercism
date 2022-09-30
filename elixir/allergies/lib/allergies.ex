@@ -5,7 +5,11 @@ defmodule Allergies do
   @spec list(non_neg_integer) :: [String.t()]
   def list(flags) do
     []
+      |> check_for_allergy(Bitwise.band(flags, 0b00001))
   end
+
+  defp check_for_allergy(allergies, 0b00001), do: allergies ++ ["eggs"]
+  defp check_for_allergy(allergies, _), do: allergies
 
   @doc """
   Returns whether the corresponding flag bit in 'flags' is set for the item.
