@@ -22,7 +22,6 @@ defmodule AllergiesTest do
       Allergies.list(1) |> assert_is_a_set_containing(~w[eggs])
     end
 
-    @tag :pending
     test "allergic to just peanuts" do
       Allergies.list(2) |> assert_is_a_set_containing(~w[peanuts])
     end
@@ -32,7 +31,6 @@ defmodule AllergiesTest do
       Allergies.list(8) |> assert_is_a_set_containing(~w[strawberries])
     end
 
-    @tag :pending
     test "allergic to eggs and peanuts" do
       Allergies.list(3) |> assert_is_a_set_containing(~w[eggs peanuts])
     end
