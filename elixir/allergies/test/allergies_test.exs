@@ -50,7 +50,6 @@ defmodule AllergiesTest do
       )
     end
 
-    @tag :pending
     test "ignore non allergen score parts" do
       Allergies.list(509)
       |> assert_is_a_set_containing(
@@ -58,7 +57,6 @@ defmodule AllergiesTest do
       )
     end
 
-    @tag :pending
     test "ignore non allergen score parts without highest valid score" do
       Allergies.list(257)
       |> assert_is_a_set_containing(~w[eggs])
