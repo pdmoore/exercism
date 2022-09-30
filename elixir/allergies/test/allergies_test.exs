@@ -174,27 +174,22 @@ defmodule AllergiesTest do
   end
 
   describe "score for chocolate allergies -" do
-    @tag :pending
     test "not allergic to chocolate" do
       refute Allergies.allergic_to?(0, "chocolate")
     end
 
-    @tag :pending
     test "is allergic to only chocolate" do
       assert Allergies.allergic_to?(32, "chocolate")
     end
 
-    @tag :pending
     test "is allergic to chocolate and something else" do
       assert Allergies.allergic_to?(112, "chocolate")
     end
 
-    @tag :pending
     test "is allergic to something, but not chocolate" do
       refute Allergies.allergic_to?(80, "chocolate")
     end
 
-    @tag :pending
     test "is allergic to everything (including chocolate)" do
       assert Allergies.allergic_to?(255, "chocolate")
     end
