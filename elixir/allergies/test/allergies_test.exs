@@ -64,12 +64,10 @@ defmodule AllergiesTest do
   end
 
   describe "score for egg allergies -" do
-    @tag :pending
     test "not allergic to eggs" do
       refute Allergies.allergic_to?(0, "eggs")
     end
 
-    @tag :pending
     test "is allergic to only eggs" do
       assert Allergies.allergic_to?(1, "eggs")
     end

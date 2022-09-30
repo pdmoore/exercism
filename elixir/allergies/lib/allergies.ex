@@ -30,5 +30,15 @@ defmodule Allergies do
   """
   @spec allergic_to?(non_neg_integer, String.t()) :: boolean
   def allergic_to?(flags, item) do
+
+    set = list(flags)
+
+    if set == [] do
+      false
+    else
+      set
+    end
+
+
   end
 end
