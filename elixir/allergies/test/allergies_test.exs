@@ -218,27 +218,22 @@ defmodule AllergiesTest do
   end
 
   describe "score for cats allergies -" do
-    @tag :pending
     test "not allergic to cats" do
       refute Allergies.allergic_to?(0, "cats")
     end
 
-    @tag :pending
     test "is allergic to only cats" do
       assert Allergies.allergic_to?(128, "cats")
     end
 
-    @tag :pending
     test "is allergic to cats and something else" do
       assert Allergies.allergic_to?(192, "cats")
     end
 
-    @tag :pending
     test "is allergic to something, but not cats" do
       refute Allergies.allergic_to?(64, "cats")
     end
 
-    @tag :pending
     test "is allergic to everything (including cats)" do
       assert Allergies.allergic_to?(255, "cats")
     end
