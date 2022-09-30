@@ -108,27 +108,22 @@ defmodule AllergiesTest do
   end
 
   describe "score for shellfish allergies -" do
-    @tag :pending
     test "not allergic to shellfish" do
       refute Allergies.allergic_to?(0, "shellfish")
     end
 
-    @tag :pending
     test "is allergic to only shellfish" do
       assert Allergies.allergic_to?(4, "shellfish")
     end
 
-    @tag :pending
     test "is allergic to shellfish and something else" do
       assert Allergies.allergic_to?(14, "shellfish")
     end
 
-    @tag :pending
     test "is allergic to something, but not shellfish" do
       refute Allergies.allergic_to?(10, "shellfish")
     end
 
-    @tag :pending
     test "is allergic to everything (including shellfish)" do
       assert Allergies.allergic_to?(255, "shellfish")
     end
