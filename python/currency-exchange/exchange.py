@@ -76,4 +76,4 @@ def get_leftover_of_bills(budget, denomination):
     :return: float the leftover amount that cannot be exchanged from your budget given the denomination of bills.
     """
 
-    pass
+    return budget % denomination
