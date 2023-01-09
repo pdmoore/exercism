@@ -1,3 +1,4 @@
+"""Module implements rules for Pac-Man"""
 def eat_ghost(power_pellet_active, touching_ghost):
     """
 

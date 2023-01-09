@@ -1,4 +1,3 @@
-"""Module implements rules for Pac-Man"""
 import unittest
 import pytest
 from arcade_game import eat_ghost, score, lose, win
