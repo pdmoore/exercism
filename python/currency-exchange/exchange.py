@@ -40,7 +40,7 @@ def get_number_of_bills(budget, denomination):
     :return: int - number of bills after exchanging all your money.
     """
 
-    pass
+    return budget // denomination
 
 
 def exchangeable_value(budget, exchange_rate, spread, denomination):
