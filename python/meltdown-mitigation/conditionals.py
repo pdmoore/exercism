@@ -15,7 +15,7 @@ def is_criticality_balanced(temperature, neutrons_emitted):
     """
     temp_below_max = temperature < 800
     lots_of_neutrons_emitted = neutrons_emitted > 500
-    product_below_max = (temperature * neutrons_emitted) < 500000
+    product_below_max = (temperature * neutrons_emitted) < 500_000
 
     return temp_below_max and lots_of_neutrons_emitted and product_below_max
 
