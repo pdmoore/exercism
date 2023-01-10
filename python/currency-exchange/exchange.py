@@ -1,3 +1,4 @@
+'''Currency Exchange on Exercism's Python Track'''
 def exchange_money(budget, exchange_rate):
     """
 
