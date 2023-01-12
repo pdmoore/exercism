@@ -39,9 +39,12 @@ def higher_card(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    if (value_of_card(card_one) == value_of_card(card_two)):
+    card_one_value = value_of_card(card_one)
+    card_two_value = value_of_card(card_two)
+
+    if card_one_value == card_two_value:
         return card_one, card_two
-    if value_of_card(card_one) > value_of_card(card_two):
+    if card_one_value > card_two_value:
         return card_one
     else:
         return card_two
