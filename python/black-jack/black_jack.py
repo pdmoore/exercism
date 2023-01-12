@@ -45,8 +45,8 @@ def higher_card(card_one, card_two):
         return card_one, card_two
     if card_one_value > card_two_value:
         return card_one
-    else:
-        return card_two
+
+    return card_two
 
 def value_of_ace(card_one, card_two):
     """Calculate the most advantageous value for the ace card.
