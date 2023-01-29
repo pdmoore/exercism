@@ -14,10 +14,10 @@ def is_criticality_balanced(temperature, neutrons_emitted):
     - The product of temperature and neutrons emitted per second is less than 500000.
     """
     temp_below_max = temperature < 800
-    lots_of_neutrons_emitted = neutrons_emitted > 500
+    exceeds_minimum_emission_threshold = neutrons_emitted > 500
     product_below_max = (temperature * neutrons_emitted) < 500_000
 
-    return temp_below_max and lots_of_neutrons_emitted and product_below_max
+    return temp_below_max and exceeds_minimum_emission_threshold and product_below_max
 
 
 def reactor_efficiency(voltage, current, theoretical_max_power):
