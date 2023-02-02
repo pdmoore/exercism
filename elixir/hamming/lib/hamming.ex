@@ -13,7 +13,11 @@ defmodule Hamming do
     if strand1 == '' and strand2 != '' do
       {:error, "strands must be of equal length"}
     else
-      {:ok, 0}
+      if strand1 != '' and strand2 == '' do
+        {:error, "strands must be of equal length"}
+      else
+        {:ok, 0}
+      end
     end
 
 
