@@ -34,7 +34,6 @@ defmodule HammingTest do
     assert {:error, "strands must be of equal length"} = Hamming.hamming_distance('ATA', 'AGTG')
   end
 
-  @tag :pending
   test "disallow empty first strand" do
     assert {:error, "strands must be of equal length"} = Hamming.hamming_distance('', 'G')
   end

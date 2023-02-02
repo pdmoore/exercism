@@ -8,10 +8,14 @@ defmodule Hamming do
   {:ok, 4}
   """
   @spec hamming_distance([char], [char]) :: {:ok, non_neg_integer} | {:error, String.t()}
-  def hamming_distance(strand1, strand2) when String.length(strand1) != String.length(strand2) do
-    {:error, "foo"}
-  end
   def hamming_distance(strand1, strand2) do
+
+    if strand1 == '' and strand2 != '' do
+      {:error, "strands must be of equal length"}
+    else
+      {:ok, 0}
+    end
+
 
     # need a counter, then recurse over each character in the strand
     # if chars do not match, increment counter
@@ -19,6 +23,6 @@ defmodule Hamming do
 
     #strands of different length, return {:error, "strands must be of equal length"}
 
-    {:ok, 0}
+
   end
 end
