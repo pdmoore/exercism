@@ -21,14 +21,16 @@ defmodule Hamming do
   def hamming_distance(strand1, strand2) do
 
 
-    {:ok, 0}
-
 
     # need a counter, then recurse over each character in the strand
     # if chars do not match, increment counter
     # if lengths don't match return error
 
     #strands of different length, return {:error, "strands must be of equal length"}
+    # handled by the functions watching for one side empty when other is not
+
+    {:ok, 0}
+
 
 
   end
