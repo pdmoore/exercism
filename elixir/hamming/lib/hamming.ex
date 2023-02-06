@@ -13,7 +13,9 @@ defmodule Hamming do
   end
 
   @spec hamming_distance([char], []) :: {:error, String.t()}
-  def hamming_distance([strand1], []) do: {:error, "strands must be of equal length"}
+  def hamming_distance([strand1], []) do:
+    {:error, "strands must be of equal length"}
+  end
 
   @spec hamming_distance([char], [char]) :: {:ok, non_neg_integer} | {:error, String.t()}
   def hamming_distance(strand1, strand2) do
