@@ -17,7 +17,6 @@ defmodule HammingTest do
     assert Hamming.hamming_distance('GGACTGAAATCTG', 'GGACTGAAATCTG') == {:ok, 0}
   end
 
-  @tag :pending
   test "long different strands" do
     assert Hamming.hamming_distance('GGACGGATTCTG', 'AGGACGGATTCT') == {:ok, 9}
   end
