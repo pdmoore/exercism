@@ -12,7 +12,6 @@ defmodule Hamming do
     hamming_distance(strand1, strand2, 0)
   end
 
-
   # TODO - Suspect a lot of the 'cond' code will be covered by the other impls below
   # start pulling code, runningt tests, to see if that's true
 
@@ -20,8 +19,6 @@ defmodule Hamming do
   def hamming_distance([strand1_head | strand1_tail], [strand2_head | strand2_tail], difference_count) do
 
     cond do
-      strand1_head == '' and strand2_head == '' ->
-        {:ok, difference_count}
       strand1_head == '' and strand2_head != '' ->
         {:error, "strands must be of equal length"}
       strand1_head != '' and strand2_head == '' ->
@@ -40,7 +37,6 @@ defmodule Hamming do
       {:ok, count}
     end
   end
-
 
   def hamming_distance([strand1_head | strand1_tail], strand2_head, count) do
     if strand2_head == '' and strand1_head != '' do
