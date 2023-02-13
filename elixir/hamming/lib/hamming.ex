@@ -17,7 +17,6 @@ defmodule Hamming do
 
   @spec hamming_distance([char], [char], integer) :: {:ok, non_neg_integer} | {:error, String.t()}
   def hamming_distance([strand1_head | strand1_tail], [strand2_head | strand2_tail], difference_count) do
-
     cond do
       strand1_head != strand2_head ->
         hamming_distance(strand1_tail, strand2_tail, difference_count + 1)
@@ -26,7 +25,7 @@ defmodule Hamming do
     end
   end
 
-  def hamming_distance(strand1_head, [strand2_head | strand2_tail], count) do
+  def hamming_distance(strand1_head, [strand2_head | _], count) do
     if strand1_head == '' and strand2_head != '' do
       {:error, "strands must be of equal length"}
     else
@@ -34,7 +33,7 @@ defmodule Hamming do
     end
   end
 
-  def hamming_distance([strand1_head | strand1_tail], strand2_head, count) do
+  def hamming_distance([strand1_head | _], strand2_head, count) do
     if strand2_head == '' and strand1_head != '' do
       {:error, "strands must be of equal length"}
     else
