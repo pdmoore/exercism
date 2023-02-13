@@ -13,7 +13,6 @@ defmodule HammingTest do
     assert Hamming.hamming_distance('G', 'T') == {:ok, 1}
   end
 
-  @tag :pending
   test "long identical strands" do
     assert Hamming.hamming_distance('GGACTGAAATCTG', 'GGACTGAAATCTG') == {:ok, 0}
   end
