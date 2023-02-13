@@ -19,7 +19,7 @@ defmodule Hamming do
   def hamming_distance([strand1_head | strand1_tail], [strand2_head | strand2_tail], difference_count) do
 
     cond do
-        strand1_head != strand2_head ->
+      strand1_head != strand2_head ->
         hamming_distance(strand1_tail, strand2_tail, difference_count + 1)
       true ->
         hamming_distance(strand1_tail, strand2_tail, difference_count)
