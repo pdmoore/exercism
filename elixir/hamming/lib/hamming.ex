@@ -15,13 +15,12 @@ defmodule Hamming do
     hamming_distance(strand1, strand2, 0)
   end
 
-  defp hamming_distance([strand1_head | strand1_tail], [strand2_head | strand2_tail], difference_count) do
-    cond do
-      strand1_head != strand2_head ->
-        hamming_distance(strand1_tail, strand2_tail, difference_count + 1)
-      true ->
-        hamming_distance(strand1_tail, strand2_tail, difference_count)
-    end
+  defp hamming_distance([match | strand1_tail], [match | strand2_tail], difference_count) do
+      hamming_distance(strand1_tail, strand2_tail, difference_count)
+  end
+
+  defp hamming_distance([_mismatch1 | strand1_tail], [_mismatch2 | strand2_tail], difference_count) do
+      hamming_distance(strand1_tail, strand2_tail, difference_count + 1)
   end
 
   defp hamming_distance(strand1_head, strand2_head, count) do
