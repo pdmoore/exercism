@@ -12,8 +12,10 @@ defmodule Hamming do
       do: {:error, "strands must be of equal length"}
 
   def hamming_distance(strand1, strand2) do
-    hamming_distance(strand1, strand2, 0)
+    {:ok, hamming_distance(strand1, strand2, 0)}
   end
+
+  defp hamming_distance([], [], difference_count), do: difference_count
 
   defp hamming_distance([match | strand1_tail], [match | strand2_tail], difference_count) do
       hamming_distance(strand1_tail, strand2_tail, difference_count)
@@ -21,13 +23,5 @@ defmodule Hamming do
 
   defp hamming_distance([_mismatch1 | strand1_tail], [_mismatch2 | strand2_tail], difference_count) do
       hamming_distance(strand1_tail, strand2_tail, difference_count + 1)
-  end
-
-  defp hamming_distance(strand1_head, strand2_head, count) do
-    if strand1_head != strand2_head do
-      {:ok, count + 1}
-    else
-      {:ok, count}
-    end
   end
 end
