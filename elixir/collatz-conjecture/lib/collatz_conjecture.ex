@@ -7,10 +7,7 @@ defmodule CollatzConjecture do
     - if number is even, divide by 2
   """
   @spec calc(input :: pos_integer()) :: non_neg_integer()
-  def calc(0), do: raise FunctionClauseError
-  def calc(input) when input < 0, do: raise FunctionClauseError
-  def calc(input) when is_bitstring(input), do: raise FunctionClauseError
-  def calc(input) do
+  def calc(input) when is_integer(input) and input > 0 do
     count_steps(input, 0)
   end
 
