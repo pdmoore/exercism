@@ -9,6 +9,7 @@ defmodule CollatzConjecture do
   @spec calc(input :: pos_integer()) :: non_neg_integer()
   def calc(0), do: raise FunctionClauseError
   def calc(input) when input < 0, do: raise FunctionClauseError
+  def calc(input) when is_bitstring(input), do: raise FunctionClauseError
   def calc(input) do
     count_steps(input, 0)
   end
