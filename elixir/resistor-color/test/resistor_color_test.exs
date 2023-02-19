@@ -33,7 +33,6 @@ defmodule ResistorColorTest do
     assert ResistorColor.code(:violet) == 7
   end
 
-  @tag :pending
   test "returns grey color code" do
     assert ResistorColor.code(:grey) == 8
   end
