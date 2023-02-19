@@ -1,12 +1,10 @@
 defmodule ResistorColorTest do
   use ExUnit.Case
 
-  # @tag :pending
   test "returns black color code" do
     assert ResistorColor.code(:black) == 0
   end
 
-  @tag :pending
   test "returns brown color code" do
     assert ResistorColor.code(:brown) == 1
   end
