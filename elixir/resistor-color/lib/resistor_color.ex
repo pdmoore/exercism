@@ -6,6 +6,7 @@ defmodule ResistorColor do
   def code(:black), do: 0
   def code(:brown), do: 1
   def code(:red), do: 2
+  def code(:orange), do: 3
   def code(color) do
   end
 end
