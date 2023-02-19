@@ -5,6 +5,7 @@ defmodule ResistorColor do
   @spec code(atom) :: integer()
   def code(:black), do: 0
   def code(:brown), do: 1
+  def code(:red), do: 2
   def code(color) do
   end
 end
