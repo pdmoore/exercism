@@ -1,7 +1,6 @@
 defmodule ResistorColorDuoTest do
   use ExUnit.Case
 
-  # @tag :pending
   test "Brown and black" do
     colors = [:brown, :black]
     output = ResistorColorDuo.value(colors)
