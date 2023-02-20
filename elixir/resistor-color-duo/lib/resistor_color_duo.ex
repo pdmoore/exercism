@@ -4,6 +4,21 @@ defmodule ResistorColorDuo do
   """
   @spec value(colors :: [atom]) :: integer
   def value(colors) do
-    10
+# [:brown, :black]
+
+    color_value = %{
+      black:  0,
+      brown:  1,
+      red:    2,
+      orange: 3,
+      yellow: 4,
+      green:  5,
+      blue:   6,
+      violet: 7,
+      grey:   8,
+      white:  9
+    }
+#    fn endcolor_value[:brown], color_value[:black] -> "#{x}#{y}" end
+    elem(Integer.parse("10"), 0)
   end
 end
