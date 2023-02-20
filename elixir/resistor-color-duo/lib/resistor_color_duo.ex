@@ -22,7 +22,9 @@ defmodule ResistorColorDuo do
 
     # TODO - combine first and second of colors param to form "10"
 
-    String.to_integer(Integer.to_string(color_value[:brown]) <> Integer.to_string(color_value[:black]))
+    first = color_value[:brown]
+    second = color_value[:black]
+    String.to_integer(Integer.to_string(first) <> Integer.to_string(second))
 
 #    elem(Integer.parse("10"), 0)
   end
