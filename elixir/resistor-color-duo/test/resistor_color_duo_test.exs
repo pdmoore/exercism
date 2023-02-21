@@ -41,7 +41,6 @@ defmodule ResistorColorDuoTest do
     assert output == expected
   end
 
-  @tag :pending
   test "Ignore additional colors" do
     colors = [:green, :brown, :orange]
     output = ResistorColorDuo.value(colors)
