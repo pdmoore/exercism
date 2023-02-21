@@ -17,9 +17,8 @@ defmodule ResistorColorDuo do
   """
   @spec value(colors :: [atom]) :: integer
   def value([band_1, band_2 | _]) do
-    first_digit  = @color_value[band_1]
-    second_digit = @color_value[band_2]
-    two_digits_combined_as_string = Integer.to_string(first_digit) <> Integer.to_string(second_digit)
-    String.to_integer(two_digits_combined_as_string)
+    tens = @color_value[band_1] * 10
+    ones = @color_value[band_2]
+    tens + ones
   end
 end
