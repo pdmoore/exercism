@@ -18,14 +18,12 @@ defmodule ResistorColorDuo do
       grey:   8,
       white:  9
     }
-#    fn color_value[:brown], color_value[:black] -> "#{x}#{y}" end
-
-    # TODO - combine first and second of colors param to form "10"
-
-    first = color_value[:brown]
-    second = color_value[:black]
+    # if param is a list, access head | tail?
+    [head1 | tail] = colors
+    [head2 | _] = tail
+#    first = color_value[List.first(colors)]
+    first = color_value[head1]
+    second = color_value[head2]
     String.to_integer(Integer.to_string(first) <> Integer.to_string(second))
-
-#    elem(Integer.parse("10"), 0)
   end
 end
