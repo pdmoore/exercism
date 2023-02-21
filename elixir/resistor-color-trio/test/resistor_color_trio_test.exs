@@ -17,7 +17,6 @@ defmodule ResistorColorTrioTest do
     assert output == expected
   end
 
-  @tag :pending
   test "Red and black and red" do
     colors = [:red, :black, :red]
     output = ResistorColorTrio.label(colors)
