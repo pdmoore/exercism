@@ -25,6 +25,7 @@ defmodule ResistorColorTrio do
     case band_3 do
       :red    -> {(tens + ones) / 10, :kiloohms}
       :orange -> {tens + ones, :kiloohms}
+      :yellow -> {(tens + ones) * 10, :kiloohms}
       :blue   -> {tens + ones, :megaohms}
       :white  -> {tens + ones, :gigaohms}
       _ ->  {total, :ohms}
