@@ -60,7 +60,6 @@ defmodule ResistorColorTrioTest do
     assert output == expected
   end
 
-  @tag :pending
   test "Maximum possible value" do
     colors = [:white, :white, :white]
     output = ResistorColorTrio.label(colors)
