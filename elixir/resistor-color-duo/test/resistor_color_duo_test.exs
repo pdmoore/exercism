@@ -49,7 +49,6 @@ defmodule ResistorColorDuoTest do
     assert output == expected
   end
 
-  @tag :pending
   test "Black and brown, one digit" do
     colors = [:black, :brown]
     output = ResistorColorDuo.value(colors)
