@@ -23,9 +23,10 @@ defmodule ResistorColorTrio do
     total = (tens + ones) * trunc(:math.pow(10, @color_value[band_3]))
 
     case band_3 do
-      :red   -> {(tens + ones) / 10, :kiloohms}
-      :blue  -> {tens + ones, :megaohms}
-      :white -> {tens + ones, :gigaohms}
+      :red    -> {(tens + ones) / 10, :kiloohms}
+      :orange -> {tens + ones, :kiloohms}
+      :blue   -> {tens + ones, :megaohms}
+      :white  -> {tens + ones, :gigaohms}
       _ ->  {total, :ohms}
     end
 
