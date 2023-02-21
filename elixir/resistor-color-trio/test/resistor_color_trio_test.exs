@@ -9,7 +9,6 @@ defmodule ResistorColorTrioTest do
     assert output == expected
   end
 
-  @tag :pending
   test "Blue and grey and brown" do
     colors = [:blue, :grey, :brown]
     output = ResistorColorTrio.label(colors)
@@ -54,7 +53,6 @@ defmodule ResistorColorTrioTest do
     assert output == expected
   end
 
-  @tag :pending
   test "Minimum possible value" do
     colors = [:black, :black, :black]
     output = ResistorColorTrio.label(colors)
@@ -72,7 +70,6 @@ defmodule ResistorColorTrioTest do
     assert output == expected
   end
 
-  @tag :pending
   test "First two colors make an invalid octal number" do
     colors = [:black, :grey, :black]
     output = ResistorColorTrio.label(colors)
