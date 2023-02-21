@@ -73,7 +73,6 @@ defmodule ResistorColorTrioTest do
     assert output == expected
   end
 
-  @tag :pending
   test "Ignore extra colors" do
     colors = [:blue, :green, :yellow, :orange]
     output = ResistorColorTrio.label(colors)
