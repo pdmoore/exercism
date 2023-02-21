@@ -19,7 +19,13 @@ defmodule ResistorColorTrio do
   def label([band_1, band_2, band_3 | _]) do
     tens = @color_value[band_1] * 10
     ones = @color_value[band_2]
+
     total = (tens + ones) * trunc(:math.pow(10, @color_value[band_3]))
-    {total, :ohms}
+
+    case band_3 do
+      :blue -> {tens + ones, :megaohms}
+      _ ->  {total, :ohms}
+    end
+
   end
 end
