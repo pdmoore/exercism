@@ -20,14 +20,14 @@ defmodule ResistorColorTrio do
     tens = @color_value[band_1] * 10
     ones = @color_value[band_2]
 
-    base_ohms = tens + ones
+    ohms = tens + ones
     case band_3 do
-      :red    -> {base_ohms / 10, :kiloohms}
-      :orange -> {base_ohms, :kiloohms}
-      :yellow -> {base_ohms * 10, :kiloohms}
-      :blue   -> {base_ohms, :megaohms}
-      :white  -> {base_ohms, :gigaohms}
-      _ ->  {base_ohms * trunc(:math.pow(10, @color_value[band_3])), :ohms}
+      :red    -> {ohms / 10, :kiloohms}
+      :orange -> {ohms, :kiloohms}
+      :yellow -> {ohms * 10, :kiloohms}
+      :blue   -> {ohms, :megaohms}
+      :white  -> {ohms, :gigaohms}
+      _ ->  {ohms * trunc(:math.pow(10, @color_value[band_3])), :ohms}
     end
 
   end
