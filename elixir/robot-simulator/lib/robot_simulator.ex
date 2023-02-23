@@ -12,10 +12,7 @@ defmodule RobotSimulator do
   def create(), do: create(:north, {0, 0})
   def create(direction \\ nil, position \\ nil) do
     cond do
-      direction == :north -> %{:direction => direction, :position => position}
-      direction == :south -> %{:direction => direction, :position => position}
-      direction == :east -> %{:direction => direction, :position => position}
-      direction == :west -> %{:direction => direction, :position => position}
+      direction in [:north, :south, :east, :west] -> %{:direction => direction, :position => position}
       true -> {:error, "invalid direction"}
     end
   end
