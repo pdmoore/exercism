@@ -10,6 +10,7 @@ defmodule RobotSimulator do
   """
   @spec create(direction, position) :: robot() | {:error, String.t()}
   def create(direction \\ nil, position \\ nil) do
+    %{:direction => :north, :position => {0, 0}}
   end
 
   @doc """
