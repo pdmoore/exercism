@@ -29,7 +29,7 @@ defmodule RobotSimulator do
   """
   @spec direction(robot) :: direction()
   def direction(robot) do
-    :north
+    robot[:direction]
   end
 
   @doc """
@@ -37,6 +37,6 @@ defmodule RobotSimulator do
   """
   @spec position(robot) :: position()
   def position(robot) do
-    {0, 0}
+    robot[:position]
   end
 end
