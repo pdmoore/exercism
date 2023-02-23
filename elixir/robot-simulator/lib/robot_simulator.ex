@@ -11,7 +11,13 @@ defmodule RobotSimulator do
   @spec create(direction, position) :: robot() | {:error, String.t()}
   def create(), do: create(:north, {0, 0})
   def create(direction \\ nil, position \\ nil) do
-    %{:direction => direction, :position => position}
+    cond do
+      direction == :north -> %{:direction => direction, :position => position}
+      direction == :south -> %{:direction => direction, :position => position}
+      direction == :east -> %{:direction => direction, :position => position}
+      direction == :west -> %{:direction => direction, :position => position}
+      true -> {:error, "invalid direction"}
+    end
   end
 
   @doc """
