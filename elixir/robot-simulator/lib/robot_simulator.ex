@@ -27,7 +27,7 @@ defmodule RobotSimulator do
   Valid instructions are: "R" (turn right), "L", (turn left), and "A" (advance)
   """
   @spec simulate(robot, instructions :: String.t()) :: robot() | {:error, String.t()}
-  def simulate(robot, instructions) when instructions == "R" do
+  def simulate(robot, instruction) when instruction == "R" do
     case robot[:direction] do
       :north -> %{:direction => :east, :position => robot[:position]}
       :east -> %{:direction => :south, :position => robot[:position]}
@@ -35,7 +35,7 @@ defmodule RobotSimulator do
       :west -> %{:direction => :north, :position => robot[:position]}
     end
   end
-  def simulate(robot, instructions) when instructions == "L" do
+  def simulate(robot, instruction) when instruction == "L" do
     case robot[:direction] do
       :north -> %{:direction => :west, :position => robot[:position]}
       :east -> %{:direction => :north, :position => robot[:position]}
@@ -43,7 +43,7 @@ defmodule RobotSimulator do
       :west -> %{:direction => :south, :position => robot[:position]}
     end
   end
-  def simulate(robot, instructions) when instructions == "A" do
+  def simulate(robot, instruction) when instruction == "A" do
     case robot[:direction] do
       :north ->  %{:direction => robot[:direction], :position => {elem(robot[:position], 0), elem(robot[:position], 1) + 1}}
       :east -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) + 1, elem(robot[:position], 1)}}
