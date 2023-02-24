@@ -44,12 +44,11 @@ defmodule RobotSimulator do
     end
   end
   def simulate(robot, instructions) when instructions == "A" do
-    current_position = robot[:position]
     case robot[:direction] do
-      :north ->  %{:direction => robot[:direction], :position => {elem(current_position, 0), elem(current_position, 1) + 1}}
-      :east -> %{:direction => robot[:direction], :position => {elem(current_position, 0) + 1, elem(current_position, 1)}}
-      :south -> %{:direction => robot[:direction], :position => {elem(current_position, 0), elem(current_position, 1) - 1}}
-      :west -> %{:direction => robot[:direction], :position => {elem(current_position, 0) - 1, elem(current_position, 1)}}
+      :north ->  %{:direction => robot[:direction], :position => {elem(robot[:position], 0), elem(robot[:position], 1) + 1}}
+      :east -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) + 1, elem(robot[:position], 1)}}
+      :south -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0), elem(robot[:position], 1) - 1}}
+      :west -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) - 1, elem(robot[:position], 1)}}
     end
   end
 
