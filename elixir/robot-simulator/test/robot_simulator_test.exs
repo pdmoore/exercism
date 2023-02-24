@@ -67,7 +67,6 @@ defmodule RobotSimulatorTest do
     assert RobotSimulator.position(robot4) == {0, 0}
   end
 
-  @tag :pending
   test "rotating counter-clockwise" do
     robot1 = RobotSimulator.create(:north, {0, 0}) |> RobotSimulator.simulate("L")
     assert RobotSimulator.direction(robot1) == :west
