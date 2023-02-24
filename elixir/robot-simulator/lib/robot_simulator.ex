@@ -9,6 +9,9 @@ defmodule RobotSimulator do
 
   #TODO - shouldn't I be able to check parameter direction against @type on line 3?
   # and what about checking type at function definition, not within body?
+  # TODO - need a simulate that takes a string and processes each single character in the string
+    # returning the final robot from all preceding transformations
+  # need a final simulate of a single value that barfs on invalid instruction
 
   Valid directions are: `:north`, `:east`, `:south`, `:west`
   """
@@ -27,7 +30,17 @@ defmodule RobotSimulator do
   Valid instructions are: "R" (turn right), "L", (turn left), and "A" (advance)
   """
   @spec simulate(robot, instructions :: String.t()) :: robot() | {:error, String.t()}
-  def simulate(robot, instruction) when instruction == "R" do
+  def simulate(robot, []), do: robot
+  def simulate(robot, [head | tail]) do
+    # THIS IS NOT MATCHING OR CALLING THE "RAALAL" example
+    IO.puts("1 -- " <> head)
+    simulate(move(robot, head), tail)
+  end
+  def simulate(robot, one_movement) do
+    IO.puts("2 -- " <> one_movement)
+    move(robot, one_movement)
+  end
+  def move(robot, instruction) when instruction == "R" do
     case robot[:direction] do
       :north -> %{:direction => :east, :position => robot[:position]}
       :east -> %{:direction => :south, :position => robot[:position]}
@@ -35,7 +48,7 @@ defmodule RobotSimulator do
       :west -> %{:direction => :north, :position => robot[:position]}
     end
   end
-  def simulate(robot, instruction) when instruction == "L" do
+  def move(robot, instruction) when instruction == "L" do
     case robot[:direction] do
       :north -> %{:direction => :west, :position => robot[:position]}
       :east -> %{:direction => :north, :position => robot[:position]}
@@ -43,7 +56,7 @@ defmodule RobotSimulator do
       :west -> %{:direction => :south, :position => robot[:position]}
     end
   end
-  def simulate(robot, instruction) when instruction == "A" do
+  def move(robot, instruction) when instruction == "A" do
     case robot[:direction] do
       :north ->  %{:direction => robot[:direction], :position => {elem(robot[:position], 0), elem(robot[:position], 1) + 1}}
       :east -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) + 1, elem(robot[:position], 1)}}
@@ -51,6 +64,17 @@ defmodule RobotSimulator do
       :west -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) - 1, elem(robot[:position], 1)}}
     end
   end
+  def move(robot, instruction) do
+    IO.puts("last -- " <> instruction)
+#    %{:direction => :west, :position => {9, 4}}
+    [head | tail] = instruction |> String.codepoints
+#    move(robot, head)
+    simulate(move(robot, head), tail)
+#
+#    robot
+  end
+
+
 
   @doc """
   Return the robot's direction.
