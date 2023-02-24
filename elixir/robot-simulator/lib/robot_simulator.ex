@@ -6,6 +6,10 @@ defmodule RobotSimulator do
   @doc """
   Create a Robot Simulator given an initial direction and position.
 
+
+  #TODO - shouldn't I be able to check parameter direction against @type on line 3?
+  # and what about checking type at function definition, not within body?
+
   Valid directions are: `:north`, `:east`, `:south`, `:west`
   """
   @spec create(direction, position) :: robot() | {:error, String.t()}
@@ -24,6 +28,12 @@ defmodule RobotSimulator do
   """
   @spec simulate(robot, instructions :: String.t()) :: robot() | {:error, String.t()}
   def simulate(robot, instructions) do
+    case robot[:direction] do
+      :north -> %{:direction => :east, :position => robot[:position]}
+      :east -> %{:direction => :south, :position => robot[:position]}
+      :south -> %{:direction => :west, :position => robot[:position]}
+      :west -> %{:direction => :north, :position => robot[:position]}
+    end
   end
 
   @doc """
