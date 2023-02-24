@@ -32,12 +32,9 @@ defmodule RobotSimulator do
   @spec simulate(robot, instructions :: String.t()) :: robot() | {:error, String.t()}
   def simulate(robot, []), do: robot
   def simulate(robot, [head | tail]) do
-    # THIS IS NOT MATCHING OR CALLING THE "RAALAL" example
-    IO.puts("1 -- " <> head)
     simulate(move(robot, head), tail)
   end
   def simulate(robot, one_movement) do
-    IO.puts("2 -- " <> one_movement)
     move(robot, one_movement)
   end
   def move(robot, instruction) when instruction == "R" do
@@ -65,13 +62,8 @@ defmodule RobotSimulator do
     end
   end
   def move(robot, instruction) do
-    IO.puts("last -- " <> instruction)
-#    %{:direction => :west, :position => {9, 4}}
     [head | tail] = instruction |> String.codepoints
-#    move(robot, head)
     simulate(move(robot, head), tail)
-#
-#    robot
   end
 
 
