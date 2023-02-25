@@ -16,7 +16,7 @@ defmodule RobotSimulator do
       true -> {:error, "invalid direction"}
     end
   end
-  def create(direction, _), do: {:error, "invalid position"}
+  def create(_, _), do: {:error, "invalid position"}
 
   @doc """
   Simulate the robot's movement given a string of instructions.
