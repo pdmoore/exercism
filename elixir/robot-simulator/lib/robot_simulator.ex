@@ -31,7 +31,8 @@ defmodule RobotSimulator do
   def simulate(robot, one_movement) do
     move(robot, one_movement)
   end
-  def move(robot, instruction) when instruction == "R" do
+
+  defp move(robot, instruction) when instruction == "R" do
     case robot[:direction] do
       :north -> %{:direction => :east, :position => robot[:position]}
       :east -> %{:direction => :south, :position => robot[:position]}
@@ -39,7 +40,7 @@ defmodule RobotSimulator do
       :west -> %{:direction => :north, :position => robot[:position]}
     end
   end
-  def move(robot, instruction) when instruction == "L" do
+  defp move(robot, instruction) when instruction == "L" do
     case robot[:direction] do
       :north -> %{:direction => :west, :position => robot[:position]}
       :east -> %{:direction => :north, :position => robot[:position]}
@@ -47,7 +48,7 @@ defmodule RobotSimulator do
       :west -> %{:direction => :south, :position => robot[:position]}
     end
   end
-  def move(robot, instruction) when instruction == "A" do
+  defp move(robot, instruction) when instruction == "A" do
     case robot[:direction] do
       :north ->  %{:direction => robot[:direction], :position => {elem(robot[:position], 0), elem(robot[:position], 1) + 1}}
       :east -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) + 1, elem(robot[:position], 1)}}
@@ -55,7 +56,7 @@ defmodule RobotSimulator do
       :west -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) - 1, elem(robot[:position], 1)}}
     end
   end
-  def move(robot, instruction) do
+  defp move(robot, instruction) do
     [head | tail] = instruction |> String.codepoints
     if head not in ["A", "L", "R"] do
       {:error, "invalid instruction"}
@@ -63,8 +64,6 @@ defmodule RobotSimulator do
       simulate(move(robot, head), tail)
     end
   end
-
-
 
   @doc """
   Return the robot's direction.
