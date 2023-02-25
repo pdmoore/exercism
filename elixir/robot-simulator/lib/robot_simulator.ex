@@ -12,8 +12,8 @@ defmodule RobotSimulator do
   def create(), do: create(:north, {0, 0})
   def create(direction, {x, y}) when is_integer(x) and is_integer(y) do
     cond do
-      direction in [:north, :south, :east, :west] -> %{:direction => direction, :position => {x, y}}
-      true -> {:error, "invalid direction"}
+      direction not in [:north, :south, :east, :west] -> {:error, "invalid direction"}
+      true -> %{:direction => direction, :position => {x, y}}
     end
   end
   def create(_, _), do: {:error, "invalid position"}
