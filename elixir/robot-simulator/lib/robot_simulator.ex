@@ -25,7 +25,7 @@ defmodule RobotSimulator do
   """
   @spec simulate(robot, instructions :: String.t()) :: robot() | {:error, String.t()}
   def simulate(robot, []), do: robot
-    def simulate(robot, [head | tail]) do
+  def simulate(robot, [head | tail]) do
     simulate(move(robot, head), tail)
   end
   def simulate(robot, one_movement) do
@@ -41,12 +41,14 @@ defmodule RobotSimulator do
     end
   end
   defp move(robot, instruction) when instruction == "L" do
+    new_direction =
     case robot[:direction] do
-      :north -> %{:direction => :west, :position => robot[:position]}
-      :east -> %{:direction => :north, :position => robot[:position]}
-      :south -> %{:direction => :east, :position => robot[:position]}
-      :west -> %{:direction => :south, :position => robot[:position]}
+      :north -> :west
+      :east -> :north
+      :south -> :east
+      :west -> :south
     end
+    %{:direction => new_direction, :position => robot[:position]}
   end
   defp move(robot, instruction) when instruction == "A" do
     new_position =
