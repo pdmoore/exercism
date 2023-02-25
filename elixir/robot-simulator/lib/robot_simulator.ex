@@ -33,12 +33,14 @@ defmodule RobotSimulator do
   end
 
   defp move(robot, instruction) when instruction == "R" do
+    new_direction =
     case robot[:direction] do
-      :north -> %{:direction => :east, :position => robot[:position]}
-      :east -> %{:direction => :south, :position => robot[:position]}
-      :south -> %{:direction => :west, :position => robot[:position]}
-      :west -> %{:direction => :north, :position => robot[:position]}
+      :north -> :east
+      :east ->  :south
+      :south -> :west
+      :west ->  :north
     end
+    %{:direction => new_direction, :position => robot[:position]}
   end
   defp move(robot, instruction) when instruction == "L" do
     new_direction =
