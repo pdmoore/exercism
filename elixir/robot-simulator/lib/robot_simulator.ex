@@ -49,12 +49,14 @@ defmodule RobotSimulator do
     end
   end
   defp move(robot, instruction) when instruction == "A" do
+    new_position =
     case robot[:direction] do
-      :north ->  %{:direction => robot[:direction], :position => {elem(robot[:position], 0), elem(robot[:position], 1) + 1}}
-      :east -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) + 1, elem(robot[:position], 1)}}
-      :south -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0), elem(robot[:position], 1) - 1}}
-      :west -> %{:direction => robot[:direction], :position => {elem(robot[:position], 0) - 1, elem(robot[:position], 1)}}
+      :north -> {elem(robot[:position], 0), elem(robot[:position], 1) + 1}
+      :east  -> {elem(robot[:position], 0) + 1, elem(robot[:position], 1)}
+      :south -> {elem(robot[:position], 0), elem(robot[:position], 1) - 1}
+      :west  -> {elem(robot[:position], 0) - 1, elem(robot[:position], 1)}
     end
+    %{:direction => robot[:direction], :position => new_position}
   end
   defp move(robot, instruction) do
     [head | tail] = instruction |> String.codepoints
