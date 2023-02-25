@@ -6,17 +6,11 @@ defmodule RobotSimulator do
   @doc """
   Create a Robot Simulator given an initial direction and position.
 
-
-    @TODO - down to the last test
-  # how to only match on a direction and {int, int} position and toss the rest
-    # as invalid position error?
-
   Valid directions are: `:north`, `:east`, `:south`, `:west`
   """
   @spec create(direction, position) :: robot() | {:error, String.t()}
   def create(), do: create(:north, {0, 0})
-  def create(_, nil), do: {:error, "invalid position"}
-  def create(direction, {x, y}) do
+  def create(direction, {x, y}) when is_integer(x) and is_integer(y) do
     cond do
       direction in [:north, :south, :east, :west] -> %{:direction => direction, :position => {x, y}}
       true -> {:error, "invalid direction"}
