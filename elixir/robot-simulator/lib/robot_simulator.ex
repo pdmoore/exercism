@@ -7,24 +7,22 @@ defmodule RobotSimulator do
   Create a Robot Simulator given an initial direction and position.
 
 
-  #TODO - all positive cases passing, not either of the error cases
-  # multi-char string cases don't seem to be handled well,
-    # not matching the  simulate(robot, [head | tail]) def (line 38)
-
-  #TODO - shouldn't I be able to check parameter direction against @type on line 3?
-  # and what about checking type at function definition, not within body?
-  # need a final simulate of a single value that barfs on invalid instruction
+    @TODO - down to the last test
+  # how to only match on a direction and {int, int} position and toss the rest
+    # as invalid position error?
 
   Valid directions are: `:north`, `:east`, `:south`, `:west`
   """
   @spec create(direction, position) :: robot() | {:error, String.t()}
   def create(), do: create(:north, {0, 0})
-  def create(direction \\ nil, position \\ nil) do
+  def create(_, nil), do: {:error, "invalid position"}
+  def create(direction, {x, y}) do
     cond do
-      direction in [:north, :south, :east, :west] -> %{:direction => direction, :position => position}
+      direction in [:north, :south, :east, :west] -> %{:direction => direction, :position => {x, y}}
       true -> {:error, "invalid direction"}
     end
   end
+  def create(direction, _), do: {:error, "invalid position"}
 
   @doc """
   Simulate the robot's movement given a string of instructions.
