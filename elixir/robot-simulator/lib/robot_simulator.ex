@@ -7,10 +7,12 @@ defmodule RobotSimulator do
   Create a Robot Simulator given an initial direction and position.
 
 
+  #TODO - all positive cases passing, not either of the error cases
+  # multi-char string cases don't seem to be handled well,
+    # not matching the  simulate(robot, [head | tail]) def (line 38)
+
   #TODO - shouldn't I be able to check parameter direction against @type on line 3?
   # and what about checking type at function definition, not within body?
-  # TODO - need a simulate that takes a string and processes each single character in the string
-    # returning the final robot from all preceding transformations
   # need a final simulate of a single value that barfs on invalid instruction
 
   Valid directions are: `:north`, `:east`, `:south`, `:west`
@@ -31,7 +33,7 @@ defmodule RobotSimulator do
   """
   @spec simulate(robot, instructions :: String.t()) :: robot() | {:error, String.t()}
   def simulate(robot, []), do: robot
-  def simulate(robot, [head | tail]) do
+    def simulate(robot, [head | tail]) do
     simulate(move(robot, head), tail)
   end
   def simulate(robot, one_movement) do
@@ -63,7 +65,11 @@ defmodule RobotSimulator do
   end
   def move(robot, instruction) do
     [head | tail] = instruction |> String.codepoints
-    simulate(move(robot, head), tail)
+    if head not in ["A", "L", "R"] do
+      {:error, "invalid instruction"}
+    else
+      simulate(move(robot, head), tail)
+    end
   end
 
 
