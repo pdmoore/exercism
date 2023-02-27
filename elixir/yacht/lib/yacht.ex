@@ -73,9 +73,10 @@ defmodule Yacht do
                last == Enum.at(sorted_dice, 2) and
                last == Enum.at(sorted_dice, 3) do
            last * 4
+         else
+           0
          end
     end
-
   end
   # four of a kind
   # little straight

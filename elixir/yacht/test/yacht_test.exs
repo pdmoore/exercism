@@ -70,12 +70,10 @@ defmodule YachtTest do
     assert Yacht.score(:four_of_a_kind, [6, 6, 4, 6, 6]) == 24
   end
 
-  @tag :pending
   test "Yacht can be scored as Four of a Kind" do
     assert Yacht.score(:four_of_a_kind, [3, 3, 3, 3, 3]) == 12
   end
 
-  @tag :pending
   test "Full house is not Four of a Kind" do
     assert Yacht.score(:four_of_a_kind, [3, 3, 3, 5, 5]) == 0
   end
