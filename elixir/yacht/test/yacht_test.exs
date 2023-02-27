@@ -58,7 +58,6 @@ defmodule YachtTest do
     assert Yacht.score(:full_house, [2, 2, 4, 4, 5]) == 0
   end
 
-  @tag :pending
   test "Four of a kind is not a full house" do
     assert Yacht.score(:full_house, [1, 4, 4, 4, 4]) == 0
   end

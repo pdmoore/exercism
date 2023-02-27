@@ -61,8 +61,8 @@ defmodule Yacht do
       0
     end
   end
-
-  # full house
+  def score(category, dice) when category == :full_house do
+  end
   # four of a kind
   # little straight
   # big straight
