@@ -62,20 +62,10 @@ defmodule Yacht do
     end
   end
   def score(category, dice) when category == :four_of_a_kind do
-    sorted_dice = Enum.sort(dice)
-    first  = Enum.at(sorted_dice, 0)
-    last  = Enum.at(sorted_dice, 4)
-    if first == Enum.at(sorted_dice, 1) and
-       first == Enum.at(sorted_dice, 2) and
-       first == Enum.at(sorted_dice, 3) do
-         first * 4
-    else if last == Enum.at(sorted_dice, 1) and
-               last == Enum.at(sorted_dice, 2) and
-               last == Enum.at(sorted_dice, 3) do
-           last * 4
-         else
-           0
-         end
+    case Enum.sort(dice) do
+      [x, x, x, x, _] -> 4 * x
+      [_, x, x, x, x] -> 4 * x
+      _ -> 0
     end
   end
   def score(category, dice) when category == :little_straight do
