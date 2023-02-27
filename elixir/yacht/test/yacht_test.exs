@@ -46,17 +46,14 @@ defmodule YachtTest do
     assert Yacht.score(:sixes, [2, 3, 4, 5, 6]) == 6
   end
 
-  @tag :pending
   test "Full house two small, three big" do
     assert Yacht.score(:full_house, [2, 2, 4, 4, 4]) == 16
   end
 
-  @tag :pending
   test "Full house three small, two big" do
     assert Yacht.score(:full_house, [5, 3, 3, 5, 3]) == 19
   end
 
-  @tag :pending
   test "Two pair is not a full house" do
     assert Yacht.score(:full_house, [2, 2, 4, 4, 5]) == 0
   end

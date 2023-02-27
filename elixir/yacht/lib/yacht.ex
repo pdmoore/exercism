@@ -40,6 +40,33 @@ defmodule Yacht do
   def score(category, dice) when category == :choice do
     Enum.sum(dice)
   end
-  def score(category, dice) do
+  def score(category, dice) when category == :full_house do
+    sorted_dice = Enum.sort(dice)
+    first  = Enum.at(sorted_dice, 0)
+    second = Enum.at(sorted_dice, 1)
+    if first == second do
+      last = Enum.at(sorted_dice, 4)
+      almost_last = Enum.at(sorted_dice, 3)
+      if last == almost_last do
+        middle = Enum.at(sorted_dice, 2)
+        if middle == first or middle == last do
+          Enum.sum(dice)
+        else
+          0
+        end
+      else
+        0
+      end
+    else
+      0
+    end
+  end
+
+  # full house
+  # four of a kind
+  # little straight
+  # big straight
+
+  def score(_, _) do
   end
 end
