@@ -49,7 +49,7 @@ defmodule Yacht do
       almost_last = Enum.at(sorted_dice, 3)
       if last == almost_last do
         middle = Enum.at(sorted_dice, 2)
-        if middle == first or middle == last do
+        if (middle == first or middle == last) and first != last do
           Enum.sum(dice)
         else
           0
