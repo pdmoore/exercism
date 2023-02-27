@@ -25,7 +25,7 @@ defmodule Yacht do
       0
     end
   end
-  def score(category, dice) when category in [:ones, :twos, :threes, :fours, :fives] do
+  def score(category, dice) when category in [:ones, :twos, :threes, :fours, :fives, :sixes] do
     target_value =
     case category do
       :ones -> 1
@@ -33,6 +33,7 @@ defmodule Yacht do
       :threes -> 3
       :fours -> 4
       :fives -> 5
+      :sixes -> 6
       _ -> 99
     end
     Enum.count(dice, & &1 == target_value) * target_value
