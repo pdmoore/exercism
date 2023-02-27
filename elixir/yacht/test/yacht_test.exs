@@ -26,7 +26,6 @@ defmodule YachtTest do
     assert Yacht.score(:twos, [2, 3, 4, 5, 6]) == 2
   end
 
-  @tag :pending
   test "Yacht counted as threes" do
     assert Yacht.score(:threes, [3, 3, 3, 3, 3]) == 15
   end
