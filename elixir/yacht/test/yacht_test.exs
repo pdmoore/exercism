@@ -34,7 +34,6 @@ defmodule YachtTest do
     assert Yacht.score(:fours, [1, 4, 1, 4, 1]) == 8
   end
 
-  @tag :pending
   test "Yacht of 3s counted as fives" do
     assert Yacht.score(:fives, [3, 3, 3, 3, 3]) == 0
   end
