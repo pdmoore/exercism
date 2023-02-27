@@ -61,7 +61,21 @@ defmodule Yacht do
       0
     end
   end
-  def score(category, dice) when category == :full_house do
+  def score(category, dice) when category == :four_of_a_kind do
+    sorted_dice = Enum.sort(dice)
+    first  = Enum.at(sorted_dice, 0)
+    last  = Enum.at(sorted_dice, 4)
+    if first == Enum.at(sorted_dice, 1) and
+       first == Enum.at(sorted_dice, 2) and
+       first == Enum.at(sorted_dice, 3) do
+         first * 4
+    else if last == Enum.at(sorted_dice, 1) and
+               last == Enum.at(sorted_dice, 2) and
+               last == Enum.at(sorted_dice, 3) do
+           last * 4
+         end
+    end
+
   end
   # four of a kind
   # little straight
