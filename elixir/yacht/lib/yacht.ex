@@ -17,7 +17,14 @@ defmodule Yacht do
   Calculate the score of 5 dice using the given category's scoring method.
   """
   @spec score(category :: category(), dice :: [integer]) :: integer
+  def score(category, dice) when category == :yacht do
+    face_value = List.first(dice)
+    if Enum.all?(dice, & &1==face_value) do
+      50
+    else
+      0
+    end
+  end
   def score(category, dice) do
-    50
   end
 end
