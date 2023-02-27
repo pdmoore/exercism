@@ -25,6 +25,10 @@ defmodule Yacht do
       0
     end
   end
+  def score(category, dice) when category == :ones do
+    target_value = 1
+    Enum.count(dice, & &1 == target_value) * target_value
+  end
   def score(category, dice) do
   end
 end
