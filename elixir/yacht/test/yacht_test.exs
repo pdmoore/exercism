@@ -78,42 +78,34 @@ defmodule YachtTest do
     assert Yacht.score(:four_of_a_kind, [3, 3, 3, 5, 5]) == 0
   end
 
-  @tag :pending
   test "Little Straight" do
     assert Yacht.score(:little_straight, [3, 5, 4, 1, 2]) == 30
   end
 
-  @tag :pending
   test "Little Straight as Big Straight" do
     assert Yacht.score(:big_straight, [1, 2, 3, 4, 5]) == 0
   end
 
-  @tag :pending
   test "Four in order but not a little straight" do
     assert Yacht.score(:little_straight, [1, 1, 2, 3, 4]) == 0
   end
 
-  @tag :pending
   test "No pairs but not a little straight" do
     assert Yacht.score(:little_straight, [1, 2, 3, 4, 6]) == 0
   end
 
-  @tag :pending
   test "Minimum is 1, maximum is 5, but not a little straight" do
     assert Yacht.score(:little_straight, [1, 1, 3, 4, 5]) == 0
   end
 
-  @tag :pending
   test "Big Straight" do
     assert Yacht.score(:big_straight, [4, 6, 2, 5, 3]) == 30
   end
 
-  @tag :pending
   test "Big Straight as little straight" do
     assert Yacht.score(:little_straight, [6, 5, 4, 3, 2]) == 0
   end
 
-  @tag :pending
   test "No pairs but not a big straight" do
     assert Yacht.score(:big_straight, [6, 5, 4, 3, 1]) == 0
   end

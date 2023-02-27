@@ -78,9 +78,20 @@ defmodule Yacht do
          end
     end
   end
-  # four of a kind
-  # little straight
-  # big straight
+  def score(category, dice) when category == :little_straight do
+    sorted_dice = Enum.sort(dice)
+    case [1, 2, 3, 4, 5] == sorted_dice do
+      true -> 30
+      _ -> 0
+    end
+  end
+  def score(category, dice) when category == :big_straight do
+    sorted_dice = Enum.sort(dice)
+    case [2, 3, 4, 5, 6] == sorted_dice do
+      true -> 30
+      _ -> 0
+    end
+  end
 
   def score(_, _) do
   end
