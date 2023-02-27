@@ -42,6 +42,7 @@ defmodule Yacht do
   end
   def score(category, dice) when category == :full_house do
     case Enum.sort(dice) do
+      [x, x, x, x, x] -> 0
       [x, x, x, y, y] when x != y -> Enum.sum(dice)
       [x, x, y, y, y] when x != y -> Enum.sum(dice)
       _ -> 0
