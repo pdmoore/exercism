@@ -30,7 +30,6 @@ defmodule YachtTest do
     assert Yacht.score(:threes, [3, 3, 3, 3, 3]) == 15
   end
 
-  @tag :pending
   test "Fours" do
     assert Yacht.score(:fours, [1, 4, 1, 4, 1]) == 8
   end
