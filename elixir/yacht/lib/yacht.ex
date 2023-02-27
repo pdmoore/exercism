@@ -34,7 +34,6 @@ defmodule Yacht do
       :fours -> 4
       :fives -> 5
       :sixes -> 6
-      _ -> 99
     end
     Enum.count(dice, & &1 == target_value) * target_value
   end
