@@ -37,6 +37,9 @@ defmodule Yacht do
     end
     Enum.count(dice, & &1 == target_value) * target_value
   end
+  def score(category, dice) when category == :choice do
+    Enum.sum(dice)
+  end
   def score(category, dice) do
   end
 end

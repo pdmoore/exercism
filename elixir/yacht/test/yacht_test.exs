@@ -126,12 +126,10 @@ defmodule YachtTest do
     assert Yacht.score(:big_straight, [6, 5, 4, 3, 1]) == 0
   end
 
-  @tag :pending
   test "Choice" do
     assert Yacht.score(:choice, [3, 3, 5, 6, 6]) == 23
   end
 
-  @tag :pending
   test "Yacht as choice" do
     assert Yacht.score(:choice, [2, 2, 2, 2, 2]) == 10
   end
