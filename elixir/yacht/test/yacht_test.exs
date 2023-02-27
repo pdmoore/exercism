@@ -22,7 +22,6 @@ defmodule YachtTest do
     assert Yacht.score(:ones, [4, 3, 6, 5, 5]) == 0
   end
 
-  @tag :pending
   test "Twos" do
     assert Yacht.score(:twos, [2, 3, 4, 5, 6]) == 2
   end
