@@ -4,6 +4,7 @@ defmodule ProteinTranslation do
   """
   @spec of_rna(String.t()) :: {:ok, list(String.t())} | {:error, String.t()}
   def of_rna(rna) do
+    {:ok, []}
   end
 
   @doc """

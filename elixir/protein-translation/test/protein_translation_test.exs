@@ -61,7 +61,6 @@ defmodule ProteinTranslationTest do
   end
 
   describe "of_rna" do
-    @tag :pending
     test "empty RNA sequence results in no proteins" do
       strand = ""
       assert ProteinTranslation.of_rna(strand) == {:ok, []}
