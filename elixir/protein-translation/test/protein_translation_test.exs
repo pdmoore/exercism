@@ -2,12 +2,10 @@ defmodule ProteinTranslationTest do
   use ExUnit.Case
 
   describe "of_codon" do
-    # @tag :pending
     test "AUG translates to methionine" do
       assert ProteinTranslation.of_codon("AUG") == {:ok, "Methionine"}
     end
 
-    @tag :pending
     test "identifies Phenylalanine codons" do
       assert ProteinTranslation.of_codon("UUU") == {:ok, "Phenylalanine"}
       assert ProteinTranslation.of_codon("UUC") == {:ok, "Phenylalanine"}

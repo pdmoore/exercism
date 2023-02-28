@@ -29,6 +29,7 @@ defmodule ProteinTranslation do
   """
   @spec of_codon(String.t()) :: {:ok, String.t()} | {:error, String.t()}
   def of_codon("AUG"), do: {:ok, "Methionine"}
+  def of_codon(codon) when codon in ["UUU", "UUC"] do {:ok, "Phenylalanine"} end
   def of_codon(codon) do
   end
 end
