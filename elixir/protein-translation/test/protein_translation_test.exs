@@ -47,17 +47,14 @@ defmodule ProteinTranslationTest do
       assert ProteinTranslation.of_codon("UG") == {:error, "invalid codon"}
     end
 
-    @tag :pending
     test "too long, invalid codon" do
       assert ProteinTranslation.of_codon("UGGG") == {:error, "invalid codon"}
     end
 
-    @tag :pending
     test "known amino acids, but invalid codon" do
       assert ProteinTranslation.of_codon("AAA") == {:error, "invalid codon"}
     end
 
-    @tag :pending
     test "unknown amino acids, not part of a codon" do
       assert ProteinTranslation.of_codon("XYZ") == {:error, "invalid codon"}
     end
