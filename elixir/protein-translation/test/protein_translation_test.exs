@@ -16,7 +16,6 @@ defmodule ProteinTranslationTest do
       assert ProteinTranslation.of_codon("UUG") == {:ok, "Leucine"}
     end
 
-    @tag :pending
     test "identifies Serine codons" do
       assert ProteinTranslation.of_codon("UCU") == {:ok, "Serine"}
       assert ProteinTranslation.of_codon("UCC") == {:ok, "Serine"}
