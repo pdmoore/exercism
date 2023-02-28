@@ -66,49 +66,41 @@ defmodule ProteinTranslationTest do
       assert ProteinTranslation.of_rna(strand) == {:ok, []}
     end
 
-    @tag :pending
     test "translates rna strand into correct protein" do
       strand = "AUGUUUUGG"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Methionine Phenylalanine Tryptophan)}
     end
 
-    @tag :pending
     test "sequence of two identical protein codons translates into two identical proteins" do
       strand = "UUUUUU"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Phenylalanine Phenylalanine)}
     end
 
-    @tag :pending
     test "sequence of two different protein codons translates into two identical proteins" do
       strand = "UUAUUG"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Leucine Leucine)}
     end
 
-    @tag :pending
     test "stops translation if stop codon preset at beginning of sequence" do
       strand = "UAGUGG"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w()}
     end
 
-    @tag :pending
     test "stops translation if stop codon present at end of two-codon sequence" do
       strand = "UGGUAG"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Tryptophan)}
     end
 
-    @tag :pending
     test "stops translation if stop codon present at end of three-codon sequence" do
       strand = "AUGUUUUAA"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Methionine Phenylalanine)}
     end
 
-    @tag :pending
     test "stops translation if stop codon present in middle of three-codon sequence" do
       strand = "UGGUAGUGG"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Tryptophan)}
     end
 
-    @tag :pending
     test "stops translation if stop codon present in middle of six-codon sequence" do
       strand = "UGGUGUUAUUAAUGGUUU"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Tryptophan Cysteine Tyrosine)}

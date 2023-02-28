@@ -3,9 +3,32 @@ defmodule ProteinTranslation do
   Given an RNA string, return a list of proteins specified by codons, in order.
   """
   @spec of_rna(String.t()) :: {:ok, list(String.t())} | {:error, String.t()}
+  def of_rna([]), do: {:error, "invalid RNA"}
   def of_rna(rna) do
-    {:ok, []}
+    proteins = rna |> to_charlist |> protein_from_rna
+
+#    case "invalid codon" in proteins do
+    {:ok, proteins}
   end
+
+
+  defp protein_from_rna(rna_chars) do
+    case rna_chars do
+      [x,y,z | t] ->
+        codon = chars_to_codon([x,y,z])
+        case codon do
+          {:ok, "STOP"} -> []
+          {_, protein} -> [protein | protein_from_rna(t)]
+        end
+      _ -> []
+    end
+  end
+
+  defp chars_to_codon(chars) do
+    chars |> to_string |> of_codon
+  end
+
+
 
   @doc """
   Given a codon, return the corresponding protein
