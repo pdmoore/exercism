@@ -106,37 +106,31 @@ defmodule ProteinTranslationTest do
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Tryptophan Cysteine Tyrosine)}
     end
 
-    @tag :pending
     test "incomplete codon, invalid RNA" do
       strand = "UG"
       assert ProteinTranslation.of_rna(strand) == {:error, "invalid RNA"}
     end
 
-    @tag :pending
     test "known amino acids, but invalid codon, invalid RNA" do
       strand = "AAA"
       assert ProteinTranslation.of_rna(strand) == {:error, "invalid RNA"}
     end
 
-    @tag :pending
     test "unknown amino acids, not part of a codon, invalid RNA" do
       strand = "XYZ"
       assert ProteinTranslation.of_rna(strand) == {:error, "invalid RNA"}
     end
 
-    @tag :pending
     test "invalid codon at end of RNA" do
       strand = "UUUROT"
       assert ProteinTranslation.of_rna(strand) == {:error, "invalid RNA"}
     end
 
-    @tag :pending
     test "incomplete RNA" do
       strand = "AUGU"
       assert ProteinTranslation.of_rna(strand) == {:error, "invalid RNA"}
     end
 
-    @tag :pending
     test "incomplete RNA valid until a STOP codon" do
       strand = "UUCUUCUAAUGGU"
       assert ProteinTranslation.of_rna(strand) == {:ok, ~w(Phenylalanine Phenylalanine)}
