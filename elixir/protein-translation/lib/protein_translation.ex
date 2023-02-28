@@ -36,6 +36,7 @@ defmodule ProteinTranslation do
   def of_codon(codon) when codon in ["UAU", "UAC"] do {:ok, "Tyrosine"} end
   def of_codon(codon) when codon in ["UGU", "UGC"] do {:ok, "Cysteine"} end
   def of_codon(codon) when codon in ["UGG"] do {:ok, "Tryptophan"} end
+  def of_codon(codon) when codon in ["UAA", "UAG", "UGA"] do {:ok, "STOP"} end
   def of_codon(codon) do
   end
 end
