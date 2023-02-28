@@ -43,7 +43,6 @@ defmodule ProteinTranslationTest do
       assert ProteinTranslation.of_codon("UGA") == {:ok, "STOP"}
     end
 
-    @tag :pending
     test "incomplete codon" do
       assert ProteinTranslation.of_codon("UG") == {:error, "invalid codon"}
     end
