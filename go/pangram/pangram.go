@@ -1,19 +1,16 @@
 package pangram
 
-import "fmt"
-
 func IsPangram(input string) bool {
-	m := make(map[byte]struct{})
+	uniqueCharacters := make(map[byte]struct{})
 
 	for i := 0; i < len(input); i++ {
 		thisChar := input[i]
 		if thisChar >= 'a' && thisChar <= 'z' {
-			_, isPresent := m[thisChar]
+			_, isPresent := uniqueCharacters[thisChar]
 			if !isPresent {
-				m[thisChar] = struct{}{}
+				uniqueCharacters[thisChar] = struct{}{}
 			}
 		}
 	}
-	fmt.Println(m)
-	return len(m) == 26
+	return len(uniqueCharacters) == 26
 }
