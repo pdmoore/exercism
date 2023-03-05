@@ -2,6 +2,8 @@ package pangram
 
 import "strings"
 
+const numberUniqueCharacters = 26
+
 func IsPangram(input string) bool {
 	uniqueCharacters := make(map[byte]struct{})
 	input = strings.ToLower(input)
@@ -14,5 +16,5 @@ func IsPangram(input string) bool {
 		}
 		uniqueCharacters[thisChar] = struct{}{}
 	}
-	return len(uniqueCharacters) == 26
+	return len(uniqueCharacters) == numberUniqueCharacters
 }
