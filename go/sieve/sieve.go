@@ -23,6 +23,10 @@ func Sieve(limit int) []int {
 	var primes = []int{}
 
 	candidates := []int{limit}
+	// fill candidates with 2 to limit
+	for c := 2; c < limit; c++ {
+		candidates = append(candidates, c)
+	}
 
 	for i := range candidates {
 		//fmt.Println(candidates[i])
