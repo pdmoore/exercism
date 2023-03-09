@@ -7,22 +7,7 @@ func Sieve(limit int) []int {
 		return []int{}
 	}
 
-	//// loop through that and remove multiples of current index
-	//candidates := make([]int, limit)
-	//for i := 2; i < limit; i++ {
-	//	candidates[i-2] = i
-	//}
-
-	//return candidates
-
-	//var primes []int
-	//for j := range candidates {
-	//	primes = append(primes, candidates[j])
-	//}
-	//
-	//return primes
-
-	var primes = []int{}
+	var primes []int
 
 	candidates := []int{limit}
 	for c := 2; c < limit; c++ {
@@ -30,33 +15,23 @@ func Sieve(limit int) []int {
 	}
 	sort.Ints(candidates)
 
-	//  remove non-primes from candidates
-
 	for len(candidates) > 0 {
-		primes = append(primes, candidates[0])
+		itIsAPrime := candidates[0]
+		primes = append(primes, itIsAPrime)
 
-		isPrime := candidates[0]
-		var remainingCandidates = []int{}
-
+		var notAPrimeFactor = []int{}
 		for i, v := range candidates {
 			if i == 0 {
 				continue
 			}
 
-			if v%isPrime != 0 {
-				remainingCandidates = append(remainingCandidates, v)
+			if v%itIsAPrime != 0 {
+				notAPrimeFactor = append(notAPrimeFactor, v)
 			}
 		}
 
-		candidates = remainingCandidates
-
+		candidates = notAPrimeFactor
 	}
 
-	//for i := range candidates {
-	//	//fmt.Println(candidates[i])
-	//	primes = append(primes, candidates[i])
-	//}
-
 	return primes
-
 }
