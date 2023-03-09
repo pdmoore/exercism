@@ -1,5 +1,7 @@
 package sieve
 
+import "sort"
+
 func Sieve(limit int) []int {
 	if limit == 1 {
 		return []int{}
@@ -23,15 +25,37 @@ func Sieve(limit int) []int {
 	var primes = []int{}
 
 	candidates := []int{limit}
-	// fill candidates with 2 to limit
 	for c := 2; c < limit; c++ {
 		candidates = append(candidates, c)
 	}
+	sort.Ints(candidates)
 
-	for i := range candidates {
-		//fmt.Println(candidates[i])
-		primes = append(primes, candidates[i])
+	//  remove non-primes from candidates
+
+	for len(candidates) > 0 {
+		primes = append(primes, candidates[0])
+
+		isPrime := candidates[0]
+		var remainingCandidates = []int{}
+
+		for i, v := range candidates {
+			if i == 0 {
+				continue
+			}
+
+			if v%isPrime != 0 {
+				remainingCandidates = append(remainingCandidates, v)
+			}
+		}
+
+		candidates = remainingCandidates
+
 	}
+
+	//for i := range candidates {
+	//	//fmt.Println(candidates[i])
+	//	primes = append(primes, candidates[i])
+	//}
 
 	return primes
 
