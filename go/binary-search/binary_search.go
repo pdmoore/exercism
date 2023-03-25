@@ -1,5 +1,7 @@
 package binarysearch
 
+import "fmt"
+
 func SearchInts(list []int, key int) int {
 
 	if len(list) == 0 {
@@ -7,22 +9,23 @@ func SearchInts(list []int, key int) int {
 	}
 
 	var left = 0
-	var right = len(list)
+	var right = len(list) - 1
 
-	if left == right && list[left] == key {
-		return left
-	}
-
-	for left < right {
-		var middleIndex = (right - left) / 2
-		if list[middleIndex] == key {
-			return middleIndex
-		} else if key < list[middleIndex] {
-			right = middleIndex - 1
+	for left <= right {
+		var middle = ((right - left) / 2) + left
+		fmt.Println("key: ", key)
+		fmt.Println("left: ", left)
+		fmt.Println("right: ", right)
+		fmt.Println("middle: ", middle)
+		fmt.Println("value at mid: ", list[middle])
+		if list[middle] == key {
+			return middle
+		} else if key < list[middle] {
+			right = middle - 1
 		} else { // to the right
-			left = middleIndex + 1
+			left = middle + 1
 		}
 	}
 
-	return 0
+	return -1
 }
