@@ -3,10 +3,6 @@ package binarysearch
 const KeyNotFound = -1
 
 func SearchInts(list []int, key int) int {
-	if len(list) == 0 {
-		return KeyNotFound
-	}
-
 	var left = 0
 	var right = len(list) - 1
 
