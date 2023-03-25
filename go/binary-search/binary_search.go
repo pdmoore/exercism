@@ -3,17 +3,17 @@ package binarysearch
 const KeyNotFound = -1
 
 func SearchInts(list []int, key int) int {
-	var left = 0
-	var right = len(list) - 1
+	var leftBoundary = 0
+	var rightBoundary = len(list) - 1
 
-	for left <= right {
-		var middle = ((right - left) / 2) + left
-		if list[middle] == key {
-			return middle
-		} else if key < list[middle] {
-			right = middle - 1
+	for leftBoundary <= rightBoundary {
+		var middleIndex = ((rightBoundary - leftBoundary) / 2) + leftBoundary
+		if list[middleIndex] == key {
+			return middleIndex
+		} else if key < list[middleIndex] {
+			rightBoundary = middleIndex - 1
 		} else {
-			left = middle + 1
+			leftBoundary = middleIndex + 1
 		}
 	}
 
