@@ -20,12 +20,15 @@ func Handshake(code uint) []string {
 		actions = append(actions, "jump")
 	}
 
-	var shouldReverse = code & (1 << uint(5-1))
-	if shouldReverse != 0 {
+	if shouldReverse(code) {
 		actions = reverse(actions)
 	}
 
 	return actions
+}
+
+func shouldReverse(code uint) bool {
+	return code&(1<<uint(5-1)) != 0
 }
 
 func reverse(actions []string) []string {
