@@ -22,9 +22,15 @@ func Handshake(code uint) []string {
 
 	var shouldReverse = code & (1 << uint(5-1))
 	if shouldReverse != 0 {
-		for i, j := 0, len(actions)-1; i < j; i, j = i+1, j-1 {
-			actions[i], actions[j] = actions[j], actions[i]
-		}
+		actions = reverse(actions)
+	}
+
+	return actions
+}
+
+func reverse(actions []string) []string {
+	for i, j := 0, len(actions)-1; i < j; i, j = i+1, j-1 {
+		actions[i], actions[j] = actions[j], actions[i]
 	}
 
 	return actions
