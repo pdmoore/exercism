@@ -8,19 +8,19 @@ var actions = map[uint]string{
 }
 
 func Handshake(code uint) []string {
-	var resultingActions []string
+	var secretHandshake []string
 	for i := 0; i < len(actions); i++ {
 		var bitIndex uint = 0x1 << i
 		if code&bitIndex > 0 {
-			resultingActions = append(resultingActions, actions[bitIndex])
+			secretHandshake = append(secretHandshake, actions[bitIndex])
 		}
 	}
 
 	if shouldReverse(code) {
-		resultingActions = reverse(resultingActions)
+		secretHandshake = reverse(secretHandshake)
 	}
 
-	return resultingActions
+	return secretHandshake
 }
 
 func shouldReverse(code uint) bool {
