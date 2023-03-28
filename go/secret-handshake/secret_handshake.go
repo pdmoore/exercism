@@ -1,30 +1,26 @@
 package secret
 
+var actions = map[uint]string{
+	0b0001: "wink",
+	0b0010: "double blink",
+	0b0100: "close your eyes",
+	0b1000: "jump",
+}
+
 func Handshake(code uint) []string {
-
-	var actions []string
-
-	if code&(1<<uint(1-1)) != 0 {
-		actions = append(actions, "wink")
-	}
-
-	if code&(1<<uint(2-1)) != 0 {
-		actions = append(actions, "double blink")
-	}
-
-	if code&(1<<uint(3-1)) != 0 {
-		actions = append(actions, "close your eyes")
-	}
-
-	if code&(1<<uint(4-1)) != 0 {
-		actions = append(actions, "jump")
+	var resultingActions []string
+	for i := 0; i < len(actions); i++ {
+		var bitIndex uint = 0x1 << i
+		if code&bitIndex > 0 {
+			resultingActions = append(resultingActions, actions[bitIndex])
+		}
 	}
 
 	if shouldReverse(code) {
-		actions = reverse(actions)
+		resultingActions = reverse(resultingActions)
 	}
 
-	return actions
+	return resultingActions
 }
 
 func shouldReverse(code uint) bool {
