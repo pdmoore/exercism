@@ -9,7 +9,13 @@ func Handshake(code uint) []string {
 		actions = append(actions, "wink")
 	}
 
-	//actions = append(actions, "double blink")
+	if code&(1<<uint(2-1)) != 0 {
+		actions = append(actions, "double blink")
+	}
+
+	if code&(1<<uint(3-1)) != 0 {
+		actions = append(actions, "close your eyes")
+	}
 
 	return actions
 }
