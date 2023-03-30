@@ -1,7 +1,5 @@
 package linkedlist
 
-import "fmt"
-
 // Define List and Node types here.
 // Note: The tests expect Node type to include an exported field with name Value to pass.
 type Node struct {
@@ -16,11 +14,6 @@ type List struct {
 }
 
 func NewList(elements ...interface{}) *List {
-
-	//TODO - elements looks like a []interface list of numbers
-	// need to iterate that list, creating new Nodes and setting the value
-	// linking the Nodes is either done here or as part of Node construction?
-
 	var list = new(List)
 	for index := 0; index < len(elements); index++ {
 		list.Push(elements[index])
@@ -34,7 +27,7 @@ func (n *Node) Next() *Node {
 }
 
 func (n *Node) Prev() *Node {
-	panic("Please implement the Prev function")
+	return n.prev
 }
 
 func (l *List) Unshift(v interface{}) {
@@ -44,7 +37,6 @@ func (l *List) Unshift(v interface{}) {
 func (l *List) Push(v interface{}) {
 	var node = new(Node)
 	node.Value = v.(int)
-	fmt.Printf("creating node with %v\n", v.(int))
 	node.next = nil
 
 	if l.first == nil {
@@ -67,7 +59,33 @@ func (l *List) Pop() (interface{}, error) {
 }
 
 func (l *List) Reverse() {
-	panic("Please implement the Reverse function")
+
+	// There's a clever implementation where list tracks which direction
+	// it traverses. Decided not to be clever and just reverse the list
+	// dumb guard clause to handle empty and single element lists
+	// TODO guard clause should go away once reverse is implemented
+	if l.First() == nil || l.First().Next() == nil {
+		return
+	}
+
+	var newFirst = new(Node)
+	var currentNew = newFirst
+	var traverseBackwards = l.last
+	for traverseBackwards.prev != nil {
+
+		currentNew.Value = traverseBackwards.Value
+		currentNew.prev = traverseBackwards.next
+
+		traverseBackwards = traverseBackwards.prev
+		if traverseBackwards != nil {
+			var nextNode = new(Node)
+			currentNew.next = nextNode
+			currentNew = nextNode
+		}
+	}
+
+	l.first = newFirst
+	l.last = currentNew
 }
 
 func (l *List) First() *Node {
