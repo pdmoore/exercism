@@ -2,6 +2,12 @@ package linkedlist
 
 // Define List and Node types here.
 // Note: The tests expect Node type to include an exported field with name Value to pass.
+type Node struct {
+	Value interface{}
+}
+
+type List struct {
+}
 
 func NewList(elements ...interface{}) *List {
 	panic("Please implement the NewList function")
