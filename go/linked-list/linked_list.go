@@ -1,20 +1,36 @@
 package linkedlist
 
+import "fmt"
+
 // Define List and Node types here.
 // Note: The tests expect Node type to include an exported field with name Value to pass.
 type Node struct {
 	Value interface{}
+	next  *Node
+	prev  *Node
 }
 
 type List struct {
+	first *Node
+	last  *Node
 }
 
 func NewList(elements ...interface{}) *List {
-	panic("Please implement the NewList function")
+
+	//TODO - elements looks like a []interface list of numbers
+	// need to iterate that list, creating new Nodes and setting the value
+	// linking the Nodes is either done here or as part of Node construction?
+
+	var list = new(List)
+	for index := 0; index < len(elements); index++ {
+		list.Push(elements[index])
+	}
+
+	return list
 }
 
 func (n *Node) Next() *Node {
-	panic("Please implement the Next function")
+	return n.next
 }
 
 func (n *Node) Prev() *Node {
@@ -26,7 +42,20 @@ func (l *List) Unshift(v interface{}) {
 }
 
 func (l *List) Push(v interface{}) {
-	panic("Please implement the Push function")
+	var node = new(Node)
+	node.Value = v.(int)
+	fmt.Printf("creating node with %v\n", v.(int))
+	node.next = nil
+
+	if l.first == nil {
+		node.prev = nil
+
+		l.first = node
+	} else {
+		l.last.next = node
+		node.prev = l.last
+	}
+	l.last = node
 }
 
 func (l *List) Shift() (interface{}, error) {
@@ -42,9 +71,9 @@ func (l *List) Reverse() {
 }
 
 func (l *List) First() *Node {
-	panic("Please implement the First function")
+	return l.first
 }
 
 func (l *List) Last() *Node {
-	panic("Please implement the Last function")
+	return l.last
 }
