@@ -24,7 +24,8 @@ func Handshake(code uint) []string {
 }
 
 func shouldReverse(code uint) bool {
-	return code&(1<<uint(5-1)) != 0
+	var reverseBit = len(actions) + 1
+	return code&(1<<uint(reverseBit-1)) != 0
 }
 
 func reverse(actions []string) []string {
