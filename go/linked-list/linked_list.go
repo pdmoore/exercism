@@ -1,5 +1,7 @@
 package linkedlist
 
+import "fmt"
+
 // Define List and Node types here.
 // Note: The tests expect Node type to include an exported field with name Value to pass.
 type Node struct {
@@ -68,24 +70,25 @@ func (l *List) Reverse() {
 		return
 	}
 
-	var newFirst = new(Node)
-	var currentNew = newFirst
-	var traverseBackwards = l.last
-	for traverseBackwards.prev != nil {
+	var forwardsNodes = new(Node)
+	var savedFirst = forwardsNodes
 
-		currentNew.Value = traverseBackwards.Value
-		currentNew.prev = traverseBackwards.next
+	var backwardsNode = l.last
+	for backwardsNode != nil {
 
-		traverseBackwards = traverseBackwards.prev
-		if traverseBackwards != nil {
-			var nextNode = new(Node)
-			currentNew.next = nextNode
-			currentNew = nextNode
-		}
+		fmt.Printf("back value %v\n", backwardsNode.Value)
+		forwardsNodes.Value = backwardsNode.Value
+		var prevNode = forwardsNodes
+
+		backwardsNode = backwardsNode.Prev()
+		forwardsNodes = new(Node)
+		forwardsNodes.prev = prevNode
+		prevNode.next = forwardsNodes
 	}
 
-	l.first = newFirst
-	l.last = currentNew
+	l.first = savedFirst
+	l.last = forwardsNodes.Prev()
+	l.last.next = nil
 }
 
 func (l *List) First() *Node {
