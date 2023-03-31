@@ -66,7 +66,7 @@ func (l *List) Reverse() {
 	// it traverses. Decided not to be clever and just reverse the list
 	// dumb guard clause to handle empty and single element lists
 	// TODO guard clause should go away once reverse is implemented
-	if l.First() == nil || l.First().Next() == nil {
+	if l.First() == nil {
 		return
 	}
 
