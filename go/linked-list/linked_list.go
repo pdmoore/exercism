@@ -84,11 +84,6 @@ func (l *List) Pop() (interface{}, error) {
 }
 
 func (l *List) Reverse() {
-
-	// There's a clever implementation where list tracks which direction
-	// it traverses. Decided not to be clever and just reverse the list
-	// dumb guard clause to handle empty and single element lists
-	// TODO guard clause should go away once reverse is implemented
 	if l.First() == nil {
 		return
 	}
