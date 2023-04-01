@@ -88,23 +88,13 @@ func (l *List) Reverse() {
 		return
 	}
 
-	var forwardsNodes = new(Node)
-	var savedFirst = forwardsNodes
+	l.last, l.first = l.first, l.last
 
-	var backwardsNode = l.last
-	for backwardsNode != nil {
-		forwardsNodes.Value = backwardsNode.Value
-		var prevNode = forwardsNodes
-
-		backwardsNode = backwardsNode.Prev()
-		forwardsNodes = new(Node)
-		forwardsNodes.prev = prevNode
-		prevNode.next = forwardsNodes
+	var node = l.first
+	for node != nil {
+		node.prev, node.next = node.next, node.prev
+		node = node.next
 	}
-
-	l.first = savedFirst
-	l.last = forwardsNodes.Prev()
-	l.last.next = nil
 }
 
 func (l *List) First() *Node {
