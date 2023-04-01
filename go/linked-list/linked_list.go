@@ -48,18 +48,18 @@ func (l *List) Push(v interface{}) {
 	var node = &Node{v.(int), nil, nil}
 
 	if l.first == nil {
-		node.prev = nil
-
 		l.first = node
 	} else {
 		l.last.next = node
 		node.prev = l.last
 	}
+
 	l.last = node
 }
 
 func (l *List) Shift() (interface{}, error) {
 	var firstValue = l.first.Value
+
 	l.first = l.first.next
 	if l.first != nil {
 		l.first.prev = nil
