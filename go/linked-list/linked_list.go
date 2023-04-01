@@ -64,7 +64,15 @@ func (l *List) Push(v interface{}) {
 }
 
 func (l *List) Shift() (interface{}, error) {
-	panic("Please implement the Shift function")
+	var firstValue = l.first.Value
+	l.first = l.first.next
+	if l.first != nil {
+		l.first.prev = nil
+	} else {
+		l.last = nil
+	}
+
+	return firstValue, nil
 }
 
 func (l *List) Pop() (interface{}, error) {
