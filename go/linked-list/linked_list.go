@@ -3,9 +3,9 @@ package linkedlist
 // Define List and Node types here.
 // Note: The tests expect Node type to include an exported field with name Value to pass.
 type Node struct {
-	Value interface{}
-	next  *Node
-	prev  *Node
+	Value    interface{}
+	next     *Node
+	previous *Node
 }
 
 type List struct {
@@ -27,7 +27,7 @@ func (n *Node) Next() *Node {
 }
 
 func (n *Node) Prev() *Node {
-	return n.prev
+	return n.previous
 }
 
 func (l *List) Unshift(v interface{}) {
@@ -38,7 +38,7 @@ func (l *List) Unshift(v interface{}) {
 	}
 
 	if l.first != nil {
-		l.first.prev = newFirst
+		l.first.previous = newFirst
 	}
 
 	l.first = newFirst
@@ -51,7 +51,7 @@ func (l *List) Push(v interface{}) {
 		l.first = node
 	} else {
 		l.last.next = node
-		node.prev = l.last
+		node.previous = l.last
 	}
 
 	l.last = node
@@ -62,7 +62,7 @@ func (l *List) Shift() (interface{}, error) {
 
 	l.first = l.first.next
 	if l.first != nil {
-		l.first.prev = nil
+		l.first.previous = nil
 	} else {
 		l.last = nil
 	}
@@ -73,7 +73,7 @@ func (l *List) Shift() (interface{}, error) {
 func (l *List) Pop() (interface{}, error) {
 	var lastValue = l.last.Value
 
-	l.last = l.last.prev
+	l.last = l.last.previous
 	if l.last != nil {
 		l.last.next = nil
 	} else {
@@ -92,7 +92,7 @@ func (l *List) Reverse() {
 
 	var node = l.first
 	for node != nil {
-		node.prev, node.next = node.next, node.prev
+		node.previous, node.next = node.next, node.previous
 		node = node.next
 	}
 }

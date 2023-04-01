@@ -53,7 +53,7 @@ func checkDoublyLinkedList(t *testing.T, ll *List, expected []interface{}) {
 		t.Errorf("expected %d elements, got= %d", len(expected), count)
 	}
 
-	// if elements are the same, we also need to examine the links (next & prev)
+	// if elements are the same, we also need to examine the links (next & previous)
 	switch {
 	case ll.First() == nil && ll.Last() == nil: // empty list
 		return
@@ -98,7 +98,7 @@ func checkDoublyLinkedList(t *testing.T, ll *List, expected []interface{}) {
 	}
 }
 
-// debugString prints the linked list with both node's Value, next & prev pointers.
+// debugString prints the linked list with both node's Value, next & previous pointers.
 func (ll *List) debugString() string {
 	buf := bytes.NewBuffer([]byte{'{'})
 	fmt.Fprintf(buf, "First()= %p; ", ll.First())
