@@ -31,10 +31,7 @@ func (n *Node) Prev() *Node {
 }
 
 func (l *List) Unshift(v interface{}) {
-	var newFirst = new(Node)
-	newFirst.Value = v
-	newFirst.prev = nil
-	newFirst.next = l.first
+	var newFirst = &Node{v, l.first, nil}
 
 	if l.last == nil {
 		l.last = newFirst
@@ -48,9 +45,7 @@ func (l *List) Unshift(v interface{}) {
 }
 
 func (l *List) Push(v interface{}) {
-	var node = new(Node)
-	node.Value = v.(int)
-	node.next = nil
+	var node = &Node{v.(int), nil, nil}
 
 	if l.first == nil {
 		node.prev = nil
