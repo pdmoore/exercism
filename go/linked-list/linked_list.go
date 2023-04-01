@@ -1,7 +1,5 @@
 package linkedlist
 
-import "fmt"
-
 // Define List and Node types here.
 // Note: The tests expect Node type to include an exported field with name Value to pass.
 type Node struct {
@@ -80,7 +78,6 @@ func (l *List) Shift() (interface{}, error) {
 func (l *List) Pop() (interface{}, error) {
 	var lastValue = l.last.Value
 
-	fmt.Printf("just Popped %v\n", lastValue)
 	l.last = l.last.prev
 	if l.last != nil {
 		l.last.next = nil
@@ -106,8 +103,6 @@ func (l *List) Reverse() {
 
 	var backwardsNode = l.last
 	for backwardsNode != nil {
-
-		// TODO remove fmt.Printf("back value %v\n", backwardsNode.Value)
 		forwardsNodes.Value = backwardsNode.Value
 		var prevNode = forwardsNodes
 
