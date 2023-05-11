@@ -1,8 +1,9 @@
-convert(N, "PlingPlangPlong") :- 0 is mod(N, 3*5*7), !.
-convert(N, "PlingPlang") :- 0 is mod(N, 3*5), !.
-convert(N, "PlingPlong") :- 0 is mod(N, 3*7), !.
-convert(N, "PlangPlong") :- 0 is mod(N, 5*7), !.
-convert(N, "Pling") :- 0 is mod(N, 3), !.
-convert(N, "Plang") :- 0 is mod(N, 5), !.
-convert(N, "Plong") :- 0 is mod(N, 7), !.
-convert(N, Sounds) :- number_string(N, Sounds).
+convert(N, Sounds) :- 
+    DivBy3 is mod(N, 3),
+    DivBy5 is mod(N, 5), 
+    DivBy7 is mod(N, 7), 
+    (DivBy3 =:= 0 -> Pling = "Pling" ; Pling = ""),
+    (DivBy5 =:= 0 -> Plang = "Plang" ; Plang = ""),
+    (DivBy7 =:= 0 -> Plong = "Plong" ; Plong = ""),
+    atomics_to_string([Pling, Plang, Plong], Result),
+    (string_length(Result, 0) -> number_string(N, Sounds) ; Sounds = Result).
