@@ -1,1 +1,1 @@
-convert(N, Sounds) :- N = 1, "1" = Sounds.
+convert(N, Sounds) :- N = 1, number_string(N, Sounds).
