@@ -2,6 +2,7 @@
 % Add mod(N,5) to the chain
 % Add mod(N,7) to the chain
 % convert(N, Sounds) :- number_string(N, Sounds).
+convert(N, Sounds) :- divBy3(N), divBy5(N), divBy7(N) -> string_concat("PlingPlangPlong", "", Sounds) ; number_string(N, Sounds).
 convert(N, Sounds) :- divBy3(N), divBy5(N) -> string_concat("PlingPlang", "", Sounds) ; number_string(N, Sounds).
 convert(N, Sounds) :- divBy3(N), divBy7(N) -> string_concat("PlingPlong", "", Sounds) ; number_string(N, Sounds).
 convert(N, Sounds) :- divBy5(N), divBy7(N) -> string_concat("PlangPlong", "", Sounds) ; number_string(N, Sounds).
