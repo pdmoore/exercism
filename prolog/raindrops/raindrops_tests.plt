@@ -34,11 +34,11 @@ pending :-
         convert(9, Sounds),
         Sounds == "Pling".
 
-    test(the_sound_for_10_is_plang_as_it_has_a_factor_5, condition(pending)) :-
+    test(the_sound_for_10_is_plang_as_it_has_a_factor_5, condition(true)) :-
         convert(10, Sounds),
         Sounds == "Plang".
 
-    test(the_sound_for_14_is_plong_as_it_has_a_factor_of_7, condition(pending)) :-
+    test(the_sound_for_14_is_plong_as_it_has_a_factor_of_7, condition(true)) :-
         convert(14, Sounds),
         Sounds == "Plong".
 
@@ -50,7 +50,7 @@ pending :-
         convert(21, Sounds),
         Sounds == "PlingPlong".
 
-    test(the_sound_for_25_is_plang_as_it_has_a_factor_5, condition(pending)) :-
+    test(the_sound_for_25_is_plang_as_it_has_a_factor_5, condition(true)) :-
         convert(25, Sounds),
         Sounds == "Plang".
 
@@ -62,7 +62,7 @@ pending :-
         convert(35, Sounds),
         Sounds == "PlangPlong".
 
-    test(the_sound_for_49_is_plong_as_it_has_a_factor_7, condition(pending)) :-
+    test(the_sound_for_49_is_plong_as_it_has_a_factor_7, condition(true)) :-
         convert(49, Sounds),
         Sounds == "Plong".
 
@@ -74,7 +74,7 @@ pending :-
         convert(105, Sounds),
         Sounds == "PlingPlangPlong".
 
-    test(the_sound_for_3125_is_plang_as_it_has_a_factor_5, condition(pending)) :-
+    test(the_sound_for_3125_is_plang_as_it_has_a_factor_5, condition(true)) :-
         convert(3125, Sounds),
         Sounds == "Plang".
 
