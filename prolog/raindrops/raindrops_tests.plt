@@ -14,7 +14,7 @@ pending :-
         convert(3, Sounds),
         Sounds == "Pling".
 
-    test(the_sound_for_5_is_plang, condition(pending)) :-
+    test(the_sound_for_5_is_plang, condition(true)) :-
         convert(5, Sounds),
         Sounds == "Plang".
 
@@ -42,7 +42,7 @@ pending :-
         convert(14, Sounds),
         Sounds == "Plong".
 
-    test(the_sound_for_15_is_plingplang_as_it_has_factors_3_and_5, condition(pending)) :-
+    test(the_sound_for_15_is_plingplang_as_it_has_factors_3_and_5, condition(true)) :-
         convert(15, Sounds),
         Sounds == "PlingPlang".
 
