@@ -58,7 +58,7 @@ pending :-
         convert(27, Sounds),
         Sounds == "Pling".
 
-    test(the_sound_for_35_is_plangplong_as_it_has_factors_5_and_7, condition(pending)) :-
+    test(the_sound_for_35_is_plangplong_as_it_has_factors_5_and_7, condition(true)) :-
         convert(35, Sounds),
         Sounds == "PlangPlong".
 
