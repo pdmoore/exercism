@@ -26,7 +26,7 @@ pending :-
         convert(6, Sounds),
         Sounds == "Pling".
 
-    test(two_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base, condition(pending)) :-
+    test(two_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base, condition(true)) :-
         convert(8, Sounds),
         Sounds == "8".
 
@@ -66,7 +66,7 @@ pending :-
         convert(49, Sounds),
         Sounds == "Plong".
 
-    test(the_sound_for_52_is_52, condition(pending)) :-
+    test(the_sound_for_52_is_52, condition(true)) :-
         convert(52, Sounds),
         Sounds == "52".
 
