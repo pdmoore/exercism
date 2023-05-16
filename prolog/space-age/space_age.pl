@@ -1,6 +1,8 @@
+orbital_period("Earth", 1.0).
 space_age("Earth", AgeSec, Years) :-
     earth_year_in_seconds(S),
-    Years = AgeSec / S.
+    orbital_period("Earth", OP),
+    Years = (AgeSec / OP / S).
 space_age("Mercury", AgeSec, Years) :- Years = (AgeSec / 31557600) / 0.2408467. 
 space_age("Venus", AgeSec, Years) :- Years = (AgeSec / 31557600) / 0.61519726.
 space_age("Mars", AgeSec, Years) :- Years = (AgeSec / 31557600) / 1.8808158.
