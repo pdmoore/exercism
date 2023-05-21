@@ -1,3 +1,4 @@
+:- include('roman_numerals.pl').
 pending :-
     current_prolog_flag(argv, ['--all'|_]).
 pending :-

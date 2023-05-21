@@ -1,1 +1,1 @@
-convert(N, Numeral).
+convert(_, Numeral) :- Numeral = "I".
