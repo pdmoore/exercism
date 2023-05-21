@@ -15,7 +15,7 @@ test(number_2_is_ii, condition(true)) :-
     convert(2, Numeral),
     Numeral == "II".
 
-test(number_3_is_iii, condition(pending)) :-
+test(number_3_is_iii, condition(true)) :-
     convert(3, Numeral),
     Numeral == "III".
 
