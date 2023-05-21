@@ -3,6 +3,7 @@ ones(N, Numeral) :- N = 2, One = "I", string_concat("I", One, Numeral).
 ones(N, Numeral) :- N = 3, Two = "II", string_concat("I", Two, Numeral).
 ones(N, Numeral) :- N = 4, string_concat("IV", "", Numeral).
 ones(N, Numeral) :- N = 5, string_concat("V", "", Numeral).
+ones(N, Numeral) :- N = 6, One = "I", string_concat("V", One, Numeral).
 
 
 convert(N, Numeral) :- ones(N, Numeral).

@@ -27,7 +27,7 @@ test(number_5_is_v, condition(true)) :-
     convert(5, Numeral),
     Numeral == "V".
 
-test(number_6_is_vi, condition(pending)) :-
+test(number_6_is_vi, condition(true)) :-
     convert(6, Numeral),
     Numeral == "VI".
 
