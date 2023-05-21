@@ -23,7 +23,7 @@ test(number_4_is_iv, condition(true)) :-
     convert(4, Numeral),
     Numeral == "IV".
 
-test(number_5_is_v, condition(pending)) :-
+test(number_5_is_v, condition(true)) :-
     convert(5, Numeral),
     Numeral == "V".
 
