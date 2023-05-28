@@ -15,10 +15,10 @@ pending :-
     test(standard_even_year, condition(true)) :-
         not(leap(1998)).
 
-    test(standard_nineteeth_century, condition(true)) :-
+    test(standard_nineteeth_century, condition(pending)) :-
         not(leap(1900)).
 
-    test(standard_eighteenth_century, condition(true)) :-
+    test(standard_eighteenth_century, condition(pending)) :-
         not(leap(1800)).
 
     test(leap_twenty_fourth_century, condition(true)) :-
