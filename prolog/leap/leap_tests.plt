@@ -24,7 +24,7 @@ pending :-
     test(leap_twenty_fourth_century, condition(pending)) :-
         leap(2400).
 
-    test(leap_y2k, condition(pending)) :-
+    test(leap_y2k, condition(true)) :-
         leap(2000).
 
 :- end_tests(leap_tests).
