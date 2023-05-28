@@ -21,7 +21,7 @@ pending :-
     test(standard_eighteenth_century, condition(true)) :-
         not(leap(1800)).
 
-    test(leap_twenty_fourth_century, condition(pending)) :-
+    test(leap_twenty_fourth_century, condition(true)) :-
         leap(2400).
 
     test(leap_y2k, condition(true)) :-
