@@ -1,3 +1,4 @@
+:- include('bob.pl').
 pending :-
     current_prolog_flag(argv, ['--all'|_]).
 pending :-
