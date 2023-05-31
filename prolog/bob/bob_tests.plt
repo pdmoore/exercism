@@ -39,7 +39,7 @@ test(using_acronyms_in_regular_speech, condition(true)) :-
     hey("It's OK if you don't want to go work for NASA.", Response),
     Response == "Whatever.".
 
-test(forceful_question, condition(pending)) :-
+test(forceful_question, condition(true)) :-
     hey("WHAT'S GOING ON?", Response),
     Response == "Calm down, I know what I'm doing!".
 
