@@ -31,7 +31,7 @@ test(asking_gibberish, condition(true)) :-
     hey("fffbbcbeab?", Response),
     Response == "Sure.".
 
-test(talking_forcefully, condition(pending)) :-
+test(talking_forcefully, condition(true)) :-
     hey("Hi there!", Response),
     Response == "Whatever.".
 
