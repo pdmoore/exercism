@@ -1,4 +1,7 @@
-hey(Sentence, Response) :- string_upper(Sentence, Upper),
-    Sentence = Upper,
-    Response = "Whoa, chill out!", !.
-hey(_, Response) :- Response = "Whatever.".
+hey(Sentence, Response) :- 
+    string_upper(Sentence, Upper),
+    IsYelling = (Sentence = Upper),
+    (
+    IsYelling, Response = "Whoa, chill out!"; 
+    Response = "Whatever."
+    ).
