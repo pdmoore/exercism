@@ -63,11 +63,11 @@ test(shouting_with_no_exclamation_mark, condition(true)) :-
     hey("I HATE THE DENTIST", Response),
     Response == "Whoa, chill out!".
 
-test(statement_containing_question_mark, condition(pending)) :-
+test(statement_containing_question_mark, condition(true)) :-
     hey("Ending with ? means a question.", Response),
     Response == "Whatever.".
 
-test(non_letters_with_question, condition(pending)) :-
+test(non_letters_with_question, condition(true)) :-
     hey(":) ?", Response),
     Response == "Sure.".
 
