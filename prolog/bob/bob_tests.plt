@@ -99,7 +99,7 @@ test(ending_with_whitespace, condition(true)) :-
     hey("Okay if like my  spacebar  quite a bit?   ", Response),
     Response == "Sure.".
 
-test(other_whitespace, condition(pending)) :-
+test(other_whitespace, condition(true)) :-
     hey("\n\r \t", Response),
     Response == "Fine. Be that way!".
 
@@ -107,4 +107,4 @@ test(non_question_ending_with_whitespace, condition(true)) :-
     hey("This is a statement ending with whitespace      ", Response),
     Response == "Whatever.".
 
-:- end_tests(bob).
+ end_tests(bob).
