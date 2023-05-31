@@ -103,7 +103,7 @@ test(other_whitespace, condition(pending)) :-
     hey("\n\r \t", Response),
     Response == "Fine. Be that way!".
 
-test(non_question_ending_with_whitespace, condition(pending)) :-
+test(non_question_ending_with_whitespace, condition(true)) :-
     hey("This is a statement ending with whitespace      ", Response),
     Response == "Whatever.".
 
