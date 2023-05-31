@@ -4,6 +4,7 @@ hey(Sentence, Response) :-
     IsQuestion = sub_string(Trimmed, _, 1, 0, "?"),
     IsYelling = (Trimmed = Upper),
     (
+    Trimmed = "", Response = "Fine. Be that way!";
     IsQuestion, Response = "Sure.";
     IsYelling, Response = "Whoa, chill out!"; 
     Response = "Whatever."

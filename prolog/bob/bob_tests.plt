@@ -75,15 +75,15 @@ test(prattling_on, condition(true)) :-
     hey("Wait! Hang on. Are you going to be OK?", Response),
     Response == "Sure.".
 
-test(silence, condition(pending)) :-
+test(silence, condition(true)) :-
     hey("", Response),
     Response == "Fine. Be that way!".
 
-test(prolonged_silence, condition(pending)) :-
+test(prolonged_silence, condition(true)) :-
     hey("          ", Response),
     Response == "Fine. Be that way!".
 
-test(alternate_silence, condition(pending)) :-
+test(alternate_silence, condition(true)) :-
     hey("\t\t\t\t\t\t\t\t\t\t", Response),
     Response == "Fine. Be that way!".
 
