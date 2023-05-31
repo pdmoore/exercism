@@ -95,7 +95,7 @@ test(starting_with_whitespace, condition(true)) :-
     hey("         hmmmmmmm...", Response),
     Response == "Whatever.".
 
-test(ending_with_whitespace, condition(pending)) :-
+test(ending_with_whitespace, condition(true)) :-
     hey("Okay if like my  spacebar  quite a bit?   ", Response),
     Response == "Sure.".
 
