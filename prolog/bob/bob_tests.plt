@@ -43,23 +43,23 @@ test(forceful_question, condition(pending)) :-
     hey("WHAT'S GOING ON?", Response),
     Response == "Calm down, I know what I'm doing!".
 
-test(shouting_numbers, condition(pending)) :-
+test(shouting_numbers, condition(true)) :-
     hey("1, 2, 3 GO!", Response),
     Response == "Whoa, chill out!".
 
-test(no_letters, condition(pending)) :-
+test(no_letters, condition(true)) :-
     hey("1, 2, 3", Response),
     Response == "Whatever.".
 
-test(question_with_no_letters, condition(pending)) :-
+test(question_with_no_letters, condition(true)) :-
     hey("4?", Response),
     Response == "Sure.".
 
-test(shouting_with_special_characters, condition(pending)) :-
+test(shouting_with_special_characters, condition(true)) :-
     hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!", Response),
     Response == "Whoa, chill out!".
 
-test(shouting_with_no_exclamation_mark, condition(pending)) :-
+test(shouting_with_no_exclamation_mark, condition(true)) :-
     hey("I HATE THE DENTIST", Response),
     Response == "Whoa, chill out!".
 
@@ -71,7 +71,7 @@ test(non_letters_with_question, condition(pending)) :-
     hey(":) ?", Response),
     Response == "Sure.".
 
-test(prattling_on, condition(pending)) :-
+test(prattling_on, condition(true)) :-
     hey("Wait! Hang on. Are you going to be OK?", Response),
     Response == "Sure.".
 
@@ -87,11 +87,11 @@ test(alternate_silence, condition(pending)) :-
     hey("\t\t\t\t\t\t\t\t\t\t", Response),
     Response == "Fine. Be that way!".
 
-test(multiple_line_question, condition(pending)) :-
+test(multiple_line_question, condition(true)) :-
     hey("\nDoes this cryogenic chamber make me look fat?\nNo.", Response),
     Response == "Whatever.".
 
-test(starting_with_whitespace, condition(pending)) :-
+test(starting_with_whitespace, condition(true)) :-
     hey("         hmmmmmmm...", Response),
     Response == "Whatever.".
 
