@@ -5,6 +5,7 @@ hey(Sentence, Response) :-
     IsYelling = (Trimmed = Upper),
     (
     Trimmed = "", Response = "Fine. Be that way!";
+    IsQuestion, IsYelling, Reponse = "Calm down, I know what I'm doing!";
     IsQuestion, Response = "Sure.";
     IsYelling, Response = "Whoa, chill out!"; 
     Response = "Whatever."
