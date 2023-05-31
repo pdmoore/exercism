@@ -15,7 +15,7 @@ test(shouting, condition(true)) :-
     hey("WATCH OUT!", Response),
     Response == "Whoa, chill out!".
 
-test(shouting_gibberish, condition(pending)) :-
+test(shouting_gibberish, condition(true)) :-
     hey("FCECDFCAAB", Response),
     Response == "Whoa, chill out!".
 
