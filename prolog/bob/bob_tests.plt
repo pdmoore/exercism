@@ -19,15 +19,15 @@ test(shouting_gibberish, condition(true)) :-
     hey("FCECDFCAAB", Response),
     Response == "Whoa, chill out!".
 
-test(asking_a_question, condition(pending)) :-
+test(asking_a_question, condition(true)) :-
     hey("Does this cryogenic chamber make me look fat?", Response),
     Response == "Sure.".
 
-test(asking_a_numeric_question, condition(pending)) :-
+test(asking_a_numeric_question, condition(true)) :-
     hey("You are, what, like 15?", Response),
     Response == "Sure.".
 
-test(asking_gibberish, condition(pending)) :-
+test(asking_gibberish, condition(true)) :-
     hey("fffbbcbeab?", Response),
     Response == "Sure.".
 
