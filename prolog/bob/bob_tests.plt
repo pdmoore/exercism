@@ -11,7 +11,7 @@ test(stating_something, condition(true)) :-
     hey("Tom-ay-to, tom-aaaah-to.", Response),
     Response == "Whatever.".
 
-test(shouting, condition(pending)) :-
+test(shouting, condition(true)) :-
     hey("WATCH OUT!", Response),
     Response == "Whoa, chill out!".
 
