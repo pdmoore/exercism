@@ -35,7 +35,7 @@ test(talking_forcefully, condition(true)) :-
     hey("Hi there!", Response),
     Response == "Whatever.".
 
-test(using_acronyms_in_regular_speech, condition(pending)) :-
+test(using_acronyms_in_regular_speech, condition(true)) :-
     hey("It's OK if you don't want to go work for NASA.", Response),
     Response == "Whatever.".
 
