@@ -12,6 +12,7 @@
   "Takes the actual time in minutes the lasagna has been in the oven,
    and returns how many minutes the lasagna still has to remain in the oven."
   [actual-time]
+  (- expected-time actual-time)
   ;; Define the function body here
   )
 
