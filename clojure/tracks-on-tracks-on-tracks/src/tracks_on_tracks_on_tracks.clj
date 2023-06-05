@@ -2,8 +2,7 @@
 
 (defn new-list
   "Creates an empty list of languages to practice."
-  []
-  )
+  [] ())
 
 (defn add-language
   "Adds a language to the list."
