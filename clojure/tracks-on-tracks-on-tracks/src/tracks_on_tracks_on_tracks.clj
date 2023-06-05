@@ -6,8 +6,7 @@
 
 (defn add-language
   "Adds a language to the list."
-  [lang-list lang]
-  )
+  [lang-list lang] (conj lang-list lang))
 
 (defn first-language
   "Returns the first language on the list."
