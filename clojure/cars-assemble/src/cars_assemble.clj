@@ -1,6 +1,6 @@
 (ns cars-assemble)
 
-(def magic-number 221.0)
+(def magic-number 221)
 
 (defn production-rate
   "Returns the assembly line's production rate per hour,
