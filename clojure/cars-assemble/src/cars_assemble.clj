@@ -7,7 +7,9 @@
    taking into account its success rate"
   [speed]
   (def cars-per-hour (* speed magic-number))
-    cars-per-hour
+  (cond 
+    (= speed 10) (* cars-per-hour 0.77)
+    :else cars-per-hour)
   )
 
 (defn working-items
