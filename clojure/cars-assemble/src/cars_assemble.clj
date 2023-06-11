@@ -9,10 +9,8 @@
   (def cars-per-hour (* speed magic-number))
   (cond 
     (= speed 0)  (* cars-per-hour 0.0)
-    (= speed 5)  (* cars-per-hour 0.90)
-    (= speed 6)  (* cars-per-hour 0.90)
-    (= speed 7)  (* cars-per-hour 0.90)
-    (= speed 8)  (* cars-per-hour 0.90)
+    (<= speed 4) (* cars-per-hour 1.0)
+    (<= speed 8)  (* cars-per-hour 0.90)
     (= speed 9)  (* cars-per-hour 0.80)
     (= speed 10) (* cars-per-hour 0.77)
     :else cars-per-hour)
