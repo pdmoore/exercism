@@ -1,10 +1,12 @@
 (ns cars-assemble)
 
+(def magic-number 221.0)
+
 (defn production-rate
   "Returns the assembly line's production rate per hour,
    taking into account its success rate"
   [speed]
-  (* speed 221.0)
+  (* speed magic-number)
   )
 
 (defn working-items
