@@ -6,7 +6,8 @@
   "Returns the assembly line's production rate per hour,
    taking into account its success rate"
   [speed]
-  (* speed magic-number)
+  (def cars-per-hour (* speed magic-number))
+  cars-per-hour
   )
 
 (defn working-items
