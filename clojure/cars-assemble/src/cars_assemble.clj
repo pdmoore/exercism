@@ -1,19 +1,19 @@
 (ns cars-assemble)
 
-(def magic-number 221)
+(def cars-per-hour 221)
 
 (defn production-rate
   "Returns the assembly line's production rate per hour,
    taking into account its success rate"
   [speed]
-  (def cars-per-hour (* speed magic-number))
+  (def cars-produced (* speed cars-per-hour))
   (cond 
-    (= speed 0)  (* cars-per-hour 0.0)
-    (<= speed 4) (* cars-per-hour 1.0)
-    (<= speed 8)  (* cars-per-hour 0.90)
-    (= speed 9)  (* cars-per-hour 0.80)
-    (= speed 10) (* cars-per-hour 0.77)
-    :else cars-per-hour)
+    (= speed 0)  (* cars-produced 0.0)
+    (<= speed 4) (* cars-produced 1.0)
+    (<= speed 8)  (* cars-produced 0.90)
+    (= speed 9)  (* cars-produced 0.80)
+    (= speed 10) (* cars-produced 0.77)
+    :else cars-produced)
   )
 
 (defn working-items
