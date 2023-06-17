@@ -8,11 +8,11 @@
   [speed]
   (def cars-produced (* speed cars-per-hour))
   (cond 
-    (= speed 0)  (* cars-produced 0.0)
-    (<= speed 4) (* cars-produced 1.0)
+     (= speed 0)  (* cars-produced 0.0)
+    (<= speed 4)  (* cars-produced 1.0)
     (<= speed 8)  (* cars-produced 0.90)
-    (= speed 9)  (* cars-produced 0.80)
-    (= speed 10) (* cars-produced 0.77)
+     (= speed 9)  (* cars-produced 0.80)
+     (= speed 10) (* cars-produced 0.77)
     :else cars-produced)
   )
 
