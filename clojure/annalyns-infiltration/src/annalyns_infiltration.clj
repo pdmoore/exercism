@@ -28,5 +28,8 @@
 (defn can-free-prisoner?
   "Returns true if prisoner can be freed, false otherwise."
   [knight-awake? archer-awake? prisoner-awake? dog-present?]
+  (or 
+  (and (= dog-present? false) (= prisoner-awake? true) (= archer-awake? false) (= knight-awake? false))
   (and (= dog-present? true) (= archer-awake? false))
+  )
   )
