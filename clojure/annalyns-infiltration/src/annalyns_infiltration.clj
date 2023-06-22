@@ -3,7 +3,7 @@
 (defn can-fast-attack?
   "Returns true if a fast-attack can be made, false otherwise."
   [knight-awake?]
-  (= knight-awake? false)
+  (not knight-awake?)
   )
 
 (defn can-spy?
