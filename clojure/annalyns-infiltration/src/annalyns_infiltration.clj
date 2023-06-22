@@ -19,7 +19,7 @@
   "Returns true if prisoner can be freed, false otherwise."
   [knight-awake? archer-awake? prisoner-awake? dog-present?]
   (or 
-  (and (= dog-present? false) (= prisoner-awake? true) (= archer-awake? false) (= knight-awake? false))
-  (and (= dog-present? true) (= archer-awake? false))
+  (and prisoner-awake? (not dog-present?) (not archer-awake?) (not knight-awake?))
+  (and dog-present? (not archer-awake?))
   )
   )
