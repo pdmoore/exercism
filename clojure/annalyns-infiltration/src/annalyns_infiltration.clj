@@ -10,8 +10,8 @@
   "Returns true if the kidnappers can be spied upon, false otherwise."
   [knight-awake? archer-awake? prisoner-awake?]
   (or 
-    (= knight-awake? true)
-    (= prisoner-awake? true)
+  (or (= knight-awake? true) (= prisoner-awake? true))
+  (or (= knight-awake? true) (= archer-awake? true))
   )
   )
 
