@@ -3,18 +3,12 @@
 (defn can-fast-attack?
   "Returns true if a fast-attack can be made, false otherwise."
   [knight-awake?]
-  (not knight-awake?)
-  )
+  (not knight-awake?))
 
 (defn can-spy?
   "Returns true if the kidnappers can be spied upon, false otherwise."
   [knight-awake? archer-awake? prisoner-awake?]
-  (or 
-  (or (= knight-awake? true) (= prisoner-awake? true))
-  (or (= knight-awake? true) (= archer-awake? true))
-  (or (= archer-awake? true) (= prisoner-awake? true))
-  )
-  )
+  (or knight-awake? prisoner-awake? archer-awake?))
 
 (defn can-signal-prisoner?
   "Returns true if the prisoner can be signalled, false otherwise."
