@@ -12,6 +12,7 @@
   (or 
   (or (= knight-awake? true) (= prisoner-awake? true))
   (or (= knight-awake? true) (= archer-awake? true))
+  (or (= archer-awake? true) (= prisoner-awake? true))
   )
   )
 
