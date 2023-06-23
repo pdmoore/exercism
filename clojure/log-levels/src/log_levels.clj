@@ -24,7 +24,7 @@
    with the message first and the log level in parentheses."
   [s]
   (def right-bracket (+ (str/index-of s "]") 3) )
-  (def message-body (subs s right-bracket))
+  (def message-body (str/trim (subs s right-bracket)) )
 
   ;(def message-body "in progress")
   (str message-body " (" (log-level s) ")")
