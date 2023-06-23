@@ -7,7 +7,7 @@
   [s]
   ;;(def chop (index-of s " "))
   (def message-start (+ (str/index-of s ":") 2))
-  (subs s message-start)
+  (str/trim (subs s message-start))
   )
 
 (defn log-level
