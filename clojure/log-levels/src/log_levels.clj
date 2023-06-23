@@ -6,8 +6,8 @@
    and returns its message with whitespace trimmed."
   [s]
   ;;(def chop (index-of s " "))
-  (def message-start (+ (str/index-of s ":") 2))
-  (str/trim (subs s message-start))
+  (def message-starts-at (+ (str/index-of s ":") 2))
+  (str/trim (subs s message-starts-at))
   )
 
 (defn log-level
@@ -24,8 +24,5 @@
   [s]
   (def message-starts-at (+ (str/index-of s "]") 3) )
   (def message-body (str/trim (subs s message-starts-at)) )
-
-  ;(def message-body "in progress")
   (str message-body " (" (log-level s) ")")
-
   )
