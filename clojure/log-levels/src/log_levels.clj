@@ -14,7 +14,10 @@
   "Takes a string representing a log line
    and returns its level in lower-case."
   [s]
-  )
+  (def right-bracket (str/index-of s "]"))
+  (def word (subs s 1 right-bracket))
+  (def level word)
+  (str/lower-case level))
 
 (defn reformat
   "Takes a string representing a log line and formats it
