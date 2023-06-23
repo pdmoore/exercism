@@ -5,6 +5,8 @@
   "Takes a string representing a log line
    and returns its message with whitespace trimmed."
   [s]
+  (def chop 11)
+  (subs s chop)
   )
 
 (defn log-level
