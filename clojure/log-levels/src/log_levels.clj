@@ -5,7 +5,9 @@
   "Takes a string representing a log line
    and returns its message with whitespace trimmed."
   [s]
-  (def chop 11)
+  ;;(def chop (index-of s " "))
+  (def amount (+ (str/index-of s ":") 2))
+  (def chop amount)
   (subs s chop)
   )
 
