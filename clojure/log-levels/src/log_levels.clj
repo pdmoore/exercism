@@ -22,7 +22,7 @@
   "Takes a string representing a log line and formats it
    with the message first and the log level in parentheses."
   [s]
-  (def message-starts-at (+ (str/index-of s "]") 3) )
+  (def message-starts-at (+ (str/index-of s ":") 2) )
   (def message-body (str/trim (subs s message-starts-at)) )
   (str message-body " (" (log-level s) ")")
   )
