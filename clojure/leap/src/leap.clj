@@ -2,8 +2,8 @@
 
 (defn leap-year? [year] ;; <- argslist goes here
   (and
-    (= (mod year 4) 0)
+    (zero? (mod year 4))
     (or
       (not= (mod year 100) 0)
-      (= (mod year 400) 0)))
+      (zero? (mod year 400))))
 )
