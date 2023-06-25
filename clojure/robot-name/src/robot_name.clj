@@ -6,13 +6,13 @@
 (defn generate-name []  (format "%S%S%d%d%d" (random-char) (random-char) (random-digit) (random-digit) (random-digit)) )
 
 (defn robot []
-  (def thing (generate-name) )
+  (def my-name (generate-name) )
   )
 
 (defn robot-name [robot]
-  thing
+  my-name
 )
 
 (defn reset-name [robot]
-  (def thing (generate-name))
+  (def my-name (generate-name))
 )
