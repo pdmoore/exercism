@@ -1,8 +1,10 @@
 (ns robot-name)
 
+(defn random-char [] (char (+ (rand 26) 65)))
+(defn random-digit [] (rand-int 9))
 
 (defn robot []
-  (def thing (format "%S%S%d%d%d" (char (+ (rand 26) 65)) (char (+ (rand 26) 65)) (rand-int 9) (rand-int 9) (rand-int 9)))
+  (def thing (format "%S%S%d%d%d" (random-char) (random-char) (random-digit) (random-digit) (random-digit)))
   )
 
 (defn robot-name [robot]
@@ -10,5 +12,5 @@
 )
 
 (defn reset-name [robot]
-  (def thing (format "%S%S%d%d%d" (char (+ (rand 26) 65)) (char (+ (rand 26) 65)) (rand-int 9) (rand-int 9) (rand-int 9)))
+  (def thing (format "%S%S%d%d%d" (random-char) (random-char) (random-digit) (random-digit) (random-digit)))
 )
