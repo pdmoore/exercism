@@ -9,5 +9,5 @@
 )
 
 (defn reset-name [robot] ;; <- arglist goes here
-  ;; your code goes here
+  (def thing (format "%S%S%d%d%d" (char (+ (rand 26) 65)) (char (+ (rand 26) 65)) (rand-int 9) (rand-int 9) (rand-int 9)))
 )
