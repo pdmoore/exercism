@@ -1,8 +1,6 @@
 (ns difference-of-squares)
 
-(defn difference [] ;; <- arglist goes here
-  ;; your code goes here
-)
+
 
 (defn square [N]
   (* N N))
@@ -13,3 +11,6 @@
 (defn square-of-sum [N]
   (def sum (/ (* N (inc N)) 2) )
   (* sum sum))
+
+(defn difference [N]
+  (- (square-of-sum N) (sum-of-squares N)))
