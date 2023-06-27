@@ -8,7 +8,6 @@
   ;; your code goes here
 )
 
-(defn square-of-sum [N] ;; <- arglist goes here
-  ;; your code goes here
-  225
-)
+(defn square-of-sum [N]
+  (def sum (/ (* N (inc N)) 2) )
+  (* sum sum))
