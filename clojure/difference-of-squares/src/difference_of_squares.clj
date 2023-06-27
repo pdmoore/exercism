@@ -1,7 +1,5 @@
 (ns difference-of-squares)
 
-
-
 (defn square [N]
   (* N N))
 
