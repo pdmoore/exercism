@@ -1,9 +1,0 @@
-# ninja log v5
-1	638	1688515491855758978	CMakeFiles/hello-world.dir/hello_world.cpp.o	8d73a84ebcc020cc
-0	840	1688515492056637834	CMakeFiles/hello-world.dir/hello_world_test.cpp.o	121e5189edf35dc5
-1	5669	1688515496873071736	CMakeFiles/hello-world.dir/test/tests-main.cpp.o	44af1f4fe5461c85
-5669	5772	1688515496984344996	hello-world	12c63b558c54e8bd
-10	554	1688515552958201082	CMakeFiles/hello-world.dir/hello_world.cpp.o	8d73a84ebcc020cc
-554	668	1688515553065480349	hello-world	12c63b558c54e8bd
-668	819	0	CMakeFiles/test_hello-world	ce229fb13c404042
-668	819	0	/Users/pdm/Code/exercism/cpp/hello-world/cmake-build-debug/CMakeFiles/test_hello-world	ce229fb13c404042
