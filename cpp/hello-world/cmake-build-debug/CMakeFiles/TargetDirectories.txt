@@ -1,0 +1,4 @@
+/Users/pdm/Code/exercism/cpp/hello-world/cmake-build-debug/CMakeFiles/hello-world.dir
+/Users/pdm/Code/exercism/cpp/hello-world/cmake-build-debug/CMakeFiles/test_hello-world.dir
+/Users/pdm/Code/exercism/cpp/hello-world/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/pdm/Code/exercism/cpp/hello-world/cmake-build-debug/CMakeFiles/rebuild_cache.dir
