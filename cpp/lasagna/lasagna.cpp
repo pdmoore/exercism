@@ -12,7 +12,7 @@ int ovenTime() {
 int remainingOvenTime(int actualMinutesInOven) {
     // TODO: Calculate and return the remaining in the oven based on the time
     // the lasagna has already been there.
-    return 0;
+    return ovenTime() - actualMinutesInOven;
 }
 
 /* preparationTime returns an estimate of the preparation time based on the
