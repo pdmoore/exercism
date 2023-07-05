@@ -10,11 +10,10 @@ TEST_CASE( "ghost gets eaten") {
   REQUIRE( can_eat_ghost(true, true));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
-
 TEST_CASE( "ghost does not get eaten because no power pellet active") {
   REQUIRE_FALSE( can_eat_ghost(false, true));
 }
+
 
 TEST_CASE( "ghost does not get eaten because not touching ghost") {
   REQUIRE_FALSE( can_eat_ghost(true, false));
@@ -23,7 +22,10 @@ TEST_CASE( "ghost does not get eaten because not touching ghost") {
 TEST_CASE( "ghost does not get eaten because no power pellet is active, even if not touching ghost") {
   REQUIRE_FALSE( can_eat_ghost(false, false));
 }
-    
+
+#if defined(EXERCISM_RUN_ALL_TESTS)
+
+
 TEST_CASE("score when eating dot") {
   REQUIRE( scored(false, true));
 }
