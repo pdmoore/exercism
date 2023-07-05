@@ -1,8 +1,9 @@
+const int timePerLayer = 2;
+
 // ovenTime returns the amount in minutes that the lasagna should stay in the
 // oven.
 int ovenTime() {
-    // TODO: Return the correct time.
-    return 0;
+    return 40;
 }
 
 /* remainingOvenTime returns the remaining
@@ -18,9 +19,9 @@ int remainingOvenTime(int actualMinutesInOven) {
    number of layers and the necessary time per layer.
 */
 int preparationTime(int numberOfLayers) {
-    // TODO: Calculate and return the preparation time with the
+    // Calculate and return the preparation time with the
     // `numberOfLayers`.
-    return 0;
+    return timePerLayer * numberOfLayers;
 }
 
 // elapsedTime calculates the total time spent to create and bake the lasagna so
