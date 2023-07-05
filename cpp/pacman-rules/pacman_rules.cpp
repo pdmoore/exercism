@@ -10,7 +10,7 @@ bool can_eat_ghost(bool power_pellet_active, bool touching_ghost) {
 // dot.
 bool scored(bool touching_power_pellet, bool touching_dot) {
     // TODO: Please implement the scored function
-    return false;
+    return touching_power_pellet or touching_dot;
 }
 
 // lost returns a boolean value if Pac-Man loses.
