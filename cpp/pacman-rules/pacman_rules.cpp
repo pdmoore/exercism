@@ -24,6 +24,5 @@ bool lost(bool power_pellet_active, bool touching_ghost) {
 // has eaten all of the dots and has not lost
 bool won(bool has_eaten_all_dots, bool power_pellet_active,
          bool touching_ghost) {
-    // TODO: Please implement the won function
-    return false;
+    return has_eaten_all_dots and not lost(power_pellet_active, touching_ghost);
 }
