@@ -43,3 +43,14 @@ namespace garcia {
 }
 
 // Enter your code below
+namespace estate_executor {
+    int assemble_account_number(int secret_modifier) {
+        return zhang::bank_number_part(secret_modifier)
+                + khan::bank_number_part(secret_modifier)
+                + garcia::bank_number_part(secret_modifier);
+    }
+
+    int assemble_code() {
+        return -999;
+    }
+}
