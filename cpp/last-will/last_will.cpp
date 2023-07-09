@@ -51,6 +51,13 @@ namespace estate_executor {
     }
 
     int assemble_code() {
-        return -999;
+        int red_sum = zhang::red::code_fragment() +
+                      khan::red::code_fragment() +
+                      garcia::red::code_fragment();
+        int blue_sum = zhang::blue::code_fragment() +
+                       khan::blue::code_fragment() +
+                       garcia::blue::code_fragment();
+
+        return red_sum * blue_sum;
     }
 }
