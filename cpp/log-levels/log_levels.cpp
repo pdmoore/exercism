@@ -2,8 +2,7 @@
 
 namespace log_line {
 
-    const std::string message(const char *message_contents) {
-        std::string foo = message_contents;
-        return foo.substr(9);
+    const std::string message(std::string message_contents) {
+        return message_contents.substr(9);
     };
 } // namespace log_line
