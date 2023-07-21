@@ -12,4 +12,10 @@ namespace log_line {
         int end_of_level_index = message_contents.find("]") - 1;
         return message_contents.substr(1, end_of_level_index);
     }
+
+    const std::string reformat(std::string message_contents) {
+        std::string message = log_line::message(message_contents);
+        std::string level   = log_line::log_level(message_contents);
+        return message + " (" + level + ")";
+    }
 } // namespace log_line
