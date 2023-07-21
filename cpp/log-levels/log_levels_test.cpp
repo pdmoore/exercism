@@ -25,8 +25,6 @@ TEST_CASE("Warning message")
     REQUIRE(actual == expected);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
-
 TEST_CASE("Info message")
 {
     const string actual = log_line::message("[INFO]: File moved");
@@ -35,6 +33,8 @@ TEST_CASE("Info message")
 
     REQUIRE(actual == expected);
 }
+
+#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("Error log level")
 {
