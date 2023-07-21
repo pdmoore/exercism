@@ -44,8 +44,6 @@ TEST_CASE("Error log level")
     REQUIRE(actual == expected);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
-
 TEST_CASE("Warning log level")
 {
     const string actual = log_line::log_level("[WARNING]: Unsafe password");
@@ -63,6 +61,8 @@ TEST_CASE("Info log level")
 
     REQUIRE(actual == expected);
 }
+
+#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("Error reformat")
 {
