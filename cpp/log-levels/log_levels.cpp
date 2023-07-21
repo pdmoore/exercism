@@ -14,8 +14,6 @@ namespace log_line {
     }
 
     const std::string reformat(std::string message_contents) {
-        std::string message = log_line::message(message_contents);
-        std::string level   = log_line::log_level(message_contents);
-        return message + " (" + level + ")";
+        return log_line::message(message_contents) + " (" + log_line::log_level(message_contents) + ")";
     }
 } // namespace log_line
