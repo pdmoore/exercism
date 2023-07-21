@@ -34,7 +34,6 @@ TEST_CASE("Info message")
     REQUIRE(actual == expected);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("Error log level")
 {
@@ -44,6 +43,8 @@ TEST_CASE("Error log level")
 
     REQUIRE(actual == expected);
 }
+
+#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("Warning log level")
 {
