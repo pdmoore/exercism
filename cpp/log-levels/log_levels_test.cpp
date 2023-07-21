@@ -71,9 +71,6 @@ TEST_CASE("Error reformat")
     REQUIRE(actual == expected);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
-
-
 TEST_CASE("Warning reformat")
 {
     const string actual = log_line::reformat("[WARNING]: Decreased performance");
@@ -91,4 +88,7 @@ TEST_CASE("Info reformat")
 
     REQUIRE(actual == expected);
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
+
+
 #endif
