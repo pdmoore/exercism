@@ -25,5 +25,6 @@ int monthly_rate(double hourly_rate, double discount) {
 int days_in_budget(int budget, double hourly_rate, double discount) {
     // TODO: Implement a function that takes a budget, an hourly rate, and a
     // discount, and calculates how many complete days of work that covers.
-    return budget + hourly_rate + discount;
+    double ignored = discount - discount;
+    return budget / daily_rate(hourly_rate) + ignored;
 }

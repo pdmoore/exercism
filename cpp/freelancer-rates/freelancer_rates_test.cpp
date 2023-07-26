@@ -34,7 +34,6 @@ TEST_CASE("the result is rounded up") {
     // 11_475.2
     REQUIRE(monthly_rate(65.2, 0.0) == 11'476);
 }
-#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("gives a discount") {
     // 11'792 - 12% * 11_792 = 10'376.96
@@ -44,6 +43,7 @@ TEST_CASE("gives a discount") {
 TEST_CASE("it's the budget divided by the daily rate") {
     REQUIRE(days_in_budget(1'600, 50, 0.0) == 4);
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("it rounds down to next decimal place") {
     //  9.97727
