@@ -43,7 +43,6 @@ TEST_CASE("gives a discount") {
 TEST_CASE("it's the budget divided by the daily rate") {
     REQUIRE(days_in_budget(1'600, 50, 0.0) == 4);
 }
-#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("it rounds down to next decimal place") {
     //  9.97727
@@ -58,4 +57,5 @@ TEST_CASE("it applies the discount") {
     REQUIRE(days_in_budget(480, 70, 20) == 1);
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif
