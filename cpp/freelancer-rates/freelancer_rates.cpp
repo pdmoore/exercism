@@ -8,9 +8,7 @@ double daily_rate(double hourly_rate) {
 
 // apply_discount calculates the price after a discount
 double apply_discount(double before_discount, double discount) {
-    // TODO: Implement a function to calculate the price after a discount.
-
-    return before_discount + discount;
+    return before_discount * (100 - discount) / 100.0;
 }
 
 // monthly_rate calculates the monthly rate, given an hourly rate and a discount
