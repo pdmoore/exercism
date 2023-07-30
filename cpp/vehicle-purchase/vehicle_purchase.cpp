@@ -6,6 +6,7 @@ namespace vehicle_purchase {
     bool needs_license(std::string kind){
         // TODO: Return true if you need a license for that kind of vehicle.
         if (kind == "car") return true;
+        if (kind == "truck") return true;
         return false;
     }
 
