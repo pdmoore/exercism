@@ -22,7 +22,9 @@ namespace vehicle_purchase {
     // calculate_resell_price calculates how much a vehicle can resell for at a certain age.
     double calculate_resell_price(double original_price, double age) {
         double discount = 0.8;
-        if (age > 3) {
+        if (age > 9) {
+            discount = 0.5;
+        } else if (age > 3) {
             discount = 0.7;
         }
         return original_price * discount;
