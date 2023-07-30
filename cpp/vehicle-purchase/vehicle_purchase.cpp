@@ -21,7 +21,7 @@ namespace vehicle_purchase {
 
     // calculate_resell_price calculates how much a vehicle can resell for at a certain age.
     double calculate_resell_price(double original_price, double age) {
-        return original_price * age;
+        return original_price * .8 + (age * 0);
         // TODO: Return the age-corrected resell price.
     }
 
