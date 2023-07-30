@@ -10,8 +10,13 @@ namespace vehicle_purchase {
     // choose_vehicle recommends a vehicle for selection. It always recommends the vehicle that comes first in lexicographical order.
     std::string choose_vehicle(std::string option1, std::string option2) {
         // TODO: Return the final decision in a sentence.
-        if (option1 < option2) return option1 + " is clearly the better choice.";
-        return "not yet implemented";
+        std::string choice;
+        if (option1 < option2) {
+            choice = option1;
+        } else {
+            choice = option2;
+        }
+        return choice + " is clearly the better choice.";
     }
 
     // calculate_resell_price calculates how much a vehicle can resell for at a certain age.

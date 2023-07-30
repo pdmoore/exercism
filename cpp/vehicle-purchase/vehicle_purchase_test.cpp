@@ -35,7 +35,6 @@ TEST_CASE("chooses Bugatti over Ford") {
     REQUIRE(vehicle_purchase::choose_vehicle(choice1, choice2) ==
             "Bugatti Veyron is clearly the better choice.");
 }
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("chooses Chery over Kia") {
     std::string choice1{"Chery EQ"};
     std::string choice2{"Kia Niro Elektro"};
@@ -43,8 +42,8 @@ TEST_CASE("chooses Chery over Kia") {
             "Chery EQ is clearly the better choice.");
 }
 TEST_CASE("chooses Ford Focus over Ford Pinto") {
-    std::string choice1{"Ford Focus"};
-    std::string choice2{"Ford Pinto"};
+    std::string choice1{"Ford Pinto"};
+    std::string choice2{"Ford Focus"};
     REQUIRE(vehicle_purchase::choose_vehicle(choice1, choice2) ==
             "Ford Focus is clearly the better choice.");
 }
@@ -60,6 +59,7 @@ TEST_CASE("chooses Bugatti over ford") {
     REQUIRE(vehicle_purchase::choose_vehicle(choice1, choice2) ==
             "Bugatti Veyron is clearly the better choice.");
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("price is reduced to 80% for age of 2") {
     double original_price{40000};
