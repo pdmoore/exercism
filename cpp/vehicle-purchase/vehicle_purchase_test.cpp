@@ -28,7 +28,6 @@ TEST_CASE("does not need a license for a e-scooter") {
     std::string kind{"e-scooter"};
     REQUIRE_FALSE(vehicle_purchase::needs_license(kind));
 }
-#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("chooses Bugatti over Ford") {
     std::string choice1{"Bugatti Veyron"};
@@ -36,6 +35,7 @@ TEST_CASE("chooses Bugatti over Ford") {
     REQUIRE(vehicle_purchase::choose_vehicle(choice1, choice2) ==
             "Bugatti Veyron is clearly the better choice.");
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("chooses Chery over Kia") {
     std::string choice1{"Chery EQ"};
     std::string choice2{"Kia Niro Elektro"};

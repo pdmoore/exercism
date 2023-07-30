@@ -10,7 +10,7 @@ namespace vehicle_purchase {
     // choose_vehicle recommends a vehicle for selection. It always recommends the vehicle that comes first in lexicographical order.
     std::string choose_vehicle(std::string option1, std::string option2) {
         // TODO: Return the final decision in a sentence.
-        if (option1 == option2) return "yyy";
+        if (option1 < option2) return option1 + " is clearly the better choice.";
         return "not yet implemented";
     }
 
