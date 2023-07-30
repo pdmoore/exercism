@@ -67,7 +67,6 @@ TEST_CASE("price is reduced to 80% for age of 2") {
     REQUIRE(vehicle_purchase::calculate_resell_price(original_price, age) ==
             expected);
 }
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("price is reduced to 80% for age of 2.5") {
     double original_price{40000};
     double age{2.5};
@@ -82,6 +81,7 @@ TEST_CASE("price is reduced to 70% for age 7") {
     REQUIRE(vehicle_purchase::calculate_resell_price(original_price, age) ==
             expected);
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("price is reduced to 50% for age 10") {
     double original_price{25000};
     double age{10};
