@@ -29,10 +29,6 @@ object ScrabbleScore {
     }
 
     fun scoreWord(word: String): Int {
-        var sum = 0;
-        for (character in word.iterator()) {
-            sum += scoreLetter(character)
-        }
-        return sum;
+        return  word.map { c -> scoreLetter(c) }.sum();
     }
 }
