@@ -3,13 +3,24 @@ object ScrabbleScore {
     fun scoreLetter(c: Char): Int {
         val onePointers = "AEIOULNRST"
         val twoPointers = "DG"
-        val twoPointLetters = listOf<String>("D", "G");
+        val scores = mapOf(onePointers to 1,
+                           twoPointers to 2)
         val threePointLetters = listOf<String>("B", "C", "M", "P");
         val fourPointLetters = listOf<String>("F", "H", "V", "W", "Y");
         val fivePointLetters = listOf<String>("K");
         val eightPointLetters = listOf<String>("J", "X");
         val tenPointLetters = listOf<String>("Q", "Z");
         val upperCasedCharacter = c.uppercase()
+
+        for (key in scores.keys) {
+            if (key.contains(upperCasedCharacter)) {
+                // TODO fix this to handle null better
+                val points = scores.get(key)
+                if (points != null) return points
+            }
+        }
+
+
         if (onePointers.contains(upperCasedCharacter)) {
             return 1
         }
