@@ -4,14 +4,17 @@ object ScrabbleScore {
         val onePointers = "AEIOULNRST"
         val twoPointers = "DG"
         val threePointers = "BCMP"
+        val fourPointers = "FHVWY"
+        val fivePointers = "K"
+        val eightPointers = "JX"
+        val tenPointers = "QZ"
         val scores = mapOf(onePointers to 1,
                            twoPointers to 2,
-                           threePointers to 3)
-        val threePointLetters = listOf<String>("B", "C", "M", "P");
-        val fourPointLetters = listOf<String>("F", "H", "V", "W", "Y");
-        val fivePointLetters = listOf<String>("K");
-        val eightPointLetters = listOf<String>("J", "X");
-        val tenPointLetters = listOf<String>("Q", "Z");
+                           threePointers to 3,
+                           fourPointers to 4,
+                           fivePointers to 5,
+                           eightPointers to 8,
+                           tenPointers to 10)
         val upperCasedCharacter = c.uppercase()
 
         for (key in scores.keys) {
@@ -22,18 +25,6 @@ object ScrabbleScore {
             }
         }
 
-        if (fourPointLetters.contains(upperCasedCharacter)) {
-            return 4
-        }
-        if (fivePointLetters.contains(upperCasedCharacter)) {
-            return 5
-        }
-        if (eightPointLetters.contains(upperCasedCharacter)) {
-            return 8
-        }
-        if (tenPointLetters.contains(upperCasedCharacter)) {
-            return 10
-        }
         return 0;
     }
 
