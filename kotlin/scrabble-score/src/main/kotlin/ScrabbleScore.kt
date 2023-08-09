@@ -3,8 +3,10 @@ object ScrabbleScore {
     fun scoreLetter(c: Char): Int {
         val onePointers = "AEIOULNRST"
         val twoPointers = "DG"
+        val threePointers = "BCMP"
         val scores = mapOf(onePointers to 1,
-                           twoPointers to 2)
+                           twoPointers to 2,
+                           threePointers to 3)
         val threePointLetters = listOf<String>("B", "C", "M", "P");
         val fourPointLetters = listOf<String>("F", "H", "V", "W", "Y");
         val fivePointLetters = listOf<String>("K");
@@ -20,16 +22,6 @@ object ScrabbleScore {
             }
         }
 
-
-        if (onePointers.contains(upperCasedCharacter)) {
-            return 1
-        }
-        if (twoPointers.contains(upperCasedCharacter)) {
-            return 2
-        }
-        if (threePointLetters.contains(upperCasedCharacter)) {
-            return 3
-        }
         if (fourPointLetters.contains(upperCasedCharacter)) {
             return 4
         }
