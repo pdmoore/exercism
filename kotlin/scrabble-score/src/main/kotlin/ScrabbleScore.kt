@@ -11,7 +11,6 @@ object ScrabbleScore {
                 else -> 0
             }
 
-    fun scoreWord(word: String): Int {
-        return word.map { c -> scoreLetter(c) }.sum();
-    }
+    fun scoreWord(word: String): Int =
+            word.sumOf(::scoreLetter)
 }
