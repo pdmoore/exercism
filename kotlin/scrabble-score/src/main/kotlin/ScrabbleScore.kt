@@ -14,7 +14,7 @@ object ScrabbleScore {
 
         for (key in letterToPointValue.keys) {
             if (key.contains(upperCasedCharacter)) {
-                return letterToPointValue.get(key) ?: 0
+                return letterToPointValue[key] ?: 0
             }
         }
 
