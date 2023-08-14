@@ -50,7 +50,7 @@ TEST_CASE("Code fragment number assembly function exists in correct namespace") 
 
 
 TEST_CASE("Code fragments fit correctly") {
-    int final_code{1925550};
+    int final_code{1'y925'550};
 
     REQUIRE(estate_executor::assemble_code() == final_code);
 }

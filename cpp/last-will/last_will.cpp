@@ -4,7 +4,7 @@
 namespace zhang {
     int bank_number_part(int secret_modifier) {
         int zhang_part{8'541};
-        return (zhang_part*secret_modifier) % 10000;
+        return (zhang_part*secret_modifier) % 10'000;
     }
     namespace red {
         int code_fragment() {return 512;}
