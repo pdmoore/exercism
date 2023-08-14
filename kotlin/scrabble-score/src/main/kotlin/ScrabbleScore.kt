@@ -9,7 +9,7 @@ object ScrabbleScore {
             "QZ"    to 10
     )
 
-    fun scoreLetter(c: Char): Int {
+    private fun scoreLetter(c: Char): Int {
         val upperCasedCharacter = c.uppercase()
 
         for (key in letterToPointValue.keys) {
