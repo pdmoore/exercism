@@ -5,6 +5,7 @@ use v5.30;
 our $ExpectedMinutesInOven = 40;
 
 sub remaining_minutes_in_oven ($actual_minutes_in_oven) {
+    return 99
 }
 
 sub preparation_time_in_minutes ($number_of_layers) {

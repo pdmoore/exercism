@@ -11,12 +11,12 @@ is( # begin: var task: 1
     'expected minutes in oven',
 ); # end: var
 
-# is( # begin: remaining1 task: 2
-#     Lasagna::remaining_minutes_in_oven(25),
-#     15,
-#     'some remaining minutes in oven',
-# ); # end: remaining1
-#
+is( # begin: remaining1 task: 2
+    Lasagna::remaining_minutes_in_oven(25),
+    15,
+    'some remaining minutes in oven',
+); # end: remaining1
+
 # is( # begin: remaining2 task: 2
 #     Lasagna::remaining_minutes_in_oven(40),
 #     0,
