@@ -28,7 +28,7 @@ public class Blackjack {
     }
 
     public boolean isBlackjack(String card1, String card2) {
-        return (21 == parseCard(card1) + parseCard(card2));
+        return (21 == scoreHand(card1, card2));
     }
 
     public String largeHand(boolean isBlackjack, int dealerScore) {
@@ -42,11 +42,13 @@ public class Blackjack {
     }
 
     public String smallHand(int handScore, int dealerScore) {
-        if (handScore >= 17) {
-            return "S";
-        } else if (handScore <= 11) {
+        if (handScore <= 11) {
             return "H";
         }
+        if (handScore >= 17) {
+            return "S";
+        }
+
         if (dealerScore >= 7) {
             return "H";
         }
@@ -57,7 +59,7 @@ public class Blackjack {
     // This function is already implemented and does not need to be edited. It pulls the other functions together in a
     // complete decision tree for the first turn.
     public String firstTurn(String card1, String card2, String dealerCard) {
-        int handScore = parseCard(card1) + parseCard(card2);
+        int handScore = scoreHand(card1, card2);
         int dealerScore = parseCard(dealerCard);
 
         if (20 < handScore) {
@@ -65,5 +67,9 @@ public class Blackjack {
         } else {
             return smallHand(handScore, dealerScore);
         }
+    }
+
+    private int scoreHand(String card1, String card2) {
+        return parseCard(card1) + parseCard(card2);
     }
 }
