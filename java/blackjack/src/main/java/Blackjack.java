@@ -33,7 +33,7 @@ public class Blackjack {
 
     public String largeHand(boolean isBlackjack, int dealerScore) {
         if (isBlackjack) {
-            if (11 == dealerScore) {
+            if (dealerScore >= 10) {
                 return "S";
             }
             return "W";
