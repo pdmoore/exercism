@@ -3,11 +3,14 @@ import java.util.Map;
 
 public class Blackjack {
 
+    public static final String HIT = "H";
+    public static final String SPLIT = "P";
+    public static final String STAND = "S";
+    public static final String WIN = "W";
     private static Map<String, Integer> cardValue;
 
     static {
         cardValue = new HashMap<>();
-        cardValue.put("ace", 11);
         cardValue.put("two", 2);
         cardValue.put("three", 3);
         cardValue.put("four", 4);
@@ -20,6 +23,7 @@ public class Blackjack {
         cardValue.put("jack", 10);
         cardValue.put("queen", 10);
         cardValue.put("king", 10);
+        cardValue.put("ace", 11);
 
     }
 
@@ -34,25 +38,25 @@ public class Blackjack {
     public String largeHand(boolean isBlackjack, int dealerScore) {
         if (isBlackjack) {
             if (dealerScore >= 10) {
-                return "S";
+                return STAND;
             }
-            return "W";
+            return WIN;
         }
-        return "P";
+        return SPLIT;
     }
 
     public String smallHand(int handScore, int dealerScore) {
         if (handScore <= 11) {
-            return "H";
+            return HIT;
         }
         if (handScore >= 17) {
-            return "S";
+            return STAND;
         }
 
         if (dealerScore >= 7) {
-            return "H";
+            return HIT;
         }
-        return "S";
+        return STAND;
     }
 
     // FirstTurn returns the semi-optimal decision for the first turn, given the cards of the player and the dealer.
