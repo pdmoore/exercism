@@ -45,7 +45,6 @@ public class Blackjack {
         cardValue.put("queen", 10);
         cardValue.put("king", 10);
         cardValue.put("ace", 11);
-
     }
 
     public int parseCard(String card) {
