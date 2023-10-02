@@ -76,9 +76,8 @@ public class Blackjack {
 
     public String smallHand(int handScore, int dealerScore) {
         options strategy = options.STAND;
-        if (handScore <= 11) {
-            strategy = options.HIT;
-        } else if (handScore < 17 && dealerScore >= 7) {
+        if ((handScore <= 11) ||
+            (handScore < 17 && dealerScore >= 7))   {
             strategy = options.HIT;
         }
         return strategy.toString();
