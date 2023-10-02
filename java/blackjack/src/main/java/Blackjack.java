@@ -2,13 +2,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Blackjack {
-
-    public static final String HIT = "H";
-    public static final String SPLIT = "P";
-    public static final String STAND = "S";
-    public static final String WIN = "W";
-    private static Map<String, Integer> cardValue;
-
     private enum options {
         STAND {
             @Override
@@ -33,11 +26,10 @@ public class Blackjack {
             public String toString() {
                 return "H";
             }
-        }
-    }
+        };
+    };
 
-    ;
-
+    private static Map<String, Integer> cardValue;
     static {
         cardValue = new HashMap<>();
         cardValue.put("two", 2);
