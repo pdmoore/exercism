@@ -75,17 +75,16 @@ public class Blackjack {
     }
 
     public String smallHand(int handScore, int dealerScore) {
+        options strategy = options.STAND;
         if (handScore <= 11) {
-            return HIT;
+            strategy = options.HIT;
+        } else if (handScore >= 17) {
+//            strategy = options.HIT;
+//            return STAND;
+        } else if (dealerScore >= 7) {
+            strategy = options.HIT;
         }
-        if (handScore >= 17) {
-            return STAND;
-        }
-
-        if (dealerScore >= 7) {
-            return HIT;
-        }
-        return STAND;
+        return strategy.toString();
     }
 
     // FirstTurn returns the semi-optimal decision for the first turn, given the cards of the player and the dealer.
