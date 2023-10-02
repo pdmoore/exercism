@@ -9,6 +9,35 @@ public class Blackjack {
     public static final String WIN = "W";
     private static Map<String, Integer> cardValue;
 
+    private enum options {
+        STAND {
+            @Override
+            public String toString() {
+                return "S";
+            }
+        },
+        SPLIT {
+            @Override
+            public String toString() {
+                return "P";
+            }
+        },
+        WIN {
+            @Override
+            public String toString() {
+                return "W";
+            }
+        },
+        HIT {
+            @Override
+            public String toString() {
+                return "H";
+            }
+        }
+    }
+
+    ;
+
     static {
         cardValue = new HashMap<>();
         cardValue.put("two", 2);
@@ -36,13 +65,13 @@ public class Blackjack {
     }
 
     public String largeHand(boolean isBlackjack, int dealerScore) {
-        if (isBlackjack) {
-            if (dealerScore >= 10) {
-                return STAND;
-            }
-            return WIN;
+        options strategy = options.STAND;
+        if (isBlackjack && dealerScore < 10) {
+            strategy = options.WIN;
+        } else if (!isBlackjack) {
+            strategy = options.SPLIT;
         }
-        return SPLIT;
+        return strategy.toString();
     }
 
     public String smallHand(int handScore, int dealerScore) {
