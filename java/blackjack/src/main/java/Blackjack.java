@@ -78,10 +78,7 @@ public class Blackjack {
         options strategy = options.STAND;
         if (handScore <= 11) {
             strategy = options.HIT;
-        } else if (handScore >= 17) {
-//            strategy = options.HIT;
-//            return STAND;
-        } else if (dealerScore >= 7) {
+        } else if (handScore < 17 && dealerScore >= 7) {
             strategy = options.HIT;
         }
         return strategy.toString();
