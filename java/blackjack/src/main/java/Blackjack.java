@@ -2,20 +2,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Blackjack {
-    private enum options {
+    private enum Decisions {
         STAND("S"),
         SPLIT("P"),
         WIN("W"),
         HIT("H");
 
-        private String something;
-        options(String singleLetter) {
-            this.something = singleLetter;
+        private String decision;
+        Decisions(String singleLetter) {
+            this.decision = singleLetter;
         }
 
         @Override
         public String toString() {
-            return something;
+            return decision;
         }
     };
 
@@ -46,20 +46,20 @@ public class Blackjack {
     }
 
     public String largeHand(boolean isBlackjack, int dealerScore) {
-        options strategy = options.STAND;
+        Decisions strategy = Decisions.STAND;
         if (isBlackjack && dealerScore < 10) {
-            strategy = options.WIN;
+            strategy = Decisions.WIN;
         } else if (!isBlackjack) {
-            strategy = options.SPLIT;
+            strategy = Decisions.SPLIT;
         }
         return strategy.toString();
     }
 
     public String smallHand(int handScore, int dealerScore) {
-        options strategy = options.STAND;
+        Decisions strategy = Decisions.STAND;
         if ((handScore <= 11) ||
             (handScore < 17 && dealerScore >= 7))   {
-            strategy = options.HIT;
+            strategy = Decisions.HIT;
         }
         return strategy.toString();
     }
