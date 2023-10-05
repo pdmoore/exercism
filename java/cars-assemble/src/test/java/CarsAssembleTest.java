@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -41,6 +38,7 @@ public class CarsAssembleTest {
     @Tag("task:1")
     @DisplayName("The productionRatePerHour method returns the correct result when line's speed is 7")
     public void productionRatePerHourForSpeedSeven() {
+        Assertions.assertEquals(1392.3, carsAssemble.productionRatePerHour(7), epsilon);
         assertThat(Math.abs(carsAssemble.productionRatePerHour(7) - 1392.3) < epsilon).isTrue();
     }
 
@@ -48,6 +46,8 @@ public class CarsAssembleTest {
     @Tag("task:1")
     @DisplayName("The productionRatePerHour method returns the correct result when line's speed is 9")
     public void productionRatePerHourForSpeedNine() {
+        Assertions.assertEquals(1591.2, carsAssemble.productionRatePerHour(9), epsilon);
+
         assertThat(Math.abs(carsAssemble.productionRatePerHour(9) - 1591.2) < epsilon).isTrue();
     }
 
@@ -55,6 +55,7 @@ public class CarsAssembleTest {
     @Tag("task:1")
     @DisplayName("The productionRatePerHour method returns the correct result when line's speed is 10")
     public void productionRatePerHourForSpeedTen() {
+        Assertions.assertEquals(1701.7, carsAssemble.productionRatePerHour(10), epsilon);
         assertThat(Math.abs(carsAssemble.productionRatePerHour(10) - 1701.7) < epsilon).isTrue();
     }
 
@@ -97,6 +98,7 @@ public class CarsAssembleTest {
     @Tag("task:2")
     @DisplayName("The workingItemsPerMinute should be 28 when line's speed is 10")
     public void workingItemsPerMinuteForSpeedTen() {
+        Assertions.assertEquals(28, carsAssemble.workingItemsPerMinute(10));
         assertThat(carsAssemble.workingItemsPerMinute(10)).isEqualTo(28);
     }
 }
