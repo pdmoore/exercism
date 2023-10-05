@@ -3,30 +3,20 @@ import java.util.Map;
 
 public class Blackjack {
     private enum options {
-        STAND {
-            @Override
-            public String toString() {
-                return "S";
-            }
-        },
-        SPLIT {
-            @Override
-            public String toString() {
-                return "P";
-            }
-        },
-        WIN {
-            @Override
-            public String toString() {
-                return "W";
-            }
-        },
-        HIT {
-            @Override
-            public String toString() {
-                return "H";
-            }
-        };
+        STAND("S"),
+        SPLIT("P"),
+        WIN("W"),
+        HIT("H");
+
+        private String something;
+        options(String singleLetter) {
+            this.something = singleLetter;
+        }
+
+        @Override
+        public String toString() {
+            return something;
+        }
     };
 
     private static Map<String, Integer> cardValue;
