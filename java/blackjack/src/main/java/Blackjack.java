@@ -8,7 +8,7 @@ public class Blackjack {
         WIN("W"),
         HIT("H");
 
-        private String decision;
+        private final String decision;
         Decisions(String singleLetter) {
             this.decision = singleLetter;
         }
@@ -17,9 +17,9 @@ public class Blackjack {
         public String toString() {
             return decision;
         }
-    };
+    }
 
-    private static Map<String, Integer> cardValue;
+    private static final Map<String, Integer> cardValue;
     static {
         cardValue = new HashMap<>();
         cardValue.put("two", 2);
@@ -46,22 +46,22 @@ public class Blackjack {
     }
 
     public String largeHand(boolean isBlackjack, int dealerScore) {
-        Decisions strategy = Decisions.STAND;
+        Decisions decision = Decisions.STAND;
         if (isBlackjack && dealerScore < 10) {
-            strategy = Decisions.WIN;
+            decision = Decisions.WIN;
         } else if (!isBlackjack) {
-            strategy = Decisions.SPLIT;
+            decision = Decisions.SPLIT;
         }
-        return strategy.toString();
+        return decision.toString();
     }
 
     public String smallHand(int handScore, int dealerScore) {
-        Decisions strategy = Decisions.STAND;
+        Decisions decision = Decisions.STAND;
         if ((handScore <= 11) ||
             (handScore < 17 && dealerScore >= 7))   {
-            strategy = Decisions.HIT;
+            decision = Decisions.HIT;
         }
-        return strategy.toString();
+        return decision.toString();
     }
 
     // FirstTurn returns the semi-optimal decision for the first turn, given the cards of the player and the dealer.
