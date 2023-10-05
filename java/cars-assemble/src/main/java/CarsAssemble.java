@@ -5,7 +5,7 @@ public class CarsAssemble {
 
     public double productionRatePerHour(int speed) {
 
-        double successRate = successRateFor(speed);
+        double successRate = successRatePercentageFor(speed);
 
         return (BASE_PRODUCTION_RATE * speed * successRate);
     }
@@ -14,7 +14,7 @@ public class CarsAssemble {
         return (int) (productionRatePerHour(speed) / MINUTES_PER_HOUR);
     }
 
-    private static double successRateFor(int speed) {
+    private static double successRatePercentageFor(int speed) {
         int successRate = 100;
         if (speed == 10) {
             successRate = 77;
