@@ -23,9 +23,12 @@ class Clock {
 
     @Override
     public String toString() {
-        int hoursPortion = (totalMinutes / 60) % 24;
         int minutesPortion = totalMinutes % 60;
-        return String.format("%02d:%02d", hoursPortion, minutesPortion);
+        return String.format("%02d:%02d", getHours(), minutesPortion);
+    }
+
+    private int getHours() {
+        return Math.floorMod(Math.floorDiv(totalMinutes,  60), 24);
     }
 
     @Override
