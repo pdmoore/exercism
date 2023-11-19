@@ -37,8 +37,4 @@ class Matrix {
     int getRowsCount() {
         return matrix.length;
     }
-
-    int getColumnsCount() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
 }
