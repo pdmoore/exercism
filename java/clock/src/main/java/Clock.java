@@ -4,7 +4,7 @@ class Clock {
     private final int minutes;
 
     Clock(int hours, int minutes) {
-        this.hours = hours;
+        this.hours = hours % 24;
         this.minutes = minutes;
     }
 

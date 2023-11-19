@@ -10,13 +10,11 @@ public class ClockCreationTest {
         assertThat(new Clock(8, 0).toString()).isEqualTo("08:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void canPrintTimeWithMinutes() {
         assertThat(new Clock(11, 9).toString()).isEqualTo("11:09");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void midnightPrintsAsZero() {
         assertThat(new Clock(24, 0).toString()).isEqualTo("00:00");
