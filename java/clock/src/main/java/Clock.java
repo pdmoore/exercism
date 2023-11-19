@@ -4,8 +4,12 @@ class Clock {
     private final int minutes;
 
     Clock(int hours, int minutes) {
-        int hoursOver60Minutes = minutes / 60;
-        this.hours = (hours + hoursOver60Minutes) % 24;
+        if (hours >= 0) {
+            int hoursOver60Minutes = minutes / 60;
+            this.hours = (hours + hoursOver60Minutes) % 24;
+        } else {
+            this.hours = 24 + hours;
+        }
         this.minutes = minutes % 60;
     }
 

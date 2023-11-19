@@ -60,7 +60,6 @@ public class ClockCreationTest {
         assertThat(new Clock(72, 8640).toString()).isEqualTo("00:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void negativeHour() {
         assertThat(new Clock(-1, 15).toString()).isEqualTo("23:15");
