@@ -32,9 +32,8 @@ class Clock {
 
     @Override
     public boolean equals(Object obj) {
-
+        // No tests for checking if obj is null, not a Clock, or this same Clock
         Clock other = (Clock)obj;
-
         return this.hours == other.hours && this.minutes == other.minutes;
     }
 }
