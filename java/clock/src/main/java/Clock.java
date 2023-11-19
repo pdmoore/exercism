@@ -1,7 +1,7 @@
 class Clock {
 
-    private final int hours;
-    private final int minutes;
+    private int hours;
+    private int minutes;
 
     Clock(int hours, int minutes) {
         int totalMinutes = hours * 60 + minutes;
@@ -19,7 +19,10 @@ class Clock {
     }
 
     void add(int minutes) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        int totalMinutes = hours * 60 + this.minutes + minutes;
+        Clock tempClock = new Clock(0, totalMinutes);
+        this.hours = tempClock.hours;
+        this.minutes = tempClock.minutes;
     }
 
     @Override
@@ -31,5 +34,4 @@ class Clock {
     public boolean equals(Object obj) {
         throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
     }
-
 }

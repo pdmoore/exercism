@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClockAddTest {
 
-    @Ignore("Remove to run test")
     @Test
     public void addMinutes() {
         Clock clock = new Clock(10, 0);
