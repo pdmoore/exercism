@@ -28,7 +28,7 @@ class Matrix {
         int[] column = new int[getRowsCount()];
 
         for (int i = 0; i < getRowsCount(); i++) {
-            column[i] = matrix[i][columnNumber];
+            column[i] = matrix[i][columnNumber - 1];
         }
 
         return column;
