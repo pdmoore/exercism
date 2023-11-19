@@ -20,19 +20,16 @@ public class ClockCreationTest {
         assertThat(new Clock(24, 0).toString()).isEqualTo("00:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void hourRollsOver() {
         assertThat(new Clock(25, 0).toString()).isEqualTo("01:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void hourRollsOverContinuously() {
         assertThat(new Clock(100, 0).toString()).isEqualTo("04:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void sixtyMinutesIsNextHour() {
         assertThat(new Clock(1, 60).toString()).isEqualTo("02:00");
