@@ -39,4 +39,10 @@ class Clock {
         // No tests for checking if obj is null, not a Clock, or this same Clock
         return this.totalMinutes == ((Clock)obj).totalMinutes;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return 31 * hash + totalMinutes;
+    }
 }
