@@ -17,8 +17,7 @@ class Clock {
     }
 
     void add(int minutes) {
-        Clock temp = new Clock(0, totalMinutes + minutes);
-        totalMinutes = temp.totalMinutes;
+        totalMinutes += minutes;
     }
 
     @Override
