@@ -17,20 +17,14 @@ class Clock {
     }
 
     void add(int minutes) {
-        totalMinutes += minutes;
+        Clock temp = new Clock(0, totalMinutes + minutes);
+        totalMinutes = temp.totalMinutes;
     }
 
     @Override
     public String toString() {
         int hoursPortion = (totalMinutes / 60) % 24;
         int minutesPortion = totalMinutes % 60;
-        if (minutesPortion < 0) {
-            minutesPortion = 60 + minutesPortion;
-            hoursPortion -= 1;
-        }
-        if (hoursPortion < 0) {
-            hoursPortion = 24 + hoursPortion;
-        }
         return String.format("%02d:%02d", hoursPortion, minutesPortion);
     }
 
