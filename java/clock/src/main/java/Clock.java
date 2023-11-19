@@ -5,7 +5,7 @@ class Clock {
 
     Clock(int hours, int minutes) {
         int hoursOver60Minutes = minutes / 60;
-        this.hours = hours % 24 + hoursOver60Minutes;
+        this.hours = (hours + hoursOver60Minutes) % 24;
         this.minutes = minutes % 60;
     }
 

@@ -35,13 +35,11 @@ public class ClockCreationTest {
         assertThat(new Clock(1, 60).toString()).isEqualTo("02:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void minutesRollOver() {
         assertThat(new Clock(0, 160).toString()).isEqualTo("02:40");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void minutesRollOverContinuously() {
         assertThat(new Clock(0, 1723).toString()).isEqualTo("04:43");
