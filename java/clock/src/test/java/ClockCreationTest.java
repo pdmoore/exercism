@@ -45,19 +45,16 @@ public class ClockCreationTest {
         assertThat(new Clock(0, 1723).toString()).isEqualTo("04:43");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void hourAndMinutesRollOver() {
         assertThat(new Clock(25, 160).toString()).isEqualTo("03:40");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void hourAndMinutesRollOverContinuously() {
         assertThat(new Clock(201, 3001).toString()).isEqualTo("11:01");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void hourAndMinutesRollOverToExactlyMidnight() {
         assertThat(new Clock(72, 8640).toString()).isEqualTo("00:00");
