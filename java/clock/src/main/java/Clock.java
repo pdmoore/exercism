@@ -32,6 +32,9 @@ class Clock {
 
     @Override
     public boolean equals(Object obj) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+
+        Clock other = (Clock)obj;
+
+        return this.hours == other.hours && this.minutes == other.minutes;
     }
 }

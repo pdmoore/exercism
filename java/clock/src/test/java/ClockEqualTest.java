@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClockEqualTest {
 
-    @Ignore("Remove to run test")
     @Test
     public void clocksWithSameTimeAreEqual() {
         assertThat(new Clock(15, 37))
