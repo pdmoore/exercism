@@ -8,7 +8,7 @@ class Clock {
             int hoursOver60Minutes = minutes / 60;
             this.hours = (hours + hoursOver60Minutes) % 24;
         } else {
-            this.hours = 24 + hours;
+            this.hours = 24 - Math.abs(hours % 24);
         }
         this.minutes = minutes % 60;
     }
