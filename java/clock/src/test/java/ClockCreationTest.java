@@ -75,37 +75,31 @@ public class ClockCreationTest {
         assertThat(new Clock(-91, 0).toString()).isEqualTo("05:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void negativeMinutes() {
         assertThat(new Clock(1, -40).toString()).isEqualTo("00:20");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void negativeMinutesRollOver() {
         assertThat(new Clock(1, -160).toString()).isEqualTo("22:20");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void negativeMinutesRollOverContinuously() {
         assertThat(new Clock(1, -4820).toString()).isEqualTo("16:40");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void negativeSixtyMinutesIsPreviousHour() {
         assertThat(new Clock(2, -60).toString()).isEqualTo("01:00");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void negativeHourAndMinutesBothRollOver() {
         assertThat(new Clock(-25, -160).toString()).isEqualTo("20:20");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void negativeHourAndMinutesBothRollOverContinuously() {
         assertThat(new Clock(-121, -5810).toString()).isEqualTo("22:10");
