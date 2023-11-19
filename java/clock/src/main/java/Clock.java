@@ -4,8 +4,9 @@ class Clock {
     private final int minutes;
 
     Clock(int hours, int minutes) {
-        this.hours = hours % 24;
-        this.minutes = minutes;
+        int hoursOver60Minutes = minutes / 60;
+        this.hours = hours % 24 + hoursOver60Minutes;
+        this.minutes = minutes % 60;
     }
 
     void add(int minutes) {
