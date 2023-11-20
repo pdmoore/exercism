@@ -42,7 +42,6 @@ public class BinarySearchTreeTest {
         assertThat(left.getData()).isEqualTo(expectedLeft);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void insertsSame() {
         BinarySearchTree<String> binarySearchTree = new BinarySearchTree<>();

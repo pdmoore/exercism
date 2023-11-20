@@ -10,7 +10,7 @@ class BinarySearchTree<T extends Comparable<T>> {
             root = newNode;
         } else {
             T data = root.getData();
-            if (value.compareTo(data) < 0) {
+            if (value.compareTo(data) <= 0) {
                 root.left = newNode;
             } else {
 
