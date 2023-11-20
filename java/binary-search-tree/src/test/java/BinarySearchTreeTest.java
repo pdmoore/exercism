@@ -22,7 +22,6 @@ public class BinarySearchTreeTest {
     }
 
 
-    @Ignore("Remove to run test")
     @Test
     public void insertsLess() {
         BinarySearchTree<Character> binarySearchTree = new BinarySearchTree<>();

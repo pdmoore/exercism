@@ -8,6 +8,14 @@ class BinarySearchTree<T extends Comparable<T>> {
 
         if (null == root) {
             root = newNode;
+        } else {
+            T data = root.getData();
+            if (value.compareTo(data) < 0) {
+                root.left = newNode;
+            } else {
+
+            }
+
         }
     }
 
@@ -26,7 +34,7 @@ class BinarySearchTree<T extends Comparable<T>> {
     static class Node<T> {
 
         private final T data;
-        private final Node<T> left = null;
+        private Node<T> left = null;
         private final Node<T> right = null;
 
         public Node(T data) {
@@ -34,7 +42,7 @@ class BinarySearchTree<T extends Comparable<T>> {
         }
 
         Node<T> getLeft() {
-            throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+            return left;
         }
 
         Node<T> getRight() {
