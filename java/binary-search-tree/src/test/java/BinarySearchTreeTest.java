@@ -80,7 +80,6 @@ public class BinarySearchTreeTest {
         assertThat(right.getData()).isEqualTo(expectedRight);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void createsComplexTree() {
         BinarySearchTree<Character> binarySearchTree = new BinarySearchTree<>();

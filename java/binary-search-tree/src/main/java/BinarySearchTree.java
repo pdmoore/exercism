@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 class BinarySearchTree<T extends Comparable<T>> {
@@ -15,13 +16,20 @@ class BinarySearchTree<T extends Comparable<T>> {
     private void insert(Node<T> node, T value) {
         T data = node.getData();
         if (value.compareTo(data) <= 0) {
-            Node<T> newNode = new Node<>(value);
-            root.left = newNode;
+            if (node.getLeft() == null) {
+                Node<T> newNode = new Node<>(value);
+                node.left = newNode;
+            } else {
+                insert(node.getLeft(), value);
+            }
         } else {
-            Node<T> newNode = new Node<>(value);
-            root.right = newNode;
+            if (node.getRight() == null) {
+                Node<T> newNode = new Node<>(value);
+                node.right = newNode;
+            } else {
+                insert(node.getRight(), value);
+            }
         }
-
     }
 
 
@@ -30,7 +38,27 @@ class BinarySearchTree<T extends Comparable<T>> {
     }
 
     List<T> getAsLevelOrderList() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        // TODO - Tree seems to be built correctly, need to understand what this
+        // method is looking for - root - root-left, root-right - then down a level
+        List<T> result = new ArrayList<>();
+        result.add(root.getData());
+        traverse(root, result);
+        return result;
+    }
+
+    private void traverse(Node<T> node, List<T> result) {
+        if (node == null) {
+            return;
+        }
+        if (node.getLeft() != null) {
+            result.add((node.getLeft().getData()));
+        }
+        if (node.getRight() != null) {
+            result.add(node.getRight().getData());
+        }
+
+        traverse(node.getLeft(), result);
+        traverse(node.getRight(), result);
     }
 
     Node<T> getRoot() {
