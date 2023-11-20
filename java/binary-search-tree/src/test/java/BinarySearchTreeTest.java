@@ -113,7 +113,6 @@ public class BinarySearchTreeTest {
         assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void sortsCollectionOfTwoIfSecondNumberisSameAsFirst() {
         BinarySearchTree<Character> binarySearchTree = new BinarySearchTree<>();
@@ -125,7 +124,6 @@ public class BinarySearchTreeTest {
         assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void sortsCollectionOfTwoIfSecondInsertedIsBiggerThanFirst() {
         BinarySearchTree<Character> binarySearchTree = new BinarySearchTree<>();
