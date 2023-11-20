@@ -42,8 +42,8 @@ class BinarySearchTree<T extends Comparable<T>> {
         if (node == null) {
             return;
         }
-        result.add(node.getData());
         depthTraversal(node.getLeft(), result);
+        result.add(node.getData());
         depthTraversal(node.getRight(), result);
     }
 
