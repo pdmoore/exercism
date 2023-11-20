@@ -4,20 +4,26 @@ class BinarySearchTree<T extends Comparable<T>> {
     private Node<T> root;
 
     void insert(T value) {
-        Node<T> newNode = new Node<>(value);
-
         if (null == root) {
+            Node<T> newNode = new Node<>(value);
             root = newNode;
         } else {
-            T data = root.getData();
-            if (value.compareTo(data) <= 0) {
-                root.left = newNode;
-            } else {
-                root.right = newNode;
-            }
-
+            insert(root, value);
         }
     }
+
+    private void insert(Node<T> node, T value) {
+        T data = node.getData();
+        if (value.compareTo(data) <= 0) {
+            Node<T> newNode = new Node<>(value);
+            root.left = newNode;
+        } else {
+            Node<T> newNode = new Node<>(value);
+            root.right = newNode;
+        }
+
+    }
+
 
     List<T> getAsSortedList() {
         throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
