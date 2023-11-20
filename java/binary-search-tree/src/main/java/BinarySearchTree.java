@@ -6,8 +6,7 @@ class BinarySearchTree<T extends Comparable<T>> {
 
     void insert(T value) {
         if (null == root) {
-            Node<T> newNode = new Node<>(value);
-            root = newNode;
+            root = new Node<>(value);
         } else {
             insert(root, value);
         }
@@ -17,15 +16,13 @@ class BinarySearchTree<T extends Comparable<T>> {
         T data = node.getData();
         if (value.compareTo(data) <= 0) {
             if (node.getLeft() == null) {
-                Node<T> newNode = new Node<>(value);
-                node.left = newNode;
+                node.left = new Node<>(value);
             } else {
                 insert(node.getLeft(), value);
             }
         } else {
             if (node.getRight() == null) {
-                Node<T> newNode = new Node<>(value);
-                node.right = newNode;
+                node.right = new Node<>(value);
             } else {
                 insert(node.getRight(), value);
             }
@@ -38,6 +35,13 @@ class BinarySearchTree<T extends Comparable<T>> {
         return result;
     }
 
+    List<T> getAsLevelOrderList() {
+        List<T> result = new ArrayList<>();
+        result.add(root.getData());
+        breadthTraversal(root, result);
+        return result;
+    }
+
     private void depthTraversal(Node<T> node, List<T> result) {
         if (node == null) {
             return;
@@ -45,13 +49,6 @@ class BinarySearchTree<T extends Comparable<T>> {
         depthTraversal(node.getLeft(), result);
         result.add(node.getData());
         depthTraversal(node.getRight(), result);
-    }
-
-    List<T> getAsLevelOrderList() {
-        List<T> result = new ArrayList<>();
-        result.add(root.getData());
-        breadthTraversal(root, result);
-        return result;
     }
 
     private void breadthTraversal(Node<T> node, List<T> result) {
@@ -94,6 +91,5 @@ class BinarySearchTree<T extends Comparable<T>> {
         T getData() {
             return data;
         }
-
     }
 }
