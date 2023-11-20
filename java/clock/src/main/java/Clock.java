@@ -7,7 +7,7 @@ class Clock {
     }
 
     public void add(int minutes) {
-        this.totalMinutes += minutes;
+        totalMinutes += minutes;
     }
 
     @Override
@@ -31,6 +31,6 @@ class Clock {
 
     @Override
     public int hashCode() {
-        return this.toString().hashCode();
+        return toString().hashCode();
     }
 }
