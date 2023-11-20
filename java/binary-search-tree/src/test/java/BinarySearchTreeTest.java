@@ -101,7 +101,6 @@ public class BinarySearchTreeTest {
         assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void sortsCollectionOfTwoIfSecondInsertedIsSmallerThanFirst() {
         BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
@@ -135,7 +134,6 @@ public class BinarySearchTreeTest {
         assertThat(binarySearchTree.getAsSortedList()).isEqualTo(expected);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void iteratesOverComplexTree() {
         BinarySearchTree<String> binarySearchTree = new BinarySearchTree<>();
