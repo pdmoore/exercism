@@ -2,22 +2,12 @@ class Clock {
 
     private int totalMinutes;
 
-    Clock(int hours, int minutes) {
-        int initialMinutes = hours * 60 + minutes;
-        int hoursPortion = (initialMinutes / 60) % 24;
-        int minutesPortion = initialMinutes % 60;
-        if (minutesPortion < 0) {
-            minutesPortion = 60 + minutesPortion;
-            hoursPortion -= 1;
-        }
-        if (hoursPortion < 0) {
-            hoursPortion = 24 + hoursPortion;
-        }
-        totalMinutes = hoursPortion * 60 + minutesPortion;
+    public Clock(int hours, int minutes) {
+        this.add(hours * 60 + minutes);
     }
 
-    void add(int minutes) {
-        totalMinutes += minutes;
+    public void add(int minutes) {
+        this.totalMinutes += minutes;
     }
 
     @Override
@@ -34,14 +24,13 @@ class Clock {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object other) {
         // No tests for checking if obj is null, not a Clock, or this same Clock
-        return this.totalMinutes == ((Clock)obj).totalMinutes;
+        return this.hashCode() == other.hashCode();
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        return 31 * hash + totalMinutes;
+        return this.toString().hashCode();
     }
 }
