@@ -32,21 +32,29 @@ class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-
     List<T> getAsSortedList() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
-
-    List<T> getAsLevelOrderList() {
-        // TODO - Tree seems to be built correctly, need to understand what this
-        // method is looking for - root - root-left, root-right - then down a level
         List<T> result = new ArrayList<>();
-        result.add(root.getData());
-        traverse(root, result);
+        depthTraversal(root, result);
         return result;
     }
 
-    private void traverse(Node<T> node, List<T> result) {
+    private void depthTraversal(Node<T> node, List<T> result) {
+        if (node == null) {
+            return;
+        }
+        result.add(node.getData());
+        depthTraversal(node.getLeft(), result);
+        depthTraversal(node.getRight(), result);
+    }
+
+    List<T> getAsLevelOrderList() {
+        List<T> result = new ArrayList<>();
+        result.add(root.getData());
+        breadthTraversal(root, result);
+        return result;
+    }
+
+    private void breadthTraversal(Node<T> node, List<T> result) {
         if (node == null) {
             return;
         }
@@ -57,8 +65,8 @@ class BinarySearchTree<T extends Comparable<T>> {
             result.add(node.getRight().getData());
         }
 
-        traverse(node.getLeft(), result);
-        traverse(node.getRight(), result);
+        breadthTraversal(node.getLeft(), result);
+        breadthTraversal(node.getRight(), result);
     }
 
     Node<T> getRoot() {

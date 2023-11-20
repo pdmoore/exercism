@@ -91,7 +91,6 @@ public class BinarySearchTreeTest {
         assertThat(binarySearchTree.getAsLevelOrderList()).isEqualTo(expected);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void sortsSingleElement() {
         BinarySearchTree<String> binarySearchTree = new BinarySearchTree<>();
