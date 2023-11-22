@@ -31,7 +31,6 @@ public class SimpleCipherTest {
             .isEqualTo(cipherText);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void randomKeyCipherIsReversible() {
         String plainText = "abcdefghij";
