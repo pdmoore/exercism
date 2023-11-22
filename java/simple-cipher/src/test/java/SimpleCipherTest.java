@@ -62,12 +62,12 @@ public class SimpleCipherTest {
         assertThat(substitutionCipher.decode(substitutionCipher.encode(plainText))).isEqualTo(plainText);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void substitutionCipherCanDoubleShiftEncode() {
-        String plainText = "iamapandabear";
+        String plainText  = "iamapandabear";
         String cipherText = "qayaeaagaciai";
-        assertThat(new Cipher(plainText).encode(plainText)).isEqualTo(cipherText);
+        String encodedText = new Cipher(plainText).encode(plainText);
+        assertThat(encodedText).isEqualTo(cipherText);
     }
 
     @Ignore("Remove to run test")

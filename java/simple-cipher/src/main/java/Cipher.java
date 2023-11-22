@@ -21,6 +21,9 @@ public class Cipher {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
             int charvalue = plainText.charAt(i) + key.charAt(i % key.length()) - 'a';
+            if (charvalue > 122) {
+                charvalue -= 26;
+            }
             sb.append(Character.toString(charvalue));
         }
         return sb.toString();
