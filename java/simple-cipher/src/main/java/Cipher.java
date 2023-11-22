@@ -26,6 +26,12 @@ public class Cipher {
     }
 
     public String decode(String cipherText) {
-        return cipherText;
+        int length = cipherText.length();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int charvalue = Math.abs(cipherText.charAt(i) - key.charAt(i)) + 'a';
+            sb.append(Character.toString(charvalue));
+        }
+        return sb.toString();
     }
 }
