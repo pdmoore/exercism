@@ -20,7 +20,7 @@ public class Cipher {
         int length = plainText.length();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            int charvalue = Math.abs(plainText.charAt(i) - key.charAt(i)) + 'a';
+            int charvalue = plainText.charAt(i) + key.charAt(i % key.length()) - 'a';
             sb.append(Character.toString(charvalue));
         }
         return sb.toString();

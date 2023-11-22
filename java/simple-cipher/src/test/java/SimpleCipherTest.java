@@ -86,7 +86,6 @@ public class SimpleCipherTest {
         assertThat(substitutionCipher.decode(plainText)).isEqualTo(cipherText);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void substitutionCipherMessageLongerThanKey() {
         String plainText = "iamapandabear";
