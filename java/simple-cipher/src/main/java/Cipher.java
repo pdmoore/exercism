@@ -33,7 +33,10 @@ public class Cipher {
         int length = cipherText.length();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            int charvalue = Math.abs(cipherText.charAt(i) - key.charAt(i)) + 'a';
+            int charvalue = 'z' - (Math.abs(cipherText.charAt(i) - key.charAt(i) - 78) % 26) + 1;
+            if (charvalue > 122) {
+                charvalue -= 26;
+            }
             sb.append(Character.toString(charvalue));
         }
         return sb.toString();

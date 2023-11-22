@@ -77,7 +77,6 @@ public class SimpleCipherTest {
         assertThat(substitutionCipher.encode(plainText)).isEqualTo(cipherText);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void substitutionCipherCanWrapDecode() {
         String plainText = "zabcdefghi";
