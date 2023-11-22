@@ -19,13 +19,14 @@ public class Cipher {
     public String encode(String plainText) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < plainText.length(); i++) {
-            int charvalue = plainText.charAt(i) + key.charAt(i % key.length()) - 'a';
-            if (charvalue > 122) {
-                charvalue -= 26;
-            }
-            sb.append(Character.toString(charvalue));
+            int encodedAsciiValue = ((lowerCaseIndexOf(plainText.charAt(i)) +  lowerCaseIndexOf(key.charAt(i % key.length()))) % 26) + 'a';
+            sb.append(Character.toString(encodedAsciiValue));
         }
         return sb.toString();
+    }
+
+    private int lowerCaseIndexOf(char c) {
+        return c - 'a';
     }
 
     public String decode(String cipherText) {
