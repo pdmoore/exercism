@@ -70,7 +70,6 @@ public class SimpleCipherTest {
         assertThat(encodedText).isEqualTo(cipherText);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void substitutionCipherCanWrapEncode() {
         String plainText = "zzzzzzzzzz";
