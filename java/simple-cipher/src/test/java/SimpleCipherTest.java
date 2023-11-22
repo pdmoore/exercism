@@ -37,7 +37,6 @@ public class SimpleCipherTest {
         assertThat(randomKeyCipher.decode(randomKeyCipher.encode(plainText))).isEqualTo(plainText);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void randomKeyCipherKeyIsLowercaseLetters() {
         assertThat(randomKeyCipher.getKey()).matches("^[a-z]+$");
