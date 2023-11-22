@@ -4,6 +4,7 @@ public class Cipher {
     private final String key;
 
     public Cipher() {
+        // TODO - supposed to be random 100 lowercase chars
         key = "aaaaaaaaaaaaaaaaaaaaaa";
     }
 
