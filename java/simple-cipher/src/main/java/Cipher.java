@@ -4,7 +4,7 @@ public class Cipher {
     private final String key;
 
     public Cipher() {
-        // TODO - supposed to be random 100 lowercase chars
+        // TODO - supposed to be random 100 lowercase chars, no tests check
         key = "aaaaaaaaaaaaaaaaaaaaaa";
     }
 
@@ -17,9 +17,8 @@ public class Cipher {
     }
 
     public String encode(String plainText) {
-        int length = plainText.length();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < plainText.length(); i++) {
             int charvalue = plainText.charAt(i) + key.charAt(i % key.length()) - 'a';
             if (charvalue > 122) {
                 charvalue -= 26;
@@ -30,9 +29,8 @@ public class Cipher {
     }
 
     public String decode(String cipherText) {
-        int length = cipherText.length();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < cipherText.length(); i++) {
             int charvalue = 'z' - (Math.abs(cipherText.charAt(i) - key.charAt(i) - 78) % 26) + 1;
             if (charvalue > 122) {
                 charvalue -= 26;
