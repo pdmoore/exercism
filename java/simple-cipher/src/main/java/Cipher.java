@@ -1,5 +1,3 @@
-import java.io.StringBufferInputStream;
-
 public class Cipher {
     private final String key;
 
@@ -19,23 +17,22 @@ public class Cipher {
     public String encode(String plainText) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < plainText.length(); i++) {
-            int encodedAsciiValue = ((lowerCaseIndexOf(plainText.charAt(i)) +  lowerCaseIndexOf(key.charAt(i % key.length()))) % 26) + 'a';
+            int encodedAsciiValue = ((characterIndexedFromLowerA(plainText.charAt(i)) + characterIndexedFromLowerA(key.charAt(i % key.length()))) % 26) + 'a';
             sb.append(Character.toString(encodedAsciiValue));
         }
         return sb.toString();
     }
 
-    private int lowerCaseIndexOf(char c) {
+    private int characterIndexedFromLowerA(char c) {
         return c - 'a';
     }
 
     public String decode(String cipherText) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < cipherText.length(); i++) {
-            int charvalue = ('z' - (Math.abs(cipherText.charAt(i) - key.charAt(i) - 71) % 26) + 1) % 26 + 'a';
-//            if (charvalue > 122) {
-//                charvalue -= 26;
-//            }
+            // TODO - Lordy, it passes the tests, but sheesh
+            int magicNumber = (characterIndexedFromLowerA(cipherText.charAt(i)) - characterIndexedFromLowerA(key.charAt(i)) - 18) - 26;
+            int charvalue = (('z' - (Math.abs(magicNumber))) % 26) + 'a';
             sb.append(Character.toString(charvalue));
         }
         return sb.toString();
