@@ -18,6 +18,6 @@ public class Cipher {
     }
 
     public String decode(String cipherText) {
-        throw new UnsupportedOperationException("Please implement the Cipher.decode() method.");
+        return cipherText;
     }
 }

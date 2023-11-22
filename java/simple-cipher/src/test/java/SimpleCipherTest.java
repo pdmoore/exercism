@@ -24,7 +24,6 @@ public class SimpleCipherTest {
         assertThat(randomKeyCipher.encode(plainText)).isEqualTo(cipherText);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void randomKeyCipherCanDecode() {
         String cipherText = "aaaaaaaaaa";
