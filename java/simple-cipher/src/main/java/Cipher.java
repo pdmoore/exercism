@@ -32,10 +32,10 @@ public class Cipher {
     public String decode(String cipherText) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < cipherText.length(); i++) {
-            int charvalue = 'z' - (Math.abs(cipherText.charAt(i) - key.charAt(i) - 78) % 26) + 1;
-            if (charvalue > 122) {
-                charvalue -= 26;
-            }
+            int charvalue = ('z' - (Math.abs(cipherText.charAt(i) - key.charAt(i) - 71) % 26) + 1) % 26 + 'a';
+//            if (charvalue > 122) {
+//                charvalue -= 26;
+//            }
             sb.append(Character.toString(charvalue));
         }
         return sb.toString();
