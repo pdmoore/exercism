@@ -42,7 +42,6 @@ public class SimpleCipherTest {
         assertThat(randomKeyCipher.getKey()).matches("^[a-z]+$");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void substitutionCipherCanEncode() {
         String plainText = "aaaaaaaaaa";
