@@ -1,15 +1,21 @@
 class CircularBuffer<T> {
 
+    private T data;
+
     CircularBuffer(final int size) {
 
     }
 
     T read() throws BufferIOException {
-        throw new BufferIOException("Tried to read from empty buffer");
+        if (data == null) {
+            throw new BufferIOException("Tried to read from empty buffer");
+        }
+
+        return data;
     }
 
     void write(T data) throws BufferIOException {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.data = data;
     }
 
     void overwrite(T data) {

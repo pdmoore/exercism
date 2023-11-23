@@ -15,7 +15,6 @@ public class CircularBufferTest {
                 .withMessage("Tried to read from empty buffer");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void canReadItemJustWritten() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
