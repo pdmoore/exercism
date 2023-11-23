@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,10 +20,7 @@ class CircularBuffer<T> {
 
         T returnVal = this.data.get(readIndex);
         this.data.set(readIndex, null);
-        readIndex += 1;
-        if (readIndex >= size) {
-            readIndex = 0;
-        }
+        readIndex = incrementIndex(readIndex);
         return returnVal;
     }
 
@@ -36,24 +32,14 @@ class CircularBuffer<T> {
             throw new BufferIOException("Tried to write to full buffer");
         }
         this.data.set(writeIndex, data);
-        writeIndex += 1;
-        if (writeIndex >= size) {
-            writeIndex = 0;
-        }
+        writeIndex = incrementIndex(writeIndex);
     }
 
-    void overwrite(T data) {
-        // TODO - readIndex needs updated to not point to new writeIndex
-        readIndex = writeIndex + 1;
-        if (readIndex >= size) {
-            readIndex = 0;
-        }
 
+    void overwrite(T data) {
+        readIndex = incrementIndex(writeIndex);
         this.data.set(writeIndex, data);
-        writeIndex += 1;
-        if (writeIndex >= size) {
-            writeIndex = 0;
-        }
+        writeIndex = incrementIndex(writeIndex);
     }
 
     void clear() {
@@ -63,5 +49,13 @@ class CircularBuffer<T> {
         }
         writeIndex = 0;
         readIndex = -1;
+    }
+
+    private int incrementIndex(int bufferIndex) {
+        bufferIndex += 1;
+        if (bufferIndex >= size) {
+            bufferIndex = 0;
+        }
+        return bufferIndex;
     }
 }
