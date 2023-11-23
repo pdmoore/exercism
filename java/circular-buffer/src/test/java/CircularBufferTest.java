@@ -147,7 +147,6 @@ public class CircularBufferTest {
         assertThat(buffer.read()).isEqualTo(5);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void initialClearDoesNotAffectWrappingAround() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(2);

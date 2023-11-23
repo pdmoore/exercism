@@ -43,6 +43,7 @@ class CircularBuffer<T> {
     }
 
     void overwrite(T data) {
+        // Maybe write just calls overwrite after the checks?
         this.data.set(writeIndex, data);
         writeIndex += 1;
         if (writeIndex >= this.data.size()) {
