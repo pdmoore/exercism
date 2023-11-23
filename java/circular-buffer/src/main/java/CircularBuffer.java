@@ -43,6 +43,12 @@ class CircularBuffer<T> {
     }
 
     void overwrite(T data) {
+        // TODO - readIndex needs updated to not point to new writeIndex
+        readIndex = writeIndex + 1;
+        if (readIndex >= size) {
+            readIndex = 0;
+        }
+
         this.data.set(writeIndex, data);
         writeIndex += 1;
         if (writeIndex >= size) {

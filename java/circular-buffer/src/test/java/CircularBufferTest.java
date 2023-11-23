@@ -119,7 +119,6 @@ public class CircularBufferTest {
         assertThat(buffer.read()).isEqualTo(2);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void overwriteRemovesOldestElementOnFullBuffer() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(2);
