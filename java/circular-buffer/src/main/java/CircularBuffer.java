@@ -7,15 +7,11 @@ class CircularBuffer<T> {
     private int writeIndex;
     private  int readIndex;
     List<T> data;
+    private int size;
 
     CircularBuffer(final int size) {
-        data = new LinkedList<>();
-        // create LL of size with null data
-        for (int i = 0; i < size; i++) {
-            data.add(null);
-        }
-        writeIndex = 0;
-        readIndex = -1;
+        this.size = size;
+        clear();
     }
 
     T read() throws BufferIOException {
@@ -51,7 +47,12 @@ class CircularBuffer<T> {
     }
 
     void clear() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+
+        data = new LinkedList<>();
+        for (int i = 0; i < this.size; i++) {
+            data.add(null);
+        }
+        writeIndex = 0;
+        readIndex = -1;}
 
 }
