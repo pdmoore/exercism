@@ -11,7 +11,9 @@ class CircularBuffer<T> {
             throw new BufferIOException("Tried to read from empty buffer");
         }
 
-        return data;
+        T returnVal = data;
+        data = null;
+        return returnVal;
     }
 
     void write(T data) throws BufferIOException {
