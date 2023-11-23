@@ -43,7 +43,11 @@ class CircularBuffer<T> {
     }
 
     void overwrite(T data) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.data.set(writeIndex, data);
+        writeIndex += 1;
+        if (writeIndex >= this.data.size()) {
+            writeIndex = 0;
+        }
     }
 
     void clear() {

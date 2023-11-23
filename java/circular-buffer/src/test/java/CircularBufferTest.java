@@ -109,7 +109,6 @@ public class CircularBufferTest {
         assertThat(buffer.read()).isEqualTo(1);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void overwriteActsLikeWriteOnNonFullBuffer() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(2);
