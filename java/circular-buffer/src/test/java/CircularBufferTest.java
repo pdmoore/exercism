@@ -90,7 +90,6 @@ public class CircularBufferTest {
                 .withMessage("Tried to read from empty buffer");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void clearFreesUpCapacity() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
@@ -101,7 +100,6 @@ public class CircularBufferTest {
         assertThat(buffer.read()).isEqualTo(2);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void clearDoesNothingOnEmptyBuffer() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
