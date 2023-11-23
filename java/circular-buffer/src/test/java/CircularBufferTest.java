@@ -45,7 +45,6 @@ public class CircularBufferTest {
         assertThat(buffer.read()).isEqualTo(2);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void fullBufferCantBeWrittenTo() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(1);

@@ -36,6 +36,9 @@ class CircularBuffer<T> {
         if (readIndex == -1) {
             readIndex = 0;
         }
+        if (this.data.get(writeIndex) != null) {
+            throw new BufferIOException("Tried to write to full buffer");
+        }
         this.data.set(writeIndex, data);
         writeIndex += 1;
         if (writeIndex >= this.data.size()) {
