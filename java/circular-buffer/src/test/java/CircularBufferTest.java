@@ -130,7 +130,6 @@ public class CircularBufferTest {
         assertThat(buffer.read()).isEqualTo(3);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void overwriteDoesntRemoveAnAlreadyReadElement() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(3);
