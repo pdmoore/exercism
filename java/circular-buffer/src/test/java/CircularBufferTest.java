@@ -56,7 +56,6 @@ public class CircularBufferTest {
                 .withMessage("Tried to write to full buffer");
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void readFreesUpSpaceForWrite() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(1);
@@ -67,7 +66,6 @@ public class CircularBufferTest {
         assertThat(buffer.read()).isEqualTo(2);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void maintainsReadPositionAcrossWrites() throws BufferIOException {
         CircularBuffer<Integer> buffer = new CircularBuffer<>(3);
