@@ -7,7 +7,7 @@ class CircularBuffer<T> {
     private int writeIndex;
     private  int readIndex;
     List<T> data;
-    private int size;
+    private final int size;
 
     CircularBuffer(final int size) {
         this.size = size;
@@ -22,7 +22,7 @@ class CircularBuffer<T> {
         T returnVal = this.data.get(readIndex);
         this.data.set(readIndex, null);
         readIndex += 1;
-        if (readIndex >= data.size()) {
+        if (readIndex >= size) {
             readIndex = 0;
         }
         return returnVal;
@@ -37,27 +37,25 @@ class CircularBuffer<T> {
         }
         this.data.set(writeIndex, data);
         writeIndex += 1;
-        if (writeIndex >= this.data.size()) {
+        if (writeIndex >= size) {
             writeIndex = 0;
         }
     }
 
     void overwrite(T data) {
-        // Maybe write just calls overwrite after the checks?
         this.data.set(writeIndex, data);
         writeIndex += 1;
-        if (writeIndex >= this.data.size()) {
+        if (writeIndex >= size) {
             writeIndex = 0;
         }
     }
 
     void clear() {
-
         data = new LinkedList<>();
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 0; i < size; i++) {
             data.add(null);
         }
         writeIndex = 0;
-        readIndex = -1;}
-
+        readIndex = -1;
+    }
 }
