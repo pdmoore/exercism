@@ -1,7 +1,13 @@
 (ns matching-brackets)
 
+(defn newthing
+      ([s list] (clojure.string/blank? s))
+      )
+
 (defn valid?
-  ([expression] false)
+      ;;([] false)
+      ;;([blank? s] true)
+      ([s] (newthing s ()) )
   ;; traverse each character in the string
   ;; if it is a [{( then push it on a stack (LIFO)
   ;; if it is a ]}) then pop form stack and ensure it matches
@@ -10,3 +16,4 @@
   ;; empty stack and string traversal means no unmatched opening brackets
 
 )
+
