@@ -4,7 +4,7 @@
 ;; if it is a [{( then push it on a stack (LIFO)
 ;; if it is a ]}) then ensure it matches unmatched-brackets and pop from stack
 ;; otherwise once through the entire string return if stack is empty or not
-;; complete string traversal and empty stack and means no unmatched opening bracket
+;; complete string traversal and empty stack means no unmatched opening bracket
 (defn check [ s unmatched-brackets ]
       (cond
             (empty? s) (empty? unmatched-brackets)
