@@ -1,28 +1,25 @@
 (ns matching-brackets)
 
-(defn newthing [ s brackets ]
+;; check the first character of the remaining string
+;; if it is a [{( then push it on a stack (LIFO)
+;; if it is a ]}) then ensure it matches unmatched-brackets and pop from stack
+;; otherwise once through the entire string return if stack is empty or not
+;; complete string traversal and empty stack and means no unmatched opening bracket
+(defn check [ s unmatched-brackets ]
       (cond
-            (empty? s) (empty? brackets)
-            (= (first s) \() (newthing (rest s) (conj brackets \())
-            (= (first s) \)) (and (= (peek brackets) \() (newthing (rest s) (pop brackets)))
+            (empty? s) (empty? unmatched-brackets)
+            (= (first s) \() (check (rest s) (conj unmatched-brackets \())
+            (= (first s) \)) (and (= (peek unmatched-brackets) \() (check (rest s) (pop unmatched-brackets)))
 
-            (= (first s) \[) (newthing (rest s) (conj brackets \[))
-            (= (first s) \]) (and (= (peek brackets) \[) (newthing (rest s) (pop brackets)))
+            (= (first s) \[) (check (rest s) (conj unmatched-brackets \[))
+            (= (first s) \]) (and (= (peek unmatched-brackets) \[) (check (rest s) (pop unmatched-brackets)))
 
-            (= (first s) \{) (newthing (rest s) (conj brackets \{))
-            (= (first s) \}) (and (= (peek brackets) \{) (newthing (rest s) (pop brackets)))
-            :else (newthing (rest s) brackets)
+            (= (first s) \{) (check (rest s) (conj unmatched-brackets \{))
+            (= (first s) \}) (and (= (peek unmatched-brackets) \{) (check (rest s) (pop unmatched-brackets)))
+            :else (check (rest s) unmatched-brackets)
             ))
 
 (defn valid? [s]
-      ;;([] false)
-      ;;([blank? s] true)
-      (newthing s [])
-      ;; traverse each character in the string
-  ;; if it is a [{( then push it on a stack (LIFO)
-  ;; if it is a ]}) then pop form stack and ensure it matches
-  ;; if no match, empty stack then bail with false
-  ;; otherwise once through the entire string return if stack is empty or not
-  ;; empty stack and string traversal means no unmatched opening bracket
+      (check s [])
 )
 
