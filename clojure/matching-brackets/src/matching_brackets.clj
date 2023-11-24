@@ -1,19 +1,22 @@
 (ns matching-brackets)
 
-(defn newthing
-      ([s list] (clojure.string/blank? s))
-      )
+(defn newthing [ s brackets]
+      (cond
+        (empty? s) (empty? brackets)  ;; when nothing left to process, any unbalanced brackets?
 
-(defn valid?
+        :else (newthing (rest s) brackets)
+        )
+)
+
+(defn valid? [s]
       ;;([] false)
       ;;([blank? s] true)
-      ([s] (newthing s ()) )
-  ;; traverse each character in the string
+      (newthing s [])
+      ;; traverse each character in the string
   ;; if it is a [{( then push it on a stack (LIFO)
   ;; if it is a ]}) then pop form stack and ensure it matches
   ;; if no match, empty stack then bail with false
   ;; otherwise once through the entire string return if stack is empty or not
-  ;; empty stack and string traversal means no unmatched opening brackets
-
+  ;; empty stack and string traversal means no unmatched opening bracket
 )
 
