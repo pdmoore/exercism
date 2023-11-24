@@ -1,12 +1,16 @@
 (ns matching-brackets)
 
-(defn newthing [ s brackets]
+(defn newthing [ s stack ]
       (cond
-        (empty? s) (empty? brackets)  ;; when nothing left to process, any unbalanced brackets?
-
-        :else (newthing (rest s) brackets)
-        )
-)
+            (empty? s) (empty? stack)
+            (= (first s) \() (newthing (rest s) (conj stack \)))
+            ;;(= (first string) \{) (newthing (rest string) (conj stack \}))
+            ;;(= (first string) \[) (newthing (rest string) (conj stack \]))
+            (= (first s) \)) (and (= (peek stack) \)) (newthing (rest s) (pop stack)))
+            ;;(= (first string) \}) (and (= (peek stack) \}) (newthing (rest string) (pop stack)))
+            ;;(= (first string) \]) (and (= (peek stack) \]) (newthing (rest string) (pop stack)))
+            :else (newthing (rest s) stack)
+            ))
 
 (defn valid? [s]
       ;;([] false)
