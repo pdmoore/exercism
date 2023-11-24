@@ -1,15 +1,13 @@
 (ns matching-brackets)
 
-(defn newthing [ s stack ]
+(defn newthing [ s brackets ]
       (cond
-            (empty? s) (empty? stack)
-            (= (first s) \() (newthing (rest s) (conj stack \)))
-            ;;(= (first string) \{) (newthing (rest string) (conj stack \}))
-            ;;(= (first string) \[) (newthing (rest string) (conj stack \]))
-            (= (first s) \)) (and (= (peek stack) \)) (newthing (rest s) (pop stack)))
-            ;;(= (first string) \}) (and (= (peek stack) \}) (newthing (rest string) (pop stack)))
-            ;;(= (first string) \]) (and (= (peek stack) \]) (newthing (rest string) (pop stack)))
-            :else (newthing (rest s) stack)
+            (empty? s) (empty? brackets)
+            (= (first s) \() (newthing (rest s) (conj brackets \())
+            (= (first s) \[) (newthing (rest s) (conj brackets \[))
+            (= (first s) \)) (and (= (peek brackets) \() (newthing (rest s) (pop brackets)))
+            (= (first s) \]) (and (= (peek brackets) \[) (newthing (rest s) (pop brackets)))
+            :else (newthing (rest s) brackets)
             ))
 
 (defn valid? [s]
