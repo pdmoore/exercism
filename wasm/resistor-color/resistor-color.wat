@@ -1,7 +1,7 @@
 (module
   (memory (export "mem") 1)
 
-  (data (i32.const 100) "black")
+  (data (i32.const 100) "black,brown,red,orange,yellow,green,blue,violet,grey,white")
 
   ;;
   ;; Return buffer of comma separated colors
@@ -10,7 +10,7 @@
   ;; @returns {(i32, i32)} - The offset and length of the buffer of comma separated colors
   ;;
   (func (export "colors") (result i32 i32)
-    (return (i32.const 100) (i32.const 5))
+    (return (i32.const 100) (i32.const 58))
   )
 
   ;;
