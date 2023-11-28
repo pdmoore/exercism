@@ -30,24 +30,30 @@
   ;; @returns {i32} - the associated value
   ;;
   (func (export "colorCode") (param $offset i32) (param $len i32) (result i32)
-    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 100)))
+    ;; TODO - all tests pass, remaining implementation is copy/paste and adjust the second const of the i32.eq check
+    ;; check the offset against the starting character of each color
+
+    ;; black
+    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 100))) 
       (then
       (i32.const 0)
       (return)
     ))
 
-    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 116)))
+    ;; orange
+    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 116))) 
       (then
       (i32.const 3)
       (return)
     ))
 
-    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 153)))
+    ;; white
+    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 153))) 
       (then
       (i32.const 9)
       (return)
     ))
-
+ 
     (return (i32.const -1))
   )
 )
