@@ -36,6 +36,12 @@
       (return)
     ))
 
+    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 116)))
+      (then
+      (i32.const 3)
+      (return)
+    ))
+
     (return (i32.const -1))
   )
 )
