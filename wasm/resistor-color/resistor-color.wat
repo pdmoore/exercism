@@ -30,6 +30,12 @@
   ;; @returns {i32} - the associated value
   ;;
   (func (export "colorCode") (param $offset i32) (param $len i32) (result i32)
+    (if (i32.eq (i32.load (local.get $offset)) (i32.load (i32.const 100)))
+      (then
+      (i32.const 0)
+      (return)
+    ))
+
     (return (i32.const -1))
   )
 )
