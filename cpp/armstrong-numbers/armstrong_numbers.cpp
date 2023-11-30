@@ -21,16 +21,20 @@ namespace armstrong_numbers {
 
 
         int num_digits = floor(log10(candidate) + 1);
-        int sum_of_powers = 0;
-
-        if (candidate == 0) return true;
-
-        if (candidate == 5) {
-            sum_of_powers = pow(5, num_digits);
+        int digits[10];
+        int number = candidate;
+        for (int i = num_digits; i >= 0; i--) {
+            digits[i] = number % 10;
+            number /= 10;
         }
 
-        if (candidate == 153) {
-            sum_of_powers = pow(1, num_digits) + pow(5, num_digits) + pow(3, num_digits);
+
+        int sum_of_powers = 0;
+
+//        if (candidate == 0) return true;
+
+        for (int i = 1; i <= num_digits; ++i) {
+            sum_of_powers += pow(digits[i], num_digits);
         }
 
         return sum_of_powers == candidate;
