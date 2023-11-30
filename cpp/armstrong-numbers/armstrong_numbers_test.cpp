@@ -27,7 +27,6 @@ TEST_CASE("three_digit_number_that_is_an_armstrong_number")
     REQUIRE(armstrong_numbers::is_armstrong_number(153));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("three_digit_number_that_is_not_an_armstrong_number")
 {
     REQUIRE_FALSE(armstrong_numbers::is_armstrong_number(100));
@@ -52,4 +51,5 @@ TEST_CASE("seven_digit_number_that_is_not_an_armstrong_number")
 {
     REQUIRE_FALSE(armstrong_numbers::is_armstrong_number(9926314));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif // !EXERCISM_RUN_ALL_TESTS
