@@ -7,10 +7,18 @@ namespace bob {
 
         bool question = false;
         bool empty = true;
+        bool upperCaseFound = false;
+        bool lowerCaseFound = false;
         for (char c : you_said) {
             if (!isspace(c)) {
                 question = false;
                 empty = false;
+            }
+            if (isupper(c)) {
+                upperCaseFound = true;
+            }
+            if (islower(c)) {
+                lowerCaseFound = true;
             }
             if (c == '?') {
                 question = true;
@@ -22,6 +30,9 @@ namespace bob {
         }
         if (empty) {
             return "Fine. Be that way!";
+        }
+        if (upperCaseFound && !lowerCaseFound) {
+            return "Whoa, chill out!";
         }
         return "Whatever.";
         // int length = strlen(string);
