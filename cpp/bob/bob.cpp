@@ -3,19 +3,17 @@
 #include "bob.h"
 
 namespace bob {
-    std::string trim(const std::string & source) {
+    std::string right_trim_space_off(const std::string & source) {
         std::string s(source);
-        s.erase(0,s.find_first_not_of(" \n\r\t"));
-        s.erase(s.find_last_not_of(" \n\r\t")+1);
+        s.erase(s.find_last_not_of(" ")+1);
         return s;
     }
 
     std::string hey(const std::string you_said) {
 
-        std::string trimmedInput = trim(you_said);
+        std::string trimmedInput = right_trim_space_off(you_said);
 
         bool empty = true;
-
         bool upperCaseFound = false;
         bool lowerCaseFound = false;
         for (char c : trimmedInput) {
@@ -37,11 +35,9 @@ namespace bob {
                 return "Calm down, I know what I'm doing!";
             }
             return "Sure.";
-        }
-        if (empty) {
+        } else if (empty) {
             return "Fine. Be that way!";
-        }
-        if (shouting) {
+        } else if (shouting) {
             return "Whoa, chill out!";
         }
         return "Whatever.";
