@@ -6,9 +6,11 @@ namespace bob {
     std::string hey(const std::string you_said) {
 
         bool question = false;
+        bool empty = true;
         for (char c : you_said) {
             if (!isspace(c)) {
                 question = false;
+                empty = false;
             }
             if (c == '?') {
                 question = true;
@@ -17,6 +19,9 @@ namespace bob {
 
         if (question) {
             return "Sure.";
+        }
+        if (empty) {
+            return "Fine. Be that way!";
         }
         return "Whatever.";
         // int length = strlen(string);
