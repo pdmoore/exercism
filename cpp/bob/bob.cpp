@@ -3,15 +3,21 @@
 #include "bob.h"
 
 namespace bob {
+    std::string trim(const std::string & source) {
+        std::string s(source);
+        s.erase(0,s.find_first_not_of(" \n\r\t"));
+        s.erase(s.find_last_not_of(" \n\r\t")+1);
+        return s;
+    }
+
     std::string hey(const std::string you_said) {
 
-        bool question = false;
         bool empty = true;
+
         bool upperCaseFound = false;
         bool lowerCaseFound = false;
-        for (char c : you_said) {
+        for (char c : trim(you_said)) {
             if (!isspace(c)) {
-                question = false;
                 empty = false;
             }
             if (isupper(c)) {
@@ -20,12 +26,10 @@ namespace bob {
             if (islower(c)) {
                 lowerCaseFound = true;
             }
-            if (c == '?') {
-                question = true;
-            }
         }
 
         bool shouting = upperCaseFound && !lowerCaseFound;
+        bool question = trim(you_said).back() == '?';
         if (question) {
             if (shouting) {
                 return "Calm down, I know what I'm doing!";
@@ -40,5 +44,4 @@ namespace bob {
         }
         return "Whatever.";
     }
-
 }  // namespace bob
