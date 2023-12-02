@@ -10,8 +10,6 @@ namespace bob {
         if (strcmp(upperVersion, string)) {
             return "Whoa, chill out!";
         }
-        // convert string to upper and compare to original
-        // if they match, return "Whoa, chill out!"
 
 
         if (strcmp(string, "hi")) {

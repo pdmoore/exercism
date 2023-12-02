@@ -17,12 +17,12 @@ TEST_CASE("shouting")
 {
     REQUIRE(strcmp("Whoa, chill out!", bob::hey("WATCH OUT!")));
 }
-#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("shouting_gibberish")
 {
     REQUIRE(strcmp("Whoa, chill out!", bob::hey("FCECDFCAAB")));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("asking_a_question")
 {
