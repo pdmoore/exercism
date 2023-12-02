@@ -5,7 +5,13 @@
 namespace bob {
     const char *hey(const char *string) {
 
-        char* upperVersion = static_cast<char *>(calloc(strlen(string), sizeof(char)));
+        // ends in ?, reply "Sure."
+        int length = strlen(string);
+//        if ('?' == string[length - 1]) {
+//            return "Sure.";
+//        }
+
+        char* upperVersion = static_cast<char *>(calloc(length, sizeof(char)));
         strcpy(upperVersion, string);
         if (strcmp(upperVersion, string)) {
             return "Whoa, chill out!";
