@@ -27,7 +27,6 @@ TEST_CASE("asking_a_question")
 {
     REQUIRE(strcmp("Sure.", bob::hey("Does this cryogenic chamber make me look fat?")));
 }
-#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("asking_a_numeric_question")
 {
@@ -48,6 +47,7 @@ TEST_CASE("using_acronyms_in_regular_speech")
 {
     REQUIRE(strcmp("Whatever.", bob::hey("It's OK if you don't want to go to the DMV.")));
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 
 TEST_CASE("forceful_questions")
 {
