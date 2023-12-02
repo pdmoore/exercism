@@ -25,41 +25,20 @@ namespace bob {
             }
         }
 
+        bool shouting = upperCaseFound && !lowerCaseFound;
         if (question) {
+            if (shouting) {
+                return "Calm down, I know what I'm doing!";
+            }
             return "Sure.";
         }
         if (empty) {
             return "Fine. Be that way!";
         }
-        if (upperCaseFound && !lowerCaseFound) {
+        if (shouting) {
             return "Whoa, chill out!";
         }
         return "Whatever.";
-        // int length = strlen(string);
-
-        // if (length == 0) {
-        //     return "Fine. Be that way!";
-        // }
-
-        // char* upperVersion = static_cast<char *>(calloc(length, sizeof(char)));
-        // strcpy(upperVersion, string);
-
-        // if (string[length - 1] == '?') {
-        //     if (strcmp(upperVersion, string)) {
-        //         return "Calm down, I know what I'm doing!";
-        //     }
-        //     return "Sure.";
-        // }
-
-        // if (strcmp(upperVersion, string)) {
-        //     return "Whoa, chill out!";
-        // }
-
-
-        // if (strcmp(string, "hi")) {
-        //     return "hey";
-        // }
-        // return "Whatever.";
     }
 
 }  // namespace bob
