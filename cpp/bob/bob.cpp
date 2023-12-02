@@ -12,11 +12,13 @@ namespace bob {
 
     std::string hey(const std::string you_said) {
 
+        std::string trimmedInput = trim(you_said);
+
         bool empty = true;
 
         bool upperCaseFound = false;
         bool lowerCaseFound = false;
-        for (char c : trim(you_said)) {
+        for (char c : trimmedInput) {
             if (!isspace(c)) {
                 empty = false;
             }
@@ -29,7 +31,7 @@ namespace bob {
         }
 
         bool shouting = upperCaseFound && !lowerCaseFound;
-        bool question = trim(you_said).back() == '?';
+        bool question = trimmedInput.back() == '?';
         if (question) {
             if (shouting) {
                 return "Calm down, I know what I'm doing!";
