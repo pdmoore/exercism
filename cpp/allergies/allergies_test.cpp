@@ -24,56 +24,56 @@ TEST_CASE("allergic_to_eggs")
     REQUIRE(true == score.is_allergic_to("eggs"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("allergic_to_peanuts")
 {
     allergies::allergy_test score(2);
-   
+
     REQUIRE(true == score.is_allergic_to("peanuts"));
 }
 
 TEST_CASE("allergic_to_shellfish")
 {
     allergies::allergy_test score(4);
-   
+
     REQUIRE(true == score.is_allergic_to("shellfish"));
 }
 
 TEST_CASE("allergic_to_strawberries")
 {
     allergies::allergy_test score(8);
-   
+
     REQUIRE(true == score.is_allergic_to("strawberries"));
 }
 
 TEST_CASE("allergic_to_tomatoes")
 {
     allergies::allergy_test score(16);
-   
+
     REQUIRE(true == score.is_allergic_to("tomatoes"));
 }
 
 TEST_CASE("allergic_to_chocolate")
 {
     allergies::allergy_test score(32);
-   
+
     REQUIRE(true == score.is_allergic_to("chocolate"));
 }
 
 TEST_CASE("allergic_to_pollen")
 {
     allergies::allergy_test score(64);
-   
+
     REQUIRE(true == score.is_allergic_to("pollen"));
 }
 
 TEST_CASE("allergic_to_cats")
 {
     allergies::allergy_test score(128);
-   
+
     REQUIRE(true == score.is_allergic_to("cats"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("allergic_to_eggs_and_other_stuff")
 {
     allergies::allergy_test score(5);
