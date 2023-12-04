@@ -73,11 +73,10 @@ TEST_CASE("allergic_to_cats")
     REQUIRE(true == score.is_allergic_to("cats"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("allergic_to_eggs_and_other_stuff")
 {
     allergies::allergy_test score(5);
-   
+
     REQUIRE(true == score.is_allergic_to("eggs"));
     REQUIRE(true == score.is_allergic_to("shellfish"));
     REQUIRE(false == score.is_allergic_to("peanuts"));
@@ -135,7 +134,7 @@ TEST_CASE("allergic_to_everything")
 {
     allergies::allergy_test score(255);
     const std::unordered_set<std::string> everything = {"eggs", "peanuts", "shellfish", "strawberries",
-                                                        "tomatoes", "chocolate", "pollen", "cats"}; 
+                                                        "tomatoes", "chocolate", "pollen", "cats"};
 
     REQUIRE(everything == score.get_allergies());
 }
@@ -148,4 +147,5 @@ TEST_CASE("ignore_non_allergen_score_parts")
 
     REQUIRE(non_allergen == score.get_allergies());
 }
+#if defined(EXERCISM_RUN_ALL_TESTS)
 #endif

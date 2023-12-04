@@ -2,13 +2,13 @@
 
 namespace allergies {
 
-    static const std::array<std::string, 8> items = {
+    const std::string items[] = {
             "eggs", "peanuts", "shellfish", "strawberries",
             "tomatoes", "chocolate", "pollen", "cats"
     };
 
     allergy_test::allergy_test(int score) {
-        for (std::size_t i = 0; i < items.size(); ++i) {
+        for (std::size_t i = 0; i <= 7; ++i) {
             if (score & (1 << i)) {
                 allergies.insert(items[i]);
             }
