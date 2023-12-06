@@ -26,15 +26,21 @@ namespace arcade {
 
         std::sort(sorted_copy.rbegin(), sorted_copy.rend());
 
-        std::vector<int> three(sorted_copy.begin(), sorted_copy.begin() + 3);
+        // hmmm std::max didn't work
+        int num_to_copy = scores.size();
+        if (num_to_copy > 3) {
+            num_to_copy = 3;
+        }
 
-        if (scores.size() == 2) {
-            three.pop_back();
-        }
-        if (scores.size() == 1) {
-            three.pop_back();
-            three.pop_back();
-        }
+        std::vector<int> three(sorted_copy.begin(), sorted_copy.begin() + num_to_copy);
+
+//        if (scores.size() == 2) {
+//            three.pop_back();
+//        }
+//        if (scores.size() == 1) {
+//            three.pop_back();
+//            three.pop_back();
+//        }
 
         return three;
     }

@@ -73,7 +73,6 @@ TEST_CASE("Latest score after personal top scores", "[immutable, latestAfterTopT
     hs.top_three();
     REQUIRE(hs.latest_score() == expected);
 }
-#ifdef EXERCISM_RUN_ALL_TESTS
 
 TEST_CASE("Scores after personal top scores", "[immutable, scoresAfterTopThree]") {
     // Test if list_scores is unchanged after calling top_three
@@ -100,4 +99,5 @@ TEST_CASE("Scores after personal best", "[immutable, scoresAfterBest]") {
     REQUIRE(hs.list_scores() == scores);
 }
 
+#ifdef EXERCISM_RUN_ALL_TESTS
 #endif
