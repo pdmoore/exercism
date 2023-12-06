@@ -22,9 +22,11 @@ namespace arcade {
 
     std::vector<int> HighScores::top_three() {
 
-        std::sort(scores.rbegin(), scores.rend());
+        std::vector<int> sorted_copy(scores.begin(), scores.end());
 
-        std::vector<int> three(scores.begin(), scores.begin() + 3);
+        std::sort(sorted_copy.rbegin(), sorted_copy.rend());
+
+        std::vector<int> three(sorted_copy.begin(), sorted_copy.begin() + 3);
 
         if (scores.size() == 2) {
             three.pop_back();
