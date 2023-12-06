@@ -21,8 +21,12 @@ namespace arcade {
     }
 
     std::vector<int> HighScores::top_three() {
-        // TODO: Return the top 3 scores for this session in descending order.
-        return {0, 1, 2};
+
+        std::sort(scores.rbegin(), scores.rend());
+
+        std::vector<int> three(scores.begin(), scores.begin() + 3);
+
+        return three;
     }
 
 }  // namespace arcade

@@ -30,7 +30,6 @@ TEST_CASE("Personal best", "[personalBest]") {
     REQUIRE(hs.personal_best() == expected);
 }
 
-#ifdef EXERCISM_RUN_ALL_TESTS
 TEST_CASE("Personal top three from a list of scores", "[personalTopThree]") {
     std::vector<int> scores{10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70};
     std::vector<int> expected{100, 90, 70};
@@ -38,6 +37,7 @@ TEST_CASE("Personal top three from a list of scores", "[personalTopThree]") {
     REQUIRE(hs.top_three() == expected);
 }
 
+#ifdef EXERCISM_RUN_ALL_TESTS
 TEST_CASE("Personal top highest to lowest", "[personalTopThree]") {
     std::vector<int> scores{20, 10, 30};
     std::vector<int> expected{30, 20, 10};
