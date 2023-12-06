@@ -5,13 +5,11 @@
 namespace arcade {
 
     std::vector<int> HighScores::list_scores() {
-        // TODO: Return all scores for this session.
         return scores;
     }
 
     int HighScores::latest_score() {
-        // TODO: Return the latest score for this session.
-        return 0;
+        return scores.back();
     }
 
     int HighScores::personal_best() {

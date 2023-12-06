@@ -15,14 +15,14 @@ TEST_CASE("List of scores", "[scores]") {
     REQUIRE(hs.list_scores() == scores);
 }
 
-#ifdef EXERCISM_RUN_ALL_TESTS
-
 TEST_CASE("Latest score", "[latest]") {
     std::vector<int> scores{100, 0, 90, 30};
     int expected{30};
     arcade::HighScores hs{scores};
     REQUIRE(hs.latest_score() == expected);
 }
+#ifdef EXERCISM_RUN_ALL_TESTS
+
 
 TEST_CASE("Personal best", "[personalBest]") {
     std::vector<int> scores{40, 100, 70};
