@@ -37,7 +37,6 @@ TEST_CASE("Personal top three from a list of scores", "[personalTopThree]") {
     REQUIRE(hs.top_three() == expected);
 }
 
-#ifdef EXERCISM_RUN_ALL_TESTS
 TEST_CASE("Personal top highest to lowest", "[personalTopThree]") {
     std::vector<int> scores{20, 10, 30};
     std::vector<int> expected{30, 20, 10};
@@ -66,6 +65,7 @@ TEST_CASE("Personal top when there is only one", "[personalTopThree]") {
     REQUIRE(hs.top_three() == expected);
 }
 
+#ifdef EXERCISM_RUN_ALL_TESTS
 TEST_CASE("Latest score after personal top scores", "[immutable, latestAfterTopThree]") {
     // Test if latest_score is still valid after calling top_three
     std::vector<int> scores{70, 50, 20, 30};

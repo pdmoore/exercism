@@ -26,6 +26,14 @@ namespace arcade {
 
         std::vector<int> three(scores.begin(), scores.begin() + 3);
 
+        if (scores.size() == 2) {
+            three.pop_back();
+        }
+        if (scores.size() == 1) {
+            three.pop_back();
+            three.pop_back();
+        }
+
         return three;
     }
 
