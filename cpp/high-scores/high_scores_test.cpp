@@ -21,7 +21,6 @@ TEST_CASE("Latest score", "[latest]") {
     arcade::HighScores hs{scores};
     REQUIRE(hs.latest_score() == expected);
 }
-#ifdef EXERCISM_RUN_ALL_TESTS
 
 
 TEST_CASE("Personal best", "[personalBest]") {
@@ -31,6 +30,7 @@ TEST_CASE("Personal best", "[personalBest]") {
     REQUIRE(hs.personal_best() == expected);
 }
 
+#ifdef EXERCISM_RUN_ALL_TESTS
 TEST_CASE("Personal top three from a list of scores", "[personalTopThree]") {
     std::vector<int> scores{10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70};
     std::vector<int> expected{100, 90, 70};

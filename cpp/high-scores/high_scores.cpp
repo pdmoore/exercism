@@ -13,8 +13,11 @@ namespace arcade {
     }
 
     int HighScores::personal_best() {
-        // TODO: Return the highest score for this session.
-        return 0;
+        int best = 0;
+        for (int i : scores) {
+            best = std::max(best, i);
+        }
+        return best;
     }
 
     std::vector<int> HighScores::top_three() {
