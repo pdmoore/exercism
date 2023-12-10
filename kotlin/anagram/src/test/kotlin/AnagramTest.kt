@@ -85,7 +85,6 @@ class AnagramTest {
             .searchedIn("Banana")
             .shouldBeEmpty()
 
-    @Ignore
     @Test
     fun `words other than themselves can be anagrams`() =
         anagramsOf("LISTEN")
