@@ -23,21 +23,18 @@ class AnagramTest {
             .searchedIn("dog", "goody")
             .shouldBeEmpty()
 
-    @Ignore
     @Test
     fun `detects anagram`() =
         anagramsOf("listen")
             .searchedIn("enlists", "google", "inlets", "banana")
             .shouldBeOnly("inlets")
 
-    @Ignore
     @Test
     fun `detects three anagrams`() =
         anagramsOf("allergy")
             .searchedIn("gallery", "ballerina", "regally", "clergy", "largely", "leading")
             .shouldBeOnly("gallery", "largely", "regally")
 
-    @Ignore
     @Test
     fun `detects multiple anagrams with different case`() =
         anagramsOf("nose")
