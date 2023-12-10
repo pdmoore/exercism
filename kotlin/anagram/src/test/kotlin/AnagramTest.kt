@@ -79,7 +79,6 @@ class AnagramTest {
             .searchedIn("patter")
             .shouldBeEmpty()
 
-    @Ignore
     @Test
     fun `words are not anagrams of themselves (case-insensitive)`() =
         anagramsOf("BANANA")

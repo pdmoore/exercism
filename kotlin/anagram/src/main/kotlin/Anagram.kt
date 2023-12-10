@@ -10,7 +10,8 @@ class Anagram(source: String) {
         val result = HashSet<String>()
         anagrams.forEach {
 
-            if (it.length == source.length &&
+            if (!source.equals(it.lowercase()) &&
+                it.length == source.length &&
                 source.toList().containsAll(it.lowercase().toList())) {
                 result.add(it);
             }
