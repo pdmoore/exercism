@@ -17,7 +17,6 @@ class AnagramTest {
             .searchedIn("stream", "pigeon", "maters")
             .shouldBeOnly("maters", "stream")
 
-    @Ignore
     @Test
     fun `does not detect anagram subsets`() =
         anagramsOf("good")
