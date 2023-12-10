@@ -11,7 +11,6 @@ class AnagramTest {
             .searchedIn("hello", "world", "zombies", "pants")
             .shouldBeEmpty()
 
-    @Ignore
     @Test
     fun `detects two anagrams`() =
         anagramsOf("master")
