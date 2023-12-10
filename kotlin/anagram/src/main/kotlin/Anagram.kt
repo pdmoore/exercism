@@ -2,7 +2,6 @@ import java.util.*
 import kotlin.collections.HashSet
 
 class Anagram(source: String) {
-//    val source = Collections.sort(source.toList());
     val source = source.lowercase();
 
 
@@ -12,7 +11,8 @@ class Anagram(source: String) {
 
             if (!source.equals(it.lowercase()) &&
                 it.length == source.length &&
-                source.toList().containsAll(it.lowercase().toList())) {
+//                source.toList().containsAll(it.lowercase().toList())) {
+                source.lowercase().toCharArray().sorted() == it.lowercase().toCharArray().sorted()) {
                 result.add(it);
             }
         }

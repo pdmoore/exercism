@@ -72,7 +72,6 @@ class AnagramTest {
             .searchedIn("go Go GO")
             .shouldBeEmpty()
 
-    @Ignore
     @Test
     fun `anagrams must use all letters exactly once`() =
         anagramsOf("tapper")
