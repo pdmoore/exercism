@@ -1,6 +1,3 @@
-import java.util.*
-import kotlin.collections.HashSet
-
 class Anagram(source: String) {
     val source = source.lowercase();
 
