@@ -54,7 +54,6 @@ class PhoneNumberTest {
         PhoneNumber("(123) 456-7890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - exchange code starts with 0`() {
         PhoneNumber("(223) 056-7890")
