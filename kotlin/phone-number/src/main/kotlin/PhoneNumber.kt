@@ -13,9 +13,8 @@ class PhoneNumber(var raw_number: String) {
         require(clean_number!!.matches("[0-9]+".toRegex()))
     }
 
-
-    private fun validAreadCode() = (!clean_number!!.startsWith("0") && !clean_number!!.startsWith("1"))
-    private fun validExchangeCode() = (clean_number!!.get(3) != '0' &&  clean_number!!.get(3) != '1')
+    private fun validAreadCode() = (('2'..'9').contains(clean_number?.get(3) ?: true))
+    private fun validExchangeCode() = (('2'..'9').contains(clean_number?.get(3) ?: true))
 
     val number: String? = clean_number
 }
