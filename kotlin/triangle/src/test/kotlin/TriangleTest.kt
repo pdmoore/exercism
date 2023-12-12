@@ -25,37 +25,31 @@ class TriangleTest {
         assertFalse(Triangle(0, 0, 0).isEquilateral)
     }
 
-    @Ignore
     @Test
     fun `equilateral - sides may be floats`() {
         assertTrue(Triangle(0.5, 0.5, 0.5).isEquilateral)
     }
 
-    @Ignore
     @Test
     fun `isosceles - last two sides are equal`() {
         assertTrue(Triangle(3, 4, 4).isIsosceles)
     }
 
-    @Ignore
     @Test
     fun `isosceles - first two sides are equal`() {
         assertTrue(Triangle(4, 4, 3).isIsosceles)
     }
 
-    @Ignore
     @Test
     fun `isosceles - first and last sides are equal`() {
         assertTrue(Triangle(4, 3, 4).isIsosceles)
     }
 
-    @Ignore
     @Test
     fun `isosceles - equilateral triangles are also isosceles`() {
         assertTrue(Triangle(4, 4, 4).isIsosceles)
     }
 
-    @Ignore
     @Test
     fun `isosceles - no sides are equal`() {
         assertFalse(Triangle(2, 3, 4).isIsosceles)

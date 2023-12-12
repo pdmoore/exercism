@@ -8,6 +8,6 @@ class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
 
 
     val isEquilateral: Boolean = _sideLengths.size == 1
-    val isIsosceles: Boolean = true
+    val isIsosceles: Boolean = _sideLengths.size <= 2
     val isScalene: Boolean = true
 }
