@@ -39,13 +39,11 @@ class PhoneNumberTest {
         PhoneNumber("123-abc-7890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - punctuations`() {
         PhoneNumber("123-@:!-7890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - area code starts with 0`() {
         PhoneNumber("(023) 456-7890")
