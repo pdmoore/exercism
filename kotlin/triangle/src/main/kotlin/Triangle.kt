@@ -1,4 +1,4 @@
-class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
+class Triangle<out T : Number>(a: T, b: T, c: T) {
     private var _sideLengths: Set<Double>
     init {
         val sidesAsNumbers = listOf(a.toDouble(), b.toDouble(), c.toDouble())
