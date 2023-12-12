@@ -18,7 +18,6 @@ class RnaTranscriptionTest {
     @Test
     fun `RNA complement of adenine is uracil`() = assertEquals("U", transcribeToRna("A"))
 
-    @Ignore
     @Test
     fun `compound RNA`() = assertEquals("UGCACCAGAAUU", transcribeToRna("ACGTGGTCTTAA"))
 }

@@ -1,11 +1,20 @@
 fun transcribeToRna(dna: String): String {
     if (dna.isEmpty()) return ""
 
-    when (dna) {
-        "C" -> return "G"
-        "G" -> return "C"
-        "T" -> return "A"
-        "A" -> return "U"
+    var transcription = "";
+    for (ch in dna.iterator()) {
+        transcription += transcribeDNAnucleotide(ch);
     }
-    return "oops"
+
+    return transcription;
+}
+
+fun transcribeDNAnucleotide(ch: Char): String {
+    when (ch) {
+        'C' -> return "G"
+        'G' -> return "C"
+        'T' -> return "A"
+        'A' -> return "U"
+    }
+    return "";
 }
