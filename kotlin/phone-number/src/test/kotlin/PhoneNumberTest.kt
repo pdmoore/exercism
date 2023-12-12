@@ -49,7 +49,6 @@ class PhoneNumberTest {
         PhoneNumber("(023) 456-7890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - area code starts with 1`() {
         PhoneNumber("(123) 456-7890")
