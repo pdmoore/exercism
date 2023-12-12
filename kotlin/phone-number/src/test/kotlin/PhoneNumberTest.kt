@@ -9,7 +9,6 @@ class PhoneNumberTest {
     @Test
     fun `valid - simple number`() = assertNumberEquals("(223) 456-7890", "2234567890")
 
-    @Ignore
     @Test
     fun `valid - number with dots`() = assertNumberEquals("223.456.7890", "2234567890")
 

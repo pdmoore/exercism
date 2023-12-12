@@ -5,6 +5,7 @@ class PhoneNumber(var raw_number: String) {
         clean_number = raw_number.replace("(", "")
             .replace(")", "")
             .replace("-", "")
+            .replace(".", "")
             .replace(" ", "")
     }
 
