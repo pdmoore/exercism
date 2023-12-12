@@ -10,7 +10,6 @@ class TriangleTest {
         assertTrue(Triangle(2, 2, 2).isEquilateral)
     }
 
-    @Ignore
     @Test
     fun `equilateral - any side is unequal`() {
         assertFalse(Triangle(2, 3, 2).isEquilateral)
