@@ -8,6 +8,7 @@ class PhoneNumber(var raw_number: String) {
             clean_number = clean_number!!.substring(1)
         }
         require(clean_number!!.length == 10)
+        require(clean_number!!.matches("[0-9]+".toRegex()))
     }
 
 

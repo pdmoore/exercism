@@ -26,17 +26,14 @@ class PhoneNumberTest {
     @Test
     fun `valid - 11 digits and starting with 1`() = assertNumberEquals("12234567890", "2234567890")
 
-    @Ignore
     @Test
     fun `valid - 11 digits starting with 1 with punctuation`() = assertNumberEquals("+1 (223) 456-7890", "2234567890")
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - more than 11 digits`() {
         PhoneNumber("321234567890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - letters`() {
         PhoneNumber("123-abc-7890")
