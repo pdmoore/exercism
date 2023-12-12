@@ -1,13 +1,10 @@
 class PhoneNumber(var raw_number: String) {
 
-    private var clean_number: String?
+    private val clean_number: String?
     init {
         clean_number = raw_number.filter(Char::isDigit)
-        if (clean_number!!.length == 11) require(clean_number!!.startsWith("1"))
-        if (clean_number!!.length == 11 && clean_number!!.startsWith("1")) {
-            clean_number = clean_number!!.substring(1)
-        }
-        require(clean_number!!.length == 10)
+        require(arrayOf(10, 11).contains(clean_number.length))
+        if (clean_number.length == 11) require(clean_number.startsWith("1"))
         require(validAreadCode())
         require(validExchangeCode())
     }
