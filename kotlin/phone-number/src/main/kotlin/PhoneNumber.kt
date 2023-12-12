@@ -11,6 +11,7 @@ class PhoneNumber(var raw_number: String) {
         require(!clean_number!!.startsWith("0"))
         require(!clean_number!!.startsWith("1"))
         require(clean_number!!.get(3) != '0')
+        require(clean_number!!.get(3) != '1')
         require(clean_number!!.matches("[0-9]+".toRegex()))
     }
 
