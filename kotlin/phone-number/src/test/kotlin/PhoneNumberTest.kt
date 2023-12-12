@@ -1,8 +1,6 @@
 import org.junit.Ignore
 import org.junit.Test
-import java.lang.IllegalArgumentException
 import kotlin.test.assertEquals
-import kotlin.test.assertNull
 
 class PhoneNumberTest {
 
@@ -15,19 +13,16 @@ class PhoneNumberTest {
     @Test
     fun `valid - numbers with multiple spaces`() = assertNumberEquals("223 456   7890   ", "2234567890")
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - 9 digit`() {
         PhoneNumber("123456789")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - when 11 digits does not start with a 1`() {
         PhoneNumber("22234567890")
     }
 
-    @Ignore
     @Test
     fun `valid - 11 digits and starting with 1`() = assertNumberEquals("12234567890", "2234567890")
 
