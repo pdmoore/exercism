@@ -64,26 +64,22 @@ class PhoneNumberTest {
         PhoneNumber("(223) 156-7890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - area code starts with 0 on valid 11-digit number`() {
         PhoneNumber("1 (023) 456-7890")
     }
 
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - area code starts with 1 on valid 11-digit number`() {
         PhoneNumber("1 (123) 456-7890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - exchange code starts with 0 on valid 11-digit number`() {
         PhoneNumber("1 (223) 056-7890")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid - exchange code starts with 1 on valid 11-digit number`() {
         PhoneNumber("1 (223) 156-7890")
