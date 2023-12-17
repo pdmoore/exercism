@@ -159,7 +159,6 @@ class AllYourBaseSpec extends Specification {
         1         | []     | 10
     }
 
-    @Ignore
     def "Input base is negative"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)

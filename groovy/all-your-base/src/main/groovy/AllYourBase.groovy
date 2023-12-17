@@ -4,8 +4,8 @@ class AllYourBase {
     int value;
 
     AllYourBase(inputBase, digits) {
-        if (inputBase == 1) {
-            throw new ArithmeticException("Apparently base 1 isn't allowed");
+        if (inputBase <= 1) {
+            throw new ArithmeticException("Base must be 2 or greater");
         }
 
         this.inputBase = inputBase;
