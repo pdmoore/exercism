@@ -134,7 +134,6 @@ class AllYourBaseSpec extends Specification {
         7         | [0, 6, 0] | 10         || [4, 2]
     }
 
-    @Ignore
     def "Input base is one"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)

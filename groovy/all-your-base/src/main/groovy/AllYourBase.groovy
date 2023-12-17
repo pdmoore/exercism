@@ -4,6 +4,10 @@ class AllYourBase {
     int value;
 
     AllYourBase(inputBase, digits) {
+        if (inputBase == 1) {
+            throw new ArithmeticException("Apparently base 1 isn't allowed");
+        }
+
         this.inputBase = inputBase;
         def sum = 0;
         for (int i = 0; i < digits.size; i++) {
