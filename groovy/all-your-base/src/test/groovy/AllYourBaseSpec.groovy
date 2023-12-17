@@ -171,7 +171,6 @@ class AllYourBaseSpec extends Specification {
         -2        | [1]    | 10
     }
 
-    @Ignore
     def "Negative digit"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)

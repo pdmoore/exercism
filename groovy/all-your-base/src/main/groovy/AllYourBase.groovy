@@ -11,6 +11,9 @@ class AllYourBase {
         this.inputBase = inputBase;
         def sum = 0;
         for (int i = 0; i < digits.size; i++) {
+            if (digits[i] < 0) {
+                throw new ArithmeticException("Digit must be zero or positive");
+            }
             sum += (inputBase**(digits.size - i - 1)) * digits[i];
         }
 
