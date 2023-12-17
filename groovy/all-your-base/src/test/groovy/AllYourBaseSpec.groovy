@@ -122,7 +122,6 @@ class AllYourBaseSpec extends Specification {
         10        | [0, 0, 0] | 2          || [0]
     }
 
-    @Ignore
     def "Leading zeros"() {
         given:
         def base = new AllYourBase(inputBase, digits)
