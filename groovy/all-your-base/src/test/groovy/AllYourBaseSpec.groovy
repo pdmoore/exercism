@@ -98,7 +98,6 @@ class AllYourBaseSpec extends Specification {
         2         | []     | 10         || [0]
     }
 
-    @Ignore
     def "Single zero"() {
         given:
         def base = new AllYourBase(inputBase, digits)
