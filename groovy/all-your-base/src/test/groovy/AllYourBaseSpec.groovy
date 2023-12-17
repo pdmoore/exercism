@@ -183,7 +183,6 @@ class AllYourBaseSpec extends Specification {
         2         | [1, -1, 1, 0, 1, 0] | 10
     }
 
-    @Ignore
     def "Invalid positive digit"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)

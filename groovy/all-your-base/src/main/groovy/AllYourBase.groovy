@@ -14,6 +14,9 @@ class AllYourBase {
             if (digits[i] < 0) {
                 throw new ArithmeticException("Digit must be zero or positive");
             }
+            if (digits[i] >= inputBase) {
+                throw new ArithmeticException("Digit must be less than base");
+            }
             sum += (inputBase**(digits.size - i - 1)) * digits[i];
         }
 
