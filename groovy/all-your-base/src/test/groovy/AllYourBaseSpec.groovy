@@ -50,7 +50,6 @@ class AllYourBaseSpec extends Specification {
         10        | [4, 2] | 2          || [1, 0, 1, 0, 1, 0]
     }
 
-    @Ignore
     def "Trinary to hexadecimal"() {
         given:
         def base = new AllYourBase(inputBase, digits)
@@ -63,7 +62,6 @@ class AllYourBaseSpec extends Specification {
         3         | [1, 1, 2, 0] | 16         || [2, 10]
     }
 
-    @Ignore
     def "Hexadecimal to trinary"() {
         given:
         def base = new AllYourBase(inputBase, digits)
@@ -76,7 +74,6 @@ class AllYourBaseSpec extends Specification {
         16        | [2, 10] | 3          || [1, 1, 2, 0]
     }
 
-    @Ignore
     def "15-bit integer"() {
         given:
         def base = new AllYourBase(inputBase, digits)
