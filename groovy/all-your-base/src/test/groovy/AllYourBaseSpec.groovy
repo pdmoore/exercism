@@ -14,7 +14,6 @@ class AllYourBaseSpec extends Specification {
         2         | [1]    | 10         || [1]
     }
 
-    @Ignore
     def "Single decimal to binary"() {
         given:
         def base = new AllYourBase(inputBase, digits)
