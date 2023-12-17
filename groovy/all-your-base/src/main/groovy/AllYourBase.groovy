@@ -8,7 +8,13 @@ class AllYourBase {
         this.inputBase = inputBase;
         this.digits = digits;
         if (inputBase == 10) {
-            this.value = digits[0];
+            def size = digits.size;
+            def sum = 0;
+            for (int i = 0; i < size; i++) {
+                sum += (10**(size-i-1)) * digits[i];
+            }
+
+            this.value = sum;
         }
         if (inputBase == 2) {
             def size = digits.size;
@@ -32,8 +38,6 @@ class AllYourBase {
                 num = num / 10;
             }
 
-
-
             return result.reverse();
         }
 
@@ -45,7 +49,7 @@ class AllYourBase {
                 result.add(remainder);
                 num = num / 2;
             }
-            return result;
+            return result.reverse();
         }
 
 

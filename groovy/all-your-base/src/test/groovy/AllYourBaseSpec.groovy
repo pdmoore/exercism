@@ -38,7 +38,6 @@ class AllYourBaseSpec extends Specification {
         2         | [1, 0, 1, 0, 1, 0] | 10         || [4, 2]
     }
 
-    @Ignore
     def "Decimal to binary"() {
         given:
         def base = new AllYourBase(inputBase, digits)
