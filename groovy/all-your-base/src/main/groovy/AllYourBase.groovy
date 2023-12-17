@@ -1,6 +1,5 @@
 class AllYourBase {
 
-    int inputBase;
     int value;
 
     AllYourBase(inputBase, digits) {
@@ -8,19 +7,15 @@ class AllYourBase {
             throw new ArithmeticException("Base must be 2 or greater");
         }
 
-        this.inputBase = inputBase;
-        def sum = 0;
-        for (int i = 0; i < digits.size; i++) {
-            if (digits[i] < 0) {
+        digits.eachWithIndex { int digit, int pos ->
+            if (digit < 0) {
                 throw new ArithmeticException("Digit must be zero or positive");
             }
-            if (digits[i] >= inputBase) {
+            if (digit >= inputBase) {
                 throw new ArithmeticException("Digit must be less than base");
             }
-            sum += (inputBase**(digits.size - i - 1)) * digits[i];
+            this.value += (inputBase**(digits.size - pos - 1)) * digit;
         }
-
-        this.value = sum;
     }
 
     def rebase(outputBase) {
