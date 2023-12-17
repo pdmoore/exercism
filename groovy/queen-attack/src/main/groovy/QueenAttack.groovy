@@ -1,14 +1,9 @@
 class QueenAttack {
 
     static canAttack(Queen q1, Queen q2) {
-        if (q1.row == q2.row) {
-            return true;
-        }
-        if (q1.column == q2.column) {
-            return true;
-        }
-
+        def onSameRow = q1.row == q2.row
+        def onSameColumn = q1.column == q2.column
         boolean onDiagonal = Math.abs(q1.row - q2.row) == Math.abs(q1.column - q2.column);
-        return onDiagonal;
+        return onSameRow ||onSameColumn || onDiagonal;
     }
 }
