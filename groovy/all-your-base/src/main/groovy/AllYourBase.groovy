@@ -24,6 +24,10 @@ class AllYourBase {
     }
 
     def rebase(outputBase) {
+        if (outputBase <= 1) {
+            throw new ArithmeticException("Base must be 2 or greater");
+        }
+
         if (this.value == 0) {
             return [0];
         }

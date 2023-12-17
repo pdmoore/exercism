@@ -195,7 +195,6 @@ class AllYourBaseSpec extends Specification {
         2         | [1, 2, 1, 0, 1, 0] | 10
     }
 
-    @Ignore
     def "Output base is one"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)
@@ -208,7 +207,6 @@ class AllYourBaseSpec extends Specification {
         2         | [1, 0, 1, 0, 1, 0] | 1
     }
 
-    @Ignore
     def "Output base is zero"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)
@@ -221,7 +219,6 @@ class AllYourBaseSpec extends Specification {
         10        | [7]    | 0
     }
 
-    @Ignore
     def "Output base is negative"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)
@@ -234,7 +231,6 @@ class AllYourBaseSpec extends Specification {
         2         | [1]    | -7
     }
 
-    @Ignore
     def "Both bases are negative"() {
         when:
         new AllYourBase(inputBase, digits).rebase(outputBase)
