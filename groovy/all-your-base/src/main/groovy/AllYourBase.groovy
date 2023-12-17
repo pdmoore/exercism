@@ -3,7 +3,7 @@ class AllYourBase {
     int value;
 
     AllYourBase(inputBase, digits) {
-        if (inputBase <= 1) {
+        if (inputBase < 2) {
             throw new ArithmeticException("Base must be 2 or greater");
         }
 
@@ -19,12 +19,8 @@ class AllYourBase {
     }
 
     def rebase(outputBase) {
-        if (outputBase <= 1) {
+        if (outputBase < 2) {
             throw new ArithmeticException("Base must be 2 or greater");
-        }
-
-        if (this.value == 0) {
-            return [0];
         }
 
         def result = [];
@@ -35,6 +31,6 @@ class AllYourBase {
             num = num / outputBase;
         }
 
-        return result.reverse();
+        return result.isEmpty() ? [0] : result.reverse();
     }
 }
