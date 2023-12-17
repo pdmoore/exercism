@@ -26,7 +26,6 @@ class AllYourBaseSpec extends Specification {
         10        | [5]    | 2          || [1, 0, 1]
     }
 
-    @Ignore
     def "Binary to multiple decimal"() {
         given:
         def base = new AllYourBase(inputBase, digits)
