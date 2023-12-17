@@ -86,7 +86,6 @@ class AllYourBaseSpec extends Specification {
         97        | [3, 46, 60] | 73         || [6, 10, 45]
     }
 
-    @Ignore
     def "Empty list"() {
         given:
         def base = new AllYourBase(inputBase, digits)

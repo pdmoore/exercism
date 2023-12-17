@@ -14,6 +14,10 @@ class AllYourBase {
     }
 
     def rebase(outputBase) {
+        if (this.value == 0) {
+            return [0];
+        }
+
         def result = [];
         int num = this.value;
         while (num > 0) {
