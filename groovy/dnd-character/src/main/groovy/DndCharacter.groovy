@@ -17,11 +17,11 @@ class DndCharacter {
         this.hitpoints = 10 + modifier(constitution);
     }
 
-    int modifier(int constitution) {
+    static int modifier(int constitution) {
         Math.floorDiv( constitution - 10, 2 )
     }
 
-    int ability() {
+    static int ability() {
         // TODO - random between 3 & 18
         // Seems like there could be a test that two different characters have different
         // abilities or sum of abilities
