@@ -20,6 +20,9 @@ class DndCharacter {
 
     int ability() {
         // TODO - random between 3 & 18
+        // Seems like there could be a test that two different characters have different
+        // abilities or sum of abilities
+        // or calling ability a few times in a row doesn't return the same value
         return 7;
     }
 
@@ -30,7 +33,4 @@ class DndCharacter {
     int wisdom;
     int charisma;
     int hitpoints;
-
-
-
 }
