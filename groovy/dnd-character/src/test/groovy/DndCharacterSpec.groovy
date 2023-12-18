@@ -136,7 +136,6 @@ class DndCharacterSpec extends Specification {
         assert value <= 18
     }
 
-    @Ignore
     def "random ability is within range"() {
         given:
         def character = new DndCharacter()
@@ -146,7 +145,6 @@ class DndCharacterSpec extends Specification {
         inRange(a)
     }
 
-    @Ignore
     def "random character is valid"() {
         given:
         def character = new DndCharacter()
@@ -161,7 +159,6 @@ class DndCharacterSpec extends Specification {
         character.hitpoints == 10 + character.modifier(character.constitution)
     }
 
-    @Ignore
     def "each ability is only calculated once"() {
         given:
         def character = new DndCharacter()
