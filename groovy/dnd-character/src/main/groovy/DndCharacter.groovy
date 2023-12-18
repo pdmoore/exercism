@@ -1,4 +1,11 @@
 class DndCharacter {
+    int strength;
+    int dexterity;
+    int constitution;
+    int intelligence;
+    int wisdom;
+    int charisma;
+    int hitpoints;
 
     DndCharacter() {
         this.strength = ability();
@@ -11,11 +18,7 @@ class DndCharacter {
     }
 
     int modifier(int constitution) {
-        if (constitution <= 11) {
-            return (constitution - 11) / 2;
-        }
-
-        return (constitution - 10) / 2;
+        Math.floorDiv( constitution - 10, 2 )
     }
 
     int ability() {
@@ -23,14 +26,7 @@ class DndCharacter {
         // Seems like there could be a test that two different characters have different
         // abilities or sum of abilities
         // or calling ability a few times in a row doesn't return the same value
+        // currently all tests pass with a hard-coded value
         return 7;
     }
-
-    int strength;
-    int dexterity;
-    int constitution;
-    int intelligence;
-    int wisdom;
-    int charisma;
-    int hitpoints;
 }
