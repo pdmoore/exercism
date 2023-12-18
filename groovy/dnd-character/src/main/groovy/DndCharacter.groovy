@@ -1,20 +1,20 @@
 class DndCharacter {
-    int strength;
-    int dexterity;
-    int constitution;
-    int intelligence;
-    int wisdom;
-    int charisma;
-    int hitpoints;
+    int strength
+    int dexterity
+    int constitution
+    int intelligence
+    int wisdom
+    int charisma
+    int hitpoints
 
     DndCharacter() {
-        this.strength = ability();
-        this.dexterity = ability();
-        this.constitution = ability();
-        this.intelligence = ability();
-        this.wisdom = ability();
-        this.charisma = ability();
-        this.hitpoints = 10 + modifier(constitution);
+        this.strength = ability()
+        this.dexterity = ability()
+        this.constitution = ability()
+        this.intelligence = ability()
+        this.wisdom = ability()
+        this.charisma = ability()
+        this.hitpoints = 10 + modifier(constitution)
     }
 
     static int modifier(int constitution) {
@@ -27,6 +27,6 @@ class DndCharacter {
         // abilities or sum of abilities
         // or calling ability a few times in a row doesn't return the same value
         // currently all tests pass with a hard-coded value
-        return 7;
+        return 7
     }
 }
