@@ -5,6 +5,6 @@ class DndCharacter {
             return (constitution - 11) / 2;
         }
 
-        return 18 - constitution;
+        return constitution - 11;
     }
 }
