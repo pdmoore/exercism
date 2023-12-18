@@ -18,7 +18,6 @@ class DndCharacterSpec extends Specification {
         character.modifier(4) == -3
     }
 
-    @Ignore
     def "ability modifier for score 5 is -3"() {
         given:
         def character = new DndCharacter()
