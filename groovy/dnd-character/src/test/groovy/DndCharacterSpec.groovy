@@ -42,7 +42,6 @@ class DndCharacterSpec extends Specification {
         character.modifier(7) == -2
     }
 
-    @Ignore
     def "ability modifier for score 8 is -1"() {
         given:
         def character = new DndCharacter()
@@ -51,7 +50,6 @@ class DndCharacterSpec extends Specification {
         character.modifier(8) == -1
     }
 
-    @Ignore
     def "ability modifier for score 9 is -1"() {
         given:
         def character = new DndCharacter()
@@ -60,7 +58,6 @@ class DndCharacterSpec extends Specification {
         character.modifier(9) == -1
     }
 
-    @Ignore
     def "ability modifier for score 10 is 0"() {
         given:
         def character = new DndCharacter()
@@ -69,7 +66,6 @@ class DndCharacterSpec extends Specification {
         character.modifier(10) == 0
     }
 
-    @Ignore
     def "ability modifier for score 11 is 0"() {
         given:
         def character = new DndCharacter()
