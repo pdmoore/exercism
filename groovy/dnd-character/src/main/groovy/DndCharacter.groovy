@@ -1,6 +1,6 @@
 class DndCharacter {
 
     int modifier(int constitution) {
-        return -4;
+        return constitution - 7;
     }
 }
