@@ -41,7 +41,7 @@ class RunLengthEncoding {
             } else {
                 if (!count.isEmpty()) {
                     for (int i = 1; i <= count.toInteger(); i++) {
-                        result += ch
+                        result += "$ch"
                     }
 
                     count = ""
