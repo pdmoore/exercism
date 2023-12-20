@@ -2,14 +2,14 @@ class RunLengthEncoding {
 
     static encode(input) {
         def result = ""
-        def prevCh = null
+        def prevCh = ""
         def count = 1
         for (char ch : input.toCharArray()) {
-            if (prevCh == null) {
+            if (prevCh == "") {
                 prevCh = ch
                 count = 1
             } else {
-                if (ch == prevCh) {
+                if (prevCh.equals(ch)) {
                     count++
                 } else {
                     if (count > 1) {
@@ -22,7 +22,7 @@ class RunLengthEncoding {
             }
         }
 
-        if (prevCh != null) {
+        if (prevCh != "") {
             if (count > 1) {
                 result += count
             }
@@ -40,20 +40,15 @@ class RunLengthEncoding {
                 count += ch
             } else {
                 if (!count.isEmpty()) {
-
                     for (int i = 1; i <= count.toInteger(); i++) {
                         result += ch
                     }
 
                     count = ""
                 } else {
-
                     result += ch
                 }
-
             }
-
-
         }
         return result
     }
