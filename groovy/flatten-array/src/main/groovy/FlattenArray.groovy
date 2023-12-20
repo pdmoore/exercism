@@ -2,7 +2,15 @@ class FlattenArray {
     static List flatten(List l) {
         def result = []
         l.each {
-            result.add(it)
+            if (l instanceof List) {
+                it.each {
+                    result.add(it)
+
+                }
+            } else {
+
+                result.add(it)
+            }
         }
         return result
     }

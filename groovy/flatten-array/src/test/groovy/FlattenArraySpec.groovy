@@ -14,7 +14,6 @@ class FlattenArraySpec extends Specification {
         [0, 1, 2] || [0, 1, 2]
     }
 
-    @Ignore
     def "Flattens array with just integers present"() {
         expect:
         flattener.flatten(array) == expected
