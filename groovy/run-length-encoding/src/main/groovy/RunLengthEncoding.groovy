@@ -3,7 +3,7 @@ class RunLengthEncoding {
     static encode(input) {
         def result = ""
         def prevCh = null
-        def count = 0
+        def count = 1
         for (char ch : input.toCharArray()) {
             if (prevCh == null) {
                 prevCh = ch
@@ -29,11 +29,32 @@ class RunLengthEncoding {
             result += prevCh
         }
 
-
         return result
     }
 
     static decode(input) {
-        throw new UnsupportedOperationException('Method implementation is missing')
+        def result = ""
+        def count = ""
+        for (char ch : input.toCharArray()) {
+            if (ch >= '1' && ch <= '9') {
+                count += ch
+            } else {
+                if (!count.isEmpty()) {
+
+                    for (int i = 1; i <= count.toInteger(); i++) {
+                        result += ch
+                    }
+
+                    count = ""
+                } else {
+
+                    result += ch
+                }
+
+            }
+
+
+        }
+        return result
     }
 }

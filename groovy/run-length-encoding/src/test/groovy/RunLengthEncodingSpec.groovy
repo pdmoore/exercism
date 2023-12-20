@@ -17,7 +17,6 @@ class RunLengthEncodingSpec extends Specification {
         'aabbbcccc'                                             || '2a3b4c'
     }
 
-    @Ignore
     @Unroll
     def "Run-length decode #string"() {
         expect:
