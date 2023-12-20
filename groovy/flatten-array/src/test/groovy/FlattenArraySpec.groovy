@@ -23,7 +23,6 @@ class FlattenArraySpec extends Specification {
         [1, [2, 3, 4, 5, 6, 7], 8] || [1, 2, 3, 4, 5, 6, 7, 8]
     }
 
-    @Ignore
     def "5 level nesting"() {
         expect:
         flattener.flatten(array) == expected
