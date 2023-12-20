@@ -1,5 +1,5 @@
 class FlattenArray {
     static List flatten(List l) {
-        return l.flatten()
+        return l.flatten() - null
     }
 }
