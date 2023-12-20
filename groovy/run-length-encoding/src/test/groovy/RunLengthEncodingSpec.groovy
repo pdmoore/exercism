@@ -32,7 +32,6 @@ class RunLengthEncodingSpec extends Specification {
         '2a3b4c'        || 'aabbbcccc'
     }
 
-    @Ignore
     def "Encode followed by decode gives original string"() {
         setup:
         RunLengthEncoding run = new RunLengthEncoding()
