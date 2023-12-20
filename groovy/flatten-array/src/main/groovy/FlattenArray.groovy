@@ -1,5 +1,9 @@
 class FlattenArray {
     static List flatten(List l) {
-        return l
+        def result = []
+        l.each {
+            result.add(it)
+        }
+        return result
     }
 }
