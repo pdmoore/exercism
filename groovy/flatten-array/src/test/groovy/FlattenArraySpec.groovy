@@ -50,7 +50,6 @@ class FlattenArraySpec extends Specification {
         [0, 2, [[2, 3], 8, [[100]], null, [[null]]], -2] || [0, 2, 2, 3, 8, 100, -2]
     }
 
-    @Ignore
     def "All values in nested list are null"() {
         expect:
         flattener.flatten(array) == expected
