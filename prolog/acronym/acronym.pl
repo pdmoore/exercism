@@ -1,6 +1,6 @@
 abbreviate(Sentence, Acronym):-
   string_upper(Sentence, Upper),
-  split_string(Upper, "\s", "\s", UpperWords),
+  split_string(Upper, "-\s", "-\s", UpperWords),
   maplist(first_letter_of, UpperWords, FirstLetters),
   atomics_to_string(FirstLetters, Acronym).
 

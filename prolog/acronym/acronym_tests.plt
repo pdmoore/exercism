@@ -22,11 +22,11 @@ pending :-
         abbreviate("First In, First Out", Acronym),
         Acronym == "FIFO".
 
-    test(all_caps_word, condition(pending)) :-
+    test(all_caps_word, condition(true)) :-
         abbreviate("GNU Image Manipulation Program", Acronym),
         Acronym == "GIMP".
 
-    test(punctuation_without_whitespace, condition(pending)) :-
+    test(punctuation_without_whitespace, condition(true)) :-
         abbreviate("Complementary metal-oxide semiconductor", Acronym),
         Acronym == "CMOS".
 
