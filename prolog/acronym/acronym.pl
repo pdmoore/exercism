@@ -6,4 +6,3 @@ abbreviate(Sentence, Acronym):-
 
 first_letter_of(String, FirstLetter):- 
   sub_string(String, 0, 1, _, FirstLetter).
-
