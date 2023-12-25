@@ -10,11 +10,15 @@ pending :-
         abbreviate("Portable Network Graphics", Acronym),
         Acronym == "PNG".
 
-    test(lowercase_words, condition(pending)) :-
+    test(single_word, condition(true)) :-
+        abbreviate("hello", Acronym),
+        Acronym == "H".
+
+    test(lowercase_words, condition(true)) :-
         abbreviate("Ruby on Rails", Acronym),
         Acronym == "ROR".
 
-    test(punctuation, condition(pending)) :-
+    test(punctuation, condition(true)) :-
         abbreviate("First In, First Out", Acronym),
         Acronym == "FIFO".
 

@@ -1,8 +1,9 @@
-abbreviate("Portable Network Graphics", Acronym) :- Acronym = "PNG", !.
-abbreviate(Sentence, Acronym) :- 
-    % split_string(Sentence," ", "",  Words),
-    % need to [H | T] which should give me the first char
-    % and do that for each item in Words, and collate each first char
-    % into the return value
-    % look up maplist(getFirstChar, Words) as a possible mechanism
-abbreviate(Sentence, Acronym).
+abbreviate(Sentence, Acronym):-
+  string_upper(Sentence, Upper),
+  split_string(Upper, "\s", "\s", UpperWords),
+  maplist(first_letter_of, UpperWords, FirstLetters),
+  atomics_to_string(FirstLetters, Acronym).
+
+first_letter_of(String, FirstLetter):- 
+  sub_string(String, 0, 1, _, FirstLetter).
+
