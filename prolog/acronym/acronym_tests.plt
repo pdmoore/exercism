@@ -30,19 +30,19 @@ pending :-
         abbreviate("Complementary metal-oxide semiconductor", Acronym),
         Acronym == "CMOS".
 
-    test(very_long_abbreviation, condition(pending)) :-
+    test(very_long_abbreviation, condition(true)) :-
         abbreviate("Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me", Acronym),
         Acronym == "ROTFLSHTMDCOALM".
 
-    test(consecutive_delimiters, condition(pending)) :-
+    test(consecutive_delimiters, condition(true)) :-
         abbreviate("Something - I made up from thin air", Acronym),
         Acronym == "SIMUFTA".
 
-    test(apostrophes, condition(pending)) :-
+    test(apostrophes, condition(true)) :-
         abbreviate("Halley's Comet", Acronym),
         Acronym == "HC".
 
-    test(underscore_emphasis, condition(pending)) :-
+    test(underscore_emphasis, condition(true)) :-
         abbreviate("The Road _Not_ Taken", Acronym),
         Acronym == "TRNT".
 
