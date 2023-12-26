@@ -9,7 +9,7 @@ pending :-
     test(empty_string, condition(true)) :-
       isogram("").
 
-    test(only_lower_case_characters, condition(pending)) :-
+    test(only_lower_case_characters, condition(true)) :-
       isogram("isogram").
 
     test(one_duplicated_character, [fail, condition(pending)]) :-
