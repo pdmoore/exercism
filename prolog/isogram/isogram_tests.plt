@@ -12,10 +12,10 @@ pending :-
     test(only_lower_case_characters, condition(true)) :-
       isogram("isogram").
 
-    test(one_duplicated_character, [fail, condition(pending)]) :-
+    test(one_duplicated_character, [fail, condition(true)]) :-
       isogram("eleven").
 
-    test(longest_reported_english_isogram, condition(pending)) :-
+    test(longest_reported_english_isogram, condition(true)) :-
       isogram("subdermatoglyphic").
 
     test(duplicated_character_in_mixed_case, [fail, condition(pending)]) :-

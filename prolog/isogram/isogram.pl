@@ -1,5 +1,3 @@
-
-isogram(false).
 isogram(Phrase) :- 
   normalize_space(string(Trimmed), Phrase),
   string_upper(Trimmed, Upper),
