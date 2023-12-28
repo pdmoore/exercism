@@ -87,27 +87,27 @@ test(number_666_is_dclxvi, condition(true)) :-
     convert(666, Numeral),
     Numeral == "DCLXVI".
 
-test(number_911_is_cmxi, condition(pending)) :-
+test(number_911_is_cmxi, condition(true)) :-
     convert(911, Numeral),
     Numeral == "CMXI".
 
-test(number_1024_is_mxxiv, condition(pending)) :-
+test(number_1024_is_mxxiv, condition(true)) :-
     convert(1024, Numeral),
     Numeral == "MXXIV".
 
-test(number_1666_is_mdclxvi, condition(pending)) :-
+test(number_1666_is_mdclxvi, condition(true)) :-
     convert(1666, Numeral),
     Numeral == "MDCLXVI".
 
-test(number_3000_is_mmm, condition(pending)) :-
+test(number_3000_is_mmm, condition(true)) :-
     convert(3000, Numeral),
     Numeral == "MMM".
 
-test(number_3001_is_mmmi, condition(pending)) :-
+test(number_3001_is_mmmi, condition(true)) :-
     convert(3001, Numeral),
     Numeral == "MMMI".
 
-test(number_3999_is_mmmcmxcix, condition(pending)) :-
+test(number_3999_is_mmmcmxcix, condition(true)) :-
     convert(3999, Numeral),
     Numeral == "MMMCMXCIX".
 

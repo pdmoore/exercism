@@ -14,3 +14,5 @@ roman(N, ["XC" | T]) :- N < 100, M is N - 90,  roman(M, T), !.
 roman(N, ["C"  | T]) :- N < 400, M is N - 100, roman(M, T), !.
 roman(N, ["CD" | T]) :- N < 500, M is N - 400, roman(M, T), !.
 roman(N, ["D"  | T]) :- N < 900, M is N - 500, roman(M, T), !.
+roman(N, ["CM" | T]) :- N < 1000, M is N - 900, roman(M, T), !.
+roman(N, ["M"  | T]) :- N < 4000, M is N - 1000, roman(M, T), !.
