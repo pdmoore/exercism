@@ -43,19 +43,19 @@ test(number_27_is_xxvii, condition(true)) :-
     convert(27, Numeral),
     Numeral == "XXVII".
 
-test(number_48_is_xlviii, condition(pending)) :-
+test(number_48_is_xlviii, condition(true)) :-
     convert(48, Numeral),
     Numeral == "XLVIII".
 
-test(number_49_is_xlix, condition(pending)) :-
+test(number_49_is_xlix, condition(true)) :-
     convert(49, Numeral),
     Numeral == "XLIX".
 
-test(number_59_is_lix, condition(pending)) :-
+test(number_59_is_lix, condition(true)) :-
     convert(59, Numeral),
     Numeral == "LIX".
 
-test(number_66_is_lxvi, condition(pending)) :-
+test(number_66_is_lxvi, condition(true)) :-
     convert(66, Numeral),
     Numeral == "LXVI".
 
