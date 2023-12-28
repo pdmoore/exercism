@@ -10,3 +10,5 @@ roman(N, ["IX" | T]) :- N < 10,  M is N - 9,   roman(M, T), !.
 roman(N, ["X"  | T]) :- N < 40,  M is N - 10,  roman(M, T), !.
 roman(N, ["XL" | T]) :- N < 50,  M is N - 40,  roman(M, T), !.
 roman(N, ["L"  | T]) :- N < 90,  M is N - 50,  roman(M, T), !.
+roman(N, ["XC" | T]) :- N < 100, M is N - 90,  roman(M, T), !.
+roman(N, ["C"  | T]) :- N < 400, M is N - 100, roman(M, T), !.
