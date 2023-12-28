@@ -59,19 +59,19 @@ test(number_66_is_lxvi, condition(true)) :-
     convert(66, Numeral),
     Numeral == "LXVI".
 
-test(number_93_is_xciii, condition(pending)) :-
+test(number_93_is_xciii, condition(true)) :-
     convert(93, Numeral),
     Numeral == "XCIII".
 
-test(number_141_is_cxli, condition(pending)) :-
+test(number_141_is_cxli, condition(true)) :-
     convert(141, Numeral),
     Numeral == "CXLI".
 
-test(number_163_is_clxiii, condition(pending)) :-
+test(number_163_is_clxiii, condition(true)) :-
     convert(163, Numeral),
     Numeral == "CLXIII".
 
-test(number_166_is_clxvi, condition(pending)) :-
+test(number_166_is_clxvi, condition(true)) :-
     convert(166, Numeral),
     Numeral == "CLXVI".
 
