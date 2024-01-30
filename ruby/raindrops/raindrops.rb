@@ -9,13 +9,13 @@ class Raindrops
   def self.convert(number)
     _result = ""
     if number % 3 == 0
-      _result += "Pling"
+      _result << "Pling"
     end
     if number % 5 == 0
-      _result += "Plang"
+      _result << "Plang"
     end
     if number % 7 == 0
-      _result += "Plong"
+      _result << "Plong"
     end
 
     _result.empty? ? number.to_s : _result
