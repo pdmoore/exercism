@@ -4,12 +4,10 @@ require_relative 'raindrops'
 
 class RaindropsTest < Minitest::Test
   def test_the_sound_for_1_is_1
-    # skip
     assert_equal "1", Raindrops.convert(1)
   end
 
   def test_the_sound_for_3_is_pling
-    skip
     assert_equal "Pling", Raindrops.convert(3)
   end
 
