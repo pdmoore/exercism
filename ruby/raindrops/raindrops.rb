@@ -7,7 +7,7 @@ To get started with TDD, see the `README.md` file in your
 =end
 class Raindrops
   def self.convert(number)
-    if number == 3
+    if number % 3 == 0
       return "Pling"
     end
     if number == 5
