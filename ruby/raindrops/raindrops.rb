@@ -13,7 +13,7 @@ class Raindrops
     if number % 5 == 0
       return "Plang"
     end
-    if number == 7
+    if number % 7 == 0
       return "Plong"
     end
     return number.to_s
