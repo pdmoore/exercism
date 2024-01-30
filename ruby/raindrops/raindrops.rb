@@ -18,9 +18,6 @@ class Raindrops
       _result += "Plong"
     end
 
-    if _result.empty?
-      _result = number.to_s
-    end
-    return _result
+    _result.empty? ? number.to_s : _result
   end
 end
