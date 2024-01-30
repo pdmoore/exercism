@@ -17,6 +17,7 @@ class Raindrops
     if number % 7 == 0
       _result += "Plong"
     end
+
     if _result.empty?
       _result = number.to_s
     end
