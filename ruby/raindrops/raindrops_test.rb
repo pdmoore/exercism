@@ -40,7 +40,6 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_the_sound_for_15_is_plingplang_as_it_has_factors_3_and_5
-    skip
     assert_equal "PlingPlang", Raindrops.convert(15)
   end
 

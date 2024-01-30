@@ -12,7 +12,7 @@ class Raindrops
       _result += "Pling"
     end
     if number % 5 == 0
-      _result = "Plang"
+      _result += "Plang"
     end
     if number % 7 == 0
       _result += "Plong"
