@@ -10,7 +10,7 @@ class Raindrops
     if number % 3 == 0
       return "Pling"
     end
-    if number == 5
+    if number % 5 == 0
       return "Plang"
     end
     if number == 7
