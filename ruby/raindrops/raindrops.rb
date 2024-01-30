@@ -8,15 +8,9 @@ To get started with TDD, see the `README.md` file in your
 class Raindrops
   def self.convert(number)
     _result = ""
-    if number % 3 == 0
-      _result << "Pling"
-    end
-    if number % 5 == 0
-      _result << "Plang"
-    end
-    if number % 7 == 0
-      _result << "Plong"
-    end
+    _result << "Pling" if number % 3 == 0
+    _result << "Plang" if number % 5 == 0
+    _result << "Plong" if number % 7 == 0
 
     _result.empty? ? number.to_s : _result
   end
