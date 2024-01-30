@@ -24,12 +24,10 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base
-    skip
     assert_equal "8", Raindrops.convert(8)
   end
 
   def test_the_sound_for_9_is_pling_as_it_has_a_factor_3
-    skip
     assert_equal "Pling", Raindrops.convert(9)
   end
 
