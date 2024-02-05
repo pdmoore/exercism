@@ -1,17 +1,18 @@
 object Raindrops {
 
+    private val numToSound = mapOf(
+        3 to "Pling",
+        5 to "Plang",
+        7 to "Plong"
+    )
+
     fun convert(n: Int): String {
         var result = ""
 
-        val numToSound = mapOf(3 to "Pling",
-            5 to "Plang",
-            7 to "Plong")
-
-        for (key in numToSound.keys) {
-            if (n.mod(key) == 0) {
-                result = result.plus(numToSound[key])
-            }
-        }
+        numToSound.keys
+            .asSequence()
+            .filter { n.mod(it) == 0 }
+            .forEach { result = result.plus(numToSound[it]) }
 
         if (result.isEmpty()) {
             result = n.toString()
