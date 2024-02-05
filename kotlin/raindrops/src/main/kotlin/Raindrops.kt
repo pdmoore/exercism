@@ -14,9 +14,6 @@ object Raindrops {
             .filter { n.mod(it) == 0 }
             .forEach { result = result.plus(numToSound[it]) }
 
-        if (result.isEmpty()) {
-            result = n.toString()
-        }
-        return result
+        return if (result.isEmpty()) n.toString() else result
     }
 }
