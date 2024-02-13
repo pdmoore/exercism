@@ -62,55 +62,55 @@ public class ProteinTranslationTests
         Assert.Equal(new[] { "Serine" }, ProteinTranslation.Proteins("UCG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Tyrosine_rna_sequence_1()
     {
         Assert.Equal(new[] { "Tyrosine" }, ProteinTranslation.Proteins("UAU"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Tyrosine_rna_sequence_2()
     {
         Assert.Equal(new[] { "Tyrosine" }, ProteinTranslation.Proteins("UAC"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Cysteine_rna_sequence_1()
     {
         Assert.Equal(new[] { "Cysteine" }, ProteinTranslation.Proteins("UGU"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Cysteine_rna_sequence_2()
     {
         Assert.Equal(new[] { "Cysteine" }, ProteinTranslation.Proteins("UGC"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Tryptophan_rna_sequence()
     {
         Assert.Equal(new[] { "Tryptophan" }, ProteinTranslation.Proteins("UGG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Stop_codon_rna_sequence_1()
     {
         Assert.Empty(ProteinTranslation.Proteins("UAA"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Stop_codon_rna_sequence_2()
     {
         Assert.Empty(ProteinTranslation.Proteins("UAG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Stop_codon_rna_sequence_3()
     {
         Assert.Empty(ProteinTranslation.Proteins("UGA"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Sequence_of_two_protein_codons_translates_into_proteins()
     {
         Assert.Equal(new[] { "Phenylalanine", "Phenylalanine" }, ProteinTranslation.Proteins("UUUUUU"));
