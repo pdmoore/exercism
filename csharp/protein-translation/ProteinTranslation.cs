@@ -1,25 +1,38 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class ProteinTranslation
 {
     public static string[] Proteins(string strand)
     {
+        if (strand.Length == 0)
+        {
+            return Array.Empty<string>();
+        }
+        
         List<string> result = new List<string>();
 
-        if (strand.Contains("UUU") || strand.Contains("UUC"))
+        string thisCodon = strand.Substring(0, 3);
+
+        List<string> pCodons = new List<string>(){ "UUU", "UUC" };
+        List<string> mCodons = new List<string>(){ "AUG" };
+        List<string> lCodons = new List<string>(){ "UUA", "UUG" };
+        List<string> sCodons = new List<string>(){ "UCA", "UCC", "UCU" };
+        
+        if (pCodons.Contains(thisCodon))
         {
             result.Add("Phenylalanine");
         }
-        else if (strand.Contains("AUG"))
+        else if (mCodons.Contains(thisCodon))
         {
             result.Add("Methionine");
         }
-        else if (strand.Contains("UUA") || strand.Contains("UUG"))
+        else if (lCodons.Contains(thisCodon))
         {
             result.Add("Leucine");
         }
-        else if (strand.Contains("UCU") || strand.Contains("UCC") || strand.Contains("UCA") || strand.Contains("UCG"))
+        else if (sCodons.Contains(thisCodon))
         {
             result.Add("Serine");
         }
