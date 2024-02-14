@@ -4,14 +4,14 @@ using System.Linq;
 
 public static class ProteinTranslation
 {
-    private static readonly List<string> Tryptophan = new List<string>() { "UGG" };
-    private static readonly List<string> Cysteine = new List<string>() { "UGC", "UGU" };
-    private static readonly List<string> Phenylalanine = new List<string>() { "UUU", "UUC" };
-    private static readonly List<string> Methionine = new List<string>() { "AUG" };
-    private static readonly List<string> Leucine = new List<string>() { "UUA", "UUG" };
-    private static readonly List<string> Serine = new List<string>() { "UCA", "UCC", "UCG", "UCU" };
-    private static readonly List<string> Tyrosine = new List<string>() { "UAC", "UAU" };
-    private static readonly List<string> StopCodons = new List<string>() { "UAA", "UAG", "UGA" };
+    private static readonly List<string> Tryptophan = new() { "UGG" };
+    private static readonly List<string> Cysteine = new() { "UGC", "UGU" };
+    private static readonly List<string> Phenylalanine = new() { "UUU", "UUC" };
+    private static readonly List<string> Methionine = new() { "AUG" };
+    private static readonly List<string> Leucine = new() { "UUA", "UUG" };
+    private static readonly List<string> Serine = new() { "UCA", "UCC", "UCG", "UCU" };
+    private static readonly List<string> Tyrosine = new() { "UAC", "UAU" };
+    private static readonly List<string> StopCodons = new() { "UAA", "UAG", "UGA" };
 
     public static string[] Proteins(string strand)
     {
