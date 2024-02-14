@@ -116,19 +116,19 @@ public class ProteinTranslationTests
         Assert.Equal(new[] { "Phenylalanine", "Phenylalanine" }, ProteinTranslation.Proteins("UUUUUU"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Sequence_of_two_different_protein_codons_translates_into_proteins()
     {
         Assert.Equal(new[] { "Leucine", "Leucine" }, ProteinTranslation.Proteins("UUAUUG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Translate_rna_strand_into_correct_protein_list()
     {
         Assert.Equal(new[] { "Methionine", "Phenylalanine", "Tryptophan" }, ProteinTranslation.Proteins("AUGUUUUGG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Translation_stops_if_stop_codon_at_beginning_of_sequence()
     {
         Assert.Empty(ProteinTranslation.Proteins("UAGUGG"));

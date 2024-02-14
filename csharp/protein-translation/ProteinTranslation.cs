@@ -12,7 +12,7 @@ public static class ProteinTranslation
     static List<string> lCodons = new List<string>() { "UUA", "UUG" };
     static List<string> sCodons = new List<string>() { "UCA", "UCC", "UCG", "UCU" };
     static List<string> tCodons = new List<string>() { "UAC", "UAU" };
-
+    private static List<string> stopCodons = new List<string>() { "UAA", "UAG", "UGA" };
 
     public static string[] Proteins(string strand)
     {
@@ -26,11 +26,10 @@ public static class ProteinTranslation
                      .Select(i => strand.Substring(i * 3, 3)))
         {
 
-
-
-            //string thisCodon = strand.Substring(0, 0 + 3);
-
-            if (pCodons.Contains(thisCodon))
+            if (stopCodons.Contains(thisCodon))
+            {
+                break;
+            } else if (pCodons.Contains(thisCodon))
             {
                 result.Add("Phenylalanine");
             }
