@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,11 +15,6 @@ public static class ProteinTranslation
 
     public static string[] Proteins(string strand)
     {
-        if (strand.Length == 0)
-        {
-            return Array.Empty<string>();
-        }
-
         List<string> result = new List<string>();
         foreach (var thisCodon in Enumerable.Range(0, strand.Length / 3)
                      .Select(i => strand.Substring(i * 3, 3)))
