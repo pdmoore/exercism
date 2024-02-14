@@ -5,14 +5,14 @@ using System.Linq;
 
 public static class ProteinTranslation
 {
-    static List<string> tryptophan = new List<string>() { "UGG" };
-    static List<string> cCodons = new List<string>() { "UGC", "UGU" };
-    static List<string> pCodons = new List<string>() { "UUU", "UUC" };
-    static List<string> mCodons = new List<string>() { "AUG" };
-    static List<string> lCodons = new List<string>() { "UUA", "UUG" };
-    static List<string> sCodons = new List<string>() { "UCA", "UCC", "UCG", "UCU" };
-    static List<string> tCodons = new List<string>() { "UAC", "UAU" };
-    private static List<string> stopCodons = new List<string>() { "UAA", "UAG", "UGA" };
+    private static readonly List<string> Tryptophan = new List<string>() { "UGG" };
+    private static readonly List<string> Cysteine = new List<string>() { "UGC", "UGU" };
+    private static readonly List<string> Phenylalanine = new List<string>() { "UUU", "UUC" };
+    private static readonly List<string> Methionine = new List<string>() { "AUG" };
+    private static readonly List<string> Leucine = new List<string>() { "UUA", "UUG" };
+    private static readonly List<string> Serine = new List<string>() { "UCA", "UCC", "UCG", "UCU" };
+    private static readonly List<string> Tyrosine = new List<string>() { "UAC", "UAU" };
+    private static readonly List<string> StopCodons = new List<string>() { "UAA", "UAG", "UGA" };
 
     public static string[] Proteins(string strand)
     {
@@ -25,35 +25,34 @@ public static class ProteinTranslation
         foreach (var thisCodon in Enumerable.Range(0, strand.Length / 3)
                      .Select(i => strand.Substring(i * 3, 3)))
         {
-
-            if (stopCodons.Contains(thisCodon))
+            if (StopCodons.Contains(thisCodon))
             {
                 break;
-            } else if (pCodons.Contains(thisCodon))
+            } else if (Phenylalanine.Contains(thisCodon))
             {
                 result.Add("Phenylalanine");
             }
-            else if (mCodons.Contains(thisCodon))
+            else if (Methionine.Contains(thisCodon))
             {
                 result.Add("Methionine");
             }
-            else if (lCodons.Contains(thisCodon))
+            else if (Leucine.Contains(thisCodon))
             {
                 result.Add("Leucine");
             }
-            else if (sCodons.Contains(thisCodon))
+            else if (Serine.Contains(thisCodon))
             {
                 result.Add("Serine");
             }
-            else if (tCodons.Contains(thisCodon))
+            else if (Tyrosine.Contains(thisCodon))
             {
                 result.Add("Tyrosine");
             }
-            else if (cCodons.Contains(thisCodon))
+            else if (Cysteine.Contains(thisCodon))
             {
                 result.Add("Cysteine");
             }
-            else if (tryptophan.Contains(thisCodon))
+            else if (Tryptophan.Contains(thisCodon))
             {
                 result.Add("Tryptophan");
             }
