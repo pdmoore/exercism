@@ -134,25 +134,25 @@ public class ProteinTranslationTests
         Assert.Empty(ProteinTranslation.Proteins("UAGUGG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Translation_stops_if_stop_codon_at_end_of_two_codon_sequence()
     {
         Assert.Equal(new[] { "Tryptophan" }, ProteinTranslation.Proteins("UGGUAG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Translation_stops_if_stop_codon_at_end_of_three_codon_sequence()
     {
         Assert.Equal(new[] { "Methionine", "Phenylalanine" }, ProteinTranslation.Proteins("AUGUUUUAA"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Translation_stops_if_stop_codon_in_middle_of_three_codon_sequence()
     {
         Assert.Equal(new[] { "Tryptophan" }, ProteinTranslation.Proteins("UGGUAGUGG"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Translation_stops_if_stop_codon_in_middle_of_six_codon_sequence()
     {
         Assert.Equal(new[] { "Tryptophan", "Cysteine", "Tyrosine" }, ProteinTranslation.Proteins("UGGUGUUAUUAAUGGUUU"));
