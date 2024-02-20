@@ -4,15 +4,15 @@ module ProteinTranslation
    result = [] of String
 
    strand.chars.in_groups_of(3).each do |codon|
-      case codon.join("")
-      when "AUG"        then result << "Methionine"
-      when "UUC", "UUU" then result << "Phenylalanine"
-      when "UUA", "UUG" then result << "Leucine"
+      result << case codon.join("")
+      when "AUG"        then "Methionine"
+      when "UUC", "UUU" then "Phenylalanine"
+      when "UUA", "UUG" then "Leucine"
       when "UCA", "UCC",
-           "UCG", "UCU" then result << "Serine"
-      when "UAC", "UAU" then result << "Tyrosine"
-      when "UGC", "UGU" then result << "Cysteine"
-      when "UGG"        then result << "Tryptophan"
+           "UCG", "UCU" then "Serine"
+      when "UAC", "UAU" then "Tyrosine"
+      when "UGC", "UGU" then "Cysteine"
+      when "UGG"        then "Tryptophan"
       when "UAA", "UAG",
            "UGA"        then break
       else
