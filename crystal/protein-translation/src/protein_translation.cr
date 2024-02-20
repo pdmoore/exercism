@@ -1,10 +1,10 @@
 module ProteinTranslation
   def self.proteins(strand : String) : Array(String)
 
-    result = [] of String
-    i = 0
-    while i < strand.size
-      case strand[i, 3]
+   result = [] of String
+
+   strand.chars.in_groups_of(3).each do |codon|
+      case codon.join("")
       when "AUG"
         result << "Methionine"
       when "UUU", "UUC"
@@ -25,7 +25,6 @@ module ProteinTranslation
         raise ArgumentError.new("foo")
       end
 
-      i = i + 3
     end
 
     result
