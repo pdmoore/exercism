@@ -5,22 +5,15 @@ module ProteinTranslation
 
    strand.chars.in_groups_of(3).each do |codon|
       case codon.join("")
-      when "AUG"
-        result << "Methionine"
-      when "UUU", "UUC"
-        result << "Phenylalanine"
-      when "UUA", "UUG"
-        result << "Leucine"
-      when "UCU", "UCC", "UCA", "UCG"
-        result << "Serine"
-      when "UAU", "UAC"
-        result << "Tyrosine"
-      when "UGU", "UGC"
-        result << "Cysteine"
-      when "UGG"
-        result << "Tryptophan"
-      when "UAA", "UAG", "UGA"
-        return result
+      when "AUG"        then result << "Methionine"
+      when "UUU", "UUC" then result << "Phenylalanine"
+      when "UUA", "UUG" then result << "Leucine"
+      when "UCU", "UCC", 
+           "UCA", "UCG" then result << "Serine"
+      when "UAU", "UAC" then result << "Tyrosine"
+      when "UGU", "UGC" then result << "Cysteine"
+      when "UGG"        then result << "Tryptophan"
+      when "UAA", "UAG", "UGA" then return result
       else
         raise ArgumentError.new("foo")
       end
