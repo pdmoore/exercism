@@ -4,7 +4,7 @@ module ProteinTranslation
    result = [] of String
 
    strand.chars.in_groups_of(3).each do |codon|
-      result << case codon.join("")
+      result << case codon.join
       when "AUG"        then "Methionine"
       when "UUC", "UUU" then "Phenylalanine"
       when "UUA", "UUG" then "Leucine"
