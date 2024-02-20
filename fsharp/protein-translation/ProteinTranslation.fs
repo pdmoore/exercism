@@ -11,5 +11,6 @@ let proteins (rna: string): string list =
         | "UUA" | "UUG" -> Some ("Leucine", rna[3..])
         | "UUU" | "UUC" -> Some ("Phenylalanine", rna[3..])
         | "UAA" | "UAG" | "UGA" | "" -> None
+        | _ -> failwith "Unknown coding"
         
     List.unfold codonToProtein rna
