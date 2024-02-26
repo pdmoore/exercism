@@ -46,7 +46,7 @@ public class ListOpsTests
         Assert.Empty(ListOps.Concat(lists));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Concatenate_a_list_of_lists_list_of_lists()
     {
         var lists = new List<List<int>> { new List<int> { 1, 2 }, new List<int> { 3 }, new List<int>(), new List<int> { 4, 5, 6 } };
@@ -54,7 +54,7 @@ public class ListOpsTests
         Assert.Equal(expected, ListOps.Concat(lists));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Concatenate_a_list_of_lists_list_of_nested_lists()
     {
         var lists = new List<List<List<int>>> { new List<List<int>> { new List<int> { 1 }, new List<int> { 2 } }, new List<List<int>> { new List<int> { 3 } }, new List<List<int>> { new List<int>() }, new List<List<int>> { new List<int> { 4, 5, 6 } } };
