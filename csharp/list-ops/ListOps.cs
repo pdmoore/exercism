@@ -36,7 +36,13 @@ public static class ListOps
 
     public static List<T> Concat<T>(List<List<T>> input)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        List<T> result = new List<T>();
+        foreach (var list in input)
+        {
+            result.AddRange(list);
+        }
+
+        return result;
     }
 
     public static List<T> Append<T>(List<T> left, List<T> right)

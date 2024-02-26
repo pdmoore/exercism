@@ -21,7 +21,7 @@ public class ListOpsTests
         Assert.Equal(expected, ListOps.Append(list1, list2));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Append_entries_to_a_list_and_return_the_new_list_empty_list_to_list()
     {
         var list1 = new List<int> { 1, 2, 3, 4 };
@@ -30,7 +30,7 @@ public class ListOpsTests
         Assert.Equal(expected, ListOps.Append(list1, list2));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Append_entries_to_a_list_and_return_the_new_list_non_empty_lists()
     {
         var list1 = new List<int> { 1, 2 };
@@ -39,7 +39,7 @@ public class ListOpsTests
         Assert.Equal(expected, ListOps.Append(list1, list2));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Concatenate_a_list_of_lists_empty_list()
     {
         var lists = new List<List<int>>();
