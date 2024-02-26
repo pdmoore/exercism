@@ -19,18 +19,8 @@ public static class ListOps
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static List<T> Filter<T>(List<T> input, Func<T, bool> predicate)
-    {
-        var result = new List<T>();
-        foreach (var item in input)
-        {
-            if (predicate(item))
-            {
-                result.Add(item);
-            }
-         }
-        return result;
-    }
+    public static List<T> Filter<T>(List<T> input, Func<T, bool> predicate) => 
+        input.Where(predicate).ToList();
 
     public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func)
     {
