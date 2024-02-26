@@ -79,14 +79,14 @@ public class ListOpsTests
         Assert.Equal(expected, ListOps.Filter(list, function));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Returns_the_length_of_a_list_empty_list()
     {
         var list = new List<int>();
         Assert.Equal(0, ListOps.Length(list));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Returns_the_length_of_a_list_non_empty_list()
     {
         var list = new List<int> { 1, 2, 3, 4 };

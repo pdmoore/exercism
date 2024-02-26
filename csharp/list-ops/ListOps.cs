@@ -4,10 +4,7 @@ using System.Linq;
 
 public static class ListOps
 {
-    public static int Length<T>(List<T> input)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public static int Length<T>(List<T> input) => input.Count;
 
     public static List<T> Reverse<T>(List<T> input)
     {
