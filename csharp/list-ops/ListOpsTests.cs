@@ -62,7 +62,7 @@ public class ListOpsTests
         Assert.Equal(expected, ListOps.Concat(lists));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Filter_list_returning_only_values_that_satisfy_the_filter_function_empty_list()
     {
         var list = new List<int>();
@@ -70,7 +70,7 @@ public class ListOpsTests
         Assert.Empty(ListOps.Filter(list, function));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Filter_list_returning_only_values_that_satisfy_the_filter_function_non_empty_list()
     {
         var list = new List<int> { 1, 2, 3, 5 };
