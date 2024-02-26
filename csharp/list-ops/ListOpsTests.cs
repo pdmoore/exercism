@@ -93,7 +93,7 @@ public class ListOpsTests
         Assert.Equal(4, ListOps.Length(list));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_the_mapping_function_empty_list()
     {
         var list = new List<int>();
@@ -101,7 +101,7 @@ public class ListOpsTests
         Assert.Empty(ListOps.Map(list, function));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_the_mapping_function_non_empty_list()
     {
         var list = new List<int> { 1, 3, 5, 7 };
