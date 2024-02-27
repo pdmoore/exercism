@@ -18,7 +18,7 @@ public static class ListOps
         input.Aggregate(start, func);
 
     public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func) =>
-        Enumerable.Reverse(input).Aggregate(start, (current, @in) => func(@in, current));
+        Foldl(Reverse(input), start, (current, @in) => func(@in, current));
 
     public static List<T> Concat<T>(List<List<T>> input)
     {
