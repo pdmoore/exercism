@@ -179,7 +179,7 @@ public class ListOpsTests
         Assert.Equal(expected, ListOps.Reverse(list));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Reverse_the_elements_of_the_list_list_of_lists_is_not_flattened()
     {
         var list = new List<List<int>> { new List<int> { 1, 2 }, new List<int> { 3 }, new List<int>(), new List<int> { 4, 5, 6 } };

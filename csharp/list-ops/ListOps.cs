@@ -8,25 +8,19 @@ public static class ListOps
 
     public static List<T> Reverse<T>(List<T> input)
     {
-        List<T> result = new List<T>();
-        foreach (var x1 in input.OrderDescending())
-        {
-            result.Add(x1);
-        }
-
-        return result;
+        return Enumerable.Reverse(input).ToList();
     }
 
-    public static List<TOut> Map<TIn, TOut>(List<TIn> input, Func<TIn, TOut> map) => 
+    public static List<TOut> Map<TIn, TOut>(List<TIn> input, Func<TIn, TOut> map) =>
         input.Select(map).ToList();
 
-    public static List<T> Filter<T>(List<T> input, Func<T, bool> predicate) => 
+    public static List<T> Filter<T>(List<T> input, Func<T, bool> predicate) =>
         input.Where(predicate).ToList();
 
-    public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func) => 
+    public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func) =>
         input.Aggregate(start, func);
 
-    public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func) => 
+    public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func) =>
         input.OrderDescending().Aggregate(start, (current, @in) => func(@in, current));
 
     public static List<T> Concat<T>(List<List<T>> input)
