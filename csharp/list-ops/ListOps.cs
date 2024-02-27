@@ -19,7 +19,12 @@ public static class ListOps
 
     public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        foreach (var item in input)
+        {
+            start = func(start, item);
+        }
+
+        return start;
     }
 
     public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func)
