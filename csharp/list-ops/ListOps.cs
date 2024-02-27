@@ -24,7 +24,7 @@ public static class ListOps
         input.Where(predicate).ToList();
 
     public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func) => 
-        input.Aggregate(start, (current, item) => func(current, item));
+        input.Aggregate(start, func);
 
     public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func) => 
         input.OrderDescending().Aggregate(start, (current, @in) => func(@in, current));
