@@ -17,15 +17,8 @@ public static class ListOps
     public static List<T> Filter<T>(List<T> input, Func<T, bool> predicate) => 
         input.Where(predicate).ToList();
 
-    public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func)
-    {
-        foreach (var item in input)
-        {
-            start = func(start, item);
-        }
-
-        return start;
-    }
+    public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func) => 
+        input.Aggregate(start, (current, item) => func(current, item));
 
     public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func)
     {
