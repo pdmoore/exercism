@@ -8,7 +8,13 @@ public static class ListOps
 
     public static List<T> Reverse<T>(List<T> input)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        List<T> result = new List<T>();
+        foreach (var x1 in input.OrderDescending())
+        {
+            result.Add(x1);
+        }
+
+        return result;
     }
 
     public static List<TOut> Map<TIn, TOut>(List<TIn> input, Func<TIn, TOut> map) => 
@@ -24,13 +30,7 @@ public static class ListOps
     {
         var list = input;
         list.Reverse();
-        foreach (var item in list)
-        {
-            start = func(item, start);
-        }
-
-        return start;
-        
+        return list.Aggregate(start, (current, item) => func(item, current));
     }
 
     public static List<T> Concat<T>(List<List<T>> input)

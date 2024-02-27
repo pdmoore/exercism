@@ -146,7 +146,7 @@ public class ListOpsTests
         Assert.Equal(2, ListOps.Foldr(list, initial, function));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Folds_reduces_the_given_list_from_the_right_with_a_function_empty_list()
     {
         var list = new List<int>();
@@ -155,7 +155,7 @@ public class ListOpsTests
         Assert.Equal(2, ListOps.Foldr(list, initial, function));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Folds_reduces_the_given_list_from_the_right_with_a_function_direction_independent_function_applied_to_non_empty_list()
     {
         var list = new List<int> { 1, 2, 3, 4 };
@@ -164,14 +164,14 @@ public class ListOpsTests
         Assert.Equal(15, ListOps.Foldr(list, initial, function));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Reverse_the_elements_of_the_list_empty_list()
     {
         var list = new List<int>();
         Assert.Empty(ListOps.Reverse(list));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Reverse_the_elements_of_the_list_non_empty_list()
     {
         var list = new List<int> { 1, 3, 5, 7 };
