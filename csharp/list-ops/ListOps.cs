@@ -28,9 +28,9 @@ public static class ListOps
 
     public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func)
     {
-        var list = input;
-        list.Reverse();
-        return list.Aggregate(start, (current, item) => func(item, current));
+        TOut result = start;
+        foreach (var @in in input.OrderDescending()) result = func(@in, result);
+        return result;
     }
 
     public static List<T> Concat<T>(List<List<T>> input)
