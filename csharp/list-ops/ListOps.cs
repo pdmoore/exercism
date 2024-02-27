@@ -33,7 +33,7 @@ public static class ListOps
 
     public static List<T> Append<T>(List<T> left, List<T> right)
     {
-        List<T> result = new List<T>();
+        List<T> result = [];
         result.AddRange(left);
         result.AddRange(right);
         return result;
