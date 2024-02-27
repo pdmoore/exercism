@@ -22,7 +22,15 @@ public static class ListOps
 
     public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        var list = input;
+        list.Reverse();
+        foreach (var item in list)
+        {
+            start = func(item, start);
+        }
+
+        return start;
+        
     }
 
     public static List<T> Concat<T>(List<List<T>> input)

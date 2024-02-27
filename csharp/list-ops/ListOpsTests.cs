@@ -137,7 +137,7 @@ public class ListOpsTests
         Assert.Equal(15, ListOps.Foldl(list, initial, function));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Folds_reduces_the_given_list_from_the_right_with_a_function_direction_dependent_function_applied_to_non_empty_list()
     {
         var list = new List<int> { 2, 5 };
