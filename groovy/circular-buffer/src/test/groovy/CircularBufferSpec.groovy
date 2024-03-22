@@ -54,7 +54,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 2
     }
 
-    @Ignore
     def "Full buffer can't be written to"() {
         setup:
         CircularBuffer buff = new CircularBuffer(1)

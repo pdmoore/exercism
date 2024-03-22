@@ -3,8 +3,10 @@ class FullBufferException extends Exception {}
 
 class CircularBuffer {
     ArrayList items
+    int capacity
 
     CircularBuffer(int capacity) {
+        this.capacity = capacity
         items = []
     }
 
@@ -20,6 +22,9 @@ class CircularBuffer {
     }
 
     def write(int item) {
+        if (items.size() == capacity) {
+            throw new FullBufferException()
+        }
         items.add(item)
     }
 
