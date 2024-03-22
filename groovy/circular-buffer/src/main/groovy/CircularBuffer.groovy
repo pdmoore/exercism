@@ -7,7 +7,7 @@ class CircularBuffer {
 
     CircularBuffer(int capacity) {
         this.capacity = capacity
-        items = []
+        clear()
     }
 
     def clear() {
