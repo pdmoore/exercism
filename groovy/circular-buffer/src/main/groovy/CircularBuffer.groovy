@@ -2,13 +2,12 @@ class EmptyBufferException extends Exception {}
 class FullBufferException extends Exception {}
 
 class CircularBuffer {
-
-    int only_item
     int item_count
+    ArrayList items
 
     CircularBuffer(int capacity) {
         item_count = 0
-        only_item = 0
+        items = []
     }
 
     def clear() {
@@ -19,12 +18,12 @@ class CircularBuffer {
         if (item_count == 0) {
             throw new EmptyBufferException()
         }
-        return only_item
+        return items.get(0)
     }
 
     def write(int item) {
         item_count++
-        only_item = item
+        items.add(item)
     }
 
     def overwrite(int item) {
