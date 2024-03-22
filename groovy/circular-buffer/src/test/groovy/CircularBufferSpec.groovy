@@ -128,7 +128,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 2
     }
 
-    @Ignore
     def "Clear does nothing on empty buffer"() {
         setup:
         CircularBuffer buff = new CircularBuffer(1)
