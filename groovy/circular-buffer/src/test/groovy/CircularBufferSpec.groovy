@@ -66,7 +66,6 @@ class CircularBufferSpec extends Specification {
         thrown(FullBufferException)
     }
 
-    @Ignore
     def "A read frees up capacity for another write"() {
         setup:
         CircularBuffer buff = new CircularBuffer(1)
