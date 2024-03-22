@@ -41,7 +41,6 @@ class CircularBufferSpec extends Specification {
         thrown(EmptyBufferException)
     }
 
-    @Ignore
     def "Items are read in the order they are written"() {
         setup:
         CircularBuffer buff = new CircularBuffer(2)
