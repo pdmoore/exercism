@@ -24,7 +24,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 1
     }
 
-    @Ignore
     def "Each item may only be read once"() {
         setup:
         CircularBuffer buff = new CircularBuffer(1)
