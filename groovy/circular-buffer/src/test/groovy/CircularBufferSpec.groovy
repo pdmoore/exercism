@@ -83,7 +83,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 2
     }
 
-    @Ignore
     def "Read position is maintained even across multiple writes"() {
         setup:
         CircularBuffer buff = new CircularBuffer(3)
