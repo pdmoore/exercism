@@ -1,4 +1,5 @@
 class EmptyBufferException extends Exception {}
+
 class FullBufferException extends Exception {}
 
 class CircularBuffer {
@@ -29,11 +30,9 @@ class CircularBuffer {
     }
 
     def overwrite(int item) {
-        if (items.size() < capacity) {
-            write(item)
+        if (items.size() == capacity) {
+            read()
         }
-
-//        read()
-//        write(item)
+        write(item)
     }
 }

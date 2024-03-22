@@ -153,7 +153,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 2
     }
 
-    @Ignore
     def "Overwrite replaces the oldest item on full buffer"() {
         setup:
         CircularBuffer buff = new CircularBuffer(2)
