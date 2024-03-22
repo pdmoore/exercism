@@ -167,7 +167,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 3
     }
 
-    @Ignore
     def "Overwrite replaces the oldest item remaining in buffer following a read"() {
         setup:
         CircularBuffer buff = new CircularBuffer(3)
@@ -190,7 +189,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 5
     }
 
-    @Ignore
     def "Initial clear does not affect wrapping around"() {
         setup:
         CircularBuffer buff = new CircularBuffer(2)
