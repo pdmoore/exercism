@@ -29,6 +29,11 @@ class CircularBuffer {
     }
 
     def overwrite(int item) {
-        throw new UnsupportedOperationException('Overwrite implementation is missing')
+        if (items.size() < capacity) {
+            write(item)
+        }
+
+//        read()
+//        write(item)
     }
 }

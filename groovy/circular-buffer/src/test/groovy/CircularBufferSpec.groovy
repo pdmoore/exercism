@@ -140,7 +140,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 1
     }
 
-    @Ignore
     def "Overwrite acts like write on non-full buffer"() {
         setup:
         CircularBuffer buff = new CircularBuffer(2)
