@@ -115,7 +115,6 @@ class CircularBufferSpec extends Specification {
         thrown(EmptyBufferException)
     }
 
-    @Ignore
     def "Clear frees up capacity for another write"() {
         setup:
         CircularBuffer buff = new CircularBuffer(1)
