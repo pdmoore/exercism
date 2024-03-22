@@ -3,8 +3,12 @@ class FullBufferException extends Exception {}
 
 class CircularBuffer {
 
+    int only_item
+    int item_count
+
     CircularBuffer(int capacity) {
-        //throw new UnsupportedOperationException('Constructor implementation is missing')
+        item_count = 0
+        only_item = 0
     }
 
     def clear() {
@@ -12,11 +16,15 @@ class CircularBuffer {
     }
 
     def read() {
-        throw new EmptyBufferException()
+        if (item_count == 0) {
+            throw new EmptyBufferException()
+        }
+        return only_item
     }
 
     def write(int item) {
-        throw new UnsupportedOperationException('Write implementation is missing')
+        item_count++
+        only_item = item
     }
 
     def overwrite(int item) {

@@ -13,7 +13,6 @@ class CircularBufferSpec extends Specification {
         thrown(EmptyBufferException)
     }
 
-    @Ignore
     def "Can read an item just written"() {
         setup:
         CircularBuffer buff = new CircularBuffer(1)
