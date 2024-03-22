@@ -22,7 +22,7 @@ public static class ListOps
 
     public static List<T> Concat<T>(List<List<T>> input)
     {
-        List<T> result = new List<T>();
+        List<T> result = [];
         foreach (var list in input)
         {
             result.AddRange(list);
