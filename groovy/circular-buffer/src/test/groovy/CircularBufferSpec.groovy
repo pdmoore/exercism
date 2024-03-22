@@ -102,7 +102,6 @@ class CircularBufferSpec extends Specification {
         buff.read() == 3
     }
 
-    @Ignore
     def "Items cleared out of buffer can't be read"() {
         setup:
         CircularBuffer buff = new CircularBuffer(1)

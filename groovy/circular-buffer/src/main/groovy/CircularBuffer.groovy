@@ -11,7 +11,7 @@ class CircularBuffer {
     }
 
     def clear() {
-        throw new UnsupportedOperationException('Clear implementation is missing')
+        items = []
     }
 
     def read() {
