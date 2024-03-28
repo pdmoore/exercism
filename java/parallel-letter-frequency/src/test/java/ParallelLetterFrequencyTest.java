@@ -270,7 +270,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testIgnoreLetterCasing() {
         String[] input = { "m", "M" };

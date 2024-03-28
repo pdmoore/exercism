@@ -10,7 +10,8 @@ class ParallelLetterFrequency {
 
         // texts is an array of lines
         for (int i = 0; i < texts.length; i++) {
-            texts[i].chars().forEach(ch -> charCount.merge((char) ch, 1, Integer::sum));
+            texts[i].chars().forEach(ch -> charCount.merge(Character.toLowerCase((char) ch), 1, Integer::sum));
+
         }
 
 
