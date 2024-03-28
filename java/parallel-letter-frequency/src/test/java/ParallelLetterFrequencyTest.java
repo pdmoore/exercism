@@ -327,7 +327,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testCombinationOfLowerAndUppercaseLettersPunctuationAndWhiteSpace() {
         String[] input = { calculateFrecuencies };
@@ -362,7 +361,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
     
-    @Disabled("Remove to run test")
     @Test
     public void testManySmallTexts() {
         String[] input = new String[50];
@@ -379,7 +377,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testLargeTexts() {
         String[] input = { largeTexts1, largeTexts2, largeTexts3, largeTexts4 };
