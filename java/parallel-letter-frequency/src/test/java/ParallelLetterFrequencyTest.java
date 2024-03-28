@@ -241,7 +241,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testTwoTextsWithOneLetter() {
         String[] input = { "e", "f" };
@@ -256,7 +255,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testTwoTextsWithMultipleLetters() {
         String[] input = { "ggh", "hhi" };
