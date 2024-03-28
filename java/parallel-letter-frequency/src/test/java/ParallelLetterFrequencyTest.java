@@ -283,7 +283,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testIgnoreWhitespace() {
         String[] input = { "   ", "\t", "\r\n" };
