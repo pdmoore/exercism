@@ -10,7 +10,7 @@ class ParallelLetterFrequency {
 
         Arrays.stream(texts).
                 sequential().
-                forEach(line -> line.replaceAll("[^a-zA-Z]", "").chars().
+                forEach(line -> line.replaceAll("[^\\p{L}]", "").chars().
                         forEach(ch -> charCount.merge(Character.toLowerCase((char) ch), 1, Integer::sum)));
 
 
