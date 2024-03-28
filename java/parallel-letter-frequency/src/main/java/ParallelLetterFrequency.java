@@ -8,11 +8,18 @@ class ParallelLetterFrequency {
 
     ParallelLetterFrequency(String[] texts) {
 
-        // texts is an array of lines
-        for (int i = 0; i < texts.length; i++) {
-            texts[i].chars().forEach(ch -> charCount.merge(Character.toLowerCase((char) ch), 1, Integer::sum));
+        Arrays.stream(texts).
+                sequential().
+                forEach(line -> line.chars().
+                        forEach(ch -> charCount.merge(Character.toLowerCase((char) ch), 1, Integer::sum)));
 
-        }
+
+        // texts is an array of lines
+//        for (int i = 0; i < texts.length; i++) {
+//            // strip out white space
+//            texts[i].chars().forEach(ch -> charCount.merge(Character.toLowerCase((char) ch), 1, Integer::sum));
+//
+//        }
 
 
     }
