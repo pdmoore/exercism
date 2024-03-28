@@ -301,7 +301,6 @@ public class ParallelLetterFrequencyTest {
         assertThat(p.countLetters()).isEqualTo(expectedOutput);
     }
 
-    @Disabled("Remove to run test")
     @Test
     public void testIgnoreNumbers() {
         String[] input = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
