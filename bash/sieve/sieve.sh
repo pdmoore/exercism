@@ -22,16 +22,16 @@
 #   main "$@"
 #
 # *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
-    declare -a primes
-    declare -a sieve 
+declare -a primes
+declare -a sieve 
     
-    # mark all as prime up to limit
-    for ((i=2; i<=$1; i++)); do sieve[i]=1; done
+# mark all as prime up to limit
+for ((i=2; i<=$1; i++)); do sieve[i]=1; done
        
-    for ((i=2; i<=$1; i++)); do
-        (( sieve[i] )) || continue
-        primes+=( $i )
-        for ((j=2*i; j<=$1; j+=i)) do sieve[j]=0; done
-    done
+for ((i=2; i<=$1; i++)); do
+    (( sieve[i] )) || continue
+    primes+=( $i )
+    for ((j=2*i; j<=$1; j+=i)) do sieve[j]=0; done
+done
 
-    echo "${primes[@]}"
+echo "${primes[@]}"
