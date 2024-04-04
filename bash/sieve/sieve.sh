@@ -22,12 +22,11 @@
 #   main "$@"
 #
 # *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
-(( $# == 1))  || exit 0
-if [ $1 -ge 2 ]; 
+if [ $1 -lt 2 ]; 
 then
+    echo ""
+else 
     declare -a primes
     primes+=( $1 )
     echo "${primes[@]}"
-else
-    echo ""
 fi
