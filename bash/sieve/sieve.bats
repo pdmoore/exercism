@@ -4,7 +4,6 @@ load bats-extra
 # local version: 1.1.0.0
 
 @test "no primes under two" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected=""
     run bash sieve.sh 1
     assert_success
@@ -12,7 +11,6 @@ load bats-extra
 }
 
 @test "find first prime" {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2"
     run bash sieve.sh 2
     assert_success
@@ -27,7 +25,6 @@ load bats-extra
 }
 
 @test "limit is prime" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 3 5 7 11 13"
     run bash sieve.sh 13
     assert_success
