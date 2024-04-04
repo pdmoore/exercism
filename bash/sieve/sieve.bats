@@ -20,7 +20,6 @@ load bats-extra
 }
 
 @test "find primes up to 10" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
     expected="2 3 5 7"
     run bash sieve.sh 10
     assert_success
