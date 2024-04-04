@@ -22,10 +22,6 @@
 #   main "$@"
 #
 # *** PLEASE REMOVE THESE COMMENTS BEFORE SUBMITTING YOUR SOLUTION ***
-if [ $1 -lt 2 ]; 
-then
-    echo ""
-else 
     declare -a primes
     declare -a sieve 
     
@@ -39,4 +35,3 @@ else
     done
 
     echo "${primes[@]}"
-fi
