@@ -8,11 +8,9 @@ class LuhnTest {
     @Test
     fun `invalid - single digit`() = assertInvalid("1")
 
-    @Ignore
     @Test
     fun `invalid - a single zero`() = assertInvalid("0")
 
-    @Ignore
     @Test
     fun `valid - simple reversable`() = assertValid("059")
 

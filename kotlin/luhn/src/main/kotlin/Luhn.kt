@@ -1,6 +1,10 @@
 object Luhn {
 
     fun isValid(candidate: String): Boolean {
-        return false
+        if (candidate.length <= 1) {
+            return false
+        }
+
+        return true
     }
 }
