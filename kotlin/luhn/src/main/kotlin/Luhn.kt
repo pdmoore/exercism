@@ -11,7 +11,7 @@ object Luhn {
 
         var doubleThis = false
         var sum = 0
-        for (char in reversedDigits) {
+        reversedDigits.forEach { char ->
             if (doubleThis) {
                 var digit = char.toString().toInt() * 2
                 if (digit > 9) digit -= 9
