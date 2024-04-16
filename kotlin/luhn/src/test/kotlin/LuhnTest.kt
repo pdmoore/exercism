@@ -23,19 +23,15 @@ class LuhnTest {
     @Test
     fun `invalid - Canadian`() = assertInvalid("055 444 286")
 
-    @Ignore
     @Test
     fun `invalid - credit card`() = assertInvalid("8273 1232 7352 0569")
 
-    @Ignore
     @Test
     fun `valid - even amount of digits`() = assertValid("095 245 88")
 
-    @Ignore
     @Test
     fun `valid - odd amount of spaces`() = assertValid("234 567 891 234")
 
-    @Ignore
     @Test
     fun `invalid - non-digit at the end of valid`() = assertInvalid("059a")
 

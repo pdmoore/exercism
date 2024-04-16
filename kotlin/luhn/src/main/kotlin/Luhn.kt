@@ -1,6 +1,8 @@
 object Luhn {
 
     fun isValid(candidate: String): Boolean {
+        if (!candidate.matches("[0-9 ]+".toRegex())) return false;
+
         var onlyDigits = candidate.filter { it.isDigit() }
 
         if (onlyDigits.length <= 1) {
