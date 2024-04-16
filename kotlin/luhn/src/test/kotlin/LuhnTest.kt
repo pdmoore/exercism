@@ -35,27 +35,21 @@ class LuhnTest {
     @Test
     fun `invalid - non-digit at the end of valid`() = assertInvalid("059a")
 
-    @Ignore
     @Test
     fun `invalid - punctuation in valid`() = assertInvalid("055-444-285")
 
-    @Ignore
     @Test
     fun `invalid - symbols in valid`() = assertInvalid("055# 444$ 285")
 
-    @Ignore
     @Test
     fun `invalid - single zero with space`() = assertInvalid(" 0")
 
-    @Ignore
     @Test
     fun `valid - many zeros`() = assertValid("0000 0")
 
-    @Ignore
     @Test
     fun `valid - input digit 9`() = assertValid("091")
 
-    @Ignore
     @Test
     fun `valid | valid luhn with an odd number of digits and non zero first digit`() = assertValid("109")
 
@@ -64,7 +58,6 @@ class LuhnTest {
      * sometimes accidentally declare an invalid string to be valid.
      * This test is designed to avoid that solution.
      */
-    @Ignore
     @Test
     fun `invalid - ascii value for non-doubled non-digit in the middle`() = assertInvalid("055b 444 285")
 
@@ -73,7 +66,6 @@ class LuhnTest {
      * sometimes accidentally declare an invalid string to be valid.
      * This test is designed to avoid that solution.
      */
-    @Ignore
     @Test
     fun `invalid - ascii value for non-doubled non-digit at the start`() = assertInvalid(":9")
 }
