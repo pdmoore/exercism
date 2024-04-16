@@ -14,15 +14,12 @@ class LuhnTest {
     @Test
     fun `valid - simple reversable`() = assertValid("059")
 
-    @Ignore
     @Test
     fun `valid - simple unreversable`() = assertValid("59")
 
-    @Ignore
     @Test
     fun `valid - Canadian`() = assertValid("055 444 285")
 
-    @Ignore
     @Test
     fun `invalid - Canadian`() = assertInvalid("055 444 286")
 
