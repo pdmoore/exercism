@@ -7,18 +7,15 @@ object Luhn {
                 if (any { !it.isDigit() }) return false
             }.reversed()
 
-        var doubleThis = false
-        var sum = 0
-        reversedOnlyDigits.forEach { char ->
-            if (doubleThis) {
-                var digit = char.toString().toInt() * 2
-                if (digit > 9) digit -= 9
-                sum += digit
+        val sum = reversedOnlyDigits.map(Character::getNumericValue)
+            .mapIndexed { i, digit ->
+            if (i % 2 == 0) {
+                digit
             } else {
-                sum += char.toString().toInt()
+                val doubled = digit * 2
+                if (doubled > 9) doubled - 9 else doubled
             }
-            doubleThis = !doubleThis
-        }
+        }.sum()
 
         return sum % 10 == 0
     }
