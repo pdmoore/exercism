@@ -7,7 +7,7 @@ object Luhn {
                 if (any { !it.isDigit() }) return false
             }.reversed()
 
-        val sum = reversedOnlyDigits.map(Character::getNumericValue)
+        return reversedOnlyDigits.map(Character::getNumericValue)
             .mapIndexed { i, digit ->
             if (i % 2 == 0) {
                 digit
@@ -15,8 +15,6 @@ object Luhn {
                 val doubled = digit * 2
                 if (doubled > 9) doubled - 9 else doubled
             }
-        }.sum()
-
-        return sum % 10 == 0
+        }.sum() % 10 == 0
     }
 }
