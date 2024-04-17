@@ -1,17 +1,15 @@
 object Luhn {
 
     fun isValid(candidate: String): Boolean {
-        if (!candidate.matches("[0-9 ]+".toRegex())) return false
-
-        val reversedDigits = candidate.filter { it.isDigit() }.reversed()
-
-        if (reversedDigits.length <= 1) {
-            return false
-        }
+        val reversedOnlyDigits = candidate.filterNot { it.isWhitespace() }
+            .apply {
+                if (length <= 1) return false
+                if (any { !it.isDigit() }) return false
+            }.reversed()
 
         var doubleThis = false
         var sum = 0
-        reversedDigits.forEach { char ->
+        reversedOnlyDigits.forEach { char ->
             if (doubleThis) {
                 var digit = char.toString().toInt() * 2
                 if (digit > 9) digit -= 9
