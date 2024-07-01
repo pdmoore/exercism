@@ -8,7 +8,7 @@ public class PigLatinTests
         Assert.Equal("appleay", PigLatin.Translate("apple"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_e()
     {
         Assert.Equal("earay", PigLatin.Translate("ear"));
