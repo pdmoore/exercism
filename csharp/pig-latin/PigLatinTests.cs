@@ -44,19 +44,19 @@ public class PigLatinTests
         Assert.Equal("igpay", PigLatin.Translate("pig"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_k()
     {
         Assert.Equal("oalakay", PigLatin.Translate("koala"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_x()
     {
         Assert.Equal("enonxay", PigLatin.Translate("xenon"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_q_without_a_following_u()
     {
         Assert.Equal("atqay", PigLatin.Translate("qat"));
