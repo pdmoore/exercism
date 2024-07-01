@@ -11,10 +11,24 @@ public static class PigLatin
             return word + "ay";
         }
 
-        var firstChar = word.ToCharArray()[0];
-        var restOfWord = word.Substring(1);
+        // rule is grab the first n characters up to the first vowel
+        var firstVowelIndex = FirstVowelIndexOf(word);
+        
+        var initialConsonants = word.Substring(0, firstVowelIndex);
+        var restOfWord = word.Substring(firstVowelIndex);
 
-        return restOfWord + firstChar + "ay";
+        return restOfWord + initialConsonants + "ay";
+    }
+
+    private static int FirstVowelIndexOf(string word)
+    {
+        var i = 0;
+        var charArray = word.ToCharArray();
+        while (i <= word.Length && !Vowels.Contains(charArray[i]))
+        {
+            i++;
+        }
+        return i;
     }
 
     private static bool StartsWithVowel(string word) => Vowels.Contains(word.ToCharArray()[0]);
