@@ -14,25 +14,25 @@ public class PigLatinTests
         Assert.Equal("earay", PigLatin.Translate("ear"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_i()
     {
         Assert.Equal("iglooay", PigLatin.Translate("igloo"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_o()
     {
         Assert.Equal("objectay", PigLatin.Translate("object"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_u()
     {
         Assert.Equal("underay", PigLatin.Translate("under"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_a_vowel_and_followed_by_a_qu()
     {
         Assert.Equal("equalay", PigLatin.Translate("equal"));
