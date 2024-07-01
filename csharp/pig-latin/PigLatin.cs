@@ -4,6 +4,6 @@ public static class PigLatin
 {
     public static string Translate(string word)
     {
-        return "appleay";
+        return word + word.ToCharArray()[0] + "y";
     }
 }
