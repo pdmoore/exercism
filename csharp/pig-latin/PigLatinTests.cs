@@ -62,7 +62,7 @@ public class PigLatinTests
         Assert.Equal("atqay", PigLatin.Translate("qat"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_ch()
     {
         Assert.Equal("airchay", PigLatin.Translate("chair"));
