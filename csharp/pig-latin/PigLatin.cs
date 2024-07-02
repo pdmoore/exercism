@@ -24,14 +24,14 @@ public static class PigLatin
 
         if (word.Contains("qu"))
         {
-            var charAfterU = FirstVowelIndexOf(word) + 1;
+            var charAfterU = FirstVowelIndexOf(word, Vowels) + 1;
             var lettersUpToQu = word.Substring(0, charAfterU);
             var lettersAfterU = word.Substring(charAfterU);
             return lettersAfterU + lettersUpToQu + "ay";
         }
         
         // rule is grab the first n characters up to the first vowel
-        var firstVowelIndex = FirstVowelIndexOf(word);
+        var firstVowelIndex = FirstVowelIndexOf(word, Vowels);
         var initialConsonants = word.Substring(0, firstVowelIndex);
         var restOfWord = word.Substring(firstVowelIndex);
 
@@ -47,11 +47,11 @@ public static class PigLatin
     private static bool StartsWithQ(string word) => 
         word.ToCharArray()[0] == 'q';
 
-    private static int FirstVowelIndexOf(string word)
+    private static int FirstVowelIndexOf(string word, string lookingFor)
     {
         var i = 0;
         var charArray = word.ToCharArray();
-        while (i <= word.Length && !Vowels.Contains(charArray[i]))
+        while (i <= word.Length && !lookingFor.Contains(charArray[i]))
         {
             i++;
         }
