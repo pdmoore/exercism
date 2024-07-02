@@ -30,12 +30,21 @@ public static class PigLatin
             return lettersAfterU + lettersUpToQu + "ay";
         }
         
-        // rule is grab the first n characters up to the first vowel
-        var firstVowelIndex = FirstVowelIndexOf(word, Vowels);
-        var initialConsonants = word.Substring(0, firstVowelIndex);
-        var restOfWord = word.Substring(firstVowelIndex);
+        if (word.StartsWith("y"))
+        {
+            var firstVowelIndex = FirstVowelIndexOf(word, Vowels);
+            var initialConsonants = word.Substring(0, firstVowelIndex);
+            var restOfWord = word.Substring(firstVowelIndex);
 
-        return restOfWord + initialConsonants + "ay";
+            return restOfWord + initialConsonants + "ay";
+        }
+        
+        // rule is grab the first n characters up to the first vowel
+        var firstVowelOrY = FirstVowelIndexOf(word, Vowels + "y");
+        var startOfWord = word.Substring(0, firstVowelOrY);
+        var remainder = word.Substring(firstVowelOrY);
+
+        return remainder + startOfWord + "ay";
     }
 
     private static bool StartsWith(string word, string startingChars) => 

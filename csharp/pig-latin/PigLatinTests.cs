@@ -116,7 +116,7 @@ public class PigLatinTests
         Assert.Equal("ellowyay", PigLatin.Translate("yellow"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster()
     {
         Assert.Equal("ythmrhay", PigLatin.Translate("rhythm"));
