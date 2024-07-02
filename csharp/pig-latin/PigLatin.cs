@@ -7,12 +7,7 @@ public static class PigLatin
 
     public static string Translate(string word)
     {
-        if (word.Substring(0, 2).Equals("xr"))
-        {
-            return word + "ay";
-        }
-        
-        if (word.Substring(0, 2).Equals("yt"))
+        if (StartsWith(word, "xr") || StartsWith(word, "yt"))
         {
             return word + "ay";
         }
@@ -43,9 +38,14 @@ public static class PigLatin
         return restOfWord + initialConsonants + "ay";
     }
 
-    private static bool SecondLetterIsU(string word) => word.ToCharArray()[1] == 'u';
+    private static bool StartsWith(string word, string startingChars) => 
+        word[..2].Equals(startingChars);
 
-    private static bool StartsWithQ(string word) => word.ToCharArray()[0] == 'q';
+    private static bool SecondLetterIsU(string word) => 
+        word.ToCharArray()[1] == 'u';
+
+    private static bool StartsWithQ(string word) => 
+        word.ToCharArray()[0] == 'q';
 
     private static int FirstVowelIndexOf(string word)
     {
