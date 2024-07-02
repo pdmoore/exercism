@@ -7,6 +7,11 @@ public static class PigLatin
 
     public static string Translate(string word)
     {
+        if (word.Substring(0, 2).Equals("xr"))
+        {
+            return word + "ay";
+        }
+        
         if (StartsWithVowel(word))
         {
             return word + "ay";
