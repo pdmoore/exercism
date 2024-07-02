@@ -122,7 +122,7 @@ public class PigLatinTests
         Assert.Equal("ythmrhay", PigLatin.Translate("rhythm"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Y_as_second_letter_in_two_letter_word()
     {
         Assert.Equal("ymay", PigLatin.Translate("my"));
