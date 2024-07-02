@@ -74,7 +74,7 @@ public class PigLatinTests
         Assert.Equal("eenquay", PigLatin.Translate("queen"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_qu_and_a_preceding_consonant()
     {
         Assert.Equal("aresquay", PigLatin.Translate("square"));

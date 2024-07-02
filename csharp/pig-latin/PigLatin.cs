@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 public static class PigLatin
 {
@@ -14,6 +15,14 @@ public static class PigLatin
         if (StartsWithQ(word) && SecondLetterIsU(word))
         {
             return word[2..] + "qu" + "ay";
+        }
+
+        if (word.Contains("qu"))
+        {
+            var charAfterU = FirstVowelIndexOf(word) + 1;
+            var lettersUpToQu = word.Substring(0, charAfterU);
+            var lettersAfterU = word.Substring(charAfterU);
+            return lettersAfterU + lettersUpToQu + "ay";
         }
         
         // rule is grab the first n characters up to the first vowel
