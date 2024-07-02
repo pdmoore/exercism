@@ -3,11 +3,16 @@ using System.Linq;
 
 public static class PigLatin
 {
-    private const string Vowels = "aeiouy";
+    private const string Vowels = "aeiou";
 
     public static string Translate(string word)
     {
         if (word.Substring(0, 2).Equals("xr"))
+        {
+            return word + "ay";
+        }
+        
+        if (word.Substring(0, 2).Equals("yt"))
         {
             return word + "ay";
         }

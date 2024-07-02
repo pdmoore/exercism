@@ -110,7 +110,7 @@ public class PigLatinTests
         Assert.Equal("xrayay", PigLatin.Translate("xray"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Y_is_treated_like_a_consonant_at_the_beginning_of_a_word()
     {
         Assert.Equal("ellowyay", PigLatin.Translate("yellow"));
