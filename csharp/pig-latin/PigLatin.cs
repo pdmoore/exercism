@@ -3,7 +3,7 @@ using System.Linq;
 
 public static class PigLatin
 {
-    private const string Vowels = "aeiou";
+    private const string Vowels = "aeiouy";
 
     public static string Translate(string word)
     {
