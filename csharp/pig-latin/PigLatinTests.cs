@@ -68,9 +68,7 @@ public class PigLatinTests
         Assert.Equal("airchay", PigLatin.Translate("chair"));
     }
 
-    // TODO - LEFT OFF HERE - QU at start vs QU embedded vs Q without U
-    
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Word_beginning_with_qu()
     {
         Assert.Equal("eenquay", PigLatin.Translate("queen"));

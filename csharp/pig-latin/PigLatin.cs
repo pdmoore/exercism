@@ -11,14 +11,22 @@ public static class PigLatin
             return word + "ay";
         }
 
+        if (StartsWithQ(word) && SecondLetterIsU(word))
+        {
+            return word.Substring(2) + "qu" + "ay";
+        }
+        
         // rule is grab the first n characters up to the first vowel
         var firstVowelIndex = FirstVowelIndexOf(word);
-        
         var initialConsonants = word.Substring(0, firstVowelIndex);
         var restOfWord = word.Substring(firstVowelIndex);
 
         return restOfWord + initialConsonants + "ay";
     }
+
+    private static bool SecondLetterIsU(string word) => word.ToCharArray()[1] == 'u';
+
+    private static bool StartsWithQ(string word) => word.ToCharArray()[0] == 'q';
 
     private static int FirstVowelIndexOf(string word)
     {
