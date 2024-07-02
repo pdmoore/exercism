@@ -13,7 +13,7 @@ public static class PigLatin
 
         if (StartsWithQ(word) && SecondLetterIsU(word))
         {
-            return word.Substring(2) + "qu" + "ay";
+            return word[2..] + "qu" + "ay";
         }
         
         // rule is grab the first n characters up to the first vowel
