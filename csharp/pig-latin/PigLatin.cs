@@ -57,17 +57,12 @@ public static class PigLatin
     private static bool StartsWithQ(string word) =>
         word[0] == 'q';
 
-    private static int FirstVowelIndexOf(string word, string lookingFor)
-    {
-        var i = 0;
-        var charArray = word.ToCharArray();
-        while (i <= word.Length && !lookingFor.Contains(charArray[i]))
-        {
-            i++;
-        }
-
-        return i;
-    }
+    private static int FirstVowelIndexOf(string word, string lookingFor) =>
+        lookingFor
+            .Select(v => word.IndexOf(v))
+            .Where(i => i != -1)
+            .DefaultIfEmpty(0)
+            .Min();
 
     private static bool StartsWithVowel(string word) => Vowels.Contains(word[0]);
 }
