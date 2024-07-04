@@ -9,18 +9,20 @@ public static class PigLatin
     {
         // TODO look for a space and split into words then return string of pig latin words
         // extract existing body as Translate SIngle Word
+        var translated = "";
         if (phrase.Contains(' '))
         {
-            var words = phrase.Split(' ');
-            var translatedPhrase = "";
-            foreach (var word in words)
-            {
-                translatedPhrase += translateSingleWord(word) + " ";
-            }
-                return translatedPhrase.Trim();
-        } 
-        
-        return translateSingleWord(phrase);
+            translated = phrase.Split(' ')
+                .Aggregate("", (current, word) => 
+                    current + (translateSingleWord(word) + " "))
+                .Trim();
+        }
+        else
+        {
+            translated = translateSingleWord(phrase);
+        }
+
+        return translated;
     }
 
     private static string translateSingleWord(string word)
@@ -29,7 +31,7 @@ public static class PigLatin
         {
             return word + "ay";
         }
-        
+
         if (StartsWithVowel(word))
         {
             return word + "ay";
@@ -47,7 +49,7 @@ public static class PigLatin
             var lettersAfterU = word.Substring(charAfterU);
             return lettersAfterU + lettersUpToQu + "ay";
         }
-        
+
         if (word.StartsWith("y"))
         {
             var firstVowelIndex = FirstVowelIndexOf(word, Vowels);
@@ -56,7 +58,7 @@ public static class PigLatin
 
             return restOfWord + initialConsonants + "ay";
         }
-        
+
         // rule is grab the first n characters up to the first vowel
         var firstVowelOrY = FirstVowelIndexOf(word, Vowels + "y");
         var startOfWord = word.Substring(0, firstVowelOrY);
@@ -65,13 +67,13 @@ public static class PigLatin
         return remainder + startOfWord + "ay";
     }
 
-    private static bool StartsWith(string word, string startingChars) => 
+    private static bool StartsWith(string word, string startingChars) =>
         word[..2].Equals(startingChars);
 
-    private static bool SecondLetterIsU(string word) => 
+    private static bool SecondLetterIsU(string word) =>
         word.ToCharArray()[1] == 'u';
 
-    private static bool StartsWithQ(string word) => 
+    private static bool StartsWithQ(string word) =>
         word.ToCharArray()[0] == 'q';
 
     private static int FirstVowelIndexOf(string word, string lookingFor)
@@ -82,6 +84,7 @@ public static class PigLatin
         {
             i++;
         }
+
         return i;
     }
 
