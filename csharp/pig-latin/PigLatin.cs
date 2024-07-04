@@ -5,7 +5,25 @@ public static class PigLatin
 {
     private const string Vowels = "aeiou";
 
-    public static string Translate(string word)
+    public static string Translate(string phrase)
+    {
+        // TODO look for a space and split into words then return string of pig latin words
+        // extract existing body as Translate SIngle Word
+        if (phrase.Contains(' '))
+        {
+            var words = phrase.Split(' ');
+            var translatedPhrase = "";
+            foreach (var word in words)
+            {
+                translatedPhrase += translateSingleWord(word) + " ";
+            }
+                return translatedPhrase.Trim();
+        } 
+        
+        return translateSingleWord(phrase);
+    }
+
+    private static string translateSingleWord(string word)
     {
         if (StartsWith(word, "xr") || StartsWith(word, "yt"))
         {

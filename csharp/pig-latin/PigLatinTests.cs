@@ -128,7 +128,7 @@ public class PigLatinTests
         Assert.Equal("ymay", PigLatin.Translate("my"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void A_whole_phrase()
     {
         Assert.Equal("ickquay astfay unray", PigLatin.Translate("quick fast run"));
