@@ -13,3 +13,6 @@ class SpaceAge:
 
     def earth_years(self):
         return self.seconds / 31557600
+
+    def on_mars(self):
+        return round(self.earth_years() / 1.8808158, 2)
