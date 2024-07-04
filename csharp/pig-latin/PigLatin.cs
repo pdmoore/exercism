@@ -11,16 +11,13 @@ public static class PigLatin
 
     private static string TranslateSingleWord(string word)
     {
-        if (StartsWith(word, "xr") || StartsWith(word, "yt"))
+        if (StartsWith(word, "xr") || 
+            StartsWith(word, "yt") ||
+            StartsWithVowel(word))
         {
             return $"{word}ay";
         }
-
-        if (StartsWithVowel(word))
-        {
-            return $"{word}ay";
-        }
-
+        
         if (StartsWithQ(word) && SecondLetterIsU(word))
         {
             return $"{word[2..]}quay";
