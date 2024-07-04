@@ -10,8 +10,8 @@ public static class PigLatin
         if (phrase.Contains(' '))
         {
             return phrase.Split(' ')
-                .Aggregate("", (current, word) => 
-                    current + (TranslateSingleWord(word) + " "))
+                .Aggregate("", (current, word) =>
+                    $"{current}{(TranslateSingleWord(word))} ")
                 .Trim();
         }
 
