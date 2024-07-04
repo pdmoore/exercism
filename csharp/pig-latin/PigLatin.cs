@@ -7,22 +7,15 @@ public static class PigLatin
 
     public static string Translate(string phrase)
     {
-        // TODO look for a space and split into words then return string of pig latin words
-        // extract existing body as Translate SIngle Word
-        var translated = "";
         if (phrase.Contains(' '))
         {
-            translated = phrase.Split(' ')
+            return phrase.Split(' ')
                 .Aggregate("", (current, word) => 
                     current + (translateSingleWord(word) + " "))
                 .Trim();
         }
-        else
-        {
-            translated = translateSingleWord(phrase);
-        }
 
-        return translated;
+        return translateSingleWord(phrase);
     }
 
     private static string translateSingleWord(string word)
