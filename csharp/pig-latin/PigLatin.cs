@@ -11,14 +11,14 @@ public static class PigLatin
         {
             return phrase.Split(' ')
                 .Aggregate("", (current, word) => 
-                    current + (translateSingleWord(word) + " "))
+                    current + (TranslateSingleWord(word) + " "))
                 .Trim();
         }
 
-        return translateSingleWord(phrase);
+        return TranslateSingleWord(phrase);
     }
 
-    private static string translateSingleWord(string word)
+    private static string TranslateSingleWord(string word)
     {
         if (StartsWith(word, "xr") || StartsWith(word, "yt"))
         {
