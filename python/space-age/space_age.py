@@ -2,6 +2,9 @@ class SpaceAge:
     def __init__(self, seconds):
         self.seconds = seconds
 
+    def earth_years(self):
+        return self.seconds / 31557600
+
     def on_earth(self):
         return round(self.earth_years(), 2)
 
@@ -21,8 +24,9 @@ class SpaceAge:
     def on_saturn(self):
         return round(self.earth_years() / 29.447498, 2)
 
-    def earth_years(self):
-        return self.seconds / 31557600
 
     def on_uranus(self):
         return round(self.earth_years() / 84.016846, 2)
+
+    def on_neptune(self):
+        return round(self.earth_years() / 164.79132, 2)
