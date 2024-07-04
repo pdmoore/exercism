@@ -43,7 +43,7 @@ public static class PigLatin
             return $"{lettersAfterU}{lettersUpToQu}ay";
         }
 
-        if (word.StartsWith("y"))
+        if (word.StartsWith('y'))
         {
             var firstVowelIndex = FirstVowelIndexOf(word, Vowels);
             var initialConsonants = word.Substring(0, firstVowelIndex);
@@ -64,10 +64,10 @@ public static class PigLatin
         word[..2].Equals(startingChars);
 
     private static bool SecondLetterIsU(string word) =>
-        word.ToCharArray()[1] == 'u';
+        word[1] == 'u';
 
     private static bool StartsWithQ(string word) =>
-        word.ToCharArray()[0] == 'q';
+        word[0] == 'q';
 
     private static int FirstVowelIndexOf(string word, string lookingFor)
     {
@@ -81,5 +81,5 @@ public static class PigLatin
         return i;
     }
 
-    private static bool StartsWithVowel(string word) => Vowels.Contains(word.ToCharArray()[0]);
+    private static bool StartsWithVowel(string word) => Vowels.Contains(word[0]);
 }
