@@ -1,9 +1,11 @@
+EARTH_SECONDS_IN_YEAR = 60 * 60 *24 * 365.25
+
 class SpaceAge:
     def __init__(self, seconds):
         self.seconds = seconds
 
     def earth_years(self):
-        return self.seconds / 31557600
+        return self.seconds / EARTH_SECONDS_IN_YEAR
 
     def on_earth(self):
         return round(self.earth_years(), 2)
