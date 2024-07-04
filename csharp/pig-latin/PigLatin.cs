@@ -22,17 +22,17 @@ public static class PigLatin
     {
         if (StartsWith(word, "xr") || StartsWith(word, "yt"))
         {
-            return word + "ay";
+            return $"{word}ay";
         }
 
         if (StartsWithVowel(word))
         {
-            return word + "ay";
+            return $"{word}ay";
         }
 
         if (StartsWithQ(word) && SecondLetterIsU(word))
         {
-            return word[2..] + "qu" + "ay";
+            return $"{word[2..]}quay";
         }
 
         if (word.Contains("qu"))
@@ -40,7 +40,7 @@ public static class PigLatin
             var charAfterU = FirstVowelIndexOf(word, Vowels) + 1;
             var lettersUpToQu = word.Substring(0, charAfterU);
             var lettersAfterU = word.Substring(charAfterU);
-            return lettersAfterU + lettersUpToQu + "ay";
+            return $"{lettersAfterU}{lettersUpToQu}ay";
         }
 
         if (word.StartsWith("y"))
@@ -49,7 +49,7 @@ public static class PigLatin
             var initialConsonants = word.Substring(0, firstVowelIndex);
             var restOfWord = word.Substring(firstVowelIndex);
 
-            return restOfWord + initialConsonants + "ay";
+            return $"{restOfWord}{initialConsonants}ay";
         }
 
         // rule is grab the first n characters up to the first vowel
@@ -57,7 +57,7 @@ public static class PigLatin
         var startOfWord = word.Substring(0, firstVowelOrY);
         var remainder = word.Substring(firstVowelOrY);
 
-        return remainder + startOfWord + "ay";
+        return $"{remainder}{startOfWord}ay";
     }
 
     private static bool StartsWith(string word, string startingChars) =>
