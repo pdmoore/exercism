@@ -4,18 +4,10 @@ public static class PigLatin
 {
     private const string Vowels = "aeiou";
 
-    public static string Translate(string phrase)
-    {
-        if (phrase.Contains(' '))
-        {
-            return phrase.Split(' ')
-                .Aggregate("", (current, word) =>
-                    $"{current}{(TranslateSingleWord(word))} ")
-                .Trim();
-        }
-
-        return TranslateSingleWord(phrase);
-    }
+    public static string Translate(string phrase) =>
+        phrase.Contains(' ') ? 
+            string.Join(' ', phrase.Split(' ').Select(Translate)) 
+            : TranslateSingleWord(phrase);
 
     private static string TranslateSingleWord(string word)
     {
