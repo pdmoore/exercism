@@ -35,4 +35,8 @@ class SpaceAge
     @earth_age / 11.862615# code here
   end
 
+  def on_uranus
+    @earth_age / 84.016846# code here
+  end
+
 end
