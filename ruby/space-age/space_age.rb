@@ -39,4 +39,7 @@ class SpaceAge
     @earth_age / 84.016846# code here
   end
 
+  def on_neptune
+    @earth_age / 164.79132# code here
+  end
 end

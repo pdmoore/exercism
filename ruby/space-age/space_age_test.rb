@@ -44,7 +44,6 @@ class SpaceAgeTest < Minitest::Test
   end
 
   def test_age_on_neptune
-    skip
     age = SpaceAge.new(8_210_123_456)
     assert_in_delta 1.58, age.on_neptune, DELTA
   end
