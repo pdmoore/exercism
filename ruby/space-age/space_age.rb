@@ -9,10 +9,15 @@ class SpaceAge
 
   def initialize(seconds)
     @seconds = seconds
+    @earth_age = @seconds / 31_557_600.0
   end
 
   def on_earth
     return @seconds / 31_557_600.0
+  end
+
+  def on_mercury
+    return @earth_age / 0.2408467
   end
 
 end
