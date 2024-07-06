@@ -19,4 +19,8 @@ class SpaceAge
     @earth_age / 0.2408467
   end
 
+  def on_venus
+    @earth_age / 0.61519726# code here
+  end
+
 end
