@@ -8,16 +8,15 @@ To get started with TDD, see the `README.md` file in your
 class SpaceAge
 
   def initialize(seconds)
-    @seconds = seconds
-    @earth_age = @seconds / 31_557_600.0
+    @earth_age = seconds / 31_557_600.0
   end
 
   def on_earth
-    return @seconds / 31_557_600.0
+    @earth_age
   end
 
   def on_mercury
-    return @earth_age / 0.2408467
+    @earth_age / 0.2408467
   end
 
 end
