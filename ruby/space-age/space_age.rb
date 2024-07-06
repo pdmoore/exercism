@@ -23,4 +23,8 @@ class SpaceAge
     @earth_age / 0.61519726# code here
   end
 
+  def on_mars
+    @earth_age / 1.8808158 # code here
+  end
+
 end
