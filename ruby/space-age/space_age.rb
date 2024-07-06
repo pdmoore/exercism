@@ -1,6 +1,7 @@
 class SpaceAge
+  EARTH_YEAR_IN_SECONDS = 60 * 60 * 24 * 365.25
   def initialize(seconds)
-    @earth_age = seconds / (60 * 60 * 24 * 365.25)
+    @earth_age = seconds / EARTH_YEAR_IN_SECONDS
   end
 
   def on_earth
