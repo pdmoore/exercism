@@ -5,7 +5,7 @@ class SpaceAge
   end
 
   YEAR_DURATION_RELATIVE_TO_EARTH = {
-    mercury:   0.2408467,
+    mercury: 0.2408467,
     venus:     0.61519726,
     earth:     1.0,
     mars:      1.8808158,
