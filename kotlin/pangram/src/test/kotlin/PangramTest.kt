@@ -45,13 +45,11 @@ class PangramTest {
         assertFalse(Pangram.isPangram("7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog"))
     }
 
-    @Ignore
     @Test
     fun mixedCaseAndPunctuation() {
         assertTrue(Pangram.isPangram("\"Five quacking Zephyrs jolt my wax bed.\""))
     }
 
-    @Ignore
     @Test
     fun caseInsensitive() {
         assertFalse(Pangram.isPangram("the quick brown fox jumps over with lazy FX"))
