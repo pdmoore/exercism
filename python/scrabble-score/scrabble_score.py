@@ -1,20 +1,17 @@
+_score_by_letter = (
+    ("aeioulnrst", 1),
+    ("dg", 2),
+    ("bcmp", 3),
+    ("fhvwy", 4),
+    ("k", 5),
+    ("jx", 8),
+    ("qz", 10)
+)
+
+SCORES = {}
+for letter, score in _score_by_letter:
+    SCORES.update((dict.fromkeys(letter, score)))
+
+
 def score(word):
-    score = 0
-
-    for char in word.lower():
-        if (char in "aeioulnrst"):
-            score += 1
-        if (char in "dg"):
-            score += 2
-        if (char in "bcmp"):
-            score += 3
-        if (char in "fhvwy"):
-            score += 4
-        if (char in "k"):
-            score += 5
-        if (char in "jx"):
-            score += 8
-        if (char in "qz"):
-            score += 10
-
-    return score
+    return sum(SCORES[char] for char in word.lower())
