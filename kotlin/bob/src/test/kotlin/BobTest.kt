@@ -114,7 +114,6 @@ class BobTest {
         assertEquals("Whatever.", Bob.hey("         hmmmmmmm..."))
     }
 
-    @Ignore
     @Test
     fun endingWithWhitespace() {
         assertEquals("Sure.", Bob.hey("Okay if like my  spacebar  quite a bit?   "))
