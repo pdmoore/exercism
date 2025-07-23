@@ -44,13 +44,11 @@ class BobTest {
         assertEquals("Whatever.", Bob.hey("It's OK if you don't want to go to the DMV."))
     }
 
-    @Ignore
     @Test
     fun forcefulQuestion() {
         assertEquals("Calm down, I know what I'm doing!", Bob.hey("WHAT THE HELL WERE YOU THINKING?"))
     }
 
-    @Ignore
     @Test
     fun shoutingNumbers() {
         assertEquals("Whoa, chill out!", Bob.hey("1, 2, 3 GO!"))
