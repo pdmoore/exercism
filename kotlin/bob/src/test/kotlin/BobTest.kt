@@ -64,31 +64,26 @@ class BobTest {
         assertEquals("Sure.", Bob.hey("4?"))
     }
 
-    @Ignore
     @Test
     fun shoutingWithSpecialCharacters() {
         assertEquals("Whoa, chill out!", Bob.hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"))
     }
 
-    @Ignore
     @Test
     fun shoutingWithNoExclamationMark() {
         assertEquals("Whoa, chill out!", Bob.hey("I HATE THE DMV"))
     }
 
-    @Ignore
     @Test
     fun statementContainingQuestionMark() {
         assertEquals("Whatever.", Bob.hey("Ending with ? means a question."))
     }
 
-    @Ignore
     @Test
     fun nonLettersWithQuestion() {
         assertEquals("Sure.", Bob.hey(":) ?"))
     }
 
-    @Ignore
     @Test
     fun prattlingOn() {
         assertEquals("Sure.", Bob.hey("Wait! Hang on. Are you going to be OK?"))
