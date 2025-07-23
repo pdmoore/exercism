@@ -19,19 +19,16 @@ class BobTest {
         assertEquals("Whoa, chill out!", Bob.hey("FCECDFCAAB"))
     }
 
-    @Ignore
     @Test
     fun askingAQuestion() {
         assertEquals("Sure.", Bob.hey("Does this cryogenic chamber make me look fat?"))
     }
 
-    @Ignore
     @Test
     fun askingANumericQuestion() {
         assertEquals("Sure.", Bob.hey("You are, what, like 15?"))
     }
 
-    @Ignore
     @Test
     fun askingGibberish() {
         assertEquals("Sure.", Bob.hey("fffbbcbeab?"))
