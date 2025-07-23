@@ -119,13 +119,11 @@ class BobTest {
         assertEquals("Sure.", Bob.hey("Okay if like my  spacebar  quite a bit?   "))
     }
 
-    @Ignore
     @Test
     fun otherWhitespace() {
         assertEquals("Fine. Be that way!", Bob.hey("\n\r \t"))
     }
 
-    @Ignore
     @Test
     fun nonQuestionEndingWithWhitespace() {
         assertEquals("Whatever.", Bob.hey("This is a statement ending with whitespace      "))
