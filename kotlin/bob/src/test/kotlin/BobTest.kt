@@ -89,19 +89,16 @@ class BobTest {
         assertEquals("Sure.", Bob.hey("Wait! Hang on. Are you going to be OK?"))
     }
 
-    @Ignore
     @Test
     fun silence() {
         assertEquals("Fine. Be that way!", Bob.hey(""))
     }
 
-    @Ignore
     @Test
     fun prolongedSilence() {
         assertEquals("Fine. Be that way!", Bob.hey("          "))
     }
 
-    @Ignore
     @Test
     fun alternateSilence() {
         assertEquals("Fine. Be that way!", Bob.hey("\t\t\t\t\t\t\t\t\t\t"))

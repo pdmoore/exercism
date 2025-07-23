@@ -1,5 +1,7 @@
 object Bob {
     fun hey(input: String): String {
+        if (input.trim().isEmpty()) return "Fine. Be that way!"
+
         val containsLetters = input.any { it.isLetter() }
 
             val isQuestion = input.endsWith('?')
