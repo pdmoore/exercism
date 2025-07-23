@@ -54,7 +54,6 @@ class BobTest {
         assertEquals("Whoa, chill out!", Bob.hey("1, 2, 3 GO!"))
     }
 
-    @Ignore
     @Test
     fun noLetters() {
         assertEquals("Whatever.", Bob.hey("1, 2, 3"))
