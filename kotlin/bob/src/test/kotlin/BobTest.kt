@@ -14,7 +14,6 @@ class BobTest {
         assertEquals("Whoa, chill out!", Bob.hey("WATCH OUT!"))
     }
 
-    @Ignore
     @Test
     fun shoutingGibberish() {
         assertEquals("Whoa, chill out!", Bob.hey("FCECDFCAAB"))
