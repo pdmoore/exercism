@@ -59,7 +59,6 @@ class BobTest {
         assertEquals("Whatever.", Bob.hey("1, 2, 3"))
     }
 
-    @Ignore
     @Test
     fun questionWithNoLetters() {
         assertEquals("Sure.", Bob.hey("4?"))
