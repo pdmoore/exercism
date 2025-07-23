@@ -1,7 +1,10 @@
 object Bob {
     fun hey(input: String): String {
+
+        if (input.isSilence()) return "Fine. Be that way!"
+
+
         val trimmedInput = input.trim()
-        if (trimmedInput.isEmpty()) return "Fine. Be that way!"
 
         val containsLetters = trimmedInput.any { it.isLetter() }
         val isQuestion = trimmedInput.endsWith('?')
@@ -17,3 +20,5 @@ object Bob {
         return "Whatever."
     }
 }
+
+private fun String.isSilence(): Boolean = this.trim().isEmpty()
