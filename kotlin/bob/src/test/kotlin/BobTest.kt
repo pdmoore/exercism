@@ -104,13 +104,11 @@ class BobTest {
         assertEquals("Fine. Be that way!", Bob.hey("\t\t\t\t\t\t\t\t\t\t"))
     }
 
-    @Ignore
     @Test
     fun multipleLineQuestion() {
         assertEquals("Whatever.", Bob.hey("\nDoes this cryogenic chamber make me look fat?\nno"))
     }
 
-    @Ignore
     @Test
     fun startingWithWhitespace() {
         assertEquals("Whatever.", Bob.hey("         hmmmmmmm..."))
