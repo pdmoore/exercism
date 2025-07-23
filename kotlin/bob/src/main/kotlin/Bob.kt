@@ -1,16 +1,10 @@
 object Bob {
-    fun hey(input: String): String {
-
-        if (input.isSilence()) return "Fine. Be that way!"
-
-            val isYelling = input.isYelling()
-
-            if (isYelling && input.isQuestion()) return "Calm down, I know what I'm doing!"
-            if (isYelling) return "Whoa, chill out!"
-
-        if (input.isQuestion()) return "Sure."
-
-        return "Whatever."
+    fun hey(input: String): String = when {
+        input.isSilence() -> "Fine. Be that way!"
+        input.isYelling() && input.isQuestion() -> "Calm down, I know what I'm doing!"
+        input.isYelling() -> "Whoa, chill out!"
+        input.isQuestion() -> "Sure."
+        else -> "Whatever."
     }
 }
 
