@@ -1,15 +1,11 @@
 object CollatzCalculator {
-    fun computeStepCount(start: Int): Int {
-        require(start > 0) { "Only positive integers allowed" }
+    fun computeStepCount(n: Int, stepNumber: Int = 0): Int {
+        require(n > 0) { "Only positive integers allowed" }
 
-        return countSteps(start, 0)
-    }
-
-    private fun countSteps(n: Int, stepNumber: Int): Int {
         when {
             n == 1     -> return stepNumber
-            n.IsEven() -> return countSteps(n / 2, stepNumber + 1)
-            else       -> return countSteps(n * 3 + 1, stepNumber + 1)
+            n.IsEven() -> return computeStepCount(n / 2, stepNumber + 1)
+            else       -> return computeStepCount(n * 3 + 1, stepNumber + 1)
         }
     }
 }
