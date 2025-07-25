@@ -1,13 +1,9 @@
 object CollatzCalculator {
-    fun computeStepCount(n: Int, stepNumber: Int = 0): Int {
-        require(n > 0) { "Only positive integers allowed" }
+    fun computeStepCount(num: Int, stepNumber: Int = 0): Int {
+        require(num > 0) { "Only positive integers allowed" }
 
-        when {
-            n == 1     -> return stepNumber
-            n.IsEven() -> return computeStepCount(n / 2, stepNumber + 1)
-            else       -> return computeStepCount(n * 3 + 1, stepNumber + 1)
-        }
+        return generateSequence(num) {
+            n -> if (n % 2 == 0) n / 2
+                 else n * 3 + 1 }.indexOf(1)
     }
 }
-
-private fun Int.IsEven() = this % 2 == 0
