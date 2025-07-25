@@ -10,6 +10,6 @@ object CollatzCalculator {
 
         if (start % 2 == 0) return countSteps(start / 2, count + 1)
 
-        return -99
+        return countSteps(start * 3 + 1, count + 1)
     }
 }

@@ -16,7 +16,6 @@ class CollatzCalculatorTest {
     @Test
     fun `divide if even`() = assertStepsEqual(16, 4)
 
-    @Ignore
     @Test
     fun `even and odd steps`() = assertStepsEqual(12, 9)
 
