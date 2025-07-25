@@ -19,17 +19,14 @@ class CollatzCalculatorTest {
     @Test
     fun `even and odd steps`() = assertStepsEqual(12, 9)
 
-    @Ignore
     @Test
     fun `large number of even and odd steps`() = assertStepsEqual(1000000, 152)
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid input - zero`() {
         steps(0)
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `invalid input - negative`() {
         steps(-15)

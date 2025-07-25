@@ -2,6 +2,8 @@ import javax.print.attribute.standard.QueuedJobCount
 
 object CollatzCalculator {
     fun computeStepCount(start: Int): Int {
+        if (start <= 0) throw IllegalArgumentException("start")
+
         return countSteps(start, 0)
     }
 
