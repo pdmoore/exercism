@@ -8,6 +8,8 @@ object CollatzCalculator {
     private fun countSteps(start: Int, count: Int): Int {
         if (start == 1) return count
 
-        return 4
+        if (start % 2 == 0) return countSteps(start / 2, count + 1)
+
+        return -99
     }
 }
