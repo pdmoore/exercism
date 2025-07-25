@@ -8,8 +8,10 @@ object CollatzCalculator {
     private fun countSteps(n: Int, stepNumber: Int): Int {
         when {
             n == 1 -> return stepNumber
-            n % 2 == 0 -> return countSteps(n / 2, stepNumber + 1)
+            n.IsEven() -> return countSteps(n / 2, stepNumber + 1)
             else -> return countSteps(n * 3 + 1, stepNumber + 1)
         }
     }
 }
+
+private fun Int.IsEven() = this % 2 == 0
