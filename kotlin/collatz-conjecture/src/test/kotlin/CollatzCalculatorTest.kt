@@ -6,10 +6,6 @@ import kotlin.test.assertEquals
 
 class CollatzCalculatorTest {
 
-    @Rule
-    @JvmField
-    var expectedException: ExpectedException = ExpectedException.none()
-
     @Test
     fun `zero steps for 1`() = assertStepsEqual(1, 0)
 

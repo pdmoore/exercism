@@ -1,5 +1,5 @@
 object CollatzCalculator {
-    fun computeStepCount(num: Int, stepNumber: Int = 0): Int {
+    fun computeStepCount(num: Int): Int {
         require(num > 0) { "Only positive integers allowed" }
 
         return generateSequence(num) {
