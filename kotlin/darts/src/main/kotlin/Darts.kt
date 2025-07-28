@@ -1,6 +1,6 @@
 object Darts {
 
-    fun score(x: Any, y: Any /* choose proper types! */): Int {
+    fun score(x: Number, y: Number /* choose proper types! */): Int {
         return 0
     }
 }
