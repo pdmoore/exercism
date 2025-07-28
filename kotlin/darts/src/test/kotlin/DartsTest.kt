@@ -10,7 +10,6 @@ class DartsTest {
     @Test
     fun `on the outer circle`() = assertEquals(1, Darts.score(0, 10))
 
-    @Ignore
     @Test
     fun `on the middle circle`() = assertEquals(5, Darts.score(-5, 0))
 
