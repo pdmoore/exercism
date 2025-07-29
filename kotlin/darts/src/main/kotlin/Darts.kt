@@ -8,7 +8,11 @@ object Darts {
 
     fun score(x: Int, y: Int): Int {
 
-        val distance = sqrt((x * x).toDouble() + (y * y).toDouble())
+        return score(x.toDouble(), y.toDouble())
+    }
+
+    fun score(x: Double, y: Double): Int {
+        val distance = sqrt((x * x) + (y * y))
 
         when (distance) {
             0.0  -> return 10
@@ -17,10 +21,6 @@ object Darts {
             10.0 -> return 1
             else -> return 0
         }
-    }
-
-    fun score(x: Double, y: Double): Int {
-        return -99
     }
 
     fun score(x: Double, y: Int): Int {
