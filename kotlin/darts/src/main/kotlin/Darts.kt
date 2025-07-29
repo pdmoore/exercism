@@ -11,6 +11,7 @@ object Darts {
         val distance = sqrt((x * x).toDouble() + (y * y).toDouble())
 
         when (distance) {
+            5.0  -> return 5
             10.0 -> return 1
             else -> return 0
         }
