@@ -1,7 +1,6 @@
 import kotlin.math.sqrt
 
 object Darts {
-
     val INNER_CIRCLE = 0.0..1.0
     val MIDDLE_CIRCLE = 1.0..5.0
     val OUTER_CIRCLE = 5.0..10.0
@@ -13,9 +12,9 @@ object Darts {
         val distanceFromCenter = sqrt((x * x) + (y * y))
 
         when {
-            distanceFromCenter in INNER_CIRCLE -> return 10
+            distanceFromCenter in INNER_CIRCLE  -> return 10
             distanceFromCenter in MIDDLE_CIRCLE -> return 5
-            distanceFromCenter in OUTER_CIRCLE -> return 1
+            distanceFromCenter in OUTER_CIRCLE  -> return 1
             else -> return 0
         }
     }
