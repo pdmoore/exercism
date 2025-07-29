@@ -1,3 +1,4 @@
+import kotlin.math.hypot
 import kotlin.math.sqrt
 
 object Darts {
@@ -9,7 +10,7 @@ object Darts {
     fun score(x: Double, y: Int): Int = score(x, y.toDouble())
 
     fun score(x: Double, y: Double): Int {
-        val distanceFromCenter = sqrt((x * x) + (y * y))
+        val distanceFromCenter = hypot(x, y)
 
         when {
             distanceFromCenter in INNER_CIRCLE  -> return 10
