@@ -16,7 +16,6 @@ class DartsTest {
     @Test
     fun `on the inner circle`() = assertEquals(10, Darts.score(0, -1))
 
-    @Ignore
     @Test
     fun `exactly on centre`() = assertEquals(10, Darts.score(0, 0))
 
