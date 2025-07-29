@@ -6,11 +6,8 @@ object Darts {
     val MIDDLE_CIRCLE = 1.0..5.0
     val OUTER_CIRCLE = 5.0..10.0
 
-    fun score(x: Int, y: Int): Int = score(x.toDouble(), y.toDouble())
-    fun score(x: Double, y: Int): Int = score(x, y.toDouble())
-
-    fun score(x: Double, y: Double): Int {
-        val distanceFromCenter = hypot(x, y)
+    fun score(x: Number, y: Number): Int {
+        val distanceFromCenter = hypot(x.toDouble(), y.toDouble())
 
         when {
             distanceFromCenter in INNER_CIRCLE  -> return 10
