@@ -19,7 +19,6 @@ class DartsTest {
     @Test
     fun `exactly on centre`() = assertEquals(10, Darts.score(0, 0))
 
-    @Ignore
     @Test
     fun `near the centre`() = assertEquals(10, Darts.score(-0.1, -0.1))
 
