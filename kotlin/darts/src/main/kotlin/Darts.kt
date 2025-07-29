@@ -9,11 +9,11 @@ object Darts {
     fun score(x: Number, y: Number): Int {
         val distanceFromCenter = hypot(x.toDouble(), y.toDouble())
 
-        when {
-            distanceFromCenter in INNER_CIRCLE  -> return 10
-            distanceFromCenter in MIDDLE_CIRCLE -> return 5
-            distanceFromCenter in OUTER_CIRCLE  -> return 1
-            else -> return 0
+        return when {
+            distanceFromCenter in INNER_CIRCLE  -> 10
+            distanceFromCenter in MIDDLE_CIRCLE ->  5
+            distanceFromCenter in OUTER_CIRCLE  ->  1
+            else -> 0
         }
     }
 }
