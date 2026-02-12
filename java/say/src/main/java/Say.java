@@ -12,10 +12,15 @@ public class Say {
         _digitToWord.put(3, "three");
         _digitToWord.put(4, "four");
         _digitToWord.put(5, "five");
+        _digitToWord.put(6, "six");
+        _digitToWord.put(7, "seven");
+        _digitToWord.put(9, "nine");
         _digitToWord.put(14, "fourteen");
         _digitToWord.put(20, "twenty");
         _digitToWord.put(30, "thirty");
         _digitToWord.put(40, "forty");
+        _digitToWord.put(50, "fifty");
+        _digitToWord.put(80, "eighty");
     }
 
     public String say(long number) {
@@ -25,7 +30,13 @@ public class Say {
 
         // duplication for 100 vs 1xx -
         if (number > 999_999_999) {
-            return "one billion";
+            int remainder = Math.toIntExact(number % 1_000_000_000);
+            if (remainder == 0) {
+                return "one billion";
+            }
+
+            int billions = Math.toIntExact(number / 1_000_000_000);
+            return say(billions) + " billion" + " " + say(remainder);
         }
 
         if (number > 999_999) {
@@ -34,7 +45,8 @@ public class Say {
                 return "one million";
             }
 
-            return _digitToWord.get(1) + " million" + " " + say(remainder);
+            int millions = Math.toIntExact(number / 1_000_000);
+            return say(millions) + " million" + " " + say(remainder);
         }
 
 
@@ -42,7 +54,7 @@ public class Say {
             int thousands = Math.toIntExact(number / 1_000);
             int remainder = Math.toIntExact(number % 1_000);
             if (remainder > 0) {
-                return _digitToWord.get(thousands) + " thousand" + " " + say(remainder);
+                return say(thousands) + " thousand" + " " + say(remainder);
             }
 
             return _digitToWord.get(thousands) + " thousand";

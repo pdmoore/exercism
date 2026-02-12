@@ -67,7 +67,6 @@ public class SayTest {
         assertThat(say.say(1_000_000_000)).isEqualTo("one billion");
     }
     
-    @Ignore("Remove to run test")
     @Test
     public void nineHundredEightySevenBillionSixHundredFiftyFourThreeHundredTwentyOneThousandOneHundredTwentyThree() {
         assertThat(say.say(987_654_321_123L))
@@ -83,5 +82,5 @@ public class SayTest {
     @Test(expected = IllegalArgumentException.class)
     public void illegalTooBigNumber() {
         say.say(1_000_000_000_000L);
-    }    
+    }
 }
