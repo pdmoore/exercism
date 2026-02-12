@@ -5,6 +5,11 @@ public class Say {
 
     private final Map<Integer, String> _digitToWord = new HashMap<>();
 
+    //TODO 2026-02-12
+    // Exercism failed to run tests, junit issue on their end
+    // review community solutions to collapse duplciation across hundred/thousand/millions
+    // flesh out remaining numbers in _digitToWord
+
     public Say() {
         _digitToWord.put(0, "zero");
         _digitToWord.put(1, "one");
@@ -30,23 +35,23 @@ public class Say {
 
         // duplication for 100 vs 1xx -
         if (number > 999_999_999) {
+            int billions = Math.toIntExact(number / 1_000_000_000);
             int remainder = Math.toIntExact(number % 1_000_000_000);
-            if (remainder == 0) {
-                return "one billion";
+            if (remainder > 0) {
+                return say(billions) + " billion" + " " + say(remainder);
             }
 
-            int billions = Math.toIntExact(number / 1_000_000_000);
-            return say(billions) + " billion" + " " + say(remainder);
+            return "one billion";
         }
 
         if (number > 999_999) {
+            int millions = Math.toIntExact(number / 1_000_000);
             int remainder = Math.toIntExact(number % 1_000_000);
-            if (remainder == 0) {
-                return "one million";
+            if (remainder > 0) {
+                return say(millions) + " million" + " " + say(remainder);
             }
 
-            int millions = Math.toIntExact(number / 1_000_000);
-            return say(millions) + " million" + " " + say(remainder);
+            return "one million";
         }
 
 
