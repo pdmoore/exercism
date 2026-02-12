@@ -75,13 +75,11 @@ public class SayTest {
                        " three hundred twenty-one thousand one hundred twenty-three");
     }
     
-    @Ignore("Remove to run test")
     @Test(expected = IllegalArgumentException.class)
     public void illegalNegativeNumber() {
         say.say(-1);
     }
 
-    @Ignore("Remove to run test")
     @Test(expected = IllegalArgumentException.class)
     public void illegalTooBigNumber() {
         say.say(1_000_000_000_000L);

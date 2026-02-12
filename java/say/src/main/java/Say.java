@@ -19,7 +19,7 @@ public class Say {
     }
 
     public String say(long number) {
-        if (number < 0) {
+        if (number < 0 || number >= 1_000_000_000_000L) {
             throw new IllegalArgumentException("Number must be zero or larger");
         }
 
