@@ -60,8 +60,9 @@ def average_even_is_average_odd(hand):
     :param hand: list - cards in hand.
     :return: bool - are even and odd averages equal?
     """
-
-    pass
+    average_of_evens = card_average(hand[::2])
+    average_of_odds  = card_average(hand[1::2])
+    return average_of_evens == average_of_odds
 
 
 def maybe_double_last(hand):
