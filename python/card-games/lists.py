@@ -49,7 +49,7 @@ def approx_average_is_average(hand):
     :return: bool - does one of the approximate averages equal the `true average`?
     """
     calculated_average = card_average(hand)
-    first_last_average = hand[0] + hand[-1] / 2
+    first_last_average = (hand[0] + hand[-1]) / 2
     median_value = hand[len(hand) // 2]
     return calculated_average == first_last_average or calculated_average == median_value
 
