@@ -71,5 +71,5 @@ def maybe_double_last(hand):
     :return: list - hand with Jacks (if present) value doubled.
     """
     if hand[-1] == 11:
-        return hand[0:len(hand) - 1] + [22]
+        return hand[:len(hand) - 1] + [22]
     return hand
