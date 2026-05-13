@@ -3,25 +3,25 @@ import java.util.Map;
 
 public class Say {
 
-    private final Map<Integer, String> _digitToWord = new HashMap<>();
+    private final Map<Integer, String> digitToWord = new HashMap<>();
 
     public Say() {
-        _digitToWord.put(0, "zero");
-        _digitToWord.put(1, "one");
-        _digitToWord.put(2, "two");
-        _digitToWord.put(3, "three");
-        _digitToWord.put(4, "four");
-        _digitToWord.put(5, "five");
-        _digitToWord.put(6, "six");
-        _digitToWord.put(7, "seven");
-        _digitToWord.put(9, "nine");
-        _digitToWord.put(14, "fourteen");
-        _digitToWord.put(20, "twenty");
-        _digitToWord.put(30, "thirty");
-        _digitToWord.put(40, "forty");
-        _digitToWord.put(50, "fifty");
-        _digitToWord.put(80, "eighty");
-        _digitToWord.put(90, "ninety");
+        digitToWord.put(0, "zero");
+        digitToWord.put(1, "one");
+        digitToWord.put(2, "two");
+        digitToWord.put(3, "three");
+        digitToWord.put(4, "four");
+        digitToWord.put(5, "five");
+        digitToWord.put(6, "six");
+        digitToWord.put(7, "seven");
+        digitToWord.put(9, "nine");
+        digitToWord.put(14, "fourteen");
+        digitToWord.put(20, "twenty");
+        digitToWord.put(30, "thirty");
+        digitToWord.put(40, "forty");
+        digitToWord.put(50, "fifty");
+        digitToWord.put(80, "eighty");
+        digitToWord.put(90, "ninety");
     }
 
     public String say(long number) {
@@ -58,17 +58,17 @@ public class Say {
                 return say(thousands) + " thousand" + " " + say(remainder);
             }
 
-            return _digitToWord.get(thousands) + " thousand";
+            return digitToWord.get(thousands) + " thousand";
         }
 
         if (number > 99) {
             int hundreds = Math.toIntExact(number / 100);
             int remainder = Math.toIntExact(number % 100);
             if (remainder > 0) {
-                return _digitToWord.get(hundreds) + " hundred" + " " + say(remainder);
+                return digitToWord.get(hundreds) + " hundred" + " " + say(remainder);
             }
 
-            return _digitToWord.get(hundreds) + " hundred";
+            return digitToWord.get(hundreds) + " hundred";
         }
 
         if (number > 20) {
@@ -76,10 +76,10 @@ public class Say {
 
             int remainder = Math.toIntExact(number % 10);
             if (remainder > 0) {
-                return _digitToWord.get(tens * 10) + "-" + _digitToWord.get(remainder);
+                return digitToWord.get(tens * 10) + "-" + digitToWord.get(remainder);
             }
         }
 
-        return _digitToWord.get(Math.toIntExact(number));
+        return digitToWord.get(Math.toIntExact(number));
     }
 }
