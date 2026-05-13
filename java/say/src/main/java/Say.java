@@ -5,11 +5,6 @@ public class Say {
 
     private final Map<Integer, String> _digitToWord = new HashMap<>();
 
-    //TODO 2026-02-12
-    // Exercism failed to run tests, junit issue on their end
-    // review community solutions to collapse duplciation across hundred/thousand/millions
-    // flesh out remaining numbers in _digitToWord
-
     public Say() {
         _digitToWord.put(0, "zero");
         _digitToWord.put(1, "one");
@@ -26,6 +21,7 @@ public class Say {
         _digitToWord.put(40, "forty");
         _digitToWord.put(50, "fifty");
         _digitToWord.put(80, "eighty");
+        _digitToWord.put(90, "ninety");
     }
 
     public String say(long number) {
@@ -79,7 +75,9 @@ public class Say {
             int tens = Math.toIntExact(number / 10);
 
             int remainder = Math.toIntExact(number % 10);
-            return _digitToWord.get(tens * 10) + "-" + _digitToWord.get(remainder);
+            if (remainder > 0) {
+                return _digitToWord.get(tens * 10) + "-" + _digitToWord.get(remainder);
+            }
         }
 
         return _digitToWord.get(Math.toIntExact(number));
