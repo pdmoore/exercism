@@ -5,6 +5,12 @@ public class Say {
 
     private final Map<Integer, String> digitToWord = new HashMap<>();
 
+    // 2026-05-13
+    // tests are passing but have not completed exercise
+    // Converting hard-coded strings to large_number array refs
+    // need to add "hundred" on 74/77 and adjust index in other places
+    // need to collapse duplicate logic for billion/million/thousand/hundred
+
     public Say() {
         digitToWord.put(0, "zero");
         digitToWord.put(1, "one");
@@ -23,6 +29,7 @@ public class Say {
         digitToWord.put(80, "eighty");
         digitToWord.put(90, "ninety");
     }
+    private static final String[] large_numbers = { "", " thousand", " million", " billion" };
 
     public String say(long number) {
         if (number < 0 || number >= 1_000_000_000_000L) {
@@ -34,20 +41,20 @@ public class Say {
             int billions = Math.toIntExact(number / 1_000_000_000);
             int remainder = Math.toIntExact(number % 1_000_000_000);
             if (remainder > 0) {
-                return say(billions) + " billion" + " " + say(remainder);
+                return say(billions) + large_numbers[3] + " " + say(remainder);
             }
 
-            return "one billion";
+            return say(1) + large_numbers[3];
         }
 
         if (number > 999_999) {
             int millions = Math.toIntExact(number / 1_000_000);
             int remainder = Math.toIntExact(number % 1_000_000);
             if (remainder > 0) {
-                return say(millions) + " million" + " " + say(remainder);
+                return say(millions) + large_numbers[2] + " " + say(remainder);
             }
 
-            return "one million";
+            return say(1) + large_numbers[2];
         }
 
 
@@ -55,10 +62,10 @@ public class Say {
             int thousands = Math.toIntExact(number / 1_000);
             int remainder = Math.toIntExact(number % 1_000);
             if (remainder > 0) {
-                return say(thousands) + " thousand" + " " + say(remainder);
+                return say(thousands) + large_numbers[1] + " " + say(remainder);
             }
 
-            return digitToWord.get(thousands) + " thousand";
+            return digitToWord.get(thousands) + large_numbers[1];
         }
 
         if (number > 99) {
