@@ -12,3 +12,5 @@ php/**/.phpunit.result.cache
 .cpcache
 node_modules/
 .node_modules/
+
+.vscode
