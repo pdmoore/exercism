@@ -1,7 +1,7 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
-    kotlin("jvm") version "2.4.0"
+    kotlin("jvm")
 }
 
 repositories {
@@ -9,7 +9,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation(kotlin("stdlib-jdk8"))
+    
+    testImplementation("junit:junit:4.13.2")
+    testImplementation(kotlin("test-junit"))
 }
 
 tasks.withType<Test> {
