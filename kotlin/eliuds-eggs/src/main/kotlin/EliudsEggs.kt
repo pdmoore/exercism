@@ -1,6 +1,8 @@
 object EliudsEggs {
 
-    fun eggCount(number: Int): Int{
-        TODO("Implement this function to complete the task")
+    fun eggCount(number: Int): Int {
+        return number
+            .toString(2)
+            .count { it == '1' }
     }
 }
