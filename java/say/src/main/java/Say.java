@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Math.*;
+
 public class Say {
 
     private final Map<Integer, String> digitToWord = new HashMap<>();
@@ -37,9 +39,11 @@ public class Say {
         }
 
         // duplication for 100 vs 1xx -
-        if (number > 999_999_999) {
-            int billions = Math.toIntExact(number / 1_000_000_000);
-            int remainder = Math.toIntExact(number % 1_000_000_000);
+
+        int billion = 1_000_000_000;
+        if (number > billion - 1) {
+            int billions = toIntExact(number / billion);
+            int remainder = toIntExact(number % billion);
             if (remainder > 0) {
                 return say(billions) + large_numbers[3] + " " + say(remainder);
             }
@@ -47,9 +51,10 @@ public class Say {
             return say(1) + large_numbers[3];
         }
 
-        if (number > 999_999) {
-            int millions = Math.toIntExact(number / 1_000_000);
-            int remainder = Math.toIntExact(number % 1_000_000);
+        int million = 1_000_000;
+        if (number > million - 1) {
+            int millions = toIntExact(number / million);
+            int remainder = toIntExact(number % million);
             if (remainder > 0) {
                 return say(millions) + large_numbers[2] + " " + say(remainder);
             }
@@ -57,10 +62,10 @@ public class Say {
             return say(1) + large_numbers[2];
         }
 
-
-        if (number > 999) {
-            int thousands = Math.toIntExact(number / 1_000);
-            int remainder = Math.toIntExact(number % 1_000);
+        int thousand = 1_000;
+        if (number > thousand - 1) {
+            int thousands = toIntExact(number / thousand);
+            int remainder = toIntExact(number % thousand);
             if (remainder > 0) {
                 return say(thousands) + large_numbers[1] + " " + say(remainder);
             }
@@ -68,9 +73,10 @@ public class Say {
             return digitToWord.get(thousands) + large_numbers[1];
         }
 
-        if (number > 99) {
-            int hundreds = Math.toIntExact(number / 100);
-            int remainder = Math.toIntExact(number % 100);
+        int hundred = 100;
+        if (number > hundred - 1) {
+            int hundreds = toIntExact(number / hundred);
+            int remainder = toIntExact(number % hundred);
             if (remainder > 0) {
                 return digitToWord.get(hundreds) + " hundred" + " " + say(remainder);
             }
@@ -79,14 +85,14 @@ public class Say {
         }
 
         if (number > 20) {
-            int tens = Math.toIntExact(number / 10);
+            int tens = toIntExact(number / 10);
 
-            int remainder = Math.toIntExact(number % 10);
+            int remainder = toIntExact(number % 10);
             if (remainder > 0) {
                 return digitToWord.get(tens * 10) + "-" + digitToWord.get(remainder);
             }
         }
 
-        return digitToWord.get(Math.toIntExact(number));
+        return digitToWord.get(toIntExact(number));
     }
 }
