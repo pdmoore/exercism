@@ -125,4 +125,12 @@ public class SayTest {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> say.say(1_000_000_000_000L));
     }
+
+    @Test
+    void powerOfBillion() {
+        assertThat((int) Math.pow(10, 9)).isEqualTo(1_000_000_000);
+        assertThat((int) Math.pow(10, 6)).isEqualTo(1_000_000);
+        assertThat((int) Math.pow(10, 3)).isEqualTo(1_000);
+        assertThat((int) Math.pow(10, 2)).isEqualTo(1_00);
+    }
 }

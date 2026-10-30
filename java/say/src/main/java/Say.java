@@ -39,8 +39,8 @@ public class Say {
 
         // duplication for 100 vs 1xx -
 
-        int billion = 1_000_000_000;
         int large_number_index = 3;
+        int billion = 1_000_000_000;
         if (number > billion - 1) {
             int billions = toIntExact(number / billion);
             int remainder = toIntExact(number % billion);
