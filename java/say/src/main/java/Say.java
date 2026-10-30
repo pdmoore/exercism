@@ -7,10 +7,13 @@ public class Say {
 
     private final Map<Integer, String> digitToWord = new HashMap<>();
 
-    // 2026-05-13
+    // 2026-10-30
+    // Prepped for the collapsing of logic and looping through billion, million, thousand, hundred
+    // see the SayTest for the power expression to use in the loop
     // tests are passing but have not completed exercise
     // Converting hard-coded strings to large_number array refs
     // need to collapse duplicate logic for billion/million/thousand/hundred
+
 
     public Say() {
         digitToWord.put(0, "zero");
