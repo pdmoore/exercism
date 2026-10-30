@@ -10,7 +10,6 @@ public class Say {
     // 2026-05-13
     // tests are passing but have not completed exercise
     // Converting hard-coded strings to large_number array refs
-    // need to add "hundred" on 74/77 and adjust index in other places
     // need to collapse duplicate logic for billion/million/thousand/hundred
 
     public Say() {
@@ -31,7 +30,7 @@ public class Say {
         digitToWord.put(80, "eighty");
         digitToWord.put(90, "ninety");
     }
-    private static final String[] large_numbers = { "", " thousand", " million", " billion" };
+    private static final String[] large_numbers = { " hundred", " thousand", " million", " billion" };
 
     public String say(long number) {
         if (number < 0 || number >= 1_000_000_000_000L) {
@@ -41,47 +40,51 @@ public class Say {
         // duplication for 100 vs 1xx -
 
         int billion = 1_000_000_000;
+        int large_number_index = 3;
         if (number > billion - 1) {
             int billions = toIntExact(number / billion);
             int remainder = toIntExact(number % billion);
             if (remainder > 0) {
-                return say(billions) + large_numbers[3] + " " + say(remainder);
+                return say(billions) + large_numbers[large_number_index] + " " + say(remainder);
             }
 
-            return say(1) + large_numbers[3];
+            return say(1) + large_numbers[large_number_index];
         }
 
         int million = 1_000_000;
+        large_number_index = 2;
         if (number > million - 1) {
             int millions = toIntExact(number / million);
             int remainder = toIntExact(number % million);
             if (remainder > 0) {
-                return say(millions) + large_numbers[2] + " " + say(remainder);
+                return say(millions) + large_numbers[large_number_index] + " " + say(remainder);
             }
 
-            return say(1) + large_numbers[2];
+            return say(1) + large_numbers[large_number_index];
         }
 
         int thousand = 1_000;
+        large_number_index = 1;
         if (number > thousand - 1) {
             int thousands = toIntExact(number / thousand);
             int remainder = toIntExact(number % thousand);
             if (remainder > 0) {
-                return say(thousands) + large_numbers[1] + " " + say(remainder);
+                return say(thousands) + large_numbers[large_number_index] + " " + say(remainder);
             }
 
-            return digitToWord.get(thousands) + large_numbers[1];
+            return digitToWord.get(thousands) + large_numbers[large_number_index];
         }
 
         int hundred = 100;
+        large_number_index = 0;
         if (number > hundred - 1) {
             int hundreds = toIntExact(number / hundred);
             int remainder = toIntExact(number % hundred);
             if (remainder > 0) {
-                return digitToWord.get(hundreds) + " hundred" + " " + say(remainder);
+                return digitToWord.get(hundreds) + large_numbers[large_number_index] + " " + say(remainder);
             }
 
-            return digitToWord.get(hundreds) + " hundred";
+            return digitToWord.get(hundreds) + large_numbers[large_number_index];
         }
 
         if (number > 20) {
