@@ -33,65 +33,24 @@ public class Say {
         digitToWord.put(80, "eighty");
         digitToWord.put(90, "ninety");
     }
-    private static final String[] large_numbers = { " hundred", " thousand", " million", " billion" };
+    private static final String[] nameOfThePower = { " hundred", " thousand", " million", " billion" };
 
     public String say(long number) {
         if (number < 0 || number >= 1_000_000_000_000L) {
             throw new IllegalArgumentException("Number must be zero or larger");
         }
 
-        // loop from 3 to 0
-        // power from 9/6/3/2
+        for (int power = 3; power > 0 ; power--) {
+            int tenToThePower = (int) Math.pow(10, power * 3);
+            if (number > tenToThePower - 1) {
+                int numberAboveThePower = toIntExact(number / tenToThePower);
+                int remainder = toIntExact(number % tenToThePower);
+                if (remainder > 0) {
+                    return say(numberAboveThePower) + nameOfThePower[power] + " " + say(remainder);
+                }
 
-        int large_number_index = 3;
-        int powerOfTen = (int) Math.pow(10, large_number_index * 3);
-        if (number > powerOfTen - 1) {
-            int billions = toIntExact(number / powerOfTen);
-            int remainder = toIntExact(number % powerOfTen);
-            if (remainder > 0) {
-                return say(billions) + large_numbers[large_number_index] + " " + say(remainder);
+                return say(1) + nameOfThePower[power];
             }
-
-            return say(1) + large_numbers[large_number_index];
-        }
-
-        large_number_index = 2;
-        powerOfTen = (int) Math.pow(10, large_number_index * 2);
-
-        if (number > powerOfTen - 1) {
-            int millions = toIntExact(number / powerOfTen);
-            int remainder = toIntExact(number % powerOfTen);
-            if (remainder > 0) {
-                return say(millions) + large_numbers[large_number_index] + " " + say(remainder);
-            }
-
-            return say(1) + large_numbers[large_number_index];
-        }
-
-        large_number_index = 1;
-        powerOfTen = (int) Math.pow(10, large_number_index * 1);
-
-        if (number > powerOfTen - 1) {
-            int thousands = toIntExact(number / powerOfTen);
-            int remainder = toIntExact(number % powerOfTen);
-            if (remainder > 0) {
-                return say(thousands) + large_numbers[large_number_index] + " " + say(remainder);
-            }
-
-            return digitToWord.get(thousands) + large_numbers[large_number_index];
-        }
-
-        large_number_index = 0;
-        powerOfTen = (int) Math.pow(10, large_number_index * 1);
-
-        if (number > powerOfTen - 1) {
-            int hundreds = toIntExact(number / powerOfTen);
-            int remainder = toIntExact(number % powerOfTen);
-            if (remainder > 0) {
-                return digitToWord.get(hundreds) + large_numbers[large_number_index] + " " + say(remainder);
-            }
-
-            return digitToWord.get(hundreds) + large_numbers[large_number_index];
         }
 
         if (number > 20) {
