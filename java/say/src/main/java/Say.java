@@ -44,6 +44,8 @@ public class Say {
             }
         }
 
+        // TODO hundreds just a little from higher powers
+        // can I refactor line 58 yo mimic line 42????
         int hundred = 100;
         int large_number_index = 0;
         if (number > hundred - 1) {
