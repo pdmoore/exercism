@@ -42,7 +42,7 @@ public class Say {
 
         for (int power = 3; power > 0 ; power--) {
             int tenToThePower = (int) Math.pow(10, power * 3);
-            if (number > tenToThePower - 1) {
+            if (number >= tenToThePower) {
                 int numberAboveThePower = toIntExact(number / tenToThePower);
                 int remainder = toIntExact(number % tenToThePower);
                 if (remainder > 0) {
