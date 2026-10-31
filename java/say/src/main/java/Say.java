@@ -7,7 +7,7 @@ public class Say {
 
     private final Map<Integer, String> digitToWord = new HashMap<>();
 
-    // did not completely fill out the teens or tens portions - no tests required that
+    // did not completely fill out the teens or tens portions - no tests required thatz
     public Say() {
         digitToWord.put(0, "zero");
         digitToWord.put(1, "one");
