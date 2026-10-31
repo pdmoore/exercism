@@ -48,8 +48,6 @@ public class Say {
                 if (remainder > 0) {
                     return say(numberAboveThePower) + nameOfThePower[power] + " " + say(remainder);
                 }
-
-                return say(1) + nameOfThePower[power];
             }
         }
 
