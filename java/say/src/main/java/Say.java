@@ -44,6 +44,18 @@ public class Say {
             }
         }
 
+        int hundred = 100;
+        int large_number_index = 0;
+        if (number > hundred - 1) {
+            int hundreds = toIntExact(number / hundred);
+            int remainder = toIntExact(number % hundred);
+            if (remainder > 0) {
+                return digitToWord.get(hundreds) + nameOfThePower[large_number_index] + " " + say(remainder);
+            }
+
+            return digitToWord.get(hundreds) + nameOfThePower[large_number_index];
+        }
+
         if (number > 20) {
             int tens = toIntExact(number / 10);
 
