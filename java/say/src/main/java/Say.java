@@ -38,8 +38,12 @@ public class Say {
             if (number >= tenToThePower) {
                 int numberAboveThePower = toIntExact(number / tenToThePower);
                 int remainder = toIntExact(number % tenToThePower);
-                if (remainder > 0) {
-                    return say(numberAboveThePower) + nameOfThePower[power] + " " + say(remainder);
+                if (remainder >= 0) {
+                    String clean = say(numberAboveThePower) + nameOfThePower[power];
+                    if (remainder > 0) {
+                        return clean + " " + say(remainder);
+                    }
+                    return clean;
                 }
             }
         }
@@ -48,7 +52,7 @@ public class Say {
         // can I refactor line 58 yo mimic line 42????
         int hundred = 100;
         int large_number_index = 0;
-        if (number > hundred - 1) {
+        if (number >= hundred) {
             int hundreds = toIntExact(number / hundred);
             int remainder = toIntExact(number % hundred);
             if (remainder > 0) {
