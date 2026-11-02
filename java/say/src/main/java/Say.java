@@ -26,15 +26,22 @@ public class Say {
         digitToWord.put(80, "eighty");
         digitToWord.put(90, "ninety");
     }
+    // combine these two into one map
     private static final String[] nameOfThePower = { " hundred", " thousand", " million", " billion" };
+    private static final int[] powers = {
+            100,
+            1_000,
+            1_000_000,
+            1_000_000_000,
+    };
 
     public String say(long number) {
         if (number < 0 || number >= 1_000_000_000_000L) {
             throw new IllegalArgumentException("Number must be zero or larger");
         }
 
-        for (int power = 3; power > 0 ; power--) {
-            int tenToThePower = (int) Math.pow(10, power * 3);
+        for (int power = 3; power >= 0 ; power--) {
+            int tenToThePower = powers[power];
             if (number >= tenToThePower) {
                 int numberAboveThePower = toIntExact(number / tenToThePower);
                 int remainder = toIntExact(number % tenToThePower);
@@ -46,20 +53,6 @@ public class Say {
                     return clean;
                 }
             }
-        }
-
-        // TODO hundreds just a little from higher powers
-        // can I refactor line 58 yo mimic line 42????
-        int hundred = 100;
-        int large_number_index = 0;
-        if (number >= hundred) {
-            int hundreds = toIntExact(number / hundred);
-            int remainder = toIntExact(number % hundred);
-            if (remainder > 0) {
-                return digitToWord.get(hundreds) + nameOfThePower[large_number_index] + " " + say(remainder);
-            }
-
-            return digitToWord.get(hundreds) + nameOfThePower[large_number_index];
         }
 
         if (number > 20) {
