@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import static java.lang.Math.*;
@@ -26,7 +27,6 @@ public class Say {
         digitToWord.put(80, "eighty");
         digitToWord.put(90, "ninety");
     }
-    // combine these two into one map
     private static final String[] nameOfThePower = { " hundred", " thousand", " million", " billion" };
     private static final int[] powers = {
             100,
@@ -42,6 +42,7 @@ public class Say {
 
         for (int power = 3; power >= 0 ; power--) {
             int powerOfTen = powers[power];
+
             if (number >= powerOfTen) {
                 int powerOfTenPortion = toIntExact(number / powerOfTen);
                 String spokenPowerOfTen = say(powerOfTenPortion) + nameOfThePower[power];
