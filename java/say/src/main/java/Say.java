@@ -41,16 +41,17 @@ public class Say {
         }
 
         for (int power = 3; power >= 0 ; power--) {
-            int tenToThePower = powers[power];
-            if (number >= tenToThePower) {
-                int numberAboveThePower = toIntExact(number / tenToThePower);
-                int remainder = toIntExact(number % tenToThePower);
-                if (remainder >= 0) {
-                    String clean = say(numberAboveThePower) + nameOfThePower[power];
-                    if (remainder > 0) {
-                        return clean + " " + say(remainder);
-                    }
-                    return clean;
+            int powerOfTen = powers[power];
+            if (number >= powerOfTen) {
+                int powerOfTenPortion = toIntExact(number / powerOfTen);
+                String spokenPowerOfTen = say(powerOfTenPortion) + nameOfThePower[power];
+
+                int remainder = toIntExact(number % powerOfTen);
+                if (remainder > 0) {
+                    return spokenPowerOfTen + " " + say(remainder);
+                }
+                if (remainder == 0) {
+                    return spokenPowerOfTen;
                 }
             }
         }
