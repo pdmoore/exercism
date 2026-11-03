@@ -1,14 +1,13 @@
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-import static java.lang.Math.*;
+import static java.lang.Math.toIntExact;
 
 public class Say {
 
     private final Map<Integer, String> digitToWord = new HashMap<>();
 
-    // did not completely fill out the teens or tens portions - no tests required thatz
+    // did not completely fill out the teens or tens portions - no tests required that
     public Say() {
         digitToWord.put(0, "zero");
         digitToWord.put(1, "one");
@@ -27,6 +26,7 @@ public class Say {
         digitToWord.put(80, "eighty");
         digitToWord.put(90, "ninety");
     }
+
     private static final String[] nameOfThePower = { " hundred", " thousand", " million", " billion" };
     private static final int[] powers = {
             100,
